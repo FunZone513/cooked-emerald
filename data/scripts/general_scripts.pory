@@ -1,0 +1,453 @@
+//MARK: Game Version
+script Generic_InfoNPC {
+    msgbox("Current Game Version is:\n- 0.0.1 -", MSGBOX_NPC)
+}
+
+
+
+//MARK: Default Settings
+script Generic_DefaultSettings {
+    setflag(FLAG_SYS_B_DASH)
+    setflag(FLAG_SHARED_EXP)
+    //setflag(FLAG_USE_NEW_TYPE_CHART)
+    setvar(VAR_STARTED_GAME, 1)
+    call(Generic_UPDATE_LEVELCAP)
+    call(Generic_IncreaseExpGain)
+    
+    // % chance
+    setvar(VAR_WILD_BATTLE_CHANCE, 15)
+    
+    releaseall
+}
+
+script Generic_IncreaseExpGain {
+    //! this is 2.0x for playtesting purposes
+    setvar(VAR_INCREASE_EXP_GAIN, 100)
+
+    // % increase. EG: 20 = 1.2x experience. Set to 0 for no bonus.
+    //setvar(VAR_INCREASE_EXP_GAIN, 50) 
+}
+
+//MARK: Level Cap
+script Generic_GetBadgeCount {
+    setvar(VAR_RESULT, 0)
+    if (flag(FLAG_BADGE01_GET)) { addvar(VAR_RESULT, 1) }
+    if (flag(FLAG_BADGE02_GET)) { addvar(VAR_RESULT, 1) }
+    if (flag(FLAG_BADGE03_GET)) { addvar(VAR_RESULT, 1) }
+    if (flag(FLAG_BADGE04_GET)) { addvar(VAR_RESULT, 1) }
+    if (flag(FLAG_BADGE05_GET)) { addvar(VAR_RESULT, 1) }
+    if (flag(FLAG_BADGE06_GET)) { addvar(VAR_RESULT, 1) }
+    if (flag(FLAG_BADGE07_GET)) { addvar(VAR_RESULT, 1) }
+    if (flag(FLAG_BADGE08_GET)) { addvar(VAR_RESULT, 1) }
+    return
+}
+
+script Generic_UPDATE_LEVELCAP {
+    call(Generic_GetBadgeCount)
+    
+    // this is how many badges you have, so the levelcap is offset by one (ie; 0 = first gym = 15)
+    switch(var(VAR_RESULT)) {
+        case 0: setvar(VAR_CURRENT_LEVEL_CAP, 15) break
+        case 1: setvar(VAR_CURRENT_LEVEL_CAP, 22) break
+        case 2: setvar(VAR_CURRENT_LEVEL_CAP, 30) break
+        case 3: setvar(VAR_CURRENT_LEVEL_CAP, 100) break
+        case 4: setvar(VAR_CURRENT_LEVEL_CAP, 100) break
+        case 5: setvar(VAR_CURRENT_LEVEL_CAP, 100) break
+        case 6: setvar(VAR_CURRENT_LEVEL_CAP, 100) break
+        case 7: setvar(VAR_CURRENT_LEVEL_CAP, 100) break
+        case 8: setvar(VAR_CURRENT_LEVEL_CAP, 100) break
+    }
+    return
+}
+
+script Generic_GYM_LEVEL_GUIDE {
+    lockall
+    if (var(VAR_CURRENT_LEVEL_CAP) != 100) {
+        buffernumberstring(STR_VAR_1, VAR_CURRENT_LEVEL_CAP)
+        msgbox("Current Level Cap:\n{STR_VAR_1}", MSGBOX_SIGN)
+    } else {
+        call(Generic_UPDATE_LEVELCAP)
+        buffernumberstring(STR_VAR_1, VAR_CURRENT_LEVEL_CAP)
+        msgbox("Current Level Cap:\n{STR_VAR_1}", MSGBOX_SIGN)
+        setvar(VAR_CURRENT_LEVEL_CAP, 100)
+    }
+    releaseall
+}
+
+//MARK: Generic PKMN
+script Generic_POKEMON_INTERACT {
+    lockall
+    applymovement(VAR_LAST_TALKED, moves(face_player))
+    waitmovement(0)
+    callnative(GetInteractedPokemon)
+    if (flag(FLAG_SYS_POKEDEX_GET)) {setseenmon(VAR_0x8004)}
+    playmoncry(VAR_0x8004, CRY_MODE_NORMAL)
+    
+    random(5)
+    switch(var(VAR_RESULT)) {
+        case 0: message("?")
+        case 1: message("?")
+        case 2: message("!")
+        case 3: message("...")
+        case 4: message("!?")
+        default: message("?")
+    }
+    
+    waitmessage
+    //waitmoncry
+    waitbuttonpress
+    releaseall
+}
+
+//MARK: Pokemart
+script Generic_POKEMART {
+    lock
+    faceplayer
+    message("Welcome!\pHow may I serve you?")
+    waitmessage
+    call(Generic_GetBadgeCount)
+    switch(var(VAR_RESULT)) {
+        case 0:
+        case 1:
+            pokemart(GenericPokeMart_1)
+            break
+        
+        case 2:
+        case 3:
+            pokemart(GenericPokeMart_2)
+            break
+        
+        case 4:
+        case 5:
+            pokemart(GenericPokeMart_3)
+            break
+        
+        case 6:
+        case 7:
+            pokemart(GenericPokeMart_4)
+            break
+
+        case 8:
+        default:
+            pokemart(GenericPokeMart_5)
+    }
+    msgbox("Please come again!", MSGBOX_DEFAULT)
+    release
+}
+
+mart GenericPokeMart_1 {
+    ITEM_POKE_BALL
+    ITEM_POTION
+    ITEM_ANTIDOTE
+    ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+}
+
+mart GenericPokeMart_2 {
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_REPEL
+    ITEM_ANTIDOTE
+    ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+}
+
+mart GenericPokeMart_3 {
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_ANTIDOTE
+    ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REVIVE
+    ITEM_ETHER
+    ITEM_ELIXIR
+}
+
+mart GenericPokeMart_4 {
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_FULL_RESTORE
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_ANTIDOTE
+    ITEM_PARALYZE_HEAL
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_FULL_HEAL
+    ITEM_REVIVE
+    ITEM_MAX_REVIVE
+    ITEM_ETHER
+    ITEM_MAX_ETHER
+    ITEM_ELIXIR
+    ITEM_MAX_ELIXIR
+}
+
+mart GenericPokeMart_5 {
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_MAX_POTION
+    ITEM_FULL_RESTORE
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_FULL_HEAL
+    ITEM_REVIVE
+    ITEM_MAX_REVIVE
+    ITEM_ETHER
+    ITEM_MAX_ETHER
+    ITEM_ELIXIR
+    ITEM_MAX_ELIXIR
+}
+
+//MARK: Pokemart 2
+script Generic_POKEMART_BERRY {
+    lock
+    faceplayer
+    message("Welcome!\pAre you interested in some berries?")
+    waitmessage
+    call(Generic_GetBadgeCount)
+    switch(var(VAR_RESULT)) {
+        case 0:
+        case 1:
+        case 2:
+            pokemart(GenericPokeMart_Berry1)
+            break
+        
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+            pokemart(GenericPokeMart_Berry2)
+            break
+
+        case 8:
+        default:
+            pokemart(GenericPokeMart_Berry3)
+            break
+    }
+    msgbox("Please come again!", MSGBOX_DEFAULT)
+    release
+}
+
+mart GenericPokeMart_Berry1 {
+    ITEM_ORAN_BERRY
+    ITEM_PECHA_BERRY
+    ITEM_CHERI_BERRY
+    ITEM_CHESTO_BERRY
+    ITEM_RAWST_BERRY
+    ITEM_ASPEAR_BERRY
+    ITEM_LEPPA_BERRY
+    ITEM_PERSIM_BERRY
+}
+
+mart GenericPokeMart_Berry2 {
+    ITEM_ORAN_BERRY
+    ITEM_SITRUS_BERRY
+    ITEM_PECHA_BERRY
+    ITEM_CHERI_BERRY
+    ITEM_CHESTO_BERRY
+    ITEM_RAWST_BERRY
+    ITEM_ASPEAR_BERRY
+    ITEM_LUM_BERRY
+    ITEM_LEPPA_BERRY
+    ITEM_PERSIM_BERRY
+    ITEM_BABIRI_BERRY
+    ITEM_CHARTI_BERRY
+    ITEM_CHILAN_BERRY
+    ITEM_CHOPLE_BERRY
+    ITEM_COBA_BERRY
+    ITEM_COLBUR_BERRY
+    ITEM_HABAN_BERRY
+    ITEM_KASIB_BERRY
+    ITEM_KEBIA_BERRY
+    ITEM_OCCA_BERRY
+    ITEM_PASSHO_BERRY
+    ITEM_PAYAPA_BERRY
+    ITEM_RINDO_BERRY
+    ITEM_ROSELI_BERRY
+    ITEM_SHUCA_BERRY
+    ITEM_TANGA_BERRY
+    ITEM_WACAN_BERRY
+    ITEM_YACHE_BERRY
+}
+
+mart GenericPokeMart_Berry3 {
+    ITEM_ORAN_BERRY
+    ITEM_SITRUS_BERRY
+    ITEM_PECHA_BERRY
+    ITEM_CHERI_BERRY
+    ITEM_CHESTO_BERRY
+    ITEM_RAWST_BERRY
+    ITEM_ASPEAR_BERRY
+    ITEM_LUM_BERRY
+    ITEM_LEPPA_BERRY
+    ITEM_PERSIM_BERRY
+    ITEM_BABIRI_BERRY
+    ITEM_CHARTI_BERRY
+    ITEM_CHILAN_BERRY
+    ITEM_CHOPLE_BERRY
+    ITEM_COBA_BERRY
+    ITEM_COLBUR_BERRY
+    ITEM_HABAN_BERRY
+    ITEM_KASIB_BERRY
+    ITEM_KEBIA_BERRY
+    ITEM_OCCA_BERRY
+    ITEM_PASSHO_BERRY
+    ITEM_PAYAPA_BERRY
+    ITEM_RINDO_BERRY
+    ITEM_ROSELI_BERRY
+    ITEM_SHUCA_BERRY
+    ITEM_TANGA_BERRY
+    ITEM_WACAN_BERRY
+    ITEM_YACHE_BERRY
+    ITEM_ENIGMA_BERRY
+}
+
+
+//MARK: Thicket Brush
+script ThicketBrushInteract {    
+    lockall
+    call(ThicketBrushInteract_ClearTile)
+
+    // 10% item; 20% nothing; 20% wild double; 50% wild single
+    random(10)
+    if (var(VAR_RESULT) < 1) {
+        call(ThicketBrushInteract_GetItem)
+        if (checkitemspace(VAR_TEMP_0)) {
+            additem(VAR_TEMP_0)
+            playfanfare(MUS_OBTAIN_BERRY)
+            message("You found an item!")
+            waitmessage
+            waitfanfare
+            waitbuttonpress
+        }
+
+    } elif (var(VAR_RESULT) >= 1 && var(VAR_RESULT) < 3) {
+        call(ThicketBrushInteract_Nothing)
+
+    } elif (var(VAR_RESULT) >= 3 && var(VAR_RESULT) < 5) {
+        call(ThicketBrushInteract_GetPokemon)
+        createmon(1, 0, VAR_TEMP_0, VAR_TEMP_1)
+        call(ThicketBrushInteract_GetPokemon)
+        createmon(1, 1, VAR_TEMP_0, VAR_TEMP_1)
+        setwilddoubleflag
+        call(ThicketBrush_WildEncounter)
+        
+    } else {
+        call(ThicketBrushInteract_GetPokemon)
+        createmon(1, 0, VAR_TEMP_0, VAR_TEMP_1)
+        call(ThicketBrush_WildEncounter)
+    }
+    release
+}
+
+script ThicketBrushInteract_Nothing {
+    msgbox("You didn't find anything...", MSGBOX_SIGN)
+    return
+}
+
+script ThicketBrush_WildEncounter {
+    playse(SE_PIN)
+    applymovement(OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark)
+    waitmovement(0)
+    message("You were attacked!")
+    waitmessage
+    waitbuttonpress
+    dowildbattle
+}
+
+script ThicketBrushInteract_GetPokemon {
+    random(100)
+    if (var(VAR_RESULT) < 4) { // 0-3 4%
+        random(10)
+        copyvar(VAR_TEMP_1, VAR_RESULT)
+        addvar(VAR_TEMP_1, 13)
+        setvar(VAR_TEMP_0, SPECIES_LARVESTA)
+    } elif (var(VAR_RESULT) >= 4 && var(VAR_RESULT) < 37) { // 4 - 36 33%
+        random(10)
+        copyvar(VAR_TEMP_1, VAR_RESULT)
+        addvar(VAR_TEMP_1, 13)
+        setvar(VAR_TEMP_0, SPECIES_SPINARAK)
+    } elif (var(VAR_RESULT) >= 37 && var(VAR_RESULT) < 70) { // 37 - 69 33%
+        random(10)
+        copyvar(VAR_TEMP_1, VAR_RESULT)
+        addvar(VAR_TEMP_1, 13)
+        setvar(VAR_TEMP_0, SPECIES_JOLTIK)
+    } elif (var(VAR_RESULT) >= 70 && var(VAR_RESULT) < 85) { // 70 - 84 15%
+        random(4)
+        copyvar(VAR_TEMP_1, VAR_RESULT)
+        addvar(VAR_TEMP_1, 24)
+        setvar(VAR_TEMP_0, SPECIES_ARIADOS)
+    } elif (var(VAR_RESULT) >= 85) { // 85 - 99 15%
+        random(4)
+        copyvar(VAR_TEMP_1, VAR_RESULT)
+        addvar(VAR_TEMP_1, 24)
+        setvar(VAR_TEMP_0, SPECIES_GALVANTULA)
+    }
+    return
+}
+
+script ThicketBrushInteract_GetItem {
+    random(10)
+    switch(var(VAR_RESULT)) {
+        case 1: setvar(VAR_TEMP_0, ITEM_TINY_MUSHROOM) break
+        case 2: setvar(VAR_TEMP_0, ITEM_BALM_MUSHROOM) break
+        case 3: setvar(VAR_TEMP_0, ITEM_BIG_MUSHROOM) break
+        case 4: setvar(VAR_TEMP_0, ITEM_POKE_BALL) break
+        case 5: setvar(VAR_TEMP_0, ITEM_TINY_MUSHROOM) break
+        case 6: setvar(VAR_TEMP_0, ITEM_TINY_MUSHROOM) break
+        case 7: setvar(VAR_TEMP_0, ITEM_BIG_MUSHROOM) break
+        case 8: setvar(VAR_TEMP_0, ITEM_POKE_BALL) break
+        case 9: setvar(VAR_TEMP_0, ITEM_TINY_MUSHROOM) break
+        default: setvar(VAR_TEMP_0, ITEM_RARE_CANDY) break
+    }
+    return
+}
+
+script ThicketBrushInteract_ClearTile {
+    playse(SE_FU_ZAKU)
+    getobjectfacingdirection(OBJ_EVENT_ID_PLAYER, VAR_TEMP_C)
+    getobjectxy(OBJ_EVENT_ID_PLAYER, CURRENT_POSITION, VAR_TEMP_A, VAR_TEMP_B)
+    switch(var(VAR_TEMP_C)) {
+        case DIR_NORTH:
+            subvar(VAR_TEMP_B, 1)
+            break
+        case DIR_SOUTH: 
+            addvar(VAR_TEMP_B, 1)
+            break
+        case DIR_EAST: 
+            addvar(VAR_TEMP_A, 1)
+            break
+        case DIR_WEST: 
+            subvar(VAR_TEMP_A, 1)
+            break
+    }
+    setmetatile(VAR_TEMP_A, VAR_TEMP_B, METATILE_SecretBaseShrub_Debris, FALSE) // METATILE_SecretBase_Ground
+    special(DrawWholeMapView)
+    waitse
+    return
+}

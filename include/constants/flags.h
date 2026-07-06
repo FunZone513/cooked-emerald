@@ -664,17 +664,20 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_UNUSED_0x264  0x264 // Unused Flag
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
-#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
-#define FLAG_UNUSED_0x26E  0x26E // Unused Flag
+//MARK: Utility Flags
+#define FLAG_FORCE_WILD_DOUBLE_BATTLE   0x264   // Used for toggling wild double battles
+#define FLAG_SHARED_EXP                 0x265   // Used for toggling shared exp
+#define FLAG_ENABLE_VS_SEEKER           0x266   // Used for Vs. Seeker
+#define FLAG_DISABLE_FOLLOWER_POKEMON    0x267   // Used for toggling follower pokemon
+#define FLAG_FLY_FROM_NAV               0x268   // Used for toggling fly from nav menu
+#define FLAG_USE_NEW_TYPE_CHART         0x269   // QoL flag for the new type chart
+#define FLAG_ACTIVE_BOSS_BATTLE         0x26A   // Toggles Boss Battle State
+#define FLAG_DISABLE_WILD_ENCOUNTERS    0x26B   // Disables wild encounters when on
+#define FLAG_FORCE_SHINY_ENCOUNTERS     0x26C   // Toggles shiny encounters
+#define FLAG_NOCLIP                     0x26D   // Toggles collision
+#define FLAG_DISABLE_TRAINER_BATTLES    0x26E // Unused Flag
+
+
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
 #define FLAG_UNUSED_0x270  0x270 // Unused Flag
 #define FLAG_UNUSED_0x271  0x271 // Unused Flag

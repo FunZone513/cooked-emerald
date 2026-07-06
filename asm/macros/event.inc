@@ -2949,3 +2949,39 @@
 	getbraillestringwidth \text
 	call EventScript_BrailleCursorWaitButton
 	.endm
+
+	@ --====================== custom
+
+	@ Checks if any Pokemon in the player's party has the given type.
+	.macro istypeinparty type:req
+    callnative IsTypeInParty
+    .2byte \type
+    .endm
+
+	@ Checks if any Pokemon in the player's party has the given ability.
+	.macro hasabilityinparty type:req
+    callnative HasAbilityInParty
+    .4byte \ability
+    .endm
+
+	@ Checks if the player is eligible to use the given field move (HM).
+	@ Checks the party pokemon's types and abilities.
+	.macro canusefieldmove move:req
+    callnative CanUseFieldMove
+    .2byte \move
+    .endm
+
+	@DebugPrintF macro
+    .macro debugprint str:req, numOrVar=65535
+    callnative ScrCmd_debugprint
+    .4byte \str
+    .2byte \numOrVar
+    .endm
+	
+	@ Does a big splash field effect at the given coordinates.
+	.macro dofieldeffectsplash x:req, y:req, priority:req
+	setfieldeffectargument 0, \x
+	setfieldeffectargument 1, \y
+	setfieldeffectargument 2, \priority
+	dofieldeffect FLDEFF_JUMP_BIG_SPLASH
+	.endm

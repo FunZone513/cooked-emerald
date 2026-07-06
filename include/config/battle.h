@@ -12,7 +12,7 @@
 
 // Experience settings
 #define B_EXP_CATCH                 GEN_LATEST // In Gen6+, Pokémon get experience from catching.
-#define B_TRAINER_EXP_MULTIPLIER    GEN_LATEST // In Gen7+, trainer battles no longer give a 1.5 multiplier to EXP gain.
+#define B_TRAINER_EXP_MULTIPLIER    GEN_5 // In Gen7+, trainer battles no longer give a 1.5 multiplier to EXP gain.
 #define B_SPLIT_EXP                 GEN_LATEST // In Gen6+, all participating mon get full experience.
 #define B_SCALED_EXP                GEN_LATEST // In Gen5 and Gen7+, experience is weighted by level difference.
 #define B_UNEVOLVED_EXP_MULTIPLIER  GEN_LATEST // In Gen6+, if the Pokémon is at or past the level where it would be able to evolve, but it has not, it gets a ~1.2 multiplier to EXP gain. Only applies to Pokémon with EVO_LEVEL method.
@@ -34,7 +34,7 @@
 #define B_ROUGH_SKIN_DMG            GEN_LATEST // In Gen4+, Rough Skin contact damage is 1/8th of max HP instead of 1/16th. This will also affect Iron Barbs.
 #define B_KNOCK_OFF_DMG             GEN_LATEST // In Gen6+, Knock Off deals 50% more damage when knocking off an item.
 #define B_SPORT_DMG_REDUCTION       GEN_LATEST // In Gen5+, Water/Mud Sport reduce Fire/Electric Damage by 67% instead of 50%.
-#define B_EXPLOSION_DEFENSE         GEN_LATEST // In Gen5+, Self-Destruct and Explosion don't halve the targets' defense.
+#define B_EXPLOSION_DEFENSE         GEN_4 // In Gen5+, Self-Destruct and Explosion don't halve the targets' defense.
 #define B_PARENTAL_BOND_DMG         GEN_LATEST // In Gen7+, Parental Bond's second hit does 25% of the initial hits damage. Before, it did 50%.
 #define B_MULTIPLE_TARGETS_DMG      GEN_LATEST // In Gen4+, damage dealt by moves that hit multiple targets at once is reduced to 75%. In Gen3, it was 50%, unless the move hit the entire field, in which case there was no reduction.
 
@@ -51,7 +51,7 @@
 // Turn settings
 #define B_BINDING_TURNS             GEN_LATEST // In Gen5+, binding moves last for 4-5 turns instead of 2-5 turns. (With Grip Claw, 7 and 5 turns respectively.)
 #define B_UPROAR_TURNS              GEN_LATEST // In Gen5+, Uproar lasts for 3 turns instead of 2-5 turns.
-#define B_UPROAR_IGNORE_SOUNDPROOF  GEN_LATEST // In Gen5+, Uproar status ignores Soundproof.
+#define B_UPROAR_IGNORE_SOUNDPROOF  GEN_3 // In Gen5+, Uproar status ignores Soundproof.
 #define B_DISABLE_TURNS             GEN_LATEST // Disable's turns. See Cmd_disablelastusedattack.
 #define B_TAILWIND_TURNS            GEN_LATEST // In Gen5+, Tailwind lasts 4 turns instead of 3.
 #define B_SLEEP_TURNS               GEN_LATEST // In Gen5+, sleep lasts for 2-4 turns instead of 2-5 turns.
@@ -296,17 +296,17 @@
 #define B_ICE_WEATHER_HAIL              1
 #define B_ICE_WEATHER_SNOW              2
 
-#define B_ABILITY_WEATHER               GEN_LATEST // In Gen6+, ability-induced weather lasts 5 turns. Before, it lasted until the battle ended or until it was changed by a move or a different weather-affecting ability.
+#define B_ABILITY_WEATHER               GEN_5 // In Gen6+, ability-induced weather lasts 5 turns. Before, it lasted until the battle ended or until it was changed by a move or a different weather-affecting ability.
 #define B_SANDSTORM_SPDEF_BOOST         GEN_LATEST // In Gen4+, Sandstorm weather multiplies the Sp. Defense of Rock-type Pokémon by x1.5.
 #define B_SANDSTORM_SOLAR_BEAM          GEN_LATEST // In Gen3+, Sandstorm decreases the power of Solar Beam, when it didn't before.
-#define B_OVERWORLD_FOG                 GEN_LATEST // In Gen8+, overworld Fog summons Misty Terrain in battle. In Gen4 only, overworld Fog summons the unique fog weather condition in battle.
+#define B_OVERWORLD_FOG                 GEN_4 // In Gen8+, overworld Fog summons Misty Terrain in battle. In Gen4 only, overworld Fog summons the unique fog weather condition in battle.
 #define B_OVERWORLD_SNOW                GEN_LATEST // In Gen9+, overworld Snow will summon snow instead of hail in battle.
 #define B_SNOW_WARNING                  GEN_LATEST // In Gen9+, Snow Warning will summon snow instead of hail.
-#define B_PREFERRED_ICE_WEATHER         B_ICE_WEATHER_BOTH // Toggles Hail move effects to Snow and vice versa.
+#define B_PREFERRED_ICE_WEATHER         B_ICE_WEATHER_SNOW // Toggles Hail move effects to Snow and vice versa.
 
 // Terrain settings
 #define B_TERRAIN_BG_CHANGE         TRUE       // If set to TRUE, terrain moves permanently change the default battle background until the effect fades.
-#define B_THUNDERSTORM_TERRAIN      TRUE       // If TRUE, overworld Thunderstorm generates Rain and Electric Terrain as in Gen 8.
+#define B_THUNDERSTORM_TERRAIN      FALSE       // If TRUE, overworld Thunderstorm generates Rain and Electric Terrain as in Gen 8.
 #define B_TERRAIN_TYPE_BOOST        GEN_LATEST // In Gen8, damage is boosted by 30% instead of 50%.
 #define B_SECRET_POWER_EFFECT       GEN_LATEST // Secret Power's effects change depending on terrain and generation. See MOVE_EFFECT_SECRET_POWER's case in `SetMoveEffect`.
 #define B_SECRET_POWER_ANIMATION    GEN_LATEST // Secret Power's animations change depending on terrain and generation.
@@ -322,7 +322,7 @@
 #define B_SHOW_TARGETS                      TRUE  // If set to TRUE, all available targets, for moves hitting 2 or 3 Pokémon, will be shown before selecting a move.
 #define B_SHOW_CATEGORY_ICON                TRUE  // If set to TRUE, it will show an icon in the summary and move relearner showing the move's category.
 #define B_HIDE_HEALTHBOX_IN_ANIMS           TRUE  // If set to TRUE, hides healthboxes during move animations.
-#define B_WAIT_TIME_MULTIPLIER              16    // This determines how long text pauses in battle last. Vanilla is 16. Lower values result in faster battles.
+#define B_WAIT_TIME_MULTIPLIER              12    // This determines how long text pauses in battle last. Vanilla is 16. Lower values result in faster battles.
 #define B_QUICK_MOVE_CURSOR_TO_RUN          FALSE // If set to TRUE, pushing B in the battle options against a wild encounter will move the cursor to the run option
 #define B_RUN_TRAINER_BATTLE                TRUE  // If set to TRUE, players can run from Trainer battles. This is treated as a whiteout.
 #define B_MOVE_DESCRIPTION_BUTTON           L_BUTTON // If set to a button other than B_LAST_USED_BALL_BUTTON, pressing this button will open the move description menu
@@ -337,13 +337,13 @@
 #define B_CATCHING_CHARM_BOOST          100        // % boost in Critical Capture odds if player has the Catching Charm.
 #define B_INCAPACITATED_CATCH_BONUS     GEN_LATEST // In Gen5+, the catch rate bonus for a mon with sleep or freeze is 2.5x. In Gen4 and below its only a 2x bonus.
 #define B_LOW_LEVEL_CATCH_BONUS         GEN_LATEST // In Gen8, a bonus is added to the catch rate if catching a mon lower than level 20. In Gen9, the bonus is only applied to mons lower than level 13.
-#define B_MISSING_BADGE_CATCH_MALUS     GEN_LATEST // In Gen9, a penalty is added to the catch rate if trying to catch a mon 5 levels above the current obedience level, based on the number of gym badges obtained.
+#define B_MISSING_BADGE_CATCH_MALUS     GEN_7 // In Gen9, a penalty is added to the catch rate if trying to catch a mon 5 levels above the current obedience level, based on the number of gym badges obtained.
 #define B_CRITICAL_CAPTURE              TRUE       // If set to TRUE, Critical Capture will be enabled.
 #define B_CRITICAL_CAPTURE_LOCAL_DEX    TRUE       // If set to FALSE, Critical Capture % is based off of the National Pokedex estimated by enabled generations.
 #define B_CRITICAL_CAPTURE_IF_OWNED     GEN_LATEST // In Gen9, a capture appear critical if the Pokémon you are trying to catch already has a dex entry (has already been caught)
 
 #define B_LAST_USED_BALL            TRUE       // If TRUE, the "last used ball" feature from Gen 7 will be implemented
-#define B_LAST_USED_BALL_BUTTON     R_BUTTON   // If last used ball is implemented, this button (or button combo) will trigger throwing the last used ball.
+#define B_LAST_USED_BALL_BUTTON     (R_BUTTON)   // If last used ball is implemented, this button (or button combo) will trigger throwing the last used ball.
 #define B_LAST_USED_BALL_CYCLE      TRUE       // If TRUE, then holding B_LAST_USED_BALL_BUTTON while pressing the D-Pad cycles through the balls
 #define B_CATCH_SWAP_INTO_PARTY     GEN_LATEST // In Gen 7+, the option to swap the caught wild mon to the party will appear, allowing you to send a different mon to the box.
 #define B_CATCH_SWAP_CHECK_HMS      TRUE       // If TRUE, the catch swap feature above will prevent returning mons to the box if they know HMs.
@@ -359,7 +359,7 @@
 #define B_TOXIC_REVERSAL                GEN_LATEST // In Gen5+, bad poison will change to regular poison at the end of battles.
 #define B_TRY_CATCH_TRAINER_BALL        GEN_LATEST // In Gen4+, trying to catch a Trainer's Pokémon does not consume the Poké Ball.
 #define B_SLEEP_CLAUSE                  FALSE      // Enables Sleep Clause all the time in every case, overriding B_FLAG_SLEEP_CLAUSE. Use that for modularity.
-#define B_PARTNER_MONS_MARKED_SEEN      FALSE      // If TRUE, if your double battle partner sends out a Pokémon you haven't encountered yet, it will be marked as SEEN in your Pokédex.
+#define B_PARTNER_MONS_MARKED_SEEN      TRUE      // If TRUE, if your double battle partner sends out a Pokémon you haven't encountered yet, it will be marked as SEEN in your Pokédex.
 #define B_MULTI_HALF_TEAMS              FALSE      // If TRUE, trainers will be capped at 3 Pokémon each when there are 2 trainers on one side in a battle. If FALSE, per-battle capping may still be set using `Multi Party: Half` in `trainers.party`
 
 #define NUM_BEEPS_GEN_LATEST            4                    // Loops 4 times
@@ -394,13 +394,13 @@
 #define SHOW_TYPES_ALWAYS   1                    // Always show types in battle
 #define SHOW_TYPES_CAUGHT   2                    // Only show types if you've caught a species of the mon.
 #define SHOW_TYPES_SEEN     3                    // Only show types if you've seen a species of the mon.
-#define B_SHOW_TYPES        SHOW_TYPES_NEVER     // When to show type indicators next to Pokémon health bars in battle, while choosing a move after selecting a target Pokémon.
+#define B_SHOW_TYPES        SHOW_TYPES_CAUGHT    // When to show type indicators next to Pokémon health bars in battle, while choosing a move after selecting a target Pokémon.
 
 #define SHOW_EFFECTIVENESS_NEVER    0           // Never show effectiveness when selecting moves.
 #define SHOW_EFFECTIVENESS_ALWAYS   1           // Always show effectiveness when selecting moves.
 #define SHOW_EFFECTIVENESS_CAUGHT   2           // Only show effectiveness if you've caught a species of the mon.
 #define SHOW_EFFECTIVENESS_SEEN     3           // Only show effectiveness if you've seen a species of the mon.
-#define B_SHOW_EFFECTIVENESS        SHOW_EFFECTIVENESS_SEEN // If not SHOW_EFFECTIVENESS_NEVER, the PP string is replaced by a type effectiveness indicator based off the moves and the opposing side.
+#define B_SHOW_EFFECTIVENESS        SHOW_EFFECTIVENESS_CAUGHT // If not SHOW_EFFECTIVENESS_NEVER, the PP string is replaced by a type effectiveness indicator based off the moves and the opposing side.
 
 // Pokémon battle sprite settings
 #define B_ENEMY_MON_SHADOW_STYLE        GEN_LATEST // In Gen4+, all enemy Pokemon will have a shadow drawn beneath them.
@@ -408,7 +408,7 @@
 //  Battle UI settings
 #define B_MOVE_REARRANGEMENT_IN_BATTLE  GEN_LATEST  //  In Gen 4+ move slots cannot be rearranged in battle
 
-#define B_POOL_SETTING_CONSISTENT_RNG       FALSE    // If set to true, the same trainer will always generate the same pool on the same save file
+#define B_POOL_SETTING_CONSISTENT_RNG       TRUE    // If set to true, the same trainer will always generate the same pool on the same save file
 #define B_POOL_SETTING_USE_FIXED_SEED       FALSE    // If set to true, will use the fixed seed defined in B_POOL_SETTING_FIXED_SEED
 #define B_POOL_SETTING_FIXED_SEED           0x1D4127 // "Random" number, unless a mistake was made, it's へだら in Emerald charmap which should spell he-da-ra
 #define B_POOL_RULE_SPECIES_CLAUSE          FALSE    // Only pick a single Pokémon of a unique NatDex number

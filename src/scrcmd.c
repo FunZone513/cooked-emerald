@@ -3422,3 +3422,144 @@ bool8 ScrCmd_getbraillestringwidth(struct ScriptContext * ctx)
     gSpecialVar_0x8004 = GetStringWidth(FONT_BRAILLE, msg, -1);
     return FALSE;
 }
+
+//MARK: Custom
+//============================
+
+bool8 ScrCmd_debugprint(struct ScriptContext *ctx)
+{
+    u16 num;
+    const u8 *str = (const u8*)ScriptReadWord(ctx);
+    u16 numOrVar = ScriptReadHalfword(ctx);
+
+    if (str != NULL)
+    {
+        if (numOrVar != 65535)
+        {
+            num = VarGet(numOrVar);
+            DebugPrintfLevel(MGBA_LOG_ERROR, "%S, %u", str, num);
+        }
+        else
+        {
+            DebugPrintfLevel(MGBA_LOG_ERROR, "%S", str);
+        }
+    }
+    return FALSE;
+}
+
+void GetInteractedPokemon(void) {
+    u32 pokemonObjID = (gSpecialVar_LastTalked - 1); // get the map object number
+    u32 speciesIndex = gMapHeader.events->objectEvents[pokemonObjID].trainerRange_berryTreeId; // grab the species from sight range    
+    gSpecialVar_0x8004 = speciesIndex; // put the SPECIES_PKMN value into VAR_0x8004
+}
+
+bool8 CheckPartyCon(u16 value, u8 condition) {
+    u8 i;
+    u16 species;
+    struct Pokemon *pokemon;
+    gSpecialVar_Result = PARTY_SIZE;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        pokemon = &gPlayerParty[i];
+        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG)) {
+            species = GetMonData(pokemon, MON_DATA_SPECIES);
+
+            switch(condition) {
+
+                // Getting the Type
+                case 0:
+                    if (gSpeciesInfo[species].types[0] == value || gSpeciesInfo[species].types[1] == value)
+                    {
+                        gSpecialVar_Result = i;
+                        gSpecialVar_0x8004 = species;
+                        return TRUE;
+                    }
+                
+                // Getting the Ability
+                case 1:
+                if (GetMonAbility(pokemon) == value) {
+                    gSpecialVar_Result = i;
+                    gSpecialVar_0x8004 = species;
+                    return TRUE;
+                }
+            }
+        }     
+    
+    }
+    return FALSE;
+}
+
+bool8 IsTypeInParty(struct ScriptContext *ctx)
+{
+    return CheckPartyCon(ScriptReadHalfword(ctx), 0);    
+}
+
+bool8 IsAbilityInParty(struct ScriptContext *ctx)
+{
+    return CheckPartyCon(ScriptReadHalfword(ctx), 1);    
+}
+
+bool8 CanUseFieldMove(struct ScriptContext *ctx)
+{
+    u16 moveID = ScriptReadHalfword(ctx);
+
+    u8 i;
+    u16 species;
+    struct Pokemon *pokemon;
+    gSpecialVar_Result = PARTY_SIZE;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        pokemon = &gPlayerParty[i];
+        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG)) {
+            species = GetMonData(pokemon, MON_DATA_SPECIES);
+
+            switch(moveID) {
+                case MOVE_CUT:
+                    if ((gSpeciesInfo[species].types[0] == TYPE_GRASS || gSpeciesInfo[species].types[1] == TYPE_GRASS)  
+                    || (gSpeciesInfo[species].types[0] == TYPE_BUG    || gSpeciesInfo[species].types[1] == TYPE_BUG)
+                    || (GetMonAbility(pokemon) == ABILITY_HYPER_CUTTER) || (GetMonAbility(pokemon) == ABILITY_SHARPNESS)) {
+                        gSpecialVar_Result = i;
+                        gSpecialVar_0x8004 = species;
+                        return TRUE;
+                    }
+                    break;
+                
+                case MOVE_ROCK_SMASH:
+                    if ((gSpeciesInfo[species].types[0] == TYPE_FIGHTING || gSpeciesInfo[species].types[1] == TYPE_FIGHTING) 
+                    || (gSpeciesInfo[species].types[0] == TYPE_ROCK      || gSpeciesInfo[species].types[1] == TYPE_ROCK)
+                    || (GetMonAbility(pokemon) == ABILITY_ROCK_HEAD      || GetMonAbility(pokemon) == ABILITY_IRON_FIST)) {
+                        gSpecialVar_Result = i;
+                        gSpecialVar_0x8004 = species;
+                        return TRUE;
+                    }
+                    break;
+                
+                case MOVE_STRENGTH:
+                    if ((gSpeciesInfo[species].types[0] == TYPE_FIGHTING || gSpeciesInfo[species].types[1] == TYPE_FIGHTING) 
+                    || (gSpeciesInfo[species].types[0] == TYPE_GROUND    || gSpeciesInfo[species].types[1] == TYPE_GROUND)
+                    || (gSpeciesInfo[species].types[0] == TYPE_PSYCHIC   || gSpeciesInfo[species].types[1] == TYPE_PSYCHIC)
+                    || (GetMonAbility(pokemon) == ABILITY_HUGE_POWER     || GetMonAbility(pokemon) == ABILITY_SHEER_FORCE)) {
+                        gSpecialVar_Result = i;
+                        gSpecialVar_0x8004 = species;
+                        return TRUE;
+                    }
+                    break;
+
+                case MOVE_SURF:
+                    if (gSpeciesInfo[species].types[0] == TYPE_WATER || gSpeciesInfo[species].types[1] == TYPE_WATER) {
+                        gSpecialVar_Result = i;
+                        gSpecialVar_0x8004 = species;
+                        return TRUE;
+                    }
+                    break;
+                
+                default:
+                    break;
+            }
+        }
+    }
+
+    return FALSE;
+}
