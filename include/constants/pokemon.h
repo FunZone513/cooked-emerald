@@ -79,6 +79,10 @@ enum __attribute__((packed)) Type
 #define NATURE_RANDOM            NUM_NATURES
 #define NATURE_MAY_SYNCHRONIZE   NUM_NATURES + 1
 
+#define AMOUNT_NATURE_CHANGE 20
+#define AMOUNT_NATURE_INCREASE AMOUNT_NATURE_CHANGE
+#define AMOUNT_NATURE_DECREASE AMOUNT_NATURE_CHANGE
+
 // Pokémon Stats
 enum __attribute__((packed)) Stat
 {
@@ -101,7 +105,7 @@ enum __attribute__((packed)) Stat
 #define MAX_STAT_STAGE    12
 
 // Shiny odds
-#define SHINY_ODDS 8 // Actual probability is SHINY_ODDS/65536
+#define SHINY_ODDS 64 // Actual probability is SHINY_ODDS/65536
 
 // Ribbon IDs used by TV and Pokénav
 #define CHAMPION_RIBBON       0
