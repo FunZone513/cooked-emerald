@@ -1404,7 +1404,12 @@ void CalculateMonStats(struct Pokemon *mon)
             continue;
 
         u8 baseStat = GetSpeciesBaseStat(species, i);
-        s32 n = (((2 * baseStat + iv[i] + ev[i] / 4) * level) / 100) + 5;
+        //s32 n = (((2 * baseStat + iv[i] + ev[i] / 4) * level) / 100) + 5;
+        //*                       31 (every pokemon has perfect IVs)
+        s32 n = (((2 * baseStat + 31) * level) / 100) + 5;
+        //* Adding the EVs as flat bonus stats
+        n += ev[i]; 
+
         n = ModifyStatByNature(nature, n, i);
         if (B_FRIENDSHIP_BOOST == TRUE)
             n = n + ((n * 10 * friendship) / (MAX_FRIENDSHIP * 100));

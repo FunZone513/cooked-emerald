@@ -36,6 +36,7 @@
 #include "constants/rgb.h"
 #include "pokemon_icon.h"
 #include "pokedex.h"
+#include "constants/pokemon.h"
 #include "trainer_pokemon_sprites.h"
 #include "field_effect.h"
 #include "field_screen_effect.h"
@@ -632,15 +633,15 @@ static const struct MonPrintData StatPrintData[] =
 };
 
 static const u16 statsToPrintActual[] = {
-        MON_DATA_MAX_HP, MON_DATA_ATK, MON_DATA_DEF, MON_DATA_SPEED, MON_DATA_SPATK, MON_DATA_SPDEF,
+        MON_DATA_MAX_HP, MON_DATA_ATK, MON_DATA_DEF, MON_DATA_SPATK, MON_DATA_SPDEF, MON_DATA_SPEED
 };
 
 static const u16 statsToPrintEVs[] = {
-        MON_DATA_HP_EV, MON_DATA_ATK_EV, MON_DATA_DEF_EV, MON_DATA_SPEED_EV, MON_DATA_SPATK_EV, MON_DATA_SPDEF_EV,
+        MON_DATA_HP_EV, MON_DATA_ATK_EV, MON_DATA_DEF_EV, MON_DATA_SPATK_EV, MON_DATA_SPDEF_EV, MON_DATA_SPEED_EV
 };
 
 static const u16 statsToPrintIVs[] = {
-        MON_DATA_HP_IV, MON_DATA_ATK_IV, MON_DATA_DEF_IV, MON_DATA_SPEED_IV, MON_DATA_SPATK_IV, MON_DATA_SPDEF_IV,
+        MON_DATA_HP_IV, MON_DATA_ATK_IV, MON_DATA_DEF_IV, MON_DATA_SPATK_IV, MON_DATA_SPDEF_IV, MON_DATA_SPEED_IV
 };
 
 
@@ -676,11 +677,11 @@ static u16 GetNumUnspentEVs(void)
 {
     u16 spentEVs = 0;
     u16 currentStat;
-    u16 maxEVsForLevel = (GetMonData(ReturnPartyMon(), MON_DATA_LEVEL) * 10);
+    u16 maxEVsForLevel = (GetMonData(ReturnPartyMon(), MON_DATA_LEVEL) * EVS_PER_LEVEL);
     u8 i;
 
-    if (maxEVsForLevel > 510)
-        maxEVsForLevel = 510;
+    if (maxEVsForLevel > MAX_TOTAL_EVS)
+        maxEVsForLevel = MAX_TOTAL_EVS;
 
     for(i = 0; i < 6; i++)
     {
@@ -795,7 +796,7 @@ static void PrintMonStats()
         AddTextPrinterParameterized4(WINDOW_2, 1, StatPrintData[statsToPrintEVs[i]].x, StatPrintData[statsToPrintEVs[i]].y, 0, 0, sMenuWindowFontColors[color], 0xFF, gStringVar2);
     }
 
-    if (sStatEditorDataPtr->evTotal < 510)
+    if (sStatEditorDataPtr->evTotal < MAX_TOTAL_EVS)
     {
         AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 18 + 10, 5, 0, 0, sMenuWindowFontColors[FONT_BLUE], 0xFF, sText_UnspentPoints);
 
@@ -1004,7 +1005,11 @@ static void HandleEditingStatInput(u32 input)
         return;
     }
 
-    if((input >= EDIT_INPUT_DECREASE_STATE) && (sStatEditorDataPtr->editingStat == STAT_MINIMUM || sStatEditorDataPtr->editingStat == sStatEditorDataPtr->existingEVs[sStatEditorDataPtr->selectedStat]))
+    if(input >= EDIT_INPUT_DECREASE_STATE) {
+        DebugPrintfLevel(MGBA_LOG_ERROR, "Existing EVs=%u", sStatEditorDataPtr->existingEVs[sStatEditorDataPtr->selectedStat]);
+    }
+
+    if((input >= EDIT_INPUT_DECREASE_STATE) && (sStatEditorDataPtr->editingStat == STAT_MINIMUM || sStatEditorDataPtr->editingStat <= sStatEditorDataPtr->existingEVs[sStatEditorDataPtr->selectedStat]))
     {
         StartSpriteAnim(&gSprites[sStatEditorDataPtr->selectorSpriteId], 1);
         return;
