@@ -201,8 +201,16 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
+	givemon SPECIES_METAGROSS, 100, ITEM_NONE, ITEM_PREMIER_BALL
+	trainerbattle_single TRAINER_SAWYER_1, DebugRivalRichardIntro, DebugRivalRichardDefeat
 	release
 	end
+
+DebugRivalRichardIntro:
+	.string "Ayo!$"
+
+DebugRivalRichardDefeat:
+	.string "You're Cringe...$"
 
 Debug_EventScript_Script_2::
 	release

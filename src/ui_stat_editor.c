@@ -1005,10 +1005,6 @@ static void HandleEditingStatInput(u32 input)
         return;
     }
 
-    if(input >= EDIT_INPUT_DECREASE_STATE) {
-        DebugPrintfLevel(MGBA_LOG_ERROR, "Existing EVs=%u", sStatEditorDataPtr->existingEVs[sStatEditorDataPtr->selectedStat]);
-    }
-
     if((input >= EDIT_INPUT_DECREASE_STATE) && (sStatEditorDataPtr->editingStat == STAT_MINIMUM || sStatEditorDataPtr->editingStat <= sStatEditorDataPtr->existingEVs[sStatEditorDataPtr->selectedStat]))
     {
         StartSpriteAnim(&gSprites[sStatEditorDataPtr->selectorSpriteId], 1);
