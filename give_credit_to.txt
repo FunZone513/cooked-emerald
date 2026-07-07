@@ -1,0 +1,3 @@
+Bivurnum : EV Allocator Screen : https://github.com/Bivurnum/pokeemerald-expansion/tree/ev-allocator
+Mudskip (mudskipper13) : Hex Maniac Sprite : https://github.com/TeamAquasHideout/Team-Aquas-Asset-Repo/blob/main/Trainer%20Front%20Sprites/mudskip/Redraws/hex_maniac_oras.png
+Ryu, Archie, and Pawkkie : General Snow Tiles : https://github.com/TeamAquasHideout/Team-Aquas-Asset-Repo/tree/main/Tilesets/The%20Great%20Tileset%20Exchange/Full%20Tilesets/Emerald%20Slide
