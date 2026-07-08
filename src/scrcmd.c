@@ -60,6 +60,7 @@
 #include "trainer_see.h"
 #include "tv.h"
 #include "window.h"
+#include "quests.h"
 #include "list_menu.h"
 #include "malloc.h"
 #include "battle.h"
@@ -3423,6 +3424,119 @@ bool8 ScrCmd_getbraillestringwidth(struct ScriptContext * ctx)
     return FALSE;
 }
 
+//MARK: Quest Menu
+bool8 ScrCmd_questmenu(struct ScriptContext *ctx)
+{
+    u8 caseId = ScriptReadByte(ctx);
+    u8 questId = VarGet(ScriptReadByte(ctx));
+
+    switch (caseId)
+    {
+    case QUEST_MENU_OPEN:
+    default:
+        BeginNormalPaletteFade(0xFFFFFFFF, 2, 16, 0, 0);
+        QuestMenu_Init(0, CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        ScriptContext_Stop();
+        break;
+    case QUEST_MENU_UNLOCK_QUEST:
+        QuestMenu_GetSetQuestState(questId, FLAG_SET_UNLOCKED);
+        break;
+    case QUEST_MENU_SET_ACTIVE:
+        QuestMenu_GetSetQuestState(questId, FLAG_SET_UNLOCKED);
+        QuestMenu_GetSetQuestState(questId, FLAG_SET_ACTIVE);
+        break;
+    case QUEST_MENU_SET_REWARD:
+        QuestMenu_GetSetQuestState(questId, FLAG_SET_UNLOCKED);
+        QuestMenu_GetSetQuestState(questId, FLAG_SET_REWARD);
+        QuestMenu_GetSetQuestState(questId, FLAG_REMOVE_ACTIVE);
+        break;
+    case QUEST_MENU_COMPLETE_QUEST:
+        QuestMenu_GetSetQuestState(questId, FLAG_SET_UNLOCKED);
+        QuestMenu_GetSetQuestState(questId, FLAG_SET_COMPLETED);
+        QuestMenu_GetSetQuestState(questId, FLAG_REMOVE_ACTIVE);
+        QuestMenu_GetSetQuestState(questId, FLAG_REMOVE_REWARD);
+        break;
+    case QUEST_MENU_CHECK_UNLOCKED:
+        if (QuestMenu_GetSetQuestState(questId, FLAG_GET_UNLOCKED))
+            gSpecialVar_Result = TRUE;
+        else
+            gSpecialVar_Result = FALSE;
+        break;
+    case QUEST_MENU_CHECK_ACTIVE:
+        if (QuestMenu_GetSetQuestState(questId, FLAG_GET_ACTIVE))
+            gSpecialVar_Result = TRUE;
+        else
+            gSpecialVar_Result = FALSE;
+        break;
+    case QUEST_MENU_CHECK_REWARD:
+        if (QuestMenu_GetSetQuestState(questId, FLAG_GET_REWARD))
+            gSpecialVar_Result = TRUE;
+        else
+            gSpecialVar_Result = FALSE;
+        break;
+    case QUEST_MENU_CHECK_COMPLETE:
+        if (QuestMenu_GetSetQuestState(questId, FLAG_GET_COMPLETED))
+            gSpecialVar_Result = TRUE;
+        else
+            gSpecialVar_Result = FALSE;
+        break;
+    case QUEST_MENU_BUFFER_QUEST_NAME:
+            QuestMenu_CopyQuestName(gStringVar1, questId);
+        break;
+    }
+
+    return TRUE;
+}
+
+bool8 ScrCmd_returnqueststate(struct ScriptContext *ctx)
+{
+    u8 questId = VarGet(ScriptReadByte(ctx));
+
+    if (QuestMenu_GetSetQuestState(questId, FLAG_GET_INACTIVE)){
+        gSpecialVar_Result = FLAG_GET_INACTIVE;
+        return FALSE;
+    }
+    if (QuestMenu_GetSetQuestState(questId, FLAG_GET_ACTIVE)){
+        gSpecialVar_Result = FLAG_GET_ACTIVE;
+        return FALSE;
+    }
+    if (QuestMenu_GetSetQuestState(questId, FLAG_GET_REWARD)){
+        gSpecialVar_Result = FLAG_GET_REWARD;
+        return FALSE;
+    }
+    if (QuestMenu_GetSetQuestState(questId, FLAG_GET_COMPLETED)){
+        gSpecialVar_Result = FLAG_GET_COMPLETED;
+        return FALSE;
+    }
+
+    return TRUE;
+}
+
+bool8 ScrCmd_subquestmenu(struct ScriptContext *ctx)
+{
+    u8 caseId = ScriptReadByte(ctx);
+    u8 parentId = VarGet(ScriptReadHalfword(ctx));
+    u8 childId = VarGet(ScriptReadHalfword(ctx));
+
+    switch (caseId)
+    {
+        case QUEST_MENU_COMPLETE_QUEST:
+            QuestMenu_GetSetSubquestState(parentId ,FLAG_SET_COMPLETED,childId);
+            break;
+        case QUEST_MENU_CHECK_COMPLETE:
+            if (QuestMenu_GetSetSubquestState(parentId ,FLAG_GET_COMPLETED,childId))
+                gSpecialVar_Result = TRUE;
+            else
+                gSpecialVar_Result = FALSE;
+            break;
+        case QUEST_MENU_BUFFER_QUEST_NAME:
+            QuestMenu_CopySubquestName(gStringVar1,parentId,childId);
+            break;
+    }
+
+    return TRUE;
+}
+
 //MARK: Custom
 //============================
 
@@ -3461,7 +3575,7 @@ bool8 CheckPartyCon(u16 value, u8 condition) {
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        pokemon = &gPlayerParty[i];
+        pokemon = &gParties[B_TRAINER_PLAYER][i];
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG)) {
             species = GetMonData(pokemon, MON_DATA_SPECIES);
 
@@ -3511,7 +3625,8 @@ bool8 CanUseFieldMove(struct ScriptContext *ctx)
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        pokemon = &gPlayerParty[i];
+        //TODO: Try a check with gParties[B_TRAINER_PARTNER] to see if follower NPC can do it instead? could be cool
+        pokemon = &gParties[B_TRAINER_PLAYER][i];
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG)) {
             species = GetMonData(pokemon, MON_DATA_SPECIES);
 

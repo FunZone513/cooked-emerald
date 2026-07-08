@@ -1,6 +1,10 @@
 {
   "group_order": [
-    "gMapGroup_Overworld",
+    "gMapGroup_Test",
+    "gMapGroup_Towns",
+    "gMapGroup_Routes",
+    "gMapGroup_Dungeons",
+    "gMapGroup_NamedAreas",
     "gMapGroup_TownsAndRoutes",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
@@ -25,7 +29,7 @@
     "gMapGroup_IndoorRoute116",
     "gMapGroup_IndoorRoute117",
     "gMapGroup_IndoorRoute121",
-    "gMapGroup_Dungeons",
+    "gMapGroup_OldDungeons",
     "gMapGroup_IndoorDynamic",
     "gMapGroup_SpecialArea",
     "gMapGroup_IndoorRoute104Prototype",
@@ -77,9 +81,13 @@
     "gMapGroup_IndoorSixIslandRoute_Frlg",
     "gMapGroup_IndoorSevenIslandRoute_Frlg"
   ],
-  "gMapGroup_Overworld": [
+  "gMapGroup_Test": [
     "testmap"
   ],
+  "gMapGroup_Towns": [],
+  "gMapGroup_Routes": [],
+  "gMapGroup_Dungeons": [],
+  "gMapGroup_NamedAreas": [],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
     "SlateportCity",
@@ -366,7 +374,7 @@
   "gMapGroup_IndoorRoute121": [
     "Route121_SafariZoneEntrance"
   ],
-  "gMapGroup_Dungeons": [
+  "gMapGroup_OldDungeons": [
     "MeteorFalls_1F_1R",
     "MeteorFalls_1F_2R",
     "MeteorFalls_B1F_1R",

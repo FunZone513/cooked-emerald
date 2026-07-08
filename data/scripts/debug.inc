@@ -213,6 +213,7 @@ DebugRivalRichardDefeat:
 	.string "You're Cringe...$"
 
 Debug_EventScript_Script_2::
+	setflag FLAG_SYS_QUEST_MENU_GET
 	release
 	end
 

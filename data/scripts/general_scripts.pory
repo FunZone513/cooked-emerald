@@ -9,6 +9,7 @@ script Generic_InfoNPC {
 script Generic_DefaultSettings {
     setflag(FLAG_SYS_B_DASH)
     setflag(FLAG_SHARED_EXP)
+    setflag(FLAG_SYS_QUEST_MENU_GET)
     //setflag(FLAG_USE_NEW_TYPE_CHART)
     setvar(VAR_STARTED_GAME, 1)
     call(Generic_UPDATE_LEVELCAP)
