@@ -225,7 +225,10 @@ Text_CantSmash:
 
 EventScript_StrengthBoulder::
 	lockall
-	goto_if_set FLAG_SYS_USE_STRENGTH, EventScript_CheckActivatedBoulder
+	@ I'm not doing HM Strength
+	goto EventScript_CheckActivatedBoulder
+
+
 	@ checkfieldmove FIELD_MOVE_STRENGTH, TRUE
 	canusefieldmove MOVE_STRENGTH
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantStrength
@@ -281,8 +284,8 @@ Text_CantStrength:
 	.string "may be able to push it aside.$"
 
 Text_StrengthActivated:
-	.string "STRENGTH made it possible to move\n"
-	.string "boulders around.$"
+	.string "It is possible to move\n"
+	.string "boulders around!$"
 
 EventScript_UseWaterfall::
 	lockall
