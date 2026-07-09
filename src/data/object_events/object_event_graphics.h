@@ -164,6 +164,7 @@ const u32 gObjectEventPic_Regi[] = INCGFX_U32("graphics/object_events/pics/pokem
 const u32 gObjectEventPic_RayquazaStill[] = INCGFX_U32("graphics/object_events/pics/pokemon_old/rayquaza_still.png", ".4bpp");
 const u32 gObjectEventPic_TuberMSwimming[] = INCGFX_U32("graphics/object_events/pics/people/tuber_m_swimming.png", ".4bpp", "-mwidth 2 -mheight 2");
 const u32 gObjectEventPic_Mom[] = INCGFX_U32("graphics/object_events/pics/people/mom.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u32 gObjectEventPic_RivalRichard[] = INCGFX_U32("graphics/object_events/pics/people/rival_richard.png", ".4bpp", "-mwidth 2 -mheight 4");
 const u16 gObjectEventPal_Kyogre[] = INCGFX_U16("graphics/object_events/palettes/kyogre.pal", ".gbapal");
 const u16 gObjectEventPal_KyogreReflection[] = INCGFX_U16("graphics/object_events/palettes/kyogre_reflection.pal", ".gbapal");
 const u16 gObjectEventPal_Groudon[] = INCGFX_U16("graphics/object_events/palettes/groudon.pal", ".gbapal");

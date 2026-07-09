@@ -9333,6 +9333,16 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/testmap/border.bin",
       "blockdata_filepath": "data/layouts/testmap/map.bin"
+    },
+    {
+      "id": "LAYOUT_BLANKMAP",
+      "name": "blankmap_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "border_filepath": "data/layouts/blankmap/border.bin",
+      "blockdata_filepath": "data/layouts/blankmap/map.bin"
     }
   ]
 }

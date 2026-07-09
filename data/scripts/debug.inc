@@ -218,6 +218,8 @@ Debug_EventScript_Script_2::
 	end
 
 Debug_EventScript_Script_3::
+	warpsilent MAP_BLANKMAP 10 6
+	waitstate
 	release
 	end
 

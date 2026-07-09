@@ -82,7 +82,8 @@
     "gMapGroup_IndoorSevenIslandRoute_Frlg"
   ],
   "gMapGroup_Test": [
-    "testmap"
+    "testmap",
+    "blankmap"
   ],
   "gMapGroup_Towns": [],
   "gMapGroup_Routes": [],
