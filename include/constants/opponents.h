@@ -4,7 +4,33 @@
 #include "constants/battle_partner.h"
 #include "constants/opponents_frlg.h"
 
-#define TRAINER_NONE                          0
+#define TRAINER_RIVAL_RICHARD_1                 0
+#define TRAINER_HORIZON_PORT_FIRE               1
+#define TRAINER_HORIZON_PORT_WATER              2
+#define TRAINER_HORIZON_PORT_GRASS              3
+
+//== update this every time
+#define TRAINERS_COUNT_EMERALD     4
+
+// don't go over this I guess (theres no fucking way I add 800+ trainers)
+#define MAX_TRAINERS_COUNT_EMERALD 864
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// bye idiots
 #define TRAINER_SAWYER_1                      1
 #define TRAINER_GRUNT_AQUA_HIDEOUT_1          2
 #define TRAINER_GRUNT_AQUA_HIDEOUT_2          3
@@ -863,9 +889,6 @@
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
-
-#define TRAINERS_COUNT_EMERALD     855
-#define MAX_TRAINERS_COUNT_EMERALD 864
 
 #if IS_FRLG
 #define TRAINERS_COUNT                      TRAINERS_COUNT_FRLG

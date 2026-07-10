@@ -1,1 +1,164 @@
-mapscripts HorizonPort_MapScripts {}
+mapscripts HorizonPort_MapScripts {
+    MAP_SCRIPT_ON_LOAD: HorizonPort_OnLoad
+}
+
+script HorizonPort_OnLoad {
+    // hide the market people
+    if (!flag(FLAG_BADGE02_GET)) {
+        setflag(FLAG_TEMP_A)
+    }
+}
+
+script HorizonPort_Sign_Yard {
+    msgbox("Boats,\nA bouyant masterpiece", MSGBOX_SIGN)
+}
+
+script HorizonPort_Sign_Market {
+    if (flag(FLAG_TEMP_A)) {
+        msgbox("Markets will be opening soon,\ncheck back later!", MSGBOX_SIGN)
+    } else {
+        msgbox("Markets are now open!\nWe have wares if you have coin!", MSGBOX_SIGN)
+    }
+}
+
+script HorizonPort_Kid_Fire {
+    trainerbattle_single(
+        TRAINER_HORIZON_PORT_FIRE, 
+        "Yah!\nTake that!",
+        "Wha- no!\nThat's not how it works!"  
+    )
+    msgbox(format("I like being at the beach when the sun is out!"), MSGBOX_AUTOCLOSE)
+    end
+}
+
+script HorizonPort_Kid_Water {
+    trainerbattle_single(
+        TRAINER_HORIZON_PORT_WATER, 
+        format("Being at the beach gives me power!"),
+        "I got sand in my eye!\nThat didn't count!"  
+    )
+    msgbox(format("I love playing in the waves until I get all wrinkly!"), MSGBOX_AUTOCLOSE)
+    end
+}
+
+script HorizonPort_Kid_Grass {
+    trainerbattle_single(
+        TRAINER_HORIZON_PORT_GRASS, 
+        "Huh?",
+        "Aw man."
+    )
+    msgbox(format("I just wanna play my game, I'm hoping it doesn't get sand in it."), MSGBOX_AUTOCLOSE)
+    end
+}
+
+
+script HorizonPort_OldMan {
+    msgbox(format("This lighthouse was put in to make it safer for people to come to the island."), MSGBOX_NPC)
+}
+
+script HorizonPort_OldMan2 {
+    msgbox(format("I sometimes come here and gaze out at the sea, thinking about what could have been."), MSGBOX_NPC)
+}
+
+script HorizonPort_Sailor {
+    msgbox(format("We get a lot of travellers coming and going on boats 'round these parts."), MSGBOX_NPC)
+}
+
+script HorizonPort_Sailor2 {
+    msgbox(format("We have some boats on display to get people interested in them. They're pretty important for this city after all."), MSGBOX_NPC)
+}
+
+script HorizonPort_Boy {
+    msgbox(format("The salt spray from the ocean makes my eyes crusty!"), MSGBOX_NPC)
+}
+
+script HorizonPort_OldWoman {
+    msgbox(format("Huh? What do you want? Why don't you get back on your boat and go home!"), MSGBOX_NPC)
+}
+
+script HorizonPort_MarketPerson {
+    msgbox(format("I have some placeholder items!"), MSGBOX_NPC)
+    pokemart(HorizonPort_MarketShop)
+    release
+}
+
+//TODO: make an actual inventory for this store
+mart HorizonPort_MarketShop {
+    ITEM_ENERGY_POWDER
+	ITEM_ENERGY_ROOT
+	ITEM_HEAL_POWDER
+	ITEM_REVIVAL_HERB
+    ITEM_POWER_HERB
+    ITEM_MIRROR_HERB
+    ITEM_WHITE_HERB
+    ITEM_MENTAL_HERB
+}
+
+script HorizonPort_MarketPerson2 {
+    msgbox(format("I have some placeholder items!"), MSGBOX_NPC)
+    pokemart(HorizonPort_MarketShop)
+    release
+}
+
+//TODO: see above
+mart HorizonPort_MarketShop2 {
+    ITEM_ENERGY_POWDER
+	ITEM_ENERGY_ROOT
+	ITEM_HEAL_POWDER
+	ITEM_REVIVAL_HERB
+    ITEM_POWER_HERB
+    ITEM_MIRROR_HERB
+    ITEM_WHITE_HERB
+    ITEM_MENTAL_HERB
+}
+
+//mart DyecressTown_HerbShop_Mart2 {
+//    ITEM_LONELY_MINT
+//    ITEM_ADAMANT_MINT
+//    ITEM_NAUGHTY_MINT
+//    ITEM_BRAVE_MINT
+//    ITEM_BOLD_MINT
+//    ITEM_IMPISH_MINT
+//    ITEM_LAX_MINT
+//    ITEM_RELAXED_MINT
+//    ITEM_MODEST_MINT
+//    ITEM_MILD_MINT
+//    ITEM_RASH_MINT
+//    ITEM_QUIET_MINT
+//    ITEM_CALM_MINT
+//    ITEM_GENTLE_MINT
+//    ITEM_CAREFUL_MINT
+//    ITEM_SASSY_MINT
+//    ITEM_TIMID_MINT
+//    ITEM_HASTY_MINT
+//    ITEM_JOLLY_MINT
+//    ITEM_NAIVE_MINT
+//    ITEM_SERIOUS_MINT
+//}
+
+script HorizonPort_MarketPerson3 {
+    msgbox(format("Welcome! Are you interested in some... Oh, actually I don't think you'd be interested in anything I sell."), MSGBOX_NPC)
+}
+
+script HorizonPort_MarketPerson4 {
+    msgbox(format("There's always something of interest to be found at markets like these."), MSGBOX_NPC)
+}
+
+script HorizonPort_MarketPerson5 {
+    msgbox(format("I'm just... huff... taking a break... hoo..."), MSGBOX_NPC)
+}
+
+//TODO: this guy
+script HorizonPort_MarketPerson6 {
+    msgbox(format("Come back when you're a little more cool."), MSGBOX_NPC)
+}
+
+script HorizonPort_Father {
+    msgbox(format("These little rascals like battling as much as they like playing at the beach, so please keep them entertained so I can get some peace and quiet..."), MSGBOX_NPC)
+}
+
+script HorizonPort_Mother {
+    msgbox(format("After three childred my husband has started having reservations, but I can be very convincing"), MSGBOX_NPC)
+}
+
+
