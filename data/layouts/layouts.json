@@ -9347,8 +9347,8 @@
     {
       "id": "LAYOUT_HORIZON_PORT",
       "name": "HorizonPort_Layout",
-      "width": 40,
-      "height": 30,
+      "width": 50,
+      "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/HorizonPort/border.bin",
