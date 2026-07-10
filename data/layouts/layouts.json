@@ -9343,6 +9343,16 @@
       "secondary_tileset": "gTileset_BrendansMaysHouse",
       "border_filepath": "data/layouts/blankmap/border.bin",
       "blockdata_filepath": "data/layouts/blankmap/map.bin"
+    },
+    {
+      "id": "LAYOUT_HORIZON_PORT",
+      "name": "HorizonPort_Layout",
+      "width": 40,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Slateport",
+      "border_filepath": "data/layouts/HorizonPort/border.bin",
+      "blockdata_filepath": "data/layouts/HorizonPort/map.bin"
     }
   ]
 }

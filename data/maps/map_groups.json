@@ -85,7 +85,9 @@
     "testmap",
     "blankmap"
   ],
-  "gMapGroup_Towns": [],
+  "gMapGroup_Towns": [
+    "HorizonPort"
+  ],
   "gMapGroup_Routes": [],
   "gMapGroup_Dungeons": [],
   "gMapGroup_NamedAreas": [],
