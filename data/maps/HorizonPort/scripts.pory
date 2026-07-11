@@ -3,10 +3,8 @@ mapscripts HorizonPort_MapScripts {
 }
 
 script HorizonPort_OnLoad {
-    // hide the market people
-    if (!flag(FLAG_BADGE02_GET)) {
-        setflag(FLAG_TEMP_A)
-    }
+    // 
+    
 }
 
 script HorizonPort_Sign_Yard {
@@ -14,11 +12,7 @@ script HorizonPort_Sign_Yard {
 }
 
 script HorizonPort_Sign_Market {
-    if (flag(FLAG_TEMP_A)) {
-        msgbox("Markets will be opening soon,\ncheck back later!", MSGBOX_SIGN)
-    } else {
-        msgbox("Markets are now open!\nWe have wares if you have coin!", MSGBOX_SIGN)
-    }
+    msgbox("Markets are now open!\nWe have wares if you have coin!", MSGBOX_SIGN)
 }
 
 script HorizonPort_Kid_Fire {
@@ -65,7 +59,7 @@ script HorizonPort_Sailor {
 }
 
 script HorizonPort_Sailor2 {
-    msgbox(format("We have some boats on display to get people interested in them. They're pretty important for this city after all."), MSGBOX_NPC)
+    msgbox(format("Boats are pretty important for this city, so there are displays all over."), MSGBOX_NPC)
 }
 
 script HorizonPort_Boy {
@@ -77,39 +71,31 @@ script HorizonPort_OldWoman {
 }
 
 script HorizonPort_MarketPerson {
-    msgbox(format("I have some placeholder items!"), MSGBOX_NPC)
+    msgbox(format("Items an aspiring trainer like you might need!"), MSGBOX_NPC)
     pokemart(HorizonPort_MarketShop)
     release
 }
 
-//TODO: make an actual inventory for this store
 mart HorizonPort_MarketShop {
-    ITEM_ENERGY_POWDER
-	ITEM_ENERGY_ROOT
-	ITEM_HEAL_POWDER
-	ITEM_REVIVAL_HERB
-    ITEM_POWER_HERB
-    ITEM_MIRROR_HERB
-    ITEM_WHITE_HERB
-    ITEM_MENTAL_HERB
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_REPEL
 }
 
 script HorizonPort_MarketPerson2 {
-    msgbox(format("I have some placeholder items!"), MSGBOX_NPC)
+    msgbox("Got problems? I've got solutions!", MSGBOX_NPC)
     pokemart(HorizonPort_MarketShop)
     release
 }
 
-//TODO: see above
 mart HorizonPort_MarketShop2 {
-    ITEM_ENERGY_POWDER
-	ITEM_ENERGY_ROOT
-	ITEM_HEAL_POWDER
-	ITEM_REVIVAL_HERB
-    ITEM_POWER_HERB
-    ITEM_MIRROR_HERB
-    ITEM_WHITE_HERB
-    ITEM_MENTAL_HERB
+    ITEM_ANTIDOTE
+    ITEM_AWAKENING
+    ITEM_BURN_HEAL
+    ITEM_ICE_HEAL
+    ITEM_PARALYZE_HEAL
 }
 
 //mart DyecressTown_HerbShop_Mart2 {
@@ -137,7 +123,7 @@ mart HorizonPort_MarketShop2 {
 //}
 
 script HorizonPort_MarketPerson3 {
-    msgbox(format("Welcome! Are you interested in some... Oh, actually I don't think you'd be interested in anything I sell."), MSGBOX_NPC)
+    msgbox("Welcome!\nAre you interested in some...\pOh, you're a trainer?\nI don't have any items for trainers.", MSGBOX_NPC)
 }
 
 script HorizonPort_MarketPerson4 {
@@ -161,4 +147,6 @@ script HorizonPort_Mother {
     msgbox(format("After three childred my husband has started having reservations, but I can be very convincing"), MSGBOX_NPC)
 }
 
-
+script HorizonPort_Fisherman {
+    msgbox(format("Imagine all the fishing that could be done in a boat like that..."), MSGBOX_NPC)
+}

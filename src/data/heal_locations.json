@@ -355,6 +355,12 @@
       "map": "MAP_TESTMAP",
       "x": 32,
       "y": 23
+    },
+    {
+      "id": "HEAL_LOCATION_HORIZON_PORT",
+      "map": "MAP_HORIZON_PORT",
+      "x": 19,
+      "y": 29
     }
   ]
 }

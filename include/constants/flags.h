@@ -675,7 +675,7 @@
 #define FLAG_DISABLE_WILD_ENCOUNTERS    0x26B   // Disables wild encounters when on
 #define FLAG_FORCE_SHINY_ENCOUNTERS     0x26C   // Toggles shiny encounters
 #define FLAG_NOCLIP                     0x26D   // Toggles collision
-#define FLAG_DISABLE_TRAINER_BATTLES    0x26E // Unused Flag
+#define FLAG_DISABLE_TRAINER_BATTLES    0x26E   // Stops trainer line of sight
 
 
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
@@ -1227,9 +1227,9 @@
 
 //MARK: Item Balls
 #define FLAG_ITEM_HORIZON_PORT                                      0x493
-#define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
+#define FLAG_ITEM_HORIZON_PORT_2                                    0x494
+#define FLAG_ITEM_HORIZON_PORT_3                                    0x495
+#define FLAG_ITEM_HORIZON_PORT_4                                    0x496
 #define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
 #define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
