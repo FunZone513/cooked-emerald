@@ -134,6 +134,7 @@ static void ClearFrontierRecord(void)
     gSaveBlock2Ptr->frontier.opponentNames[1][0] = EOS;
 }
 
+//MARK: New Game Start
 static void WarpToTruck(void)
 {
     if (IS_FRLG)

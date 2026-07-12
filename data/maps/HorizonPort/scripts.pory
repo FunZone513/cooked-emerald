@@ -3,8 +3,8 @@ mapscripts HorizonPort_MapScripts {
 }
 
 script HorizonPort_OnLoad {
-    // 
-    
+    //! debug
+    call(Generic_DefaultSettings)
 }
 
 script HorizonPort_Sign_Yard {

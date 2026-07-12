@@ -5,6 +5,8 @@ HorizonPort_MapScripts::
 
 
 HorizonPort_OnLoad::
+# 7 "data/maps/HorizonPort/scripts.pory"
+	call Generic_DefaultSettings
 	return
 
 

@@ -9,12 +9,18 @@ script Generic_InfoNPC {
 script Generic_DefaultSettings {
     setflag(FLAG_SYS_B_DASH)
     setflag(FLAG_SHARED_EXP)
-    setflag(FLAG_SYS_QUEST_MENU_GET)
-    //setflag(FLAG_USE_NEW_TYPE_CHART)
-    setvar(VAR_STARTED_GAME, 1)
     call(Generic_UPDATE_LEVELCAP)
     call(Generic_IncreaseExpGain)
-    
+
+    //! this is for testing
+    givemon(SPECIES_BALTOY, 5)
+    setflag(FLAG_SYS_QUEST_MENU_GET)
+    setflag(FLAG_SYS_POKEDEX_GET)
+    special(SetUnlockedPokedexFlags)
+    //setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
+
+    //TODO: look into the dexnav
+
     // % chance
     setvar(VAR_WILD_BATTLE_CHANCE, 15)
     
@@ -332,12 +338,12 @@ mart GenericPokeMart_Berry3 {
 //MARK: Thicket Brush
 script ThicketBrushInteract {    
     lockall
-    call(ThicketBrushInteract_ClearTile)
+    //call(ThicketBrushInteract_ClearTile)
 
     // 10% item; 20% nothing; 20% wild double; 50% wild single
     random(10)
     if (var(VAR_RESULT) < 1) {
-        call(ThicketBrushInteract_GetItem)
+        //call(ThicketBrushInteract_GetItem)
         if (checkitemspace(VAR_TEMP_0)) {
             additem(VAR_TEMP_0)
             playfanfare(MUS_OBTAIN_BERRY)
@@ -348,20 +354,20 @@ script ThicketBrushInteract {
         }
 
     } elif (var(VAR_RESULT) >= 1 && var(VAR_RESULT) < 3) {
-        call(ThicketBrushInteract_Nothing)
+        //call(ThicketBrushInteract_Nothing)
 
     } elif (var(VAR_RESULT) >= 3 && var(VAR_RESULT) < 5) {
-        call(ThicketBrushInteract_GetPokemon)
+        //call(ThicketBrushInteract_GetPokemon)
         createmon(1, 0, VAR_TEMP_0, VAR_TEMP_1)
-        call(ThicketBrushInteract_GetPokemon)
+        //call(ThicketBrushInteract_GetPokemon)
         createmon(1, 1, VAR_TEMP_0, VAR_TEMP_1)
         setwilddoubleflag
-        call(ThicketBrush_WildEncounter)
+        //call(ThicketBrush_WildEncounter)
         
     } else {
-        call(ThicketBrushInteract_GetPokemon)
+        //call(ThicketBrushInteract_GetPokemon)
         createmon(1, 0, VAR_TEMP_0, VAR_TEMP_1)
-        call(ThicketBrush_WildEncounter)
+        //call(ThicketBrush_WildEncounter)
     }
     release
 }
@@ -447,7 +453,7 @@ script ThicketBrushInteract_ClearTile {
             subvar(VAR_TEMP_A, 1)
             break
     }
-    setmetatile(VAR_TEMP_A, VAR_TEMP_B, METATILE_SecretBaseShrub_Debris, FALSE) // METATILE_SecretBase_Ground
+    //setmetatile(VAR_TEMP_A, VAR_TEMP_B, METATILE_SecretBaseShrub_Debris, FALSE) // METATILE_SecretBase_Ground
     special(DrawWholeMapView)
     waitse
     return
