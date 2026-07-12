@@ -9337,8 +9337,8 @@
     {
       "id": "LAYOUT_BLANKMAP",
       "name": "blankmap_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 11,
+      "height": 6,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_BrendansMaysHouse",
       "border_filepath": "data/layouts/blankmap/border.bin",

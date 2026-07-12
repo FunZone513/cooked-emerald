@@ -1,1 +1,8 @@
 mapscripts blankmap_MapScripts {}
+
+script blankmap_NPC_TEST {
+    lockall
+    applymovement(VAR_LAST_TALKED, moves(face_right delay_16 walk_in_place_slow_right delay_16 face_up delay_16 walk_in_place_slow_up delay_16 face_left delay_16 walk_in_place_slow_left delay_16 face_down walk_in_place_slow_down))
+    waitmovement(0)
+    release
+}

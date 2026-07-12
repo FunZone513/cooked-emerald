@@ -213,13 +213,12 @@ DebugRivalRichardDefeat:
 	.string "You're Cringe...$"
 
 Debug_EventScript_Script_2::
-	setflag FLAG_SYS_QUEST_MENU_GET
+	warpsilent MAP_BLANKMAP 0
+	waitstate
 	release
 	end
 
 Debug_EventScript_Script_3::
-	warpsilent MAP_BLANKMAP 10 6
-	waitstate
 	release
 	end
 

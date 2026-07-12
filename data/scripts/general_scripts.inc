@@ -14,7 +14,7 @@ Generic_DefaultSettings::
 # 13 "data/scripts/general_scripts.pory"
 	call Generic_IncreaseExpGain
 # 16 "data/scripts/general_scripts.pory"
-	givemon SPECIES_METAGROSS, 69
+	givemon SPECIES_BALTOY, 5
 # 17 "data/scripts/general_scripts.pory"
 	setflag FLAG_SYS_QUEST_MENU_GET
 # 18 "data/scripts/general_scripts.pory"
