@@ -13,11 +13,12 @@ script Generic_DefaultSettings {
     call(Generic_IncreaseExpGain)
 
     //! this is for testing
-    givemon(SPECIES_BALTOY, 5)
+    givemon(SPECIES_CHINCHOU, 5)
+    setflag(FLAG_SYS_POKEMON_GET)
     setflag(FLAG_SYS_QUEST_MENU_GET)
     setflag(FLAG_SYS_POKEDEX_GET)
     special(SetUnlockedPokedexFlags)
-    //setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
+    setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
 
     //TODO: look into the dexnav
 

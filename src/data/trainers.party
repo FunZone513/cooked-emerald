@@ -106,7 +106,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Slugma
-Level: 4
+Level: 3
 
 === TRAINER_HORIZON_PORT_WATER ===
 Name: River
@@ -118,7 +118,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Krabby
-Level: 4
+Level: 3
 
 === TRAINER_HORIZON_PORT_GRASS ===
 Name: Forrest
@@ -130,7 +130,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Shroomish
-Level: 4
+Level: 3
 
 
 
