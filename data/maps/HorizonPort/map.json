@@ -211,8 +211,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TUBER_F_FRLG",
-      "x": 41,
-      "y": 15,
+      "x": 40,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -237,7 +237,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GAMEBOY_KID",
-      "x": 32,
+      "x": 31,
       "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
