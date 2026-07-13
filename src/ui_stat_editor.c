@@ -40,6 +40,7 @@
 #include "trainer_pokemon_sprites.h"
 #include "field_effect.h"
 #include "field_screen_effect.h"
+#include "config/summary_screen.h"
 
 /*
  * 
@@ -563,7 +564,7 @@ static void Task_StatEditorConfirmChanges(u8 taskId)
 //
 static struct Pokemon *ReturnPartyMon()
 {
-    return &gParties[B_TRAINER_PARTNER][sStatEditorDataPtr->partyid];
+    return &gParties[B_TRAINER_PLAYER][sStatEditorDataPtr->partyid];
 }
 
 #define MON_ICON_X     32 + 8
@@ -746,7 +747,7 @@ static void PrintMonStats()
 {
     u8 i;
     u16 currentStat;
-    u16 nature;
+    u16 nature = GetNature(ReturnPartyMon());
     u8 text[2];
     u16 level = GetMonData(ReturnPartyMon(), MON_DATA_LEVEL);
     u16 personality = GetMonData(ReturnPartyMon(), MON_DATA_PERSONALITY);
@@ -763,13 +764,53 @@ static void PrintMonStats()
     AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 18 + 16, 7 + 16, 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_MenuStat);
     AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, STARTING_X - 6, 7 + 16, 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_MenuActual);
     AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, STARTING_X + SECOND_COLUMN + 4, 7 + 16, 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_MenuEV);
-    
+
+    // HP can't be altered by nature
     AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 24 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 0), 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_MenuHP);
+    
+    u8 ATK_COLOUR = FONT_WHITE;
+    u8 DEF_COLOUR = FONT_WHITE;
+    u8 SPATK_COLOUR = FONT_WHITE;
+    u8 SPDEF_COLOUR = FONT_WHITE;
+    u8 SPD_COLOUR = FONT_WHITE;
+
+    // omit natures that change the same stat, or if nature highlighting is disabled
+    if (!(gNaturesInfo[nature].statUp == gNaturesInfo[nature].statDown) || !P_SUMMARY_SCREEN_NATURE_COLORS) {
+
+        // stat +
+        switch (gNaturesInfo[nature].statUp) {
+            case STAT_ATK: ATK_COLOUR = FONT_RED; break;
+            case STAT_DEF: DEF_COLOUR = FONT_RED; break;
+            case STAT_SPATK: SPATK_COLOUR = FONT_RED; break;
+            case STAT_SPDEF: SPDEF_COLOUR = FONT_RED; break;
+            case STAT_SPEED: SPD_COLOUR = FONT_RED; break;
+            default: break;
+        }
+
+        // stat -
+        switch (gNaturesInfo[nature].statDown) {
+            case STAT_ATK: ATK_COLOUR = FONT_BLUE; break;
+            case STAT_DEF: DEF_COLOUR = FONT_BLUE; break;
+            case STAT_SPATK: SPATK_COLOUR = FONT_BLUE; break;
+            case STAT_SPDEF: SPDEF_COLOUR = FONT_BLUE; break;
+            case STAT_SPEED: SPD_COLOUR = FONT_BLUE; break;
+            default: break;
+        }
+    }
+
+    AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 12 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 1), 0, 0, sMenuWindowFontColors[ATK_COLOUR], 0xFF, sText_MenuAttack);
+    AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 12 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 2), 0, 0, sMenuWindowFontColors[DEF_COLOUR], 0xFF, sText_MenuDefense);
+    AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 10 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 3), 0, 0, sMenuWindowFontColors[SPATK_COLOUR], 0xFF, sText_MenuSpAttack);
+    AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 12 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 4), 0, 0, sMenuWindowFontColors[SPDEF_COLOUR], 0xFF, sText_MenuSpDefense);
+    AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 16 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 5), 0, 0, sMenuWindowFontColors[SPD_COLOUR], 0xFF, sText_MenuSpeed);
+
+    /* 
     AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 12 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 1), 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_MenuAttack);
     AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 12 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 2), 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_MenuDefense);
     AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 10 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 3), 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_MenuSpAttack);
     AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 12 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 4), 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_MenuSpDefense);
     AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 16 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 5), 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_MenuSpeed);
+    */
     
     // Print Mon Stats
     for(i = 0; i < 6; i++)
@@ -832,7 +873,6 @@ static void PrintMonStats()
         AddTextPrinterParameterized4(WINDOW_3, FONT_NORMAL, 41 + 8, 19, 0, 0, sGenderColors[(gender == MON_FEMALE)], TEXT_SKIP_DRAW, text);
     }
 
-    nature = GetNature(ReturnPartyMon());
     StringCopy(gStringVar2, gNaturesInfo[nature].name);
     AddTextPrinterParameterized4(WINDOW_3, FONT_SMALL_NARROW, 4, 50, 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, gStringVar2);
 
