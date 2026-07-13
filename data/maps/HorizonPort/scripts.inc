@@ -222,14 +222,14 @@ HorizonPort_Father::
 	goto_if 1, HorizonPort_Father_4
 HorizonPort_Father_2:
 # 175 "data/maps/HorizonPort/scripts.pory"
-	msgbox HorizonPort_Father_Text_3, MSGBOX_AUTOCLOSE
+	msgbox HorizonPort_Father_Text_3, MSGBOX_NPC
 	return
 
 HorizonPort_Father_1:
 # 161 "data/maps/HorizonPort/scripts.pory"
 	goto_if_unset FLAG_BEAT_HORIZON_PORT_KIDS, HorizonPort_Father_8
 # 172 "data/maps/HorizonPort/scripts.pory"
-	msgbox HorizonPort_Father_Text_2, MSGBOX_AUTOCLOSE
+	msgbox HorizonPort_Father_Text_2, MSGBOX_NPC
 	return
 
 HorizonPort_Father_3:
@@ -246,19 +246,19 @@ HorizonPort_Father_4:
 
 HorizonPort_Father_8:
 # 162 "data/maps/HorizonPort/scripts.pory"
-	msgbox HorizonPort_Father_Text_0, MSGBOX_AUTOCLOSE
+	msgbox HorizonPort_Father_Text_0, MSGBOX_NPC
 # 168 "data/maps/HorizonPort/scripts.pory"
 	giveitem ITEM_PP_MAX, 1
 # 169 "data/maps/HorizonPort/scripts.pory"
 	setflag FLAG_BEAT_HORIZON_PORT_KIDS
 # 170 "data/maps/HorizonPort/scripts.pory"
-	msgbox HorizonPort_Father_Text_1, MSGBOX_AUTOCLOSE
+	msgbox HorizonPort_Father_Text_1, MSGBOX_NPC
 	return
 
 
 HorizonPort_Mother::
 # 180 "data/maps/HorizonPort/scripts.pory"
-	msgbox HorizonPort_Mother_Text_0, MSGBOX_AUTOCLOSE
+	msgbox HorizonPort_Mother_Text_0, MSGBOX_NPC
 	return
 
 
