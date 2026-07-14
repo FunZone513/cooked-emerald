@@ -88,7 +88,9 @@
   "gMapGroup_Towns": [
     "HorizonPort"
   ],
-  "gMapGroup_Routes": [],
+  "gMapGroup_Routes": [
+    "Route_1"
+  ],
   "gMapGroup_Dungeons": [],
   "gMapGroup_NamedAreas": [],
   "gMapGroup_TownsAndRoutes": [

@@ -3625,12 +3625,12 @@ bool8 CanUseFieldMove(struct ScriptContext *ctx)
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        //TODO: Try a check with gParties[B_TRAINER_PARTNER] to see if follower NPC can do it instead? could be cool
         pokemon = &gParties[B_TRAINER_PLAYER][i];
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG)) {
             species = GetMonData(pokemon, MON_DATA_SPECIES);
 
             switch(moveID) {
+                // please use a bug type on your team I'm crying and pissing and shitting
                 case MOVE_CUT:
                     if ((gSpeciesInfo[species].types[0] == TYPE_GRASS || gSpeciesInfo[species].types[1] == TYPE_GRASS)  
                     || (gSpeciesInfo[species].types[0] == TYPE_BUG    || gSpeciesInfo[species].types[1] == TYPE_BUG)
@@ -3641,7 +3641,9 @@ bool8 CanUseFieldMove(struct ScriptContext *ctx)
                     }
                     break;
                 
+                // rock climb is rock smash 2 I guess
                 case MOVE_ROCK_SMASH:
+                case MOVE_ROCK_CLIMB: 
                     if ((gSpeciesInfo[species].types[0] == TYPE_FIGHTING || gSpeciesInfo[species].types[1] == TYPE_FIGHTING) 
                     || (gSpeciesInfo[species].types[0] == TYPE_ROCK      || gSpeciesInfo[species].types[1] == TYPE_ROCK)
                     || (GetMonAbility(pokemon) == ABILITY_ROCK_HEAD      || GetMonAbility(pokemon) == ABILITY_IRON_FIST)) {
@@ -3651,6 +3653,7 @@ bool8 CanUseFieldMove(struct ScriptContext *ctx)
                     }
                     break;
                 
+                // mind powers levitate boulders
                 case MOVE_STRENGTH:
                     if ((gSpeciesInfo[species].types[0] == TYPE_FIGHTING || gSpeciesInfo[species].types[1] == TYPE_FIGHTING) 
                     || (gSpeciesInfo[species].types[0] == TYPE_GROUND    || gSpeciesInfo[species].types[1] == TYPE_GROUND)
@@ -3662,16 +3665,29 @@ bool8 CanUseFieldMove(struct ScriptContext *ctx)
                     }
                     break;
 
+                // water HMs are just an upgrade chain
                 case MOVE_SURF:
+                case MOVE_DIVE:
+                case MOVE_WATERFALL:
                     if (gSpeciesInfo[species].types[0] == TYPE_WATER || gSpeciesInfo[species].types[1] == TYPE_WATER) {
                         gSpecialVar_Result = i;
                         gSpecialVar_0x8004 = species;
                         return TRUE;
                     }
                     break;
+
+                // flash isn't a real HM I swear
+                case MOVE_FLASH:
+                    if ((gSpeciesInfo[species].types[0] == TYPE_ELECTRIC || gSpeciesInfo[species].types[1] == TYPE_ELECTRIC)
+                    || (gSpeciesInfo[species].types[0] == TYPE_FIRE      || gSpeciesInfo[species].types[1] == TYPE_FIRE)
+                    || (GetMonAbility(pokemon) == ABILITY_ILLUMINATE     || GetMonAbility(pokemon) == ABILITY_KEEN_EYE)) {
+                        gSpecialVar_Result = i;
+                        gSpecialVar_0x8004 = species;
+                        return TRUE;
+                    }
                 
-                default:
-                    break;
+                // fall through
+                default: break;
             }
         }
     }

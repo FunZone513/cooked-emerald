@@ -213,6 +213,7 @@ DebugRivalRichardDefeat:
 	.string "You're Cringe...$"
 
 Debug_EventScript_Script_2::
+	setflag FLAG_RECEIVED_RUNNING_SHOES
 	warpsilent MAP_BLANKMAP 0
 	waitstate
 	release

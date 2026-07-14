@@ -1745,3 +1745,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/blankmap/scripts.inc"
 
 	.include "data/maps/HorizonPort/scripts.inc"
+
+	.include "data/maps/Route_1/scripts.inc"

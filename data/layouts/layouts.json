@@ -9337,10 +9337,10 @@
     {
       "id": "LAYOUT_BLANKMAP",
       "name": "blankmap_Layout",
-      "width": 11,
-      "height": 6,
+      "width": 12,
+      "height": 12,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_BrendansMaysHouse",
+      "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/blankmap/border.bin",
       "blockdata_filepath": "data/layouts/blankmap/map.bin"
     },
@@ -9353,6 +9353,16 @@
       "secondary_tileset": "gTileset_Slateport",
       "border_filepath": "data/layouts/HorizonPort/border.bin",
       "blockdata_filepath": "data/layouts/HorizonPort/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE_1",
+      "name": "Route_1_Layout",
+      "width": 38,
+      "height": 48,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Route_1/border.bin",
+      "blockdata_filepath": "data/layouts/Route_1/map.bin"
     }
   ]
 }
