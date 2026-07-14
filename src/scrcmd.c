@@ -3540,8 +3540,7 @@ bool8 ScrCmd_subquestmenu(struct ScriptContext *ctx)
 //MARK: Custom
 //============================
 
-bool8 ScrCmd_debugprint(struct ScriptContext *ctx)
-{
+bool8 ScrCmd_debugprint(struct ScriptContext *ctx) {
     u16 num;
     const u8 *str = (const u8*)ScriptReadWord(ctx);
     u16 numOrVar = ScriptReadHalfword(ctx);
@@ -3573,8 +3572,7 @@ bool8 CheckPartyCon(u16 value, u8 condition) {
     struct Pokemon *pokemon;
     gSpecialVar_Result = PARTY_SIZE;
 
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
+    for (i = 0; i < PARTY_SIZE; i++) {
         pokemon = &gParties[B_TRAINER_PLAYER][i];
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG)) {
             species = GetMonData(pokemon, MON_DATA_SPECIES);
@@ -3604,30 +3602,46 @@ bool8 CheckPartyCon(u16 value, u8 condition) {
     return FALSE;
 }
 
-bool8 IsTypeInParty(struct ScriptContext *ctx)
-{
+bool8 IsTypeInParty(struct ScriptContext *ctx) {
     return CheckPartyCon(ScriptReadHalfword(ctx), 0);    
 }
 
-bool8 IsAbilityInParty(struct ScriptContext *ctx)
-{
+bool8 IsAbilityInParty(struct ScriptContext *ctx) {
     return CheckPartyCon(ScriptReadHalfword(ctx), 1);    
 }
 
-bool8 CanUseFieldMove(struct ScriptContext *ctx)
-{
-    u16 moveID = ScriptReadHalfword(ctx);
+// check whether the HM is unlocked
+bool8 AllowedToUseMove(u16 MOVE) {
+    switch (MOVE) {
+        case MOVE_CUT:          return (FlagGet(FLAG_BADGE01_GET));
+        case MOVE_ROCK_SMASH:   return (FlagGet(FLAG_BADGE02_GET));
+        case MOVE_ROCK_CLIMB:   return (FlagGet(FLAG_BADGE04_GET));
+        case MOVE_STRENGTH:     return TRUE; // (FlagGet(FLAG_BADGE02_GET));
+        case MOVE_SURF:         return (FlagGet(FLAG_BADGE03_GET));
+        case MOVE_DIVE:         return FALSE; // (FlagGet(FLAG_BADGE02_GET));
+        case MOVE_WATERFALL:    return FALSE; // (FlagGet(FLAG_BADGE02_GET));
+        case MOVE_FLASH:        return TRUE; // (FlagGet(FLAG_BADGE02_GET));
+        
+        default: return TRUE;
+    }
+}
 
+bool8 CanUseFieldMove(struct ScriptContext *ctx) {
+    u16 moveID = ScriptReadHalfword(ctx);
     u8 i;
     u16 species;
     struct Pokemon *pokemon;
     gSpecialVar_Result = PARTY_SIZE;
+    
+    if (!AllowedToUseMove(moveID))
+        return FALSE;
 
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
+    for (i = 0; i < PARTY_SIZE; i++) {
         pokemon = &gParties[B_TRAINER_PLAYER][i];
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG)) {
             species = GetMonData(pokemon, MON_DATA_SPECIES);
+            if (!species) 
+                break;
 
             switch(moveID) {
                 // please use a bug type on your team I'm crying and pissing and shitting
@@ -3645,6 +3659,7 @@ bool8 CanUseFieldMove(struct ScriptContext *ctx)
                 case MOVE_ROCK_SMASH:
                 case MOVE_ROCK_CLIMB: 
                     if ((gSpeciesInfo[species].types[0] == TYPE_FIGHTING || gSpeciesInfo[species].types[1] == TYPE_FIGHTING) 
+                    || (gSpeciesInfo[species].types[0] == TYPE_GROUND    || gSpeciesInfo[species].types[1] == TYPE_GROUND)
                     || (gSpeciesInfo[species].types[0] == TYPE_ROCK      || gSpeciesInfo[species].types[1] == TYPE_ROCK)
                     || (GetMonAbility(pokemon) == ABILITY_ROCK_HEAD      || GetMonAbility(pokemon) == ABILITY_IRON_FIST)) {
                         gSpecialVar_Result = i;
@@ -3685,6 +3700,7 @@ bool8 CanUseFieldMove(struct ScriptContext *ctx)
                         gSpecialVar_0x8004 = species;
                         return TRUE;
                     }
+                    break;
                 
                 // fall through
                 default: break;
