@@ -86,7 +86,8 @@
     "blankmap"
   ],
   "gMapGroup_Towns": [
-    "HorizonPort"
+    "HorizonPort",
+    "DawnshoreCity"
   ],
   "gMapGroup_Routes": [
     "Route_1"

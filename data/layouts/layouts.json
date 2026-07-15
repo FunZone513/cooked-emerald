@@ -9363,6 +9363,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route_1/border.bin",
       "blockdata_filepath": "data/layouts/Route_1/map.bin"
+    },
+    {
+      "id": "LAYOUT_DAWNSHORE_CITY",
+      "name": "DawnshoreCity_Layout",
+      "width": 24,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dewford",
+      "border_filepath": "data/layouts/DawnshoreCity/border.bin",
+      "blockdata_filepath": "data/layouts/DawnshoreCity/map.bin"
     }
   ]
 }
