@@ -90,7 +90,6 @@ Class: Rival Richard
 Pic: Rival Richard
 Gender: Male
 Music: Male
-Double Battle: No
 AI: Basic Trainer
 
 Hydreigon
@@ -102,7 +101,6 @@ Class: Tuber F
 Pic: Tuber F
 Gender: Female
 Music: Girl
-Double Battle: No
 AI: Basic Trainer
 
 Slugma
@@ -114,7 +112,6 @@ Class: Tuber M
 Pic: Tuber M
 Gender: Male
 Music: Girl
-Double Battle: No
 AI: Basic Trainer
 
 Krabby
@@ -126,18 +123,58 @@ Class: Youngster
 Pic: Youngster
 Gender: Male
 Music: Male
-Double Battle: No
 AI: Basic Trainer
 
 Shroomish
 Level: 3
 
+=== TRAINER_ROUTE1_FISHERMAN ===
+Name: Bradley
+Class: Fisherman
+Pic: Fisherman
+Gender: Male
+Music: Hiker
+AI: Basic Trainer
 
+Corphish
+Level: 2
 
+Clauncher
+Level: 3
 
+=== TRAINER_ROUTE1_SCHOOLKID ===
+Name: Thomas
+Class: School Kid
+Pic: School Kid M
+Gender: Male
+Music: Male
+AI: Basic Trainer
 
+Lillipup
+Level: 3
 
+=== TRAINER_ROUTE1_BUG_CATCHER ===
+Name: Dennis
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Music: Male
+AI: Basic Trainer
 
+Venipede
+Level: 3
+
+=== TRAINER_ROUTE1_PICNICKER ===
+Name: Holly
+Class: Picnicker
+Pic: Picnicker
+Gender: Female
+Music: Girl
+Double Battle: No
+AI: Basic Trainer
+
+Azurill
+Level: 3
 
 
 

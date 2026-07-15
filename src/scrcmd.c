@@ -3626,6 +3626,7 @@ bool8 AllowedToUseMove(u16 MOVE) {
     }
 }
 
+// filter for whether the move can be used, based on party types and abilities
 bool8 CanUseFieldMove(struct ScriptContext *ctx) {
     u16 moveID = ScriptReadHalfword(ctx);
     u8 i;

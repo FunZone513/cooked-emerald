@@ -1230,10 +1230,10 @@
 #define FLAG_ITEM_HORIZON_PORT_2                                    0x494
 #define FLAG_ITEM_HORIZON_PORT_3                                    0x495
 #define FLAG_ITEM_HORIZON_PORT_4                                    0x496
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
-#define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
-#define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
+#define FLAG_ITEM_ROUTE1                                            0x497 // Unused Flag
+#define FLAG_ITEM_ROUTE1_2                                          0x498 // Unused Flag
+#define FLAG_ITEM_ROUTE1_3                                          0x499 // Unused Flag
+#define FLAG_ITEM_ROUTE1_4                                          0x49A // Unused Flag
 #define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
 #define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
 #define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
@@ -1513,7 +1513,7 @@
 
 //MARK: Misc Flags
 #define FLAG_BEAT_HORIZON_PORT_KIDS                 (SYSTEM_FLAGS + 0x85)
-#define FLAG_UNUSED_0x8E6                           (SYSTEM_FLAGS + 0x86) // Unused Flag
+#define FLAG_BEAT_ROUTE1_OW_MON                     (SYSTEM_FLAGS + 0x86)
 #define FLAG_UNUSED_0x8E7                           (SYSTEM_FLAGS + 0x87) // Unused Flag
 #define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) // Unused Flag
 #define FLAG_UNUSED_0x8E9                           (SYSTEM_FLAGS + 0x89) // Unused Flag

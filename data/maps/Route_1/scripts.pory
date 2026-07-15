@@ -1,1 +1,63 @@
 mapscripts Route_1_MapScripts {}
+
+script Route_1_OW_Mon {
+    message("It looks like a Pokemon is playing\nwith an item...")
+    waitmessage
+    waitbuttonpress
+    playse(SE_PIN)
+    applymovement(OW_MON, moves(emote_exclamation_mark delay_8 face_down))
+    waitse
+    playmoncry(SPECIES_PARAS, CRY_MODE_ENCOUNTER)
+    waitmovement(0)
+    applymovement(OW_MON, moves(walk_in_place_slow_down))
+    waitmoncry
+    waitmovement(0)
+    msgbox("Oh no! The Pokemon attacked!", MSGBOX_AUTOCLOSE)
+    setwildbattle(SPECIES_PARAS, 5)
+    dowildbattle
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    if (var(VAR_RESULT) == B_OUTCOME_WON || var(VAR_RESULT) == B_OUTCOME_CAUGHT || var(VAR_RESULT) == B_OUTCOME_DREW ) {
+        setflag(FLAG_BEAT_ROUTE1_OW_MON)
+        removeobject(OW_MON)
+    } else {
+        applymovement(OW_MON, moves(walk_in_place_up))
+        waitmovement(0)
+    }
+    releaseall
+}
+
+script Route_1_Fisherman {
+    trainerbattle_single(
+        TRAINER_ROUTE1_FISHERMAN, 
+        "I'm trying to catch some Pokemon here!",
+        "If only I'd caught another one..."
+    )
+    msgbox(format("It looks like there's something in the middle of the lake."), MSGBOX_NPC)
+}
+
+script Route_1_SchoolKid {
+    trainerbattle_single(
+        TRAINER_ROUTE1_SCHOOLKID, 
+        "Hey you're new here right?\nThat means you're weak!",
+        "Woah you're not weak at all!"
+    )
+    msgbox("Man you're no joke!", MSGBOX_NPC)
+}
+
+script Route_1_BugCatcher {
+    trainerbattle_single(
+        TRAINER_ROUTE1_BUG_CATCHER, 
+        "Go!",
+        "Bweh!"
+    )
+    msgbox(format("My sister is scared of my Pokemon, but I think it's pretty cute."), MSGBOX_NPC)
+}
+
+script Route_1_Picnicker {
+    trainerbattle_single(
+        TRAINER_ROUTE1_PICNICKER, 
+        "Going for a stroll?",
+        "Hey, you're not too shabby!"
+    )
+    msgbox(format("The water in this lake is nice and cool, so it makes for a great camping spot."), MSGBOX_NPC)
+}
