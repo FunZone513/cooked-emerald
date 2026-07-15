@@ -9358,7 +9358,7 @@
       "id": "LAYOUT_ROUTE_1",
       "name": "Route_1_Layout",
       "width": 42,
-      "height": 48,
+      "height": 42,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Route_1/border.bin",
@@ -9373,6 +9373,16 @@
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/DawnshoreCity/border.bin",
       "blockdata_filepath": "data/layouts/DawnshoreCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_REST_AREA1",
+      "name": "RestArea1_Layout",
+      "width": 20,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/RestArea1/border.bin",
+      "blockdata_filepath": "data/layouts/RestArea1/map.bin"
     }
   ]
 }

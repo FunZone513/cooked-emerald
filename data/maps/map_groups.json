@@ -93,7 +93,9 @@
     "Route_1"
   ],
   "gMapGroup_Dungeons": [],
-  "gMapGroup_NamedAreas": [],
+  "gMapGroup_NamedAreas": [
+    "RestArea1"
+  ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
     "SlateportCity",

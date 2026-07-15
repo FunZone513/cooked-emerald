@@ -17,6 +17,11 @@
       "map": "MAP_HORIZON_PORT",
       "offset": -6,
       "direction": "up"
+    },
+    {
+      "map": "MAP_REST_AREA1",
+      "offset": 2,
+      "direction": "down"
     }
   ],
   "object_events": [
