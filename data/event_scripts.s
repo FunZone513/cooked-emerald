@@ -1751,3 +1751,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/DawnshoreCity/scripts.inc"
 
 	.include "data/maps/RestArea1/scripts.inc"
+
+	.include "data/maps/WhisperWoods/scripts.inc"

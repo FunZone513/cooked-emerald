@@ -12,9 +12,12 @@
 #define TRAINER_ROUTE1_SCHOOLKID                5
 #define TRAINER_ROUTE1_BUG_CATCHER              6
 #define TRAINER_ROUTE1_PICNICKER                7
+#define TRAINER_WHISPER_WOODS_BUG_CATCHER       8
+#define TRAINER_WHISPER_WOODS_CAMPER            9
+#define TRAINER_WHISPER_WOODS_LADY              10
 
 //== update this every time
-#define TRAINERS_COUNT_EMERALD     8
+#define TRAINERS_COUNT_EMERALD     11
 
 // don't go over this I guess (theres no fucking way I add 800+ trainers)
 #define MAX_TRAINERS_COUNT_EMERALD 864

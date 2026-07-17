@@ -92,7 +92,9 @@
   "gMapGroup_Routes": [
     "Route_1"
   ],
-  "gMapGroup_Dungeons": [],
+  "gMapGroup_Dungeons": [
+    "WhisperWoods"
+  ],
   "gMapGroup_NamedAreas": [
     "RestArea1"
   ],

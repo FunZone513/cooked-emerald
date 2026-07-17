@@ -759,6 +759,7 @@ void FadeOutBody(struct MusicPlayerInfo *mplayInfo)
     }
 }
 
+//
 void TrkVolPitSet(struct MusicPlayerInfo *mplayInfo, struct MusicPlayerTrack *track)
 {
     if (track->flags & MPT_FLG_VOLSET)

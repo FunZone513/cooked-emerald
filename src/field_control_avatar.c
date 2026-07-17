@@ -199,8 +199,13 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         metatileBehavior = MapGridGetMetatileBehaviorAt(position.x, position.y);
     }
 
-    if (input->checkStandardWildEncounter && CheckStandardWildEncounter(metatileBehavior) == TRUE)
-        return TRUE;
+    if (input->checkStandardWildEncounter) {
+        if (FlagGet(FLAG_TEMP_FORCE_ENCOUNTER_ON_RUN) && TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_DASH))
+            return TryForceWildEncounter();
+        else
+            return CheckStandardWildEncounter(metatileBehavior);
+    }
+
     if (input->heldDirection && input->dpadDirection == playerDirection)
     {
         if (TryArrowWarp(&position, metatileBehavior, playerDirection) == TRUE)

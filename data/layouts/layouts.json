@@ -9383,6 +9383,16 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/RestArea1/border.bin",
       "blockdata_filepath": "data/layouts/RestArea1/map.bin"
+    },
+    {
+      "id": "LAYOUT_WHISPER_WOODS",
+      "name": "WhisperWoods_Layout",
+      "width": 22,
+      "height": 16,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/WhisperWoods/border.bin",
+      "blockdata_filepath": "data/layouts/WhisperWoods/map.bin"
     }
   ]
 }

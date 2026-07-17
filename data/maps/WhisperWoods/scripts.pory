@@ -1,0 +1,36 @@
+mapscripts WhisperWoods_MapScripts {
+    MAP_SCRIPT_ON_RESUME: WhisperWoods_OnLoad
+}
+
+script WhisperWoods_OnLoad {
+    if (!flag(FLAG_TEMP_FORCE_ENCOUNTER_ON_RUN)) {
+        setflag(FLAG_TEMP_FORCE_ENCOUNTER_ON_RUN)
+    }
+}
+
+script WhisperWoods_BugCatcher {
+    trainerbattle_single(
+        TRAINER_WHISPER_WOODS_BUG_CATCHER, 
+        "I'm on the lookout!",
+        "I haven't found it yet!"
+    )
+    msgbox("I've heard there's a rare bug type here.", MSGBOX_NPC)
+}
+
+script WhisperWoods_Camper {
+    trainerbattle_single(
+        TRAINER_WHISPER_WOODS_CAMPER, 
+        "Shh!",
+        "Don't make so much noise!"
+    )
+    msgbox(format("The Pokemon here are really sensitive to sound, so be careful when moving about."), MSGBOX_NPC)
+}
+
+script WhisperWoods_Lady {
+    trainerbattle_single(
+        TRAINER_WHISPER_WOODS_LADY, 
+        "Oh my!",
+        "Well aren't you something?"
+    )
+    msgbox("I like how calm and quiet it is here.\nIt's very soothing.", MSGBOX_NPC)
+}

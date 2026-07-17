@@ -1102,31 +1102,33 @@ enum NationalDexOrder
     F(SWELLOW) \
     F(YANMA) \
     F(YANMEGA) \
-    F(KRABBY) \
-    F(KINGLER) \
+    F(AZURILL) \
+    F(MARILL) \
+    F(AZUMARILL) \
+    F(PARAS) \
+    F(PARASECT) \
+    F(WHISMUR) \
+    F(LOUDRED) \
+    F(EXPLOUD) \
     F(HOOTHOOT) \
     F(NOCTOWL) \
     F(BUNEARY) \
     F(LOPUNNY) \
-    F(WHISMUR) \
-    F(LOUDRED) \
-    F(EXPLOUD) \
+    F(JOLTIK) \
+    F(GALVANTULA) \
+    F(SHROOMISH) \
+    F(BRELOOM) \
     F(VENIPEDE) \
     F(WHIRLIPEDE) \
     F(SCOLIPEDE) \
-    F(PARAS) \
-    F(PARASECT) \
-    F(SHROOMISH) \
-    F(BRELOOM) \
-    F(JOLTIK) \
-    F(GALVANTULA) \
-    F(CLAUNCHER) \
-    F(CLAWITZER) \
     F(CORPHISH) \
     F(CRAWDAUNT) \
-    F(AZURILL) \
-    F(MARILL) \
-    F(AZUMARILL) \
+    F(CLAUNCHER) \
+    F(CLAWITZER) \
+    F(KRABBY) \
+    F(KINGLER) \
+    F(TENTACOOL) \
+    F(TENTACRUEL) \
     F(ZUBAT) \
     F(GOLBAT) \
     F(CROBAT) \
@@ -1152,8 +1154,6 @@ enum NationalDexOrder
     F(HARIYAMA) \
     F(CARVANHA) \
     F(SHARPEDO) \
-    F(TENTACOOL) \
-    F(TENTACRUEL) \
     F(SHELLDER) \
     F(CLOYSTER) \
     F(SKRELP) \

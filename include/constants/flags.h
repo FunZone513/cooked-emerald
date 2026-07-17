@@ -668,7 +668,7 @@
 #define FLAG_FORCE_WILD_DOUBLE_BATTLE   0x264   // Used for toggling wild double battles
 #define FLAG_SHARED_EXP                 0x265   // Used for toggling shared exp
 #define FLAG_ENABLE_VS_SEEKER           0x266   // Used for Vs. Seeker
-#define FLAG_DISABLE_FOLLOWER_POKEMON    0x267   // Used for toggling follower pokemon
+#define FLAG_DISABLE_FOLLOWER_POKEMON   0x267   // Used for toggling follower pokemon
 #define FLAG_FLY_FROM_NAV               0x268   // Used for toggling fly from nav menu
 #define FLAG_USE_NEW_TYPE_CHART         0x269   // QoL flag for the new type chart
 #define FLAG_ACTIVE_BOSS_BATTLE         0x26A   // Toggles Boss Battle State
@@ -676,9 +676,8 @@
 #define FLAG_FORCE_SHINY_ENCOUNTERS     0x26C   // Toggles shiny encounters
 #define FLAG_NOCLIP                     0x26D   // Toggles collision
 #define FLAG_DISABLE_TRAINER_BATTLES    0x26E   // Stops trainer line of sight
+#define FLAG_FORCE_ENCOUNTER_ON_RUN     0x26F   // Forcefully starts a wild encounter if the player attempts to run (in overworld)
 
-
-#define FLAG_UNUSED_0x26F  0x26F // Unused Flag
 #define FLAG_UNUSED_0x270  0x270 // Unused Flag
 #define FLAG_UNUSED_0x271  0x271 // Unused Flag
 #define FLAG_UNUSED_0x272  0x272 // Unused Flag
@@ -1230,12 +1229,12 @@
 #define FLAG_ITEM_HORIZON_PORT_2                                    0x494
 #define FLAG_ITEM_HORIZON_PORT_3                                    0x495
 #define FLAG_ITEM_HORIZON_PORT_4                                    0x496
-#define FLAG_ITEM_ROUTE1                                            0x497 // Unused Flag
-#define FLAG_ITEM_ROUTE1_2                                          0x498 // Unused Flag
-#define FLAG_ITEM_ROUTE1_3                                          0x499 // Unused Flag
-#define FLAG_ITEM_ROUTE1_4                                          0x49A // Unused Flag
-#define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
-#define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
+#define FLAG_ITEM_ROUTE1                                            0x497 
+#define FLAG_ITEM_ROUTE1_2                                          0x498 
+#define FLAG_ITEM_ROUTE1_3                                          0x499 
+#define FLAG_ITEM_ROUTE1_4                                          0x49A 
+#define FLAG_ITEM_WHISPER_WOODS                                     0x49B
+#define FLAG_ITEM_WHISPER_WOODS_1                                   0x49C 
 #define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
 #define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
 #define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
@@ -1664,6 +1663,7 @@
 #define FLAG_TEMP_REGICE_PUZZLE_STARTED         FLAG_TEMP_2
 #define FLAG_TEMP_REGICE_PUZZLE_FAILED          FLAG_TEMP_3
 #define FLAG_TEMP_HIDE_FOLLOWER                 FLAG_TEMP_E
+#define FLAG_TEMP_FORCE_ENCOUNTER_ON_RUN        FLAG_TEMP_1A
 #define FLAG_TEMP_HIDE_MIRAGE_ISLAND_BERRY_TREE FLAG_TEMP_11
 
 // FRLG flags

@@ -170,12 +170,49 @@ Class: Picnicker
 Pic: Picnicker
 Gender: Female
 Music: Girl
-Double Battle: No
 AI: Basic Trainer
 
 Azurill
 Level: 3
 
+=== TRAINER_WHISPER_WOODS_BUG_CATCHER ===
+Name: Joseph
+Class: Bug Catcher
+Pic: Bug Catcher FRLG
+Gender: Male
+Music: Male
+AI: Basic Trainer
+
+Paras
+Level: 4
+
+=== TRAINER_WHISPER_WOODS_CAMPER ===
+Name: Bobby
+Class: Camper
+Pic: Camper
+Gender: Male
+Music: Male
+AI: Basic Trainer
+
+Lillipup
+Level: 3
+
+Hoothoot
+Level: 3
+
+=== TRAINER_WHISPER_WOODS_LADY ===
+Name: Deanne
+Class: Aroma Lady
+Pic: Aroma Lady
+Gender: Female
+Music: Female
+AI: Basic Trainer
+
+Whismur
+Level: 3
+
+Shroomish
+Level: 3
 
 
 

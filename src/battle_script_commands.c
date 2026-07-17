@@ -11198,6 +11198,9 @@ void ApplyExperienceMultipliers(s32 *expAmount, u8 expGetterMonId, u8 faintedBat
 
         *expAmount = value + 1;
     }
+    
+    // Adjust the final experience value by the QoL exp amp
+    *expAmount = (*expAmount * (100 + VarGet(VAR_INCREASE_EXP_GAIN))) / 100;
 }
 
 void BS_ItemRestoreHP(void)

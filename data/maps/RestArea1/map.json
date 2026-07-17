@@ -2,7 +2,7 @@
   "id": "MAP_REST_AREA1",
   "name": "RestArea1",
   "layout": "LAYOUT_REST_AREA1",
-  "music": "MUS_RG_CELADON",
+  "music": "MUS_LITTLEROOT",
   "region_map_section": "MAPSEC_ONE_ISLAND",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -20,7 +20,22 @@
     }
   ],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 13,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_WHISPER_WOODS",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 14,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_WHISPER_WOODS",
+      "dest_warp_id": "1"
+    }
+  ],
   "coord_events": [],
   "bg_events": []
 }

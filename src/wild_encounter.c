@@ -1198,6 +1198,18 @@ bool8 StandardWildEncounter_Debug(void)
     return TRUE;
 }
 
+bool8 TryForceWildEncounter(void)
+{
+    u32 headerId = GetCurrentMapWildMonHeaderId();
+    enum TimeOfDay timeOfDay = GetTimeOfDayForEncounters(headerId, WILD_AREA_LAND); //* change this to whatever if I want
+
+    if (TryGenerateWildMon(gWildMonHeaders[headerId].encounterTypes[timeOfDay].landMonsInfo, WILD_AREA_LAND, 0) != TRUE)
+        return FALSE;
+
+    BattleSetup_StartWildBattle();
+    return TRUE;
+}
+
 u32 ChooseHiddenMonIndex(void)
 {
     #ifdef ENCOUNTER_CHANCE_HIDDEN_MONS_TOTAL
