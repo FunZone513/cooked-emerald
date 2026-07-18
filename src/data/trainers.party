@@ -76,7 +76,7 @@ Comments can be added as C comment blocks
 
 /*
 === TRAINER_NONE ===
-Name:
+Name: Ass
 Class: Pkmn Trainer 1
 Pic: Hiker
 Gender: Male
@@ -85,18 +85,18 @@ Double Battle: No
 */
 
 === TRAINER_RIVAL_RICHARD_1 ===
-Name: Richard
+Name: RICHARD
 Class: Rival Richard
 Pic: Rival Richard
 Gender: Male
 Music: Male
 AI: Basic Trainer
 
-Hydreigon
-Level: 70
+Deino
+Level: 5
 
 === TRAINER_HORIZON_PORT_FIRE ===
-Name: Ashley
+Name: ASHLEY
 Class: Tuber F
 Pic: Tuber F
 Gender: Female
@@ -107,7 +107,7 @@ Slugma
 Level: 3
 
 === TRAINER_HORIZON_PORT_WATER ===
-Name: River
+Name: RIVER
 Class: Tuber M
 Pic: Tuber M
 Gender: Male
@@ -118,7 +118,7 @@ Krabby
 Level: 3
 
 === TRAINER_HORIZON_PORT_GRASS ===
-Name: Forrest
+Name: FORREST
 Class: Youngster
 Pic: Youngster
 Gender: Male
@@ -129,7 +129,7 @@ Shroomish
 Level: 3
 
 === TRAINER_ROUTE1_FISHERMAN ===
-Name: Bradley
+Name: BRADLEY
 Class: Fisherman
 Pic: Fisherman
 Gender: Male
@@ -143,7 +143,7 @@ Clauncher
 Level: 3
 
 === TRAINER_ROUTE1_SCHOOLKID ===
-Name: Thomas
+Name: THOMAS
 Class: School Kid
 Pic: School Kid M
 Gender: Male
@@ -154,7 +154,7 @@ Lillipup
 Level: 3
 
 === TRAINER_ROUTE1_BUG_CATCHER ===
-Name: Dennis
+Name: DENNIS
 Class: Bug Catcher
 Pic: Bug Catcher
 Gender: Male
@@ -165,7 +165,7 @@ Venipede
 Level: 3
 
 === TRAINER_ROUTE1_PICNICKER ===
-Name: Holly
+Name: HOLLY
 Class: Picnicker
 Pic: Picnicker
 Gender: Female
@@ -176,7 +176,7 @@ Azurill
 Level: 3
 
 === TRAINER_WHISPER_WOODS_BUG_CATCHER ===
-Name: Joseph
+Name: JOSEPH
 Class: Bug Catcher
 Pic: Bug Catcher FRLG
 Gender: Male
@@ -187,7 +187,7 @@ Paras
 Level: 4
 
 === TRAINER_WHISPER_WOODS_CAMPER ===
-Name: Bobby
+Name: BOBBY
 Class: Camper
 Pic: Camper
 Gender: Male
@@ -201,7 +201,7 @@ Hoothoot
 Level: 3
 
 === TRAINER_WHISPER_WOODS_LADY ===
-Name: Deanne
+Name: DEANNE
 Class: Aroma Lady
 Pic: Aroma Lady
 Gender: Female
