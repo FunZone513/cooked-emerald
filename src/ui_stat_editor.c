@@ -768,49 +768,21 @@ static void PrintMonStats()
     // HP can't be altered by nature
     AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 24 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 0), 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_MenuHP);
     
-    u8 ATK_COLOUR = FONT_WHITE;
-    u8 DEF_COLOUR = FONT_WHITE;
-    u8 SPATK_COLOUR = FONT_WHITE;
-    u8 SPDEF_COLOUR = FONT_WHITE;
-    u8 SPD_COLOUR = FONT_WHITE;
-
-    // omit natures that change the same stat, or if nature highlighting is disabled
-    if (!(gNaturesInfo[nature].statUp == gNaturesInfo[nature].statDown) || !P_SUMMARY_SCREEN_NATURE_COLORS) {
-
-        // stat +
-        switch (gNaturesInfo[nature].statUp) {
-            case STAT_ATK: ATK_COLOUR = FONT_RED; break;
-            case STAT_DEF: DEF_COLOUR = FONT_RED; break;
-            case STAT_SPATK: SPATK_COLOUR = FONT_RED; break;
-            case STAT_SPDEF: SPDEF_COLOUR = FONT_RED; break;
-            case STAT_SPEED: SPD_COLOUR = FONT_RED; break;
-            default: break;
+    // Colour the stat
+    {
+        u8 statColours[NUM_STATS] = {FONT_WHITE, FONT_WHITE, FONT_WHITE, FONT_WHITE, FONT_WHITE, FONT_WHITE};
+        
+        if (P_SUMMARY_SCREEN_NATURE_COLORS && (gNaturesInfo[nature].statUp != gNaturesInfo[nature].statDown)) {
+            statColours[gNaturesInfo[nature].statUp] = FONT_RED;
+            statColours[gNaturesInfo[nature].statDown] = FONT_BLUE;
         }
 
-        // stat -
-        switch (gNaturesInfo[nature].statDown) {
-            case STAT_ATK: ATK_COLOUR = FONT_BLUE; break;
-            case STAT_DEF: DEF_COLOUR = FONT_BLUE; break;
-            case STAT_SPATK: SPATK_COLOUR = FONT_BLUE; break;
-            case STAT_SPDEF: SPDEF_COLOUR = FONT_BLUE; break;
-            case STAT_SPEED: SPD_COLOUR = FONT_BLUE; break;
-            default: break;
-        }
+        AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 12 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 1), 0, 0, sMenuWindowFontColors[statColours[STAT_ATK]], 0xFF, sText_MenuAttack);
+        AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 12 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 2), 0, 0, sMenuWindowFontColors[statColours[STAT_DEF]], 0xFF, sText_MenuDefense);
+        AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 10 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 3), 0, 0, sMenuWindowFontColors[statColours[STAT_SPATK]], 0xFF, sText_MenuSpAttack);
+        AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 12 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 4), 0, 0, sMenuWindowFontColors[statColours[STAT_SPDEF]], 0xFF, sText_MenuSpDefense);
+        AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 16 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 5), 0, 0, sMenuWindowFontColors[statColours[STAT_SPEED]], 0xFF, sText_MenuSpeed);
     }
-
-    AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 12 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 1), 0, 0, sMenuWindowFontColors[ATK_COLOUR], 0xFF, sText_MenuAttack);
-    AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 12 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 2), 0, 0, sMenuWindowFontColors[DEF_COLOUR], 0xFF, sText_MenuDefense);
-    AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 10 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 3), 0, 0, sMenuWindowFontColors[SPATK_COLOUR], 0xFF, sText_MenuSpAttack);
-    AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 12 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 4), 0, 0, sMenuWindowFontColors[SPDEF_COLOUR], 0xFF, sText_MenuSpDefense);
-    AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 16 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 5), 0, 0, sMenuWindowFontColors[SPD_COLOUR], 0xFF, sText_MenuSpeed);
-
-    /* 
-    AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 12 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 1), 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_MenuAttack);
-    AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 12 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 2), 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_MenuDefense);
-    AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 10 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 3), 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_MenuSpAttack);
-    AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 12 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 4), 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_MenuSpDefense);
-    AddTextPrinterParameterized4(WINDOW_2, FONT_NARROW, 16 + 16, STARTING_Y + (DISTANCE_BETWEEN_STATS_Y * 5), 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_MenuSpeed);
-    */
     
     // Print Mon Stats
     for(i = 0; i < 6; i++)
