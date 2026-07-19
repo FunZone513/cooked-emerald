@@ -5779,3 +5779,29 @@ bool8 CheckAddCoins(void)
     else
         return TRUE;
 }
+
+void TrackPartyHealthLost(void) {
+    // capped
+    if (VarGet(VAR_TOTAL_PKMN_CENTRE_HEALING) == 65535) 
+        return;
+
+    u8 i;
+    struct Pokemon *pokemon;
+    u16 *healthLostTotal = GetVarPointer(VAR_TOTAL_PKMN_CENTRE_HEALING);
+
+    for (i = 0; i < PARTY_SIZE; i++) {
+        pokemon = &gParties[B_TRAINER_PLAYER][i];
+        
+        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG)) {
+
+            // overflow prevention
+            if (65535 - VarGet(VAR_TOTAL_PKMN_CENTRE_HEALING) < GetMonData(pokemon, MON_DATA_HP_LOST) ) {
+                (*healthLostTotal) = 65535;
+                return;
+            } else {
+                (*healthLostTotal) += GetMonData(pokemon, MON_DATA_HP_LOST);
+            }
+
+        }
+    }
+}

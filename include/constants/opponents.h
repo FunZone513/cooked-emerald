@@ -15,9 +15,10 @@
 #define TRAINER_WHISPER_WOODS_BUG_CATCHER       8
 #define TRAINER_WHISPER_WOODS_CAMPER            9
 #define TRAINER_WHISPER_WOODS_LADY              10
+#define TRAINER_HORIZON_PORT_FAN_DUO            11
 
 //== update this every time
-#define TRAINERS_COUNT_EMERALD     11
+#define TRAINERS_COUNT_EMERALD     12
 
 // don't go over this I guess (theres no fucking way I add 800+ trainers)
 #define MAX_TRAINERS_COUNT_EMERALD 864

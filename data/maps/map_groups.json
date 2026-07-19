@@ -5,6 +5,8 @@
     "gMapGroup_Routes",
     "gMapGroup_Dungeons",
     "gMapGroup_NamedAreas",
+    "gMapGroup_IndoorTowns",
+    "gMapGroup_IndoorRoutes",
     "gMapGroup_TownsAndRoutes",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
@@ -98,6 +100,13 @@
   "gMapGroup_NamedAreas": [
     "RestArea1"
   ],
+  "gMapGroup_IndoorTowns": [
+    "HorizonPort_PokeCentre",
+    "HorizonPort_Shipyard",
+    "HorizonPort_House",
+    "HorizonPort_House2"
+  ],
+  "gMapGroup_IndoorRoutes": [],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
     "SlateportCity",

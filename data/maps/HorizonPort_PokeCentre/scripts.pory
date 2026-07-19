@@ -1,0 +1,29 @@
+mapscripts HorizonPort_PokeCentre_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: HorizonPort_PokeCentre_OnTransition
+}
+
+script HorizonPort_PokeCentre_OnTransition {
+    setrespawn(HEAL_LOCATION_HORIZON_PORT)
+}
+
+script HorizonPort_PokeCentre_Nurse {
+	setvar(VAR_0x800B, NURSE)
+	call(Common_EventScript_PkmnCenterNurse)
+    releaseall
+}
+
+script HorizonPort_PokeCentre_Man {
+    msgbox(format("It's really nice of them to heal your Pokemon for free!"), MSGBOX_NPC)
+}
+
+script HorizonPort_PokeCentre_Woman {
+    msgbox(format("My little baby is all excited to see all the newcomers!"), MSGBOX_NPC)
+}
+
+script HorizonPort_PokeCentre_Woman2 {
+    msgbox("You just got off the boat too?\nI'm having a rest before heading out.", MSGBOX_NPC)
+}
+
+script HorizonPort_PokeCentre_Hiker {
+    msgbox("I'm geared up and ready for adventure!", MSGBOX_NPC)
+}

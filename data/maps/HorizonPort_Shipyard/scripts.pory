@@ -1,0 +1,24 @@
+mapscripts HorizonPort_Shipyard_MapScripts {}
+
+script HorizonPort_Shipyard_Sailor {
+    msgbox("Your ticket was one-way.\nPlease enjoy your stay.", MSGBOX_NPC)
+    applymovement(LOCALID_PLAYER, moves(face_down))
+    waitmovement(0)
+    releaseall
+}
+
+script HorizonPort_Shipyard_Man {
+    msgbox(format("It looked a lot bigger on the inside..."), MSGBOX_NPC)
+}
+
+script HorizonPort_Shipyard_Man2 {
+    msgbox(format("As a new trainer, I should be allowed to check in there for any useful items!"), MSGBOX_NPC)
+}
+
+script HorizonPort_Shipyard_Woman {
+    msgbox(format("I was excited to start my journey, but Buneary is too cute to send into battle..."), MSGBOX_NPC)
+}
+
+script HorizonPort_Shipyard_Schoolkid {
+    msgbox(format("I'm starting to have second thoughts..."), MSGBOX_NPC)
+}

@@ -4,7 +4,10 @@ mapscripts HorizonPort_MapScripts {
 
 script HorizonPort_OnLoad {
     //! debug
-    call(Generic_DefaultSettings)
+    if (!flag(FLAG_ADVENTURE_STARTED)) {
+        call(Generic_DefaultSettings)
+        setflag(FLAG_ADVENTURE_STARTED)
+    }
 }
 
 script HorizonPort_Sign_Yard {

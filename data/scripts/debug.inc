@@ -201,21 +201,15 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
-	givemon SPECIES_METAGROSS, 100, ITEM_NONE, ITEM_PREMIER_BALL
-	trainerbattle_single TRAINER_SAWYER_1, DebugRivalRichardIntro, DebugRivalRichardDefeat
+	buffernumberstring STR_VAR_1, VAR_TOTAL_PKMN_CENTRE_HEALING
+	msgbox Debug_Total_Healing_Text, MSGBOX_DEFAULT
 	release
 	end
 
-DebugRivalRichardIntro:
-	.string "Ayo!$"
-
-DebugRivalRichardDefeat:
-	.string "You're Cringe...$"
+Debug_Total_Healing_Text:
+	.string "Total Healing: {STR_VAR_1}$"
 
 Debug_EventScript_Script_2::
-	setflag FLAG_RECEIVED_RUNNING_SHOES
-	warpsilent MAP_BLANKMAP 0
-	waitstate
 	release
 	end
 

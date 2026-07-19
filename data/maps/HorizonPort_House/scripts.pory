@@ -1,0 +1,13 @@
+mapscripts HorizonPort_House_MapScripts {}
+
+script HorizonPort_House_Man {
+    msgbox(format("I originally came here for a Pokemon journey too, but I've ended up with the journey of fatherhood instead."), MSGBOX_NPC)
+}
+
+script HorizonPort_House_Woman {
+    msgbox(format("And I thought Pokemon were weird."), MSGBOX_NPC)
+}
+
+script HorizonPort_House_Baby {
+    msgbox("?", MSGBOX_NPC)
+}

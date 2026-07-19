@@ -1,0 +1,79 @@
+mapscripts HorizonPort_House2_MapScripts {}
+
+script HorizonPort_House2_PicLunatone {
+    msgbox(format("A mysterious red eye..."), MSGBOX_SIGN)
+}
+
+script HorizonPort_House2_PicSolrock{
+    msgbox(format("It's almost warm to the touch..."), MSGBOX_SIGN)
+}
+
+script HorizonPort_House2_PicCarbink {
+    msgbox(format("An adorable rendition of a Carbink."), MSGBOX_SIGN)
+}
+
+script HorizonPort_House2_PicGuy {
+    msgbox(format("I wonder who this is supposed to be?"), MSGBOX_SIGN)
+}
+
+script HorizonPort_House2_Channeler {
+    msgbox(format("Do you feel it?"), MSGBOX_NPC)
+}
+
+script HorizonPort_House2_OldWoman {
+    msgbox(format("This little guy helps me out now that I'm well past my prime."), MSGBOX_NPC)
+}
+
+script HorizonPort_House2_Dude {
+    msgbox("My wife loves jewels, so when I was\nyounger I tried to woo her with all\lkinds of gemstones.\pTurns out she just wanted Carbinks.", MSGBOX_NPC)
+}
+
+//TODO: Diance quest
+script HorizonPort_House2_Chrysia {
+    msgbox(format("Look at these little guys!\nAren't they just the cutest?"), MSGBOX_NPC)
+}
+
+script HorizonPort_House2_Blackbelt {
+    msgbox(format("LETS GO! PUMP IT!"), MSGBOX_NPC)
+}
+
+script HorizonPort_House2_Scientist {
+    msgbox(format("I got in trouble once for trying to extract one of the Carnink's gems..."), MSGBOX_NPC)
+}
+
+script HorizonPort_House2_FanDuoM {
+    if (!defeated(TRAINER_HORIZON_PORT_FAN_DUO)) {
+        msgbox("We like to battle newcomers to see if\nthey're up to the journey!\pCare to give it a go?", MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES) {
+            trainerbattle_double(
+                TRAINER_HORIZON_PORT_FAN_DUO, 
+                "That's what I like to hear!", 
+                "You have promise!",
+                format("It's only fair if you also have 2 Pokemon, we'll wait.")
+            )
+        } else {
+            msgbox(format("No worries, we'll be here if you change your mind."), MSGBOX_AUTOCLOSE)
+        }
+    } else {
+        msgbox(format("I hope your Pokemon are treating you well!"))
+    }
+}
+
+script HorizonPort_House2_FanDuoF {
+    if (!defeated(TRAINER_HORIZON_PORT_FAN_DUO)) {
+        msgbox("Hey there! You're new here right?", MSGBOX_NPC)
+        msgbox("We battle newbies to help train them,\nyou wanna go at it?", MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES) {
+            trainerbattle_double(
+                TRAINER_HORIZON_PORT_FAN_DUO, 
+                "Let's get this party started!", 
+                "What a rush!",
+                format("Hey hey, you need at least 2 Pokemon to play!")
+            )
+        } else {
+            msgbox(format("Next time then."), MSGBOX_AUTOCLOSE)
+        }
+    } else {
+        msgbox(format("You sure know how to go at it!"))
+    }
+}

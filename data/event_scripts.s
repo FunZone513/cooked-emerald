@@ -1753,3 +1753,11 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/RestArea1/scripts.inc"
 
 	.include "data/maps/WhisperWoods/scripts.inc"
+
+	.include "data/maps/HorizonPort_PokeCentre/scripts.inc"
+
+	.include "data/maps/HorizonPort_Shipyard/scripts.inc"
+
+	.include "data/maps/HorizonPort_House/scripts.inc"
+
+	.include "data/maps/HorizonPort_House2/scripts.inc"

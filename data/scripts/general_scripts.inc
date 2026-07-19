@@ -23,8 +23,6 @@ Generic_DefaultSettings::
 	setflag FLAG_SYS_POKEDEX_GET
 # 20 "data/scripts/general_scripts.pory"
 	special SetUnlockedPokedexFlags
-# 22 "data/scripts/general_scripts.pory"
-	setflag FLAG_NOCLIP
 # 26 "data/scripts/general_scripts.pory"
 	setvar VAR_WILD_BATTLE_CHANCE, 15
 # 28 "data/scripts/general_scripts.pory"
