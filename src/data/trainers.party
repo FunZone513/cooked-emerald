@@ -214,8 +214,90 @@ Level: 3
 Shroomish
 Level: 3
 
+=== TRAINER_ROUTE2_YOUNGSTER ===
+Name: HARRY
+Class: Youngster
+Pic: Youngster
+Gender: Male
+Music: Male
+AI: Basic Trainer
 
+Taillow
+Level: 3
 
+Paras
+Level: 4
+
+=== TRAINER_ROUTE2_BEAUTY ===
+Name: REBECCA
+Class: Beauty
+Pic: Beauty FRLG
+Gender: Female
+Music: Female
+AI: Basic Trainer
+
+Marill
+Level: 5
+
+=== TRAINER_ROUTE2_TUBER ===
+Name: THOMAS
+Class: Tuber M
+Pic: Tuber M
+Gender: Male
+Music: Girl
+AI: Basic Trainer
+
+Azurill
+Level: 4
+
+=== TRAINER_ROUTE2_RUNNER ===
+Name: DARREN
+Class: Triathlete
+Pic: Running Triathlete M
+Gender: Male
+Music: Intense
+AI: Basic Trainer
+
+Lillipup
+Level: 4
+
+Lillipup
+Level: 4
+
+=== TRAINER_ROUTE2_FISHERMAN ===
+Name: MATTHEW
+Class: Fisherman
+Pic: Fisherman FRLG
+Gender: Male
+Music: Hiker
+AI: Basic Trainer
+Double Battle: Yes
+
+Krabby
+Level: 5
+
+Tentacool
+Level: 5
+
+Shellder
+Level: 5
+
+Carvanha
+Level: 5
+
+=== TRAINER_ROUTE2_HIKER ===
+Name: BRETT
+Class: Hiker
+Pic: Hiker
+Gender: Male
+Music: Hiker
+AI: Basic Trainer
+
+Whismur
+Level: 4
+
+Machop
+Level: 4
 
 
 

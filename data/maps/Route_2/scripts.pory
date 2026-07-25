@@ -1,0 +1,80 @@
+mapscripts Route_2_MapScripts {}
+
+script Route_2_Youngster {
+    trainerbattle_single(
+        TRAINER_ROUTE2_YOUNGSTER, 
+        "I'm going to beat you to show off\nhow cool I am!",
+        "No! You're embarrassing me!"
+    )
+    msgbox("I'm trying to look good in front of\nthis girl, but my Pokemon are too weak...", MSGBOX_NPC)
+}
+
+script Route_2_Beauty {
+    trainerbattle_single(
+        TRAINER_ROUTE2_BEAUTY, 
+        "This kid follows me around like a\nLillipup.",
+        "Haha,\nit's kinda cute how hard he's trying."
+    )
+    msgbox("Maybe when he gets a little older...", MSGBOX_NPC)
+}
+
+script Route_2_Tuber {
+    trainerbattle_single(
+        TRAINER_ROUTE2_TUBER, 
+        "Splish Splash!",
+        "Sploosh..."
+    )
+    msgbox("The waves tickle my toes!", MSGBOX_NPC)
+}
+
+script Route_2_Runner {
+    trainerbattle_single(
+        TRAINER_ROUTE2_RUNNER, 
+        "Oh yeah!",
+        "Oh no!"
+    )
+    msgbox("Running with my 'Mons makes for a\ngood workout!", MSGBOX_NPC)
+}
+
+script Route_2_Fisherman {
+    if (!defeated(TRAINER_ROUTE2_FISHERMAN)) {
+        lock
+        face_player
+        msgbox("I give out spare fishing rods to those\nthat beat me in battle.\pCare to give it a try?", MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES) {
+            trainerbattle_single(
+                TRAINER_ROUTE2_FISHERMAN, 
+                "Let's see if you have what it takes!",
+                "Looks like we have a freshly\ncaught fisherman over here!"
+            )
+            specialvar(VAR_RESULT, GetBattleOutcome)
+            if (var(VAR_RESULT) == B_OUTCOME_WON) {
+                msgbox("I'm a man of my word, here you go!", MSGBOX_NPC)
+                giveitem(ITEM_OLD_ROD)
+                setflag(FLAG_RECEIVED_OLD_ROD)
+                msgbox("Good luck with your fishing adventures!", MSGBOX_NPC)
+            } 
+        } else {
+            msgbox("Well if you fancy giving fishing a try,\nyou know where to find me.", MSGBOX_NPC)
+        }
+    } else {
+        if (!flag(FLAG_RECEIVED_OLD_ROD)) {
+            msgbox("I'm a man of my word, here you go!", MSGBOX_NPC)
+            giveitem(ITEM_OLD_ROD)
+            setflag(FLAG_RECEIVED_OLD_ROD)
+            msgbox("Good luck with your fishing adventures!", MSGBOX_NPC)
+        } else {  
+            msgbox("I hope your fishing is going well!", MSGBOX_NPC)
+        }
+    }
+    
+}
+
+script Route_2_Hiker {
+    trainerbattle_single(
+        TRAINER_ROUTE2_HIKER, 
+        "Whew, climbing up here really winded me.",
+        "Wait! I hadn't caught my breath yet!"
+    )
+    msgbox("After my surgery I can't hike like I\nused to, but at least I can relive some\lof the joy of it up here.", MSGBOX_NPC)
+}

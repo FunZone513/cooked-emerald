@@ -9367,7 +9367,7 @@
     {
       "id": "LAYOUT_DAWNSHORE_CITY",
       "name": "DawnshoreCity_Layout",
-      "width": 24,
+      "width": 40,
       "height": 50,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
@@ -9433,6 +9433,16 @@
       "secondary_tileset": "gTileset_PokemonFanClub",
       "border_filepath": "data/layouts/HorizonPort_House2/border.bin",
       "blockdata_filepath": "data/layouts/HorizonPort_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE_2",
+      "name": "Route_2_Layout",
+      "width": 30,
+      "height": 42,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dewford",
+      "border_filepath": "data/layouts/Route_2/border.bin",
+      "blockdata_filepath": "data/layouts/Route_2/map.bin"
     }
   ]
 }

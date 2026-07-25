@@ -1235,9 +1235,9 @@
 #define FLAG_ITEM_ROUTE1_4                                          0x49A 
 #define FLAG_ITEM_WHISPER_WOODS                                     0x49B
 #define FLAG_ITEM_WHISPER_WOODS_1                                   0x49C 
-#define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
-#define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
-#define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
+#define FLAG_ITEM_ROUTE2                                            0x49D // Unused Flag
+#define FLAG_ITEM_ROUTE2_2                                          0x49E // Unused Flag
+#define FLAG_ITEM_ROUTE2_3                                          0x49F // Unused Flag
 #define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
 #define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
 #define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag

@@ -16,9 +16,15 @@
 #define TRAINER_WHISPER_WOODS_CAMPER            9
 #define TRAINER_WHISPER_WOODS_LADY              10
 #define TRAINER_HORIZON_PORT_FAN_DUO            11
+#define TRAINER_ROUTE2_YOUNGSTER                12
+#define TRAINER_ROUTE2_BEAUTY                   13
+#define TRAINER_ROUTE2_TUBER                    14
+#define TRAINER_ROUTE2_RUNNER                   15
+#define TRAINER_ROUTE2_FISHERMAN                16
+#define TRAINER_ROUTE2_HIKER                    17
 
 //== update this every time
-#define TRAINERS_COUNT_EMERALD     12
+#define TRAINERS_COUNT_EMERALD     18
 
 // don't go over this I guess (theres no fucking way I add 800+ trainers)
 #define MAX_TRAINERS_COUNT_EMERALD 864
