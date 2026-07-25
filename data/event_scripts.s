@@ -1763,3 +1763,9 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/HorizonPort_House2/scripts.inc"
 
 	.include "data/maps/Route_2/scripts.inc"
+
+	.include "data/maps/DawnshoreCity_PokeCentre/scripts.inc"
+
+	.include "data/maps/DawnshoreCity_Mart/scripts.inc"
+
+	.include "data/maps/DawnshoreCity_CuttersHouse/scripts.inc"

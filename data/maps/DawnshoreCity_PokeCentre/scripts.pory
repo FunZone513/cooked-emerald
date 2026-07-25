@@ -1,0 +1,33 @@
+mapscripts DawnshoreCity_PokeCentre_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: DawnshoreCity_PokeCentre_OnTransition
+}
+
+script DawnshoreCity_PokeCentre_OnTransition {
+    setrespawn(HEAL_LOCATION_DAWNSHORE_CITY)
+}
+
+script DawnshoreCity_PokeCentre_Nurse {
+	setvar(VAR_0x800B, NURSE)
+	call(Common_EventScript_PkmnCenterNurse)
+    releaseall
+}
+
+script DawnshoreCity_PokeCentre_OldMan {
+    msgbox(format("The promotional material for the beach is very... provocative."), MSGBOX_NPC)
+}
+
+script DawnshoreCity_PokeCentre_Kid {
+    msgbox(format("Whenever I have a hard time with my school work I give my Whismur a big hug!"), MSGBOX_NPC)
+}
+
+script DawnshoreCity_PokeCentre_Lass {
+    msgbox("Oh hey!\nYou were on the boat too right?\lHow's the Pokemon adventure going?", MSGBOX_NPC)
+}
+
+script DawnshoreCity_PokeCentre_Woman {
+    msgbox(format("...sand in my shoes, sand in my pockets, sand in my..."), MSGBOX_NPC)
+}
+
+script DawnshoreCity_PokeCentre_Fisherman {
+    msgbox(format("Did you know some Pokemon are only found in salt water or fresh water?"), MSGBOX_NPC)
+}

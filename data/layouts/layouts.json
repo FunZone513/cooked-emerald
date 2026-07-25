@@ -9367,8 +9367,8 @@
     {
       "id": "LAYOUT_DAWNSHORE_CITY",
       "name": "DawnshoreCity_Layout",
-      "width": 40,
-      "height": 50,
+      "width": 36,
+      "height": 38,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/DawnshoreCity/border.bin",
@@ -9443,6 +9443,36 @@
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/Route_2/border.bin",
       "blockdata_filepath": "data/layouts/Route_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_DAWNSHORE_CITY_POKE_CENTRE",
+      "name": "DawnshoreCity_PokeCentre_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/DawnshoreCity_PokeCentre/border.bin",
+      "blockdata_filepath": "data/layouts/DawnshoreCity_PokeCentre/map.bin"
+    },
+    {
+      "id": "LAYOUT_DAWNSHORE_CITY_MART",
+      "name": "DawnshoreCity_Mart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/DawnshoreCity_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/DawnshoreCity_Mart/map.bin"
+    },
+    {
+      "id": "LAYOUT_DAWNSHORE_CITY_CUTTERS_HOUSE",
+      "name": "DawnshoreCity_CuttersHouse_Layout",
+      "width": 16,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/DawnshoreCity_CuttersHouse/border.bin",
+      "blockdata_filepath": "data/layouts/DawnshoreCity_CuttersHouse/map.bin"
     }
   ]
 }

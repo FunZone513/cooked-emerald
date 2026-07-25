@@ -1,0 +1,13 @@
+mapscripts DawnshoreCity_Mart_MapScripts {}
+
+script DawnshoreCity_Mart_Swimmer {
+    msgbox(format("Do you think if I spray a Burn Heal on myself it will cure my sunburn?"), MSGBOX_NPC)
+}
+
+script DawnshoreCity_Mart_Woman {
+    msgbox(format("I like to make sure I'm stocked up on all the essentials before I go out on a trip!"), MSGBOX_NPC)
+}
+
+script DawnshoreCity_Mart_Boy {
+    msgbox(format("I will be buying a bunch of Full Restores, anything less is unacceptable."), MSGBOX_NPC)
+}

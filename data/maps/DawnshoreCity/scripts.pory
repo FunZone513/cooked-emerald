@@ -1,1 +1,33 @@
 mapscripts DawnshoreCity_MapScripts {}
+
+script DawnshoreCity_GymSign {
+    msgbox("Dawnshore Gym:\nSun-kissed and Beach ready!")
+}
+
+script DawnshoreCity_Man {
+    msgbox(format("My Loudred has been with me since I was a kid, it used to be so cute and quiet..."), MSGBOX_NPC)
+}
+
+script DawnshoreCity_Man2 {
+    msgbox(format("They raised the Gym's spot onto a mound for some reason."), MSGBOX_NPC)
+}
+
+script DawnshoreCity_FatMan {
+    msgbox(format("...do you hear a creaking sound?"), MSGBOX_NPC)
+}
+
+script DawnshoreCity_SwimmerM {
+    msgbox(format("I would get up, but I think I'm so sunburned I've melted into the chair."), MSGBOX_NPC)
+}
+
+script DawnshoreCity_SwimmerF {
+    msgbox(format("The sun here is great, I love getting my tan on!"), MSGBOX_NPC)
+}
+
+script DawnshoreCity_LittleGirl {
+    msgbox(format("Washu?\pMapoi!"), MSGBOX_NPC)
+}
+
+script DawnshoreCity_Woman {
+    msgbox(format("Sand makes for a good leg workout, too bad it gets all up in everywhere."), MSGBOX_NPC)
+}

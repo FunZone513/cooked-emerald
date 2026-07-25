@@ -361,6 +361,12 @@
       "map": "MAP_HORIZON_PORT",
       "x": 20,
       "y": 29
+    },
+    {
+      "id": "HEAL_LOCATION_DAWNSHORE_CITY",
+      "map": "MAP_DAWNSHORE_CITY",
+      "x": 19,
+      "y": 17
     }
   ]
 }
