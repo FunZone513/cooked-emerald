@@ -3,7 +3,6 @@
   "name": "VictoryRoad_1F",
   "layout": "LAYOUT_VICTORY_ROAD_1F",
   "music": "MUS_VICTORY_ROAD",
-  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_VICTORY_ROAD",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -67,32 +66,6 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VictoryRoad_1F_EventScript_EntranceWally",
       "flag": "FLAG_HIDE_VICTORY_ROAD_ENTRANCE_WALLY"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 40,
-      "y": 26,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_MAX_ELIXIR",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_VICTORY_ROAD_1F_MAX_ELIXIR"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 37,
-      "y": 39,
-      "elevation": 4,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_PP_UP",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_VICTORY_ROAD_1F_PP_UP"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WALLY",
@@ -191,14 +164,6 @@
       "script": "VictoryRoad_1F_EventScript_WallyBattleTrigger2"
     }
   ],
-  "bg_events": [
-    {
-      "type": "hidden_item",
-      "x": 30,
-      "y": 39,
-      "elevation": 4,
-      "item": "ITEM_ULTRA_BALL",
-      "flag": "FLAG_HIDDEN_ITEM_VICTORY_ROAD_1F_ULTRA_BALL"
-    }
-  ]
+  "bg_events": [],
+  "region": "REGION_HOENN"
 }

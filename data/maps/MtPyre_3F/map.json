@@ -3,7 +3,6 @@
   "name": "MtPyre_3F",
   "layout": "LAYOUT_MT_PYRE_3F",
   "music": "MUS_MT_PYRE",
-  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_MT_PYRE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -40,19 +39,6 @@
       "trainer_sight_or_berry_tree_id": "4",
       "script": "MtPyre_3F_EventScript_Kayla",
       "flag": "0"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 0,
-      "y": 7,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_SUPER_REPEL",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_MT_PYRE_3F_SUPER_REPEL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
@@ -113,5 +99,6 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "region": "REGION_HOENN"
 }

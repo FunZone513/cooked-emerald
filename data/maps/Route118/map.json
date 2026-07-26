@@ -3,7 +3,6 @@
   "name": "Route118",
   "layout": "LAYOUT_ROUTE118",
   "music": "MUS_ROUTE118",
-  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_ROUTE_118",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
@@ -286,19 +285,6 @@
       "flag": "FLAG_HIDE_ROUTE_118_STEVEN"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 69,
-      "y": 7,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_HYPER_POTION",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_ROUTE_118_HYPER_POTION"
-    },
-    {
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
       "x": 7,
       "y": 7,
@@ -408,22 +394,7 @@
       "y": 5,
       "elevation": 0,
       "secret_base_id": "SECRET_BASE_TREE2_1"
-    },
-    {
-      "type": "hidden_item",
-      "x": 31,
-      "y": 13,
-      "elevation": 3,
-      "item": "ITEM_IRON",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE_118_IRON"
-    },
-    {
-      "type": "hidden_item",
-      "x": 12,
-      "y": 14,
-      "elevation": 3,
-      "item": "ITEM_HEART_SCALE",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE_118_HEART_SCALE"
     }
-  ]
+  ],
+  "region": "REGION_HOENN"
 }

@@ -3,7 +3,6 @@
   "name": "ShoalCave_LowTideEntranceRoom",
   "layout": "LAYOUT_SHOAL_CAVE_LOW_TIDE_ENTRANCE_ROOM",
   "music": "MUS_MT_PYRE",
-  "region": "REGION_HOENN",
   "region_map_section": "MAPSEC_SHOAL_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -15,19 +14,6 @@
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
   "object_events": [
-    {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 30,
-      "y": 3,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_BIG_PEARL",
-      "script": "Common_EventScript_FindItem",
-      "flag": "FLAG_ITEM_SHOAL_CAVE_ENTRANCE_BIG_PEARL"
-    },
     {
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
       "x": 18,
@@ -73,5 +59,6 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [],
+  "region": "REGION_HOENN"
 }
