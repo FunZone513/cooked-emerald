@@ -351,6 +351,20 @@ mart GenericPokeMart_Berry3 {
     ITEM_ENIGMA_BERRY
 }
 
+//MARK: Rest Area
+script RestArea_Indoor_BedTaken {
+    msgbox("It looks like this bed is taken.", MSGBOX_DEFAULT)
+}
+
+script RestArea_Indoor_BedHeal {
+    msgbox("Looks like this bed is free.\nTake a rest?", MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        msgbox("You take a short rest.", MSGBOX_DEFAULT)
+        call(Common_EventScript_OutOfCenterPartyHeal)
+    }
+    releaseall
+}
+
 
 //MARK: Thicket Brush
 script ThicketBrushInteract {    

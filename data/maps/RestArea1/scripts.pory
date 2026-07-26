@@ -1,1 +1,9 @@
 mapscripts RestArea1_MapScripts {}
+
+script RestArea1_Sign {
+    msgbox("Rest Area", MSGBOX_SIGN)
+}
+
+script RestArea1_Camper {
+    msgbox("The Woods' Pokemon are real sensitive,\nso I'd recommend being super quiet.", MSGBOX_NPC)
+}

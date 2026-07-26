@@ -12,9 +12,9 @@ script WhisperWoods_BugCatcher {
     trainerbattle_single(
         TRAINER_WHISPER_WOODS_BUG_CATCHER, 
         "I'm on the lookout!",
-        "I haven't found it yet!"
+        "I haven't found any yet!"
     )
-    msgbox("I've heard there's a rare bug type here.", MSGBOX_NPC)
+    msgbox("I'm looking for any cool new Pokemon\nto add to my team!", MSGBOX_NPC)
 }
 
 script WhisperWoods_Camper {

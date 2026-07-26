@@ -45,11 +45,11 @@ WhisperWoods_BugCatcher_Text_0:
 
 WhisperWoods_BugCatcher_Text_1:
 # 15 "data/maps/WhisperWoods/scripts.pory"
-	.string "I haven't found it yet!$"
+	.string "I haven't found any yet!$"
 
 WhisperWoods_BugCatcher_Text_2:
 # 17 "data/maps/WhisperWoods/scripts.pory"
-	.string "I've heard there's a rare bug type here.$"
+	.string "I'm looking for any cool new Pokemon\nto add to my team!$"
 
 WhisperWoods_Camper_Text_0:
 # 23 "data/maps/WhisperWoods/scripts.pory"

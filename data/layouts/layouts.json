@@ -9483,6 +9483,16 @@
       "secondary_tileset": "gTileset_PewterGym",
       "border_filepath": "data/layouts/DawnshoreCity_Gym/border.bin",
       "blockdata_filepath": "data/layouts/DawnshoreCity_Gym/map.bin"
+    },
+    {
+      "id": "LAYOUT_REST_AREA1_INDOOR",
+      "name": "RestArea1_Indoor_Layout",
+      "width": 24,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/RestArea1_Indoor/border.bin",
+      "blockdata_filepath": "data/layouts/RestArea1_Indoor/map.bin"
     }
   ]
 }

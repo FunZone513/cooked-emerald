@@ -1114,21 +1114,21 @@ enum NationalDexOrder
     F(NOCTOWL) \
     F(BUNEARY) \
     F(LOPUNNY) \
-    F(JOLTIK) \
-    F(GALVANTULA) \
+    F(KRABBY) \
+    F(KINGLER) \
+    F(CORPHISH) \
+    F(CRAWDAUNT) \
+    F(CLAUNCHER) \
+    F(CLAWITZER) \
+    F(TENTACOOL) \
+    F(TENTACRUEL) \
     F(SHROOMISH) \
     F(BRELOOM) \
     F(VENIPEDE) \
     F(WHIRLIPEDE) \
     F(SCOLIPEDE) \
-    F(CORPHISH) \
-    F(CRAWDAUNT) \
-    F(CLAUNCHER) \
-    F(CLAWITZER) \
-    F(KRABBY) \
-    F(KINGLER) \
-    F(TENTACOOL) \
-    F(TENTACRUEL) \
+    F(JOLTIK) \
+    F(GALVANTULA) \
     F(ZUBAT) \
     F(GOLBAT) \
     F(CROBAT) \

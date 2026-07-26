@@ -1,0 +1,33 @@
+mapscripts RestArea1_Indoor_MapScripts {}
+
+script RestArea1_Indoor_Nurse {
+    msgbox(
+        "Welcome to the Rest Area!\p"
+        "Rest Areas are spots set up between\ntowns to give trainers some respite,\land they act as a place for mingling.\p"
+        "Feel free to take a break in an empty\nroom, or talk with your fellow trainers!", 
+    MSGBOX_NPC)
+}
+
+script RestArea1_Indoor_Woman {
+    msgbox(format("I didn't really need to use the Rest Area, but sitting down on a chair sure is nice."), MSGBOX_NPC)
+}
+
+script RestArea1_Indoor_Hiker {
+    msgbox(format("You takin' a break too lad?"), MSGBOX_NPC)
+}
+
+script RestArea1_Indoor_Maniac {
+    msgbox(format("I'm washing up after eating, because that's the polite thing to do."), MSGBOX_NPC)
+}
+
+script RestArea1_Indoor_Girl {
+    msgbox(format("Have you been in the small bit of forest nearby yet? It's pretty spooky in there!"), MSGBOX_NPC)
+}
+
+script RestArea1_Indoor_RichBoy {
+    msgbox(format("I'll have you know that I could afford to sleep in a 5 star hotel, I just thought I'd see how the lower class spends their time."), MSGBOX_NPC)
+}
+
+script RestArea1_Indoor_Man {
+    msgbox(format("Do you mind?"), MSGBOX_NPC)
+}

@@ -99,7 +99,8 @@
     "WhisperWoods"
   ],
   "gMapGroup_NamedAreas": [
-    "RestArea1"
+    "RestArea1",
+    "RestArea1_Indoor"
   ],
   "gMapGroup_IndoorTowns": [
     "HorizonPort_PokeCentre",

@@ -731,26 +731,51 @@ GenericPokeMart_Berry3:
 	.2byte ITEM_ENIGMA_BERRY
 	.2byte ITEM_NONE
 
-ThicketBrushInteract::
-# 357 "data/scripts/general_scripts.pory"
-	lockall
+RestArea_Indoor_BedTaken::
+# 356 "data/scripts/general_scripts.pory"
+	msgbox RestArea_Indoor_BedTaken_Text_0, MSGBOX_DEFAULT
+	return
+
+
+RestArea_Indoor_BedHeal::
+# 360 "data/scripts/general_scripts.pory"
+	msgbox RestArea_Indoor_BedHeal_Text_0, MSGBOX_YESNO
 # 361 "data/scripts/general_scripts.pory"
-	random 10
+	compare VAR_RESULT, YES
+	goto_if_eq RestArea_Indoor_BedHeal_2
+RestArea_Indoor_BedHeal_1:
+# 365 "data/scripts/general_scripts.pory"
+	releaseall
+	return
+
+RestArea_Indoor_BedHeal_2:
 # 362 "data/scripts/general_scripts.pory"
+	msgbox RestArea_Indoor_BedHeal_Text_1, MSGBOX_DEFAULT
+# 363 "data/scripts/general_scripts.pory"
+	call Common_EventScript_OutOfCenterPartyHeal
+	goto RestArea_Indoor_BedHeal_1
+
+
+ThicketBrushInteract::
+# 371 "data/scripts/general_scripts.pory"
+	lockall
+# 375 "data/scripts/general_scripts.pory"
+	random 10
+# 376 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 1
 	goto_if_lt ThicketBrushInteract_2
-# 373 "data/scripts/general_scripts.pory"
+# 387 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 1
 	goto_if_ge ThicketBrushInteract_9
 ThicketBrushInteract_7:
-# 376 "data/scripts/general_scripts.pory"
+# 390 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 3
 	goto_if_ge ThicketBrushInteract_6
 ThicketBrushInteract_5:
-# 386 "data/scripts/general_scripts.pory"
+# 400 "data/scripts/general_scripts.pory"
 	createmon 1, 0, VAR_TEMP_0, VAR_TEMP_1
 ThicketBrushInteract_1:
-# 389 "data/scripts/general_scripts.pory"
+# 403 "data/scripts/general_scripts.pory"
 	release
 	return
 
@@ -765,279 +790,279 @@ ThicketBrushInteract_3:
 	goto ThicketBrushInteract_1
 
 ThicketBrushInteract_4:
-# 378 "data/scripts/general_scripts.pory"
+# 392 "data/scripts/general_scripts.pory"
 	createmon 1, 0, VAR_TEMP_0, VAR_TEMP_1
-# 380 "data/scripts/general_scripts.pory"
+# 394 "data/scripts/general_scripts.pory"
 	createmon 1, 1, VAR_TEMP_0, VAR_TEMP_1
-# 381 "data/scripts/general_scripts.pory"
+# 395 "data/scripts/general_scripts.pory"
 	setwilddoubleflag
 	goto ThicketBrushInteract_1
 
 ThicketBrushInteract_6:
-# 376 "data/scripts/general_scripts.pory"
+# 390 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 5
 	goto_if_lt ThicketBrushInteract_4
 	goto ThicketBrushInteract_5
 
 ThicketBrushInteract_9:
-# 373 "data/scripts/general_scripts.pory"
+# 387 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 3
 	goto_if_lt ThicketBrushInteract_3
 	goto ThicketBrushInteract_7
 
 ThicketBrushInteract_13:
-# 365 "data/scripts/general_scripts.pory"
+# 379 "data/scripts/general_scripts.pory"
 	additem VAR_TEMP_0
-# 366 "data/scripts/general_scripts.pory"
+# 380 "data/scripts/general_scripts.pory"
 	playfanfare MUS_OBTAIN_BERRY
-# 367 "data/scripts/general_scripts.pory"
+# 381 "data/scripts/general_scripts.pory"
 	message ThicketBrushInteract_Text_0
-# 368 "data/scripts/general_scripts.pory"
+# 382 "data/scripts/general_scripts.pory"
 	waitmessage
-# 369 "data/scripts/general_scripts.pory"
+# 383 "data/scripts/general_scripts.pory"
 	waitfanfare
-# 370 "data/scripts/general_scripts.pory"
+# 384 "data/scripts/general_scripts.pory"
 	waitbuttonpress
 	goto ThicketBrushInteract_1
 
 
 ThicketBrushInteract_Nothing::
-# 393 "data/scripts/general_scripts.pory"
+# 407 "data/scripts/general_scripts.pory"
 	msgbox ThicketBrushInteract_Nothing_Text_0, MSGBOX_SIGN
 	return
 
 
 ThicketBrush_WildEncounter::
-# 398 "data/scripts/general_scripts.pory"
+# 412 "data/scripts/general_scripts.pory"
 	playse SE_PIN
-# 399 "data/scripts/general_scripts.pory"
+# 413 "data/scripts/general_scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
-# 400 "data/scripts/general_scripts.pory"
+# 414 "data/scripts/general_scripts.pory"
 	waitmovement 0
-# 401 "data/scripts/general_scripts.pory"
+# 415 "data/scripts/general_scripts.pory"
 	message ThicketBrush_WildEncounter_Text_0
-# 402 "data/scripts/general_scripts.pory"
+# 416 "data/scripts/general_scripts.pory"
 	waitmessage
-# 403 "data/scripts/general_scripts.pory"
+# 417 "data/scripts/general_scripts.pory"
 	waitbuttonpress
-# 404 "data/scripts/general_scripts.pory"
+# 418 "data/scripts/general_scripts.pory"
 	dowildbattle
 	return
 
 
 ThicketBrushInteract_GetPokemon::
-# 408 "data/scripts/general_scripts.pory"
+# 422 "data/scripts/general_scripts.pory"
 	random 100
-# 409 "data/scripts/general_scripts.pory"
+# 423 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 4
 	goto_if_lt ThicketBrushInteract_GetPokemon_2
-# 414 "data/scripts/general_scripts.pory"
+# 428 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 4
 	goto_if_ge ThicketBrushInteract_GetPokemon_14
 ThicketBrushInteract_GetPokemon_12:
-# 419 "data/scripts/general_scripts.pory"
+# 433 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 37
 	goto_if_ge ThicketBrushInteract_GetPokemon_11
 ThicketBrushInteract_GetPokemon_9:
-# 424 "data/scripts/general_scripts.pory"
+# 438 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 70
 	goto_if_ge ThicketBrushInteract_GetPokemon_8
 ThicketBrushInteract_GetPokemon_7:
-# 429 "data/scripts/general_scripts.pory"
+# 443 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 85
 	goto_if_ge ThicketBrushInteract_GetPokemon_6
 ThicketBrushInteract_GetPokemon_1:
 	return
 
 ThicketBrushInteract_GetPokemon_2:
-# 410 "data/scripts/general_scripts.pory"
+# 424 "data/scripts/general_scripts.pory"
 	random 10
-# 411 "data/scripts/general_scripts.pory"
+# 425 "data/scripts/general_scripts.pory"
 	copyvar VAR_TEMP_1, VAR_RESULT
-# 412 "data/scripts/general_scripts.pory"
+# 426 "data/scripts/general_scripts.pory"
 	addvar VAR_TEMP_1, 13
-# 413 "data/scripts/general_scripts.pory"
+# 427 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, SPECIES_LARVESTA
 	goto ThicketBrushInteract_GetPokemon_1
 
 ThicketBrushInteract_GetPokemon_3:
-# 415 "data/scripts/general_scripts.pory"
+# 429 "data/scripts/general_scripts.pory"
 	random 10
-# 416 "data/scripts/general_scripts.pory"
+# 430 "data/scripts/general_scripts.pory"
 	copyvar VAR_TEMP_1, VAR_RESULT
-# 417 "data/scripts/general_scripts.pory"
+# 431 "data/scripts/general_scripts.pory"
 	addvar VAR_TEMP_1, 13
-# 418 "data/scripts/general_scripts.pory"
+# 432 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, SPECIES_SPINARAK
 	goto ThicketBrushInteract_GetPokemon_1
 
 ThicketBrushInteract_GetPokemon_4:
-# 420 "data/scripts/general_scripts.pory"
+# 434 "data/scripts/general_scripts.pory"
 	random 10
-# 421 "data/scripts/general_scripts.pory"
+# 435 "data/scripts/general_scripts.pory"
 	copyvar VAR_TEMP_1, VAR_RESULT
-# 422 "data/scripts/general_scripts.pory"
+# 436 "data/scripts/general_scripts.pory"
 	addvar VAR_TEMP_1, 13
-# 423 "data/scripts/general_scripts.pory"
+# 437 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, SPECIES_JOLTIK
 	goto ThicketBrushInteract_GetPokemon_1
 
 ThicketBrushInteract_GetPokemon_5:
-# 425 "data/scripts/general_scripts.pory"
+# 439 "data/scripts/general_scripts.pory"
 	random 4
-# 426 "data/scripts/general_scripts.pory"
+# 440 "data/scripts/general_scripts.pory"
 	copyvar VAR_TEMP_1, VAR_RESULT
-# 427 "data/scripts/general_scripts.pory"
+# 441 "data/scripts/general_scripts.pory"
 	addvar VAR_TEMP_1, 24
-# 428 "data/scripts/general_scripts.pory"
+# 442 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, SPECIES_ARIADOS
 	goto ThicketBrushInteract_GetPokemon_1
 
 ThicketBrushInteract_GetPokemon_6:
-# 430 "data/scripts/general_scripts.pory"
+# 444 "data/scripts/general_scripts.pory"
 	random 4
-# 431 "data/scripts/general_scripts.pory"
+# 445 "data/scripts/general_scripts.pory"
 	copyvar VAR_TEMP_1, VAR_RESULT
-# 432 "data/scripts/general_scripts.pory"
+# 446 "data/scripts/general_scripts.pory"
 	addvar VAR_TEMP_1, 24
-# 433 "data/scripts/general_scripts.pory"
+# 447 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, SPECIES_GALVANTULA
 	goto ThicketBrushInteract_GetPokemon_1
 
 ThicketBrushInteract_GetPokemon_8:
-# 424 "data/scripts/general_scripts.pory"
+# 438 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 85
 	goto_if_lt ThicketBrushInteract_GetPokemon_5
 	goto ThicketBrushInteract_GetPokemon_7
 
 ThicketBrushInteract_GetPokemon_11:
-# 419 "data/scripts/general_scripts.pory"
+# 433 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 70
 	goto_if_lt ThicketBrushInteract_GetPokemon_4
 	goto ThicketBrushInteract_GetPokemon_9
 
 ThicketBrushInteract_GetPokemon_14:
-# 414 "data/scripts/general_scripts.pory"
+# 428 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 37
 	goto_if_lt ThicketBrushInteract_GetPokemon_3
 	goto ThicketBrushInteract_GetPokemon_12
 
 
 ThicketBrushInteract_GetItem::
-# 439 "data/scripts/general_scripts.pory"
+# 453 "data/scripts/general_scripts.pory"
 	random 10
-# 440 "data/scripts/general_scripts.pory"
+# 454 "data/scripts/general_scripts.pory"
 	switch VAR_RESULT
-# 441 "data/scripts/general_scripts.pory"
+# 455 "data/scripts/general_scripts.pory"
 	case 1, ThicketBrushInteract_GetItem_3
-# 442 "data/scripts/general_scripts.pory"
+# 456 "data/scripts/general_scripts.pory"
 	case 2, ThicketBrushInteract_GetItem_4
-# 443 "data/scripts/general_scripts.pory"
+# 457 "data/scripts/general_scripts.pory"
 	case 3, ThicketBrushInteract_GetItem_5
-# 444 "data/scripts/general_scripts.pory"
+# 458 "data/scripts/general_scripts.pory"
 	case 4, ThicketBrushInteract_GetItem_6
-# 445 "data/scripts/general_scripts.pory"
+# 459 "data/scripts/general_scripts.pory"
 	case 5, ThicketBrushInteract_GetItem_7
-# 446 "data/scripts/general_scripts.pory"
+# 460 "data/scripts/general_scripts.pory"
 	case 6, ThicketBrushInteract_GetItem_8
-# 447 "data/scripts/general_scripts.pory"
+# 461 "data/scripts/general_scripts.pory"
 	case 7, ThicketBrushInteract_GetItem_9
-# 448 "data/scripts/general_scripts.pory"
+# 462 "data/scripts/general_scripts.pory"
 	case 8, ThicketBrushInteract_GetItem_10
-# 449 "data/scripts/general_scripts.pory"
+# 463 "data/scripts/general_scripts.pory"
 	case 9, ThicketBrushInteract_GetItem_11
-# 450 "data/scripts/general_scripts.pory"
+# 464 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_RARE_CANDY
 ThicketBrushInteract_GetItem_1:
 	return
 
 ThicketBrushInteract_GetItem_3:
-# 441 "data/scripts/general_scripts.pory"
+# 455 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_TINY_MUSHROOM
 	goto ThicketBrushInteract_GetItem_1
 
 ThicketBrushInteract_GetItem_4:
-# 442 "data/scripts/general_scripts.pory"
+# 456 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_BALM_MUSHROOM
 	goto ThicketBrushInteract_GetItem_1
 
 ThicketBrushInteract_GetItem_5:
-# 443 "data/scripts/general_scripts.pory"
+# 457 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_BIG_MUSHROOM
 	goto ThicketBrushInteract_GetItem_1
 
 ThicketBrushInteract_GetItem_6:
-# 444 "data/scripts/general_scripts.pory"
+# 458 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_POKE_BALL
 	goto ThicketBrushInteract_GetItem_1
 
 ThicketBrushInteract_GetItem_7:
-# 445 "data/scripts/general_scripts.pory"
+# 459 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_TINY_MUSHROOM
 	goto ThicketBrushInteract_GetItem_1
 
 ThicketBrushInteract_GetItem_8:
-# 446 "data/scripts/general_scripts.pory"
+# 460 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_TINY_MUSHROOM
 	goto ThicketBrushInteract_GetItem_1
 
 ThicketBrushInteract_GetItem_9:
-# 447 "data/scripts/general_scripts.pory"
+# 461 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_BIG_MUSHROOM
 	goto ThicketBrushInteract_GetItem_1
 
 ThicketBrushInteract_GetItem_10:
-# 448 "data/scripts/general_scripts.pory"
+# 462 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_POKE_BALL
 	goto ThicketBrushInteract_GetItem_1
 
 ThicketBrushInteract_GetItem_11:
-# 449 "data/scripts/general_scripts.pory"
+# 463 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_TINY_MUSHROOM
 	goto ThicketBrushInteract_GetItem_1
 
 
 ThicketBrushInteract_ClearTile::
-# 456 "data/scripts/general_scripts.pory"
+# 470 "data/scripts/general_scripts.pory"
 	playse SE_FU_ZAKU
-# 457 "data/scripts/general_scripts.pory"
+# 471 "data/scripts/general_scripts.pory"
 	getobjectfacingdirection OBJ_EVENT_ID_PLAYER, VAR_TEMP_C
-# 458 "data/scripts/general_scripts.pory"
+# 472 "data/scripts/general_scripts.pory"
 	getobjectxy OBJ_EVENT_ID_PLAYER, CURRENT_POSITION, VAR_TEMP_A, VAR_TEMP_B
-# 459 "data/scripts/general_scripts.pory"
+# 473 "data/scripts/general_scripts.pory"
 	switch VAR_TEMP_C
-# 460 "data/scripts/general_scripts.pory"
+# 474 "data/scripts/general_scripts.pory"
 	case DIR_NORTH, ThicketBrushInteract_ClearTile_3
-# 463 "data/scripts/general_scripts.pory"
+# 477 "data/scripts/general_scripts.pory"
 	case DIR_SOUTH, ThicketBrushInteract_ClearTile_4
-# 466 "data/scripts/general_scripts.pory"
+# 480 "data/scripts/general_scripts.pory"
 	case DIR_EAST, ThicketBrushInteract_ClearTile_5
-# 469 "data/scripts/general_scripts.pory"
+# 483 "data/scripts/general_scripts.pory"
 	case DIR_WEST, ThicketBrushInteract_ClearTile_6
 ThicketBrushInteract_ClearTile_1:
-# 474 "data/scripts/general_scripts.pory"
+# 488 "data/scripts/general_scripts.pory"
 	special DrawWholeMapView
-# 475 "data/scripts/general_scripts.pory"
+# 489 "data/scripts/general_scripts.pory"
 	waitse
 	return
 
 ThicketBrushInteract_ClearTile_3:
-# 461 "data/scripts/general_scripts.pory"
+# 475 "data/scripts/general_scripts.pory"
 	subvar VAR_TEMP_B, 1
 	goto ThicketBrushInteract_ClearTile_1
 
 ThicketBrushInteract_ClearTile_4:
-# 464 "data/scripts/general_scripts.pory"
+# 478 "data/scripts/general_scripts.pory"
 	addvar VAR_TEMP_B, 1
 	goto ThicketBrushInteract_ClearTile_1
 
 ThicketBrushInteract_ClearTile_5:
-# 467 "data/scripts/general_scripts.pory"
+# 481 "data/scripts/general_scripts.pory"
 	addvar VAR_TEMP_A, 1
 	goto ThicketBrushInteract_ClearTile_1
 
 ThicketBrushInteract_ClearTile_6:
-# 470 "data/scripts/general_scripts.pory"
+# 484 "data/scripts/general_scripts.pory"
 	subvar VAR_TEMP_A, 1
 	goto ThicketBrushInteract_ClearTile_1
 
@@ -1084,14 +1109,26 @@ Generic_POKEMART_BERRY_Text_0:
 # 253 "data/scripts/general_scripts.pory"
 	.string "Welcome!\pAre you interested in some berries?$"
 
+RestArea_Indoor_BedTaken_Text_0:
+# 356 "data/scripts/general_scripts.pory"
+	.string "It looks like this bed is taken.$"
+
+RestArea_Indoor_BedHeal_Text_0:
+# 360 "data/scripts/general_scripts.pory"
+	.string "Looks like this bed is free.\nTake a rest?$"
+
+RestArea_Indoor_BedHeal_Text_1:
+# 362 "data/scripts/general_scripts.pory"
+	.string "You take a short rest.$"
+
 ThicketBrushInteract_Text_0:
-# 367 "data/scripts/general_scripts.pory"
+# 381 "data/scripts/general_scripts.pory"
 	.string "You found an item!$"
 
 ThicketBrushInteract_Nothing_Text_0:
-# 393 "data/scripts/general_scripts.pory"
+# 407 "data/scripts/general_scripts.pory"
 	.string "You didn't find anything...$"
 
 ThicketBrush_WildEncounter_Text_0:
-# 401 "data/scripts/general_scripts.pory"
+# 415 "data/scripts/general_scripts.pory"
 	.string "You were attacked!$"
