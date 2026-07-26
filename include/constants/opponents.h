@@ -23,9 +23,15 @@
 #define TRAINER_ROUTE2_FISHERMAN                16
 #define TRAINER_ROUTE2_HIKER                    17
 #define TRAINER_GYM_LEADER_NAMI                 18
+#define TRAINER_DAWNSHORE_CITY_GYM_CAMPER       19
+#define TRAINER_DAWNSHORE_CITY_GYM_TUBER        20
+#define TRAINER_DAWNSHORE_CITY_GYM_BATTLE_GIRL  21
+#define TRAINER_DAWNSHORE_CITY_GYM_SWIMMER      22
+#define TRAINER_DAWNSHORE_CITY_GYM_TUBER_B      23
+#define TRAINER_DAWNSHORE_CITY_GYM_SWIMMER_B    24
 
 //== update this every time
-#define TRAINERS_COUNT_EMERALD     19
+#define TRAINERS_COUNT_EMERALD     25
 
 // don't go over this I guess (theres no fucking way I add 800+ trainers)
 #define MAX_TRAINERS_COUNT_EMERALD 864

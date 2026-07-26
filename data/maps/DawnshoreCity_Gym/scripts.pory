@@ -8,49 +8,17 @@ script DawnshoreCity_Gym_OnLoad {
 
 script DawnshoreCity_Gym_UpdateTiles {
     if (flag(FLAG_PLUCKED_DAWNSHORE_FLOWER_RIGHT)) {
-        // open path to left flower
-        setmetatile(2, 9, METATILE_PewterGym_Boardwalk_Left,   FALSE)
-        setmetatile(3, 9, METATILE_PewterGym_Boardwalk_Middle, FALSE)
-        setmetatile(4, 9, METATILE_PewterGym_Boardwalk_Middle, FALSE)
-        setmetatile(5, 9, METATILE_PewterGym_Boardwalk_Middle, FALSE)
-        setmetatile(6, 9, METATILE_PewterGym_Boardwalk_Right,  FALSE)
-        setmetatile(3, 8, METATILE_PewterGym_Boardwalk_Centre, FALSE)
-
-        // set the sand
-        setmetatile(7,  9, METATILE_PewterGym_JumpingSand,     TRUE)
-        setmetatile(3, 10, METATILE_PewterGym_JumpingSandEdge, TRUE)
+        call(DawnshoreCity_Gym_OpenTopLeft)
+        call(DawnshoreCity_Gym_MoveRightFlower)
     }
 
     if (flag(FLAG_PLUCKED_DAWNSHORE_FLOWER_LEFT)) {
-        // open path to gym leader
-        setmetatile(9, 7, METATILE_PewterGym_Boardwalk_Centre, FALSE)
-        setmetatile(8, 5, METATILE_PewterGym_Boardwalk_Left,   FALSE)
-        setmetatile(9, 5, METATILE_PewterGym_Boardwalk_Middle, FALSE)
-        setmetatile(10, 5, METATILE_PewterGym_Boardwalk_Right, FALSE)
+        call(DawnshoreCity_Gym_OpenBottomLeft)
+        call(DawnshoreCity_Gym_OpenEnd)
+        call(DawnshoreCity_Gym_MoveLeftFlower)
 
-        // open path down
-        setmetatile(2, 13, METATILE_PewterGym_Boardwalk_Left,   FALSE)
-        setmetatile(3, 13, METATILE_PewterGym_Boardwalk_Middle, FALSE)
-        setmetatile(4, 13, METATILE_PewterGym_Boardwalk_Middle, FALSE)
-        setmetatile(5, 13, METATILE_PewterGym_Boardwalk_Right,  FALSE)
-        setmetatile(5, 14, METATILE_PewterGym_Boardwalk_Centre, FALSE)
-
-        // set the sand
-        setmetatile(3, 12, METATILE_PewterGym_JumpingSandEdge, TRUE)
-        setmetatile(6, 14,  METATILE_PewterGym_JumpingSand,    TRUE)
-        setmetatile(9, 8, METATILE_PewterGym_JumpingSandEdge,  TRUE)
-
-        // disable the top left (was enabled by the right flower) if nami not beaten
         if (!defeated(TRAINER_GYM_LEADER_NAMI)) {
-            setmetatile(2, 9, METATILE_PewterGym_Boardwalk_Left_Off,   FALSE)
-            setmetatile(3, 9, METATILE_PewterGym_Boardwalk_Middle_Off, FALSE)
-            setmetatile(4, 9, METATILE_PewterGym_Boardwalk_Middle_Off, FALSE)
-            setmetatile(5, 9, METATILE_PewterGym_Boardwalk_Middle_Off, FALSE)
-            setmetatile(6, 9, METATILE_PewterGym_Boardwalk_Right_Off,  FALSE)
-            setmetatile(3, 8, METATILE_PewterGym_Boardwalk_Centre_Off, FALSE)
-            
-            setmetatile(7,  9, METATILE_PewterGym_Sand,     TRUE)
-            setmetatile(3, 10, METATILE_PewterGym_SandEdge, TRUE)
+            call(DawnshoreCity_Gym_CloseTopLeft)
         }
     }
     
@@ -61,8 +29,8 @@ script DawnshoreCity_Gym_RightFlower {
     if (!flag(FLAG_PLUCKED_DAWNSHORE_FLOWER_RIGHT)) {
         lockall
         setflag(FLAG_PLUCKED_DAWNSHORE_FLOWER_RIGHT)
-        setmetatile(16, 12, METATILE_PewterGym_Flowerless_Left,    TRUE)
-        setmetatile(11,  6, METATILE_PewterGym_Flower_in_pot_Left, TRUE)
+        call(DawnshoreCity_Gym_MoveRightFlower)
+        special(DrawWholeMapView)
         msgbox("You grabbed the Flower!", MSGBOX_SIGN)
         call(DawnshoreCity_Gym_UpdateTiles)
 	    playse(SE_UNLOCK)
@@ -75,8 +43,8 @@ script DawnshoreCity_Gym_LeftFlower {
     if (!flag(FLAG_PLUCKED_DAWNSHORE_FLOWER_LEFT)) {
         lockall
         setflag(FLAG_PLUCKED_DAWNSHORE_FLOWER_LEFT)
-        setmetatile(2, 11, METATILE_PewterGym_Flowerless_Right,   TRUE)
-        setmetatile(7, 6, METATILE_PewterGym_Flower_in_pot_Right, TRUE)
+        call(DawnshoreCity_Gym_MoveLeftFlower)
+        special(DrawWholeMapView)
         msgbox("You grabbed the Flower!", MSGBOX_SIGN)
         call(DawnshoreCity_Gym_UpdateTiles)
 	    playse(SE_UNLOCK)
@@ -86,12 +54,164 @@ script DawnshoreCity_Gym_LeftFlower {
 }
 
 script DawnshoreCity_Gym_Guide {
-    msgbox(
-        "How's it going prospective challenger?\nWelcome to the Dawnshore Gym!\p"
-        "This Gym is a reflection of the life\nof those that live here on the beach!\p"
-        "You ever tried walking on hot sand?\nIt's just not doable!\p"
-        "So jump across the boardwalks to keep\nyourself safe from the sand!\p"
-        "Pick up the flowers as tribute to our\nbeautiful Gym Leader, and open up the\lpath to battle her!\p"
-        "Good luck out there!"
-    , MSGBOX_NPC)
+    if (!defeated(TRAINER_GYM_LEADER_NAMI)) {
+        msgbox(
+            "How's it going prospective challenger?\nWelcome to the Dawnshore Gym!\p"
+            "This Gym is a reflection of the life\nof those that live here on the beach!\p"
+            "You ever tried walking on hot sand?\nIt's just not doable!\p"
+            "So jump across the boardwalks to keep\nyourself safe from the sand!\p"
+            "Pick up the flowers as tribute to our\nbeautiful Gym Leader, and open up the\lpath to battle her!\p"
+            "Good luck out there!", 
+        MSGBOX_NPC)
+    } else {
+        msgbox("Nicely done!\nYou really rode the wave to victory!", MSGBOX_NPC)
+    }
+}
+
+script DawnshoreCity_Gym_Nami {
+    trainerbattle_single(
+        TRAINER_GYM_LEADER_NAMI,
+        "Welcome, Welcome!\p"
+        "I've been watching you jump around and\nbattle my Gym trainers, it has been\lquite the treat to watch!\p"
+        "Now I finally get to have a crack at\nyou too!\p"
+        "Are you as excited as I am?",
+        "Wow!\nYou cracked me real good!",
+        DawnshoreCity_Gym_Nami_Defeated,
+        NO_MUSIC
+    )
+    msgbox("I'm just the first step on your\nPokemon journey!\pI can't wait to see how far you go!", MSGBOX_NPC)
+}
+
+script DawnshoreCity_Gym_Nami_Defeated {
+    message("{PLAYER} recieved the Wave Badge!")
+	waitmessage
+	call(Common_EventScript_PlayGymBadgeFanfare)
+	msgbox(
+        "The Wave Badge is proof of you taking\nyour first successful step on your\lPokemon Journey.\p"
+        "It might not look like much, but just\nhaving it will earn you respect.\p"
+        "Plus, you get some cool perks too!\p"
+        "You get an expanded catalogue of items\nthat can be bought at the Poke' Mart!\p"
+        "With that out of the way...\p"
+        "Well done!\p"
+        "I wish you luck on the rest of the Gyms,\nand I hope to see you climbing to the\ltop of the league some day!", 
+    MSGBOX_DEFAULT)
+	setflag(FLAG_BADGE01_GET)
+    call(DawnshoreCity_Gym_SetGymTrainers)
+    releaseall
+}
+
+script DawnshoreCity_Gym_Camper {
+    trainerbattle_single(
+        TRAINER_DAWNSHORE_CITY_GYM_CAMPER,
+        "You think I'll let you just grab the\nflower for free?",
+        "Well darn."
+    )
+    msgbox("Go ahead, it's all yours.", MSGBOX_NPC)
+}
+
+script DawnshoreCity_Gym_Tuber {
+    trainerbattle_single(
+        TRAINER_DAWNSHORE_CITY_GYM_TUBER,
+        "Beating up challengers is way more fun\nthan going to school!",
+        "It's only fun if I win!"
+    )
+    msgbox("Even losing a battle is more fun\nthan school...", MSGBOX_NPC)
+}
+
+script DawnshoreCity_Gym_BattleGirl {
+    trainerbattle_single(
+        TRAINER_DAWNSHORE_CITY_GYM_BATTLE_GIRL,
+        "Let's get pumped!",
+        "Pumped and dumped!"
+    )
+    msgbox("I was really looking forward to winning\nfor once.", MSGBOX_NPC)
+}
+
+script DawnshoreCity_Gym_Swimmer {
+    trainerbattle_single(
+        TRAINER_DAWNSHORE_CITY_GYM_SWIMMER,
+        "I feel a little out of place.",
+        "'Beach vibe' huh..."
+    )
+    msgbox("I'm not much of a swimmer, I'm just\nwearing this as a sort of uniform.", MSGBOX_NPC)
+}
+
+script DawnshoreCity_Gym_TuberBuried {
+    trainerbattle_single(
+        TRAINER_DAWNSHORE_CITY_GYM_TUBER_B,
+        "Haha!\nI bet you didn't see that coming!",
+        "The surprise attack failed..."
+    )
+    msgbox("My tube is actually full of water to\nhelp me sink into the sand!", MSGBOX_NPC)
+}
+
+script DawnshoreCity_Gym_SwimmerBuried {
+    trainerbattle_single(
+        TRAINER_DAWNSHORE_CITY_GYM_SWIMMER_B,
+        "Surprise!",
+        "Hiding in the sand was the kid's idea..."
+    )
+    msgbox("We thought hiding in the sand would\ngive us a tactical edge,\lbut it just gave me a tactical rash...", MSGBOX_NPC)
+}
+
+script DawnshoreCity_Gym_SetGymTrainers {
+    settrainerflag(TRAINER_DAWNSHORE_CITY_GYM_CAMPER)
+    settrainerflag(TRAINER_DAWNSHORE_CITY_GYM_TUBER)
+    settrainerflag(TRAINER_DAWNSHORE_CITY_GYM_BATTLE_GIRL)
+    settrainerflag(TRAINER_DAWNSHORE_CITY_GYM_SWIMMER)
+    settrainerflag(TRAINER_DAWNSHORE_CITY_GYM_TUBER_B)
+    settrainerflag(TRAINER_DAWNSHORE_CITY_GYM_SWIMMER_B)
+}
+
+script DawnshoreCity_Gym_OpenTopLeft {
+    setmetatile(2, 9, METATILE_PewterGym_Boardwalk_Left,   FALSE)
+    setmetatile(3, 9, METATILE_PewterGym_Boardwalk_Middle, FALSE)
+    setmetatile(4, 9, METATILE_PewterGym_Boardwalk_Middle, FALSE)
+    setmetatile(5, 9, METATILE_PewterGym_Boardwalk_Middle, FALSE)
+    setmetatile(6, 9, METATILE_PewterGym_Boardwalk_Right,  FALSE)
+    setmetatile(3, 8, METATILE_PewterGym_Boardwalk_Centre, FALSE)
+
+    setmetatile(7,  9, METATILE_PewterGym_JumpingSand,     TRUE)
+    setmetatile(3, 10, METATILE_PewterGym_JumpingSandEdge, TRUE)
+}
+
+script DawnshoreCity_Gym_CloseTopLeft {
+    setmetatile(2, 9, METATILE_PewterGym_Boardwalk_Left_Off,   FALSE)
+    setmetatile(3, 9, METATILE_PewterGym_Boardwalk_Middle_Off, FALSE)
+    setmetatile(4, 9, METATILE_PewterGym_Boardwalk_Middle_Off, FALSE)
+    setmetatile(5, 9, METATILE_PewterGym_Boardwalk_Middle_Off, FALSE)
+    setmetatile(6, 9, METATILE_PewterGym_Boardwalk_Right_Off,  FALSE)
+    setmetatile(3, 8, METATILE_PewterGym_Boardwalk_Centre_Off, FALSE)
+            
+    setmetatile(7,  9, METATILE_PewterGym_Sand,     TRUE)
+    setmetatile(3, 10, METATILE_PewterGym_SandEdge, TRUE)
+}
+
+script DawnshoreCity_Gym_OpenBottomLeft {
+    setmetatile(2, 13, METATILE_PewterGym_Boardwalk_Left,   FALSE)
+    setmetatile(3, 13, METATILE_PewterGym_Boardwalk_Middle, FALSE)
+    setmetatile(4, 13, METATILE_PewterGym_Boardwalk_Middle, FALSE)
+    setmetatile(5, 13, METATILE_PewterGym_Boardwalk_Right,  FALSE)
+    setmetatile(5, 14, METATILE_PewterGym_Boardwalk_Centre, FALSE)
+    
+    setmetatile(3, 12, METATILE_PewterGym_JumpingSandEdge, TRUE)
+    setmetatile(6, 14, METATILE_PewterGym_JumpingSand,     TRUE)
+    setmetatile(9,  8, METATILE_PewterGym_JumpingSandEdge, TRUE)
+}
+
+script DawnshoreCity_Gym_OpenEnd {
+    setmetatile(9, 7, METATILE_PewterGym_Boardwalk_Centre, FALSE)
+    setmetatile(8, 5, METATILE_PewterGym_Boardwalk_Left,   FALSE)
+    setmetatile(9, 5, METATILE_PewterGym_Boardwalk_Middle, FALSE)
+    setmetatile(10, 5, METATILE_PewterGym_Boardwalk_Right, FALSE)
+}
+
+script DawnshoreCity_Gym_MoveRightFlower {
+    setmetatile(16, 12, METATILE_PewterGym_Flowerless_Left,    TRUE)
+    setmetatile(11,  6, METATILE_PewterGym_Flower_in_pot_Left, TRUE)
+}
+
+script DawnshoreCity_Gym_MoveLeftFlower {
+    setmetatile(2, 11, METATILE_PewterGym_Flowerless_Right,   TRUE)
+    setmetatile(7, 6, METATILE_PewterGym_Flower_in_pot_Right, TRUE)
 }

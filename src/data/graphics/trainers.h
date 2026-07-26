@@ -448,6 +448,9 @@ const u16 gTrainerPalette_CrushGirlFrlg[] = INCGFX_U16("graphics/trainers/palett
 const u32 gTrainerFrontPic_TuberFFrlg[] = INCGFX_U32("graphics/trainers/front_pics/tuber_f_frlg.png", ".4bpp.smol");
 const u16 gTrainerPalette_TuberFFrlg[] = INCGFX_U16("graphics/trainers/palettes/tuber_f_frlg.pal", ".gbapal");
 
+const u32 gTrainerFrontPic_TuberMFrlg[] = INCGFX_U32("graphics/trainers/front_pics/tuber_m_frlg.png", ".4bpp.smol");
+const u16 gTrainerPalette_TuberMFrlg[] = INCGFX_U16("graphics/trainers/palettes/tuber_m_frlg.pal", ".gbapal");
+
 const u32 gTrainerFrontPic_PokemonBreederFrlg[] = INCGFX_U32("graphics/trainers/front_pics/pokemon_breeder_frlg.png", ".4bpp.smol");
 const u16 gTrainerPalette_PokemonBreederFrlg[] = INCGFX_U16("graphics/trainers/palettes/pokemon_breeder_frlg.pal", ".gbapal");
 
@@ -1200,6 +1203,10 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_TUBER_F_FRLG] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_TuberFFrlg, gTrainerPalette_TuberFFrlg),
+    },
+    [TRAINER_PIC_TUBER_M_FRLG] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_TuberMFrlg, gTrainerPalette_TuberMFrlg),
     },
     [TRAINER_PIC_POKEMON_BREEDER_FRLG] =
     {

@@ -310,16 +310,127 @@ Double Battle: No
 AI: Leader
 
 Tentacool
+Level: 11
+
+Shellder
+Level: 11
+
+Carvanha
+Level: 12
+
+Wailmer
+Level: 13
+
+=== TRAINER_DAWNSHORE_CITY_GYM_CAMPER ===
+Name: STEWART
+Class: Camper
+Pic: Camper
+Gender: Male
+Music: Male
+AI: Smart Trainer
+
+Shroomish
+Level: 9
+
+Carvanha
+Level: 9
+
+=== TRAINER_DAWNSHORE_CITY_GYM_TUBER ===
+Name: GEORGE
+Class: Tuber M
+Pic: Tuber M
+Gender: Male
+Music: Girl
+AI: Smart Trainer
+
+Yanma
+Level: 8
+
+Krabby
+Level: 8
+
+=== TRAINER_DAWNSHORE_CITY_GYM_BATTLE_GIRL ===
+Name: HARIETTE
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Music: Intense
+AI: Smart Trainer
+
+Marill
+Level: 9
+
+Buneary
+Level: 9
+
+=== TRAINER_DAWNSHORE_CITY_GYM_SWIMMER ===
+Name: DECLAN
+Class: Swimmer M
+Pic: Swimmer M
+Gender: Male
+Music: Swimmer
+AI: Smart Trainer
+
+Taillow
+Level: 9
+
+Krabby
+Level: 9
+
+Taillow
+Level: 9
+
+=== TRAINER_DAWNSHORE_CITY_GYM_TUBER_B ===
+Name: CHARLIE
+Class: Tuber M
+Pic: Tuber M FRLG
+Gender: Male
+Music: Girl
+AI: Smart Trainer
+
+Clauncher
 Level: 10
 
 Corphish
 Level: 10
 
-Shellder
+=== TRAINER_DAWNSHORE_CITY_GYM_SWIMMER_B ===
+Name: DANIELLE
+Class: Swimmer F
+Pic: Swimmer F
+Gender: Female
+Music: Swimmer
+AI: Smart Trainer
+
+Tentacool
 Level: 11
 
-Wailmer
-Level: 12
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
