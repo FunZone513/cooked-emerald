@@ -4,6 +4,10 @@ script DawnshoreCity_GymSign {
     msgbox("Dawnshore Gym:\nSun-kissed and Beach ready!")
 }
 
+script DawnshoreCity_CutterSign {
+    msgbox("Home of Mr. Auburn,\nTree cutting extraordinaire.")
+}
+
 script DawnshoreCity_Man {
     msgbox(format("My Loudred has been with me since I was a kid, it used to be so cute and quiet..."), MSGBOX_NPC)
 }
@@ -17,7 +21,7 @@ script DawnshoreCity_FatMan {
 }
 
 script DawnshoreCity_SwimmerM {
-    msgbox(format("I would get up, but I think I'm so sunburned I've melted into the chair."), MSGBOX_NPC)
+    msgbox(format("I would get up, but I think I've melted into the chair."), MSGBOX_NPC)
 }
 
 script DawnshoreCity_SwimmerF {
@@ -25,7 +29,7 @@ script DawnshoreCity_SwimmerF {
 }
 
 script DawnshoreCity_LittleGirl {
-    msgbox(format("Washu?\pMapoi!"), MSGBOX_NPC)
+    msgbox(format("The sand makes little squeaky sounds when I walk around!"), MSGBOX_NPC)
 }
 
 script DawnshoreCity_Woman {

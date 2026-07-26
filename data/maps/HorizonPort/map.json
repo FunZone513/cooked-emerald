@@ -34,7 +34,7 @@
       "flag": "FLAG_ITEM_HORIZON_PORT"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
       "x": 21,
       "y": 22,
       "elevation": 3,
@@ -42,7 +42,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_SHELL_BELL",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM_PROTECT",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_HORIZON_PORT_2"
     },
@@ -269,14 +269,14 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
-      "x": 3,
-      "y": 27,
+      "x": 32,
+      "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_SUPER_REPEL",
+      "trainer_sight_or_berry_tree_id": "ITEM_REPEL",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_HORIZON_PORT_4"
     },
@@ -295,8 +295,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 25,
-      "y": 11,
+      "x": 24,
+      "y": 12,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,

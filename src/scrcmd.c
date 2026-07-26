@@ -3622,7 +3622,7 @@ bool8 AllowedToUseMove(u16 MOVE) {
         case MOVE_WATERFALL:    return (FlagGet(FLAG_CAN_USE_WATERFALL));
         case MOVE_FLASH:        return FALSE; //(FlagGet(FLAG_CAN_USE_FLASH));
         
-        default: return TRUE;
+        default: return FALSE;
     }
 }
 

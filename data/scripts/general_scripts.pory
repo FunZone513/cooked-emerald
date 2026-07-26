@@ -107,6 +107,20 @@ script Generic_POKEMON_INTERACT {
     releaseall
 }
 
+//MARK: Sand / Ash Piles
+script Common_EventScript_FindItemSand {
+    getobjectxy(VAR_LAST_TALKED, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, METATILE_General_SandPit_Center, FALSE)
+    callnative(GetItemBallIdAndAmountFromTemplate)
+	finditem(VAR_RESULT, VAR_0x8009)
+}
+script Common_EventScript_FindItemAsh {
+    getobjectxy(VAR_LAST_TALKED, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, METATILE_Fallarbor_AshField, FALSE)
+    callnative(GetItemBallIdAndAmountFromTemplate)
+	finditem(VAR_RESULT, VAR_0x8009)
+}
+
 //MARK: Pokemart
 script Generic_POKEMART {
     lock
@@ -116,25 +130,25 @@ script Generic_POKEMART {
     call(Generic_GetBadgeCount)
     switch(var(VAR_RESULT)) {
         case 0:
-        case 1:
             pokemart(GenericPokeMart_1)
             break
-        
-        case 2:
-        case 3:
+
+        case 1:
             pokemart(GenericPokeMart_2)
             break
         
-        case 4:
-        case 5:
+        case 2:
             pokemart(GenericPokeMart_3)
             break
-        
-        case 6:
-        case 7:
+
+        case 3:
             pokemart(GenericPokeMart_4)
             break
 
+        case 4:
+        case 5:
+        case 6:
+        case 7:
         case 8:
         default:
             pokemart(GenericPokeMart_5)
@@ -146,6 +160,7 @@ script Generic_POKEMART {
 mart GenericPokeMart_1 {
     ITEM_POKE_BALL
     ITEM_POTION
+    ITEM_REPEL
     ITEM_ANTIDOTE
     ITEM_PARALYZE_HEAL
     ITEM_AWAKENING
@@ -158,6 +173,7 @@ mart GenericPokeMart_2 {
     ITEM_POTION
     ITEM_SUPER_POTION
     ITEM_REPEL
+    ITEM_SUPER_REPEL
     ITEM_ANTIDOTE
     ITEM_PARALYZE_HEAL
     ITEM_AWAKENING

@@ -1241,15 +1241,15 @@
 #define FLAG_ITEM_ROUTE1_4                                          0x49A 
 #define FLAG_ITEM_WHISPER_WOODS                                     0x49B
 #define FLAG_ITEM_WHISPER_WOODS_1                                   0x49C 
-#define FLAG_ITEM_ROUTE2                                            0x49D // Unused Flag
-#define FLAG_ITEM_ROUTE2_2                                          0x49E // Unused Flag
-#define FLAG_ITEM_ROUTE2_3                                          0x49F // Unused Flag
-#define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
-#define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
-#define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag
-#define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag
-#define FLAG_UNUSED_0x4A4                                           0x4A4 // Unused Flag
-#define FLAG_UNUSED_0x4A5                                           0x4A5 // Unused Flag
+#define FLAG_ITEM_ROUTE2                                            0x49D 
+#define FLAG_ITEM_ROUTE2_2                                          0x49E 
+#define FLAG_ITEM_ROUTE2_3                                          0x49F 
+#define FLAG_ITEM_DAWNSHORE_CITY                                    0x4A0 
+#define FLAG_ITEM_DAWNSHORE_CITY_2                                  0x4A1 
+#define FLAG_ITEM_DAWNSHORE_CITY_3                                  0x4A2 
+#define FLAG_UNUSED_0x4A3                                           0x4A3 
+#define FLAG_UNUSED_0x4A4                                           0x4A4 
+#define FLAG_UNUSED_0x4A5                                           0x4A5 
 #define FLAG_UNUSED_0x4A6                                           0x4A6 // Unused Flag
 #define FLAG_UNUSED_0x4A7                                           0x4A7 // Unused Flag
 #define FLAG_UNUSED_0x4A8                                           0x4A8 // Unused Flag
