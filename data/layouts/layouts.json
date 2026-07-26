@@ -9473,6 +9473,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/DawnshoreCity_CuttersHouse/border.bin",
       "blockdata_filepath": "data/layouts/DawnshoreCity_CuttersHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_DAWNSHORE_CITY_GYM",
+      "name": "DawnshoreCity_Gym_Layout",
+      "width": 18,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PewterGym",
+      "border_filepath": "data/layouts/DawnshoreCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/DawnshoreCity_Gym/map.bin"
     }
   ]
 }

@@ -778,6 +778,11 @@
 #define FLAG_HIDE_MOSSDEEP_CITY_STEVENS_HOUSE_INVISIBLE_NINJA_BOY   0x2D7
 #define FLAG_HIDE_PETALBURG_CITY_WALLYS_MOM                         0x2D8
 
+//MARK: Gym Flags
+#define FLAG_PLUCKED_DAWNSHORE_FLOWER_RIGHT                         FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG                      
+#define FLAG_PLUCKED_DAWNSHORE_FLOWER_LEFT                          FLAG_HIDE_APPRENTICE                                        
+
+
 #define FLAG_UNUSED_0x2D9                                           0x2D9 // Unused Flag
 
 #define FLAG_HIDE_LILYCOVE_FAN_CLUB_INTERVIEWER                     0x2DA

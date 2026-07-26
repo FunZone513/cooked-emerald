@@ -833,6 +833,17 @@ const struct Tileset gTileset_UnionRoom =
     .callback = NULL,
 };
 
+const struct Tileset gTileset_PewterGym =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PewterGym,
+    .palettes = gTilesetPalettes_PewterGym,
+    .metatiles = gMetatiles_PewterGym,
+    .metatileAttributes = gMetatileAttributes_PewterGym,
+    .callback = NULL,
+};
+
 #else
 
 // FRLG tilesets
@@ -1108,17 +1119,6 @@ const struct Tileset gTileset_GameCorner =
     .palettes = gTilesetPalettes_GameCorner,
     .metatiles = gMetatiles_GameCorner,
     .metatileAttributes = gMetatileAttributes_GameCorner,
-    .callback = NULL,
-};
-
-const struct Tileset gTileset_PewterGym =
-{
-    .isCompressed = TRUE,
-    .isSecondary = TRUE,
-    .tiles = gTilesetTiles_PewterGym,
-    .palettes = gTilesetPalettes_PewterGym,
-    .metatiles = gMetatiles_PewterGym,
-    .metatileAttributes = gMetatileAttributes_PewterGym,
     .callback = NULL,
 };
 

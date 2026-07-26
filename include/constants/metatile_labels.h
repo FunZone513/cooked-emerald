@@ -471,6 +471,24 @@
 // gTileset_PewterCity
 #define METATILE_PewterCity_Door  0x2CE
 
+// gTileset_PewterGym
+#define METATILE_PewterGym_Boardwalk_Centre      0x244
+#define METATILE_PewterGym_Boardwalk_Centre_Off  0x246
+#define METATILE_PewterGym_Boardwalk_Left        0x23D
+#define METATILE_PewterGym_Boardwalk_Left_Off    0x245
+#define METATILE_PewterGym_Boardwalk_Middle      0x20E
+#define METATILE_PewterGym_Boardwalk_Middle_Off  0x216
+#define METATILE_PewterGym_Boardwalk_Right       0x20F
+#define METATILE_PewterGym_Boardwalk_Right_Off   0x217
+#define METATILE_PewterGym_Flower_in_pot_Left    0x214
+#define METATILE_PewterGym_Flower_in_pot_Right   0x22C
+#define METATILE_PewterGym_Flowerless_Left       0x24B
+#define METATILE_PewterGym_Flowerless_Right      0x24C
+#define METATILE_PewterGym_JumpingSand           0x24D
+#define METATILE_PewterGym_JumpingSandEdge       0x24E
+#define METATILE_PewterGym_Sand                  0x204
+#define METATILE_PewterGym_SandEdge              0x207
+
 // gTileset_PokemonCenter
 #define METATILE_PokemonCenter_CounterBarrier            0x25D
 #define METATILE_PokemonCenter_Door_CableClub            0x264

@@ -9981,7 +9981,7 @@ enum Direction GetLedgeJumpDirection(s16 x, s16 y, enum Direction direction)
     index--;
     behavior = MapGridGetMetatileBehaviorAt(x, y);
 
-    if (ledgeBehaviorFuncs[index](behavior) == TRUE)
+    if (ledgeBehaviorFuncs[index](behavior) == TRUE || MetatileBehavior_IsOmnidirectionalJump(behavior))
         return index + 1;
 
     return DIR_NONE;

@@ -1769,3 +1769,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/DawnshoreCity_Mart/scripts.inc"
 
 	.include "data/maps/DawnshoreCity_CuttersHouse/scripts.inc"
+
+	.include "data/maps/DawnshoreCity_Gym/scripts.inc"

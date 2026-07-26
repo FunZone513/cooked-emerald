@@ -22,9 +22,10 @@
 #define TRAINER_ROUTE2_RUNNER                   15
 #define TRAINER_ROUTE2_FISHERMAN                16
 #define TRAINER_ROUTE2_HIKER                    17
+#define TRAINER_GYM_LEADER_NAMI                 18
 
 //== update this every time
-#define TRAINERS_COUNT_EMERALD     18
+#define TRAINERS_COUNT_EMERALD     19
 
 // don't go over this I guess (theres no fucking way I add 800+ trainers)
 #define MAX_TRAINERS_COUNT_EMERALD 864

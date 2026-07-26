@@ -210,6 +210,9 @@ const u16 gMetatileAttributes_MysteryEventsHouse[] = INCBIN_U16("data/tilesets/s
 const u16 gMetatiles_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/union_room/metatiles.bin");
 const u16 gMetatileAttributes_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/union_room/metatile_attributes.bin");
 
+const u16 gMetatiles_PewterGym[] = INCBIN_U16("data/tilesets/secondary/pewter_gym_frlg/metatiles.bin");
+const u16 gMetatileAttributes_PewterGym[] = INCBIN_U16("data/tilesets/secondary/pewter_gym_frlg/metatile_attributes.bin");
+
 #else
 
 const u16 gMetatiles_Building_Frlg[] = INCBIN_U16("data/tilesets/primary/building_frlg/metatiles.bin");
@@ -253,9 +256,6 @@ const u16 gMetatileAttributes_IndigoPlateau[] = INCBIN_U16("data/tilesets/second
 
 const u16 gMetatiles_SaffronCity[] = INCBIN_U16("data/tilesets/secondary/saffron_city_frlg/metatiles.bin");
 const u16 gMetatileAttributes_SaffronCity[] = INCBIN_U16("data/tilesets/secondary/saffron_city_frlg/metatile_attributes.bin");
-
-const u16 gMetatiles_PewterGym[] = INCBIN_U16("data/tilesets/secondary/pewter_gym_frlg/metatiles.bin");
-const u16 gMetatileAttributes_PewterGym[] = INCBIN_U16("data/tilesets/secondary/pewter_gym_frlg/metatile_attributes.bin");
 
 const u16 gMetatiles_CeruleanGym[] = INCBIN_U16("data/tilesets/secondary/cerulean_gym_frlg/metatiles.bin");
 const u16 gMetatileAttributes_CeruleanGym[] = INCBIN_U16("data/tilesets/secondary/cerulean_gym_frlg/metatile_attributes.bin");

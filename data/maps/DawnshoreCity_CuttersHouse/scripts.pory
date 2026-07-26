@@ -1,3 +1,14 @@
 mapscripts DawnshoreCity_CuttersHouse_MapScripts {}
 
 //TODO: something for getting cut, maybe a cutscene or something before you battle them?
+// Have richard be in here already, call you a slacker for being slow or something, maybe challenge you to a battle
+// the old couple shows you how to use cut through a cutscene where they have a pokemon slash one of the trees
+// Maybe do this after you beat the gym so it makes sense? proof of ability maybe?
+
+script DawnshoreCity_CuttersHouse_Man {
+    msgbox(format("Congrats you can use cut once you beat the gym."), MSGBOX_NPC)
+}
+
+script DawnshoreCity_CuttersHouse_Woman {
+    msgbox(format("placeholder text"))
+}

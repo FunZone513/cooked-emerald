@@ -108,7 +108,8 @@
     "HorizonPort_House2",
     "DawnshoreCity_PokeCentre",
     "DawnshoreCity_Mart",
-    "DawnshoreCity_CuttersHouse"
+    "DawnshoreCity_CuttersHouse",
+    "DawnshoreCity_Gym"
   ],
   "gMapGroup_IndoorRoutes": [],
   "gMapGroup_TownsAndRoutes": [

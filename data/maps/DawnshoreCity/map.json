@@ -196,7 +196,14 @@
       "x": 18,
       "y": 4,
       "elevation": 0,
-      "dest_map": "DawnshoreCity_CuttersHouse",
+      "dest_map": "MAP_DAWNSHORE_CITY_CUTTERS_HOUSE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 31,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_DAWNSHORE_CITY_GYM",
       "dest_warp_id": "0"
     }
   ],

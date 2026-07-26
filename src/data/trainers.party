@@ -299,6 +299,27 @@ Level: 4
 Machop
 Level: 4
 
+=== TRAINER_GYM_LEADER_NAMI ===
+Name: NAMI
+Class: Leader
+Pic: Leader Misty FRLG
+Gender: Female
+Music: Female
+Items: Potion / Potion
+Double Battle: No
+AI: Leader
+
+Tentacool
+Level: 10
+
+Corphish
+Level: 10
+
+Shellder
+Level: 11
+
+Wailmer
+Level: 12
 
 
 

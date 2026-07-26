@@ -1,0 +1,97 @@
+mapscripts DawnshoreCity_Gym_MapScripts {
+    MAP_SCRIPT_ON_LOAD: DawnshoreCity_Gym_OnLoad
+}
+
+script DawnshoreCity_Gym_OnLoad {
+    call(DawnshoreCity_Gym_UpdateTiles)
+}
+
+script DawnshoreCity_Gym_UpdateTiles {
+    if (flag(FLAG_PLUCKED_DAWNSHORE_FLOWER_RIGHT)) {
+        // open path to left flower
+        setmetatile(2, 9, METATILE_PewterGym_Boardwalk_Left,   FALSE)
+        setmetatile(3, 9, METATILE_PewterGym_Boardwalk_Middle, FALSE)
+        setmetatile(4, 9, METATILE_PewterGym_Boardwalk_Middle, FALSE)
+        setmetatile(5, 9, METATILE_PewterGym_Boardwalk_Middle, FALSE)
+        setmetatile(6, 9, METATILE_PewterGym_Boardwalk_Right,  FALSE)
+        setmetatile(3, 8, METATILE_PewterGym_Boardwalk_Centre, FALSE)
+
+        // set the sand
+        setmetatile(7,  9, METATILE_PewterGym_JumpingSand,     TRUE)
+        setmetatile(3, 10, METATILE_PewterGym_JumpingSandEdge, TRUE)
+    }
+
+    if (flag(FLAG_PLUCKED_DAWNSHORE_FLOWER_LEFT)) {
+        // open path to gym leader
+        setmetatile(9, 7, METATILE_PewterGym_Boardwalk_Centre, FALSE)
+        setmetatile(8, 5, METATILE_PewterGym_Boardwalk_Left,   FALSE)
+        setmetatile(9, 5, METATILE_PewterGym_Boardwalk_Middle, FALSE)
+        setmetatile(10, 5, METATILE_PewterGym_Boardwalk_Right, FALSE)
+
+        // open path down
+        setmetatile(2, 13, METATILE_PewterGym_Boardwalk_Left,   FALSE)
+        setmetatile(3, 13, METATILE_PewterGym_Boardwalk_Middle, FALSE)
+        setmetatile(4, 13, METATILE_PewterGym_Boardwalk_Middle, FALSE)
+        setmetatile(5, 13, METATILE_PewterGym_Boardwalk_Right,  FALSE)
+        setmetatile(5, 14, METATILE_PewterGym_Boardwalk_Centre, FALSE)
+
+        // set the sand
+        setmetatile(3, 12, METATILE_PewterGym_JumpingSandEdge, TRUE)
+        setmetatile(6, 14,  METATILE_PewterGym_JumpingSand,    TRUE)
+        setmetatile(9, 8, METATILE_PewterGym_JumpingSandEdge,  TRUE)
+
+        // disable the top left (was enabled by the right flower) if nami not beaten
+        if (!defeated(TRAINER_GYM_LEADER_NAMI)) {
+            setmetatile(2, 9, METATILE_PewterGym_Boardwalk_Left_Off,   FALSE)
+            setmetatile(3, 9, METATILE_PewterGym_Boardwalk_Middle_Off, FALSE)
+            setmetatile(4, 9, METATILE_PewterGym_Boardwalk_Middle_Off, FALSE)
+            setmetatile(5, 9, METATILE_PewterGym_Boardwalk_Middle_Off, FALSE)
+            setmetatile(6, 9, METATILE_PewterGym_Boardwalk_Right_Off,  FALSE)
+            setmetatile(3, 8, METATILE_PewterGym_Boardwalk_Centre_Off, FALSE)
+            
+            setmetatile(7,  9, METATILE_PewterGym_Sand,     TRUE)
+            setmetatile(3, 10, METATILE_PewterGym_SandEdge, TRUE)
+        }
+    }
+    
+    special(DrawWholeMapView)
+}
+
+script DawnshoreCity_Gym_RightFlower {
+    if (!flag(FLAG_PLUCKED_DAWNSHORE_FLOWER_RIGHT)) {
+        lockall
+        setflag(FLAG_PLUCKED_DAWNSHORE_FLOWER_RIGHT)
+        setmetatile(16, 12, METATILE_PewterGym_Flowerless_Left,    TRUE)
+        setmetatile(11,  6, METATILE_PewterGym_Flower_in_pot_Left, TRUE)
+        msgbox("You grabbed the Flower!", MSGBOX_SIGN)
+        call(DawnshoreCity_Gym_UpdateTiles)
+	    playse(SE_UNLOCK)
+        waitse
+        releaseall
+    }
+}
+
+script DawnshoreCity_Gym_LeftFlower {
+    if (!flag(FLAG_PLUCKED_DAWNSHORE_FLOWER_LEFT)) {
+        lockall
+        setflag(FLAG_PLUCKED_DAWNSHORE_FLOWER_LEFT)
+        setmetatile(2, 11, METATILE_PewterGym_Flowerless_Right,   TRUE)
+        setmetatile(7, 6, METATILE_PewterGym_Flower_in_pot_Right, TRUE)
+        msgbox("You grabbed the Flower!", MSGBOX_SIGN)
+        call(DawnshoreCity_Gym_UpdateTiles)
+	    playse(SE_UNLOCK)
+        waitse
+        releaseall
+    }
+}
+
+script DawnshoreCity_Gym_Guide {
+    msgbox(
+        "How's it going prospective challenger?\nWelcome to the Dawnshore Gym!\p"
+        "This Gym is a reflection of the life\nof those that live here on the beach!\p"
+        "You ever tried walking on hot sand?\nIt's just not doable!\p"
+        "So jump across the boardwalks to keep\nyourself safe from the sand!\p"
+        "Pick up the flowers as tribute to our\nbeautiful Gym Leader, and open up the\lpath to battle her!\p"
+        "Good luck out there!"
+    , MSGBOX_NPC)
+}
