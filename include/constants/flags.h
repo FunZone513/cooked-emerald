@@ -678,13 +678,13 @@
 #define FLAG_DISABLE_TRAINER_BATTLES    0x26E   // Stops trainer line of sight
 #define FLAG_FORCE_ENCOUNTER_ON_RUN     0x26F   // Forcefully starts a wild encounter if the player attempts to run (in overworld)
 
-#define FLAG_CAN_USE_CUT            0x270 // Unused Flag
-#define FLAG_CAN_USE_ROCK_SMASH     0x271 // Unused Flag
-#define FLAG_CAN_USE_SURF           0x272 // Unused Flag
-#define FLAG_CAN_USE_STRENGTH       0x273 // Unused Flag
-#define FLAG_CAN_USE_  0x274 // Unused Flag
-#define FLAG_UNUSED_0x275  0x275 // Unused Flag
-#define FLAG_UNUSED_0x276  0x276 // Unused Flag
+#define FLAG_CAN_USE_CUT                0x270 
+#define FLAG_CAN_USE_ROCK_SMASH         0x271 
+#define FLAG_CAN_USE_SURF               0x272 
+#define FLAG_CAN_USE_STRENGTH           0x273 
+#define FLAG_CAN_USE_ROCK_CLIMB         0x274
+#define FLAG_CAN_USE_WATERFALL          0x275 
+#define FLAG_CAN_USE_DIVE               0x276
 
 #define FLAG_UNUSED_0x277  0x277 // Unused Flag
 #define FLAG_UNUSED_0x278  0x278 // Unused Flag

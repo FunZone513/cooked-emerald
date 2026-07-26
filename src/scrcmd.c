@@ -3613,14 +3613,14 @@ bool8 IsAbilityInParty(struct ScriptContext *ctx) {
 // check whether the HM is unlocked
 bool8 AllowedToUseMove(u16 MOVE) {
     switch (MOVE) {
-        case MOVE_CUT:          return (FlagGet(FLAG_BADGE01_GET));
-        case MOVE_ROCK_SMASH:   return (FlagGet(FLAG_BADGE02_GET));
-        case MOVE_ROCK_CLIMB:   return (FlagGet(FLAG_BADGE04_GET));
-        case MOVE_STRENGTH:     return TRUE; // (FlagGet(FLAG_BADGE02_GET));
-        case MOVE_SURF:         return (FlagGet(FLAG_BADGE03_GET));
-        case MOVE_DIVE:         return FALSE; // (FlagGet(FLAG_BADGE02_GET));
-        case MOVE_WATERFALL:    return FALSE; // (FlagGet(FLAG_BADGE02_GET));
-        case MOVE_FLASH:        return TRUE; // (FlagGet(FLAG_BADGE02_GET));
+        case MOVE_CUT:          return (FlagGet(FLAG_CAN_USE_CUT));
+        case MOVE_ROCK_SMASH:   return (FlagGet(FLAG_CAN_USE_ROCK_SMASH));
+        case MOVE_ROCK_CLIMB:   return (FlagGet(FLAG_CAN_USE_ROCK_CLIMB));
+        case MOVE_STRENGTH:     return (FlagGet(FLAG_CAN_USE_STRENGTH));
+        case MOVE_SURF:         return (FlagGet(FLAG_CAN_USE_SURF));
+        case MOVE_DIVE:         return (FlagGet(FLAG_CAN_USE_DIVE));
+        case MOVE_WATERFALL:    return (FlagGet(FLAG_CAN_USE_WATERFALL));
+        case MOVE_FLASH:        return FALSE; //(FlagGet(FLAG_CAN_USE_FLASH));
         
         default: return TRUE;
     }
