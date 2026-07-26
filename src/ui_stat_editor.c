@@ -536,12 +536,12 @@ static void Task_StatEditorConfirmChanges(u8 taskId)
         switch (Menu_ProcessInputNoWrapClearOnChoose())
         {
         case 0: // YES
-            PlaySE(SE_SELECT);
+            PlaySE(SE_SAVE);
             tState = 3;
             break;
         case 1: // NO
         case MENU_B_PRESSED:
-            PlaySE(SE_SELECT);
+            PlaySE(SE_PC_OFF);
             tState = 2;
             break;
         }
@@ -551,7 +551,6 @@ static void Task_StatEditorConfirmChanges(u8 taskId)
         tState = 3;
         break;
     case 3:
-        PlaySE(SE_PC_OFF);
         BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 16, RGB_BLACK);
         gTasks[taskId].func = Task_StatEditorTurnOff;
         break;

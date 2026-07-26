@@ -23,26 +23,44 @@ RestArea1_Indoor_Hiker::
 RestArea1_Indoor_Maniac::
 # 20 "data/maps/RestArea1_Indoor/scripts.pory"
 	msgbox RestArea1_Indoor_Maniac_Text_0, MSGBOX_NPC
+# 21 "data/maps/RestArea1_Indoor/scripts.pory"
+	applymovement VAR_LAST_TALKED, RestArea1_Indoor_Maniac_Movement_0
+# 22 "data/maps/RestArea1_Indoor/scripts.pory"
+	waitmovement 0
+# 23 "data/maps/RestArea1_Indoor/scripts.pory"
+	releaseall
 	return
 
 
 RestArea1_Indoor_Girl::
-# 24 "data/maps/RestArea1_Indoor/scripts.pory"
+# 27 "data/maps/RestArea1_Indoor/scripts.pory"
 	msgbox RestArea1_Indoor_Girl_Text_0, MSGBOX_NPC
 	return
 
 
 RestArea1_Indoor_RichBoy::
-# 28 "data/maps/RestArea1_Indoor/scripts.pory"
+# 31 "data/maps/RestArea1_Indoor/scripts.pory"
 	msgbox RestArea1_Indoor_RichBoy_Text_0, MSGBOX_NPC
 	return
 
 
 RestArea1_Indoor_Man::
-# 32 "data/maps/RestArea1_Indoor/scripts.pory"
+# 35 "data/maps/RestArea1_Indoor/scripts.pory"
 	msgbox RestArea1_Indoor_Man_Text_0, MSGBOX_NPC
+# 36 "data/maps/RestArea1_Indoor/scripts.pory"
+	applymovement VAR_LAST_TALKED, RestArea1_Indoor_Maniac_Movement_0
+# 37 "data/maps/RestArea1_Indoor/scripts.pory"
+	waitmovement 0
+# 38 "data/maps/RestArea1_Indoor/scripts.pory"
+	releaseall
 	return
 
+
+# 21 "data/maps/RestArea1_Indoor/scripts.pory"
+RestArea1_Indoor_Maniac_Movement_0:
+# 21 "data/maps/RestArea1_Indoor/scripts.pory"
+	face_up
+	step_end
 
 RestArea1_Indoor_Nurse_Text_0:
 # 5 "data/maps/RestArea1_Indoor/scripts.pory"
@@ -66,18 +84,16 @@ RestArea1_Indoor_Maniac_Text_0:
 	.string "that's the polite thing to do.$"
 
 RestArea1_Indoor_Girl_Text_0:
-# 24 "data/maps/RestArea1_Indoor/scripts.pory"
-	.string "Have you been in the small bit of forest\n"
-	.string "nearby yet? It's pretty spooky in\l"
-	.string "there!$"
+# 27 "data/maps/RestArea1_Indoor/scripts.pory"
+	.string "Have you been in the small bit of forest\nnearby yet?\pIt's pretty spooky in there!$"
 
 RestArea1_Indoor_RichBoy_Text_0:
-# 28 "data/maps/RestArea1_Indoor/scripts.pory"
+# 31 "data/maps/RestArea1_Indoor/scripts.pory"
 	.string "I'll have you know that I could afford\n"
 	.string "to sleep in a 5 star hotel, I just\l"
 	.string "thought I'd see how the lower class\l"
 	.string "spends their time.$"
 
 RestArea1_Indoor_Man_Text_0:
-# 32 "data/maps/RestArea1_Indoor/scripts.pory"
+# 35 "data/maps/RestArea1_Indoor/scripts.pory"
 	.string "Do you mind?$"

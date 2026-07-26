@@ -84,7 +84,7 @@ script Generic_GYM_LEVEL_GUIDE {
 
 //MARK: Generic PKMN
 script Generic_POKEMON_INTERACT {
-    lockall
+    lock
     applymovement(VAR_LAST_TALKED, moves(face_player))
     waitmovement(0)
     callnative(GetInteractedPokemon)

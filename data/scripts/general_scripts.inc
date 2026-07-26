@@ -207,7 +207,7 @@ Generic_GYM_LEVEL_GUIDE_2:
 
 Generic_POKEMON_INTERACT::
 # 87 "data/scripts/general_scripts.pory"
-	lockall
+	lock
 # 88 "data/scripts/general_scripts.pory"
 	applymovement VAR_LAST_TALKED, Generic_POKEMON_INTERACT_Movement_0
 # 89 "data/scripts/general_scripts.pory"

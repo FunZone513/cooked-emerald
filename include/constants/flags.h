@@ -1074,7 +1074,7 @@
 #define FLAG_ITEM_DAWNSHORE_CITY                                    0x3F5 
 #define FLAG_ITEM_DAWNSHORE_CITY_2                                  0x3F6 
 #define FLAG_ITEM_DAWNSHORE_CITY_3                                  0x3F7
-#define FLAG_ITEM_0x3F8                      0x3F8
+#define FLAG_ITEM_REST_AREA1                                        0x3F8
 #define FLAG_ITEM_0x3F9                      0x3F9
 #define FLAG_ITEM_0x3FA                      0x3FA
 #define FLAG_ITEM_0x3FB                      0x3FB

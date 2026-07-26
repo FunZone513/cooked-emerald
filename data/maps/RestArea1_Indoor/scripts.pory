@@ -18,10 +18,13 @@ script RestArea1_Indoor_Hiker {
 
 script RestArea1_Indoor_Maniac {
     msgbox(format("I'm washing up after eating, because that's the polite thing to do."), MSGBOX_NPC)
+    applymovement(VAR_LAST_TALKED, moves(face_up))
+    waitmovement(0)
+    releaseall
 }
 
 script RestArea1_Indoor_Girl {
-    msgbox(format("Have you been in the small bit of forest nearby yet? It's pretty spooky in there!"), MSGBOX_NPC)
+    msgbox("Have you been in the small bit of forest\nnearby yet?\pIt's pretty spooky in there!", MSGBOX_NPC)
 }
 
 script RestArea1_Indoor_RichBoy {
@@ -30,4 +33,7 @@ script RestArea1_Indoor_RichBoy {
 
 script RestArea1_Indoor_Man {
     msgbox(format("Do you mind?"), MSGBOX_NPC)
+    applymovement(VAR_LAST_TALKED, moves(face_up))
+    waitmovement(0)
+    releaseall
 }
