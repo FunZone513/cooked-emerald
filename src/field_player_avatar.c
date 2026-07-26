@@ -1642,6 +1642,20 @@ bool8 IsPlayerSurfingNorth(void)
         return FALSE;
 }
 
+bool8 IsPlayerFacingFishableWaterOnly(void)
+{
+    struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
+    s16 x = playerObjEvent->currentCoords.x;
+    s16 y = playerObjEvent->currentCoords.y;
+
+    MoveCoords(playerObjEvent->facingDirection, &x, &y);
+    if ((MapGridGetElevationAt(x, y) == 1) && (MapGridGetCollisionAt(x, y) == 1)
+     && MetatileBehavior_IsSurfableFishableWater(MapGridGetMetatileBehaviorAt(x, y)))
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 IsPlayerFacingSurfableFishableWater(void)
 {
     struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
