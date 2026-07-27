@@ -1118,10 +1118,12 @@ enum NationalDexOrder
     F(KINGLER) \
     F(CORPHISH) \
     F(CRAWDAUNT) \
-    F(CLAUNCHER) \
-    F(CLAWITZER) \
+    F(GOLDEEN) \
+    F(SEAKING) \
     F(TENTACOOL) \
     F(TENTACRUEL) \
+    F(SANDYGAST) \
+    F(PALOSSAND) \
     F(SHROOMISH) \
     F(BRELOOM) \
     F(VENIPEDE) \
@@ -1196,7 +1198,6 @@ enum NationalDexOrder
     F(DRAPION) \
     F(SLUGMA) \
     F(MAGCARGO) \
-    F(SHUCKLE) \
     F(GOLETT) \
     F(GOLURK) \
     F(BRONZOR) \
@@ -1213,7 +1214,6 @@ enum NationalDexOrder
     F(SHINX) \
     F(LUXIO) \
     F(LUXRAY) \
-    F(COMFEY) \
     F(FERROSEED) \
     F(FERROTHORN) \
     F(TROPIUS) \
