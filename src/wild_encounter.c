@@ -322,6 +322,31 @@ static u32 ChooseWildMonIndex_Fishing(u8 rod)
     return wildMonIndex;
 }
 
+// SPECIAL_WILD_COUNT
+u32 ChooseWildMonIndex_Special(void)
+{
+    u32 wildMonIndex = 0;
+    bool8 swap = FALSE;
+    u8 rand = Random() % ENCOUNTER_CHANCE_SPECIAL_MONS_TOTAL;
+
+    if (rand < ENCOUNTER_CHANCE_SPECIAL_MONS_SLOT_0)
+        wildMonIndex = 0;
+    else if (rand >= ENCOUNTER_CHANCE_SPECIAL_MONS_SLOT_0 && rand < ENCOUNTER_CHANCE_SPECIAL_MONS_SLOT_1)
+        wildMonIndex = 1;
+    else if (rand >= ENCOUNTER_CHANCE_SPECIAL_MONS_SLOT_1 && rand < ENCOUNTER_CHANCE_SPECIAL_MONS_SLOT_2)
+        wildMonIndex = 2;
+    else
+        wildMonIndex = 3;
+
+    if (LURE_STEP_COUNT != 0 && (Random() % 10 < 2))
+        swap = TRUE;
+
+    if (swap)
+        wildMonIndex = 4 - wildMonIndex;
+
+    return wildMonIndex;
+}
+
 u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIndex, enum WildPokemonArea area)
 {
     u8 min;
@@ -430,6 +455,9 @@ enum TimeOfDay GetTimeOfDayForEncounters(u32 headerId, enum WildPokemonArea area
     case WILD_AREA_HIDDEN:
         wildMonInfo = gWildMonHeaders[headerId].encounterTypes[timeOfDay].hiddenMonsInfo;
         break;
+    case WILD_AREA_SPECIAL:
+        wildMonInfo = gWildMonHeaders[headerId].encounterTypes[timeOfDay].specialMonsInfo;
+        break;
     }
 
     if (wildMonInfo == NULL && !OW_TIME_OF_DAY_DISABLE_FALLBACK)
@@ -518,6 +546,9 @@ bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, enum WildPok
         break;
     case WILD_AREA_ROCKS:
         wildMonIndex = ChooseWildMonIndex_Rocks();
+        break;
+    case WILD_AREA_SPECIAL:
+        wildMonIndex = ChooseWildMonIndex_Special();
         break;
     default:
     case WILD_AREA_FISHING:
@@ -817,6 +848,38 @@ void RockSmashWildEncounter(void)
                 BattleSetup_StartWildBattle();
                 gSpecialVar_Result = TRUE;
             }
+        }
+        else
+        {
+            gSpecialVar_Result = FALSE;
+        }
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
+    }
+}
+
+void SpecialWildEncounter(void)
+{
+    u32 headerId = GetCurrentMapWildMonHeaderId();
+    enum TimeOfDay timeOfDay;
+
+    if (headerId != HEADER_NONE)
+    {
+        timeOfDay = GetTimeOfDayForEncounters(headerId, WILD_AREA_SPECIAL);
+
+        const struct WildPokemonInfo *wildPokemonInfo = gWildMonHeaders[headerId].encounterTypes[timeOfDay].specialMonsInfo;
+
+        if (wildPokemonInfo == NULL)
+        {
+            gSpecialVar_Result = FALSE;
+        }
+        else if (WildEncounterCheck(wildPokemonInfo->encounterRate, TRUE) == TRUE
+         && TryGenerateWildMon(wildPokemonInfo, WILD_AREA_SPECIAL, WILD_CHECK_REPEL | WILD_CHECK_KEEN_EYE) == TRUE)
+        {
+            BattleSetup_StartWildBattle();
+            gSpecialVar_Result = TRUE;
         }
         else
         {
