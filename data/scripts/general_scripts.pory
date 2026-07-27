@@ -107,19 +107,53 @@ script Generic_POKEMON_INTERACT {
     releaseall
 }
 
+
 //MARK: Sand / Ash Piles
+
+// Finding a hidden item
 script Common_EventScript_FindItemSand {
     getobjectxy(VAR_LAST_TALKED, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
     setmetatile(VAR_TEMP_1, VAR_TEMP_2, METATILE_General_SandPit_Center, FALSE)
     callnative(GetItemBallIdAndAmountFromTemplate)
 	finditem(VAR_RESULT, VAR_0x8009)
 }
+
+// Setting / Finding hidden Pokemon
+// VAR_TEMP_0 = id, VAR_TEMP_1 = x, VAR_TEMP_2 = y
+script Generic_SetPokemonSandPile {
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, METATILE_General_SandPile, TRUE)
+    setobjectxy(VAR_TEMP_0, VAR_TEMP_1, VAR_TEMP_2)
+    applymovement(VAR_TEMP_0, moves(face_down set_invisible))
+    waitmovement(0)
+}
+
+// Set the species to VAR_0x8008 and level to VAR_0x800B
+script Common_EventScript_FindPokemonSand {
+    getobjectxy(VAR_LAST_TALKED, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
+    setmetatile(VAR_TEMP_1, VAR_TEMP_2, METATILE_General_SandPit_Center, FALSE)
+    applymovement(VAR_LAST_TALKED, moves(set_visible jump_in_place_down delay_16))
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(VAR_LAST_TALKED, moves(emote_exclamation_mark delay_16 face_player))
+    waitmovement(0)
+    waitse
+    callnative(GetInteractedPokemon)
+    playmoncry(VAR_0x8008, CRY_MODE_ENCOUNTER)
+    setwildbattle(VAR_0x800A, VAR_0x800B)
+    waitmoncry
+    dowildbattle
+    applymovement(VAR_LAST_TALKED, moves(set_invisible))
+    waitmovement(0)
+    setobjectxyperm(VAR_LAST_TALKED, 0, 0)
+}
+
 script Common_EventScript_FindItemAsh {
     getobjectxy(VAR_LAST_TALKED, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
     setmetatile(VAR_TEMP_1, VAR_TEMP_2, METATILE_Fallarbor_AshField, FALSE)
     callnative(GetItemBallIdAndAmountFromTemplate)
 	finditem(VAR_RESULT, VAR_0x8009)
 }
+
 
 //MARK: Pokemart
 script Generic_POKEMART {

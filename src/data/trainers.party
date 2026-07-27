@@ -139,7 +139,7 @@ AI: Basic Trainer
 Corphish
 Level: 2
 
-Clauncher
+Corphish
 Level: 3
 
 === TRAINER_ROUTE1_SCHOOLKID ===
@@ -309,13 +309,13 @@ Items: Potion / Potion
 Double Battle: No
 AI: Leader
 
-Tentacool
+Goldeen
 Level: 11
 
 Shellder
 Level: 11
 
-Carvanha
+Sandygast
 Level: 12
 
 Wailmer
@@ -346,7 +346,7 @@ AI: Smart Trainer
 Yanma
 Level: 8
 
-Krabby
+Tentacool
 Level: 8
 
 === TRAINER_DAWNSHORE_CITY_GYM_BATTLE_GIRL ===
@@ -388,7 +388,7 @@ Gender: Male
 Music: Girl
 AI: Smart Trainer
 
-Clauncher
+Krabby
 Level: 10
 
 Corphish
