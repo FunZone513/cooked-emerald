@@ -640,4 +640,6 @@ gSpecials::
 	def_special StickerManGetBragFlags
 	def_special CheckAddCoins
 	def_special TrackPartyHealthLost
-	def_special SpecialWildEncounter
+	def_special ForceSpecialWildEncounter
+	def_special SetupSpecialWildEncounter
+	def_special DoSpecialWildEncounter

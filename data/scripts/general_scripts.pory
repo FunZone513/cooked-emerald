@@ -15,7 +15,7 @@ script Generic_DefaultSettings {
     //! this is for testing
     givemon(SPECIES_BALTOY, 5)
     setflag(FLAG_SYS_POKEMON_GET)
-    setflag(FLAG_SYS_QUEST_MENU_GET)
+    //setflag(FLAG_SYS_QUEST_MENU_GET)
     setflag(FLAG_SYS_POKEDEX_GET)
     special(SetUnlockedPokedexFlags)
     //setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
@@ -85,71 +85,73 @@ script Generic_GYM_LEVEL_GUIDE {
 //MARK: Generic PKMN
 script Generic_POKEMON_INTERACT {
     lock
-    applymovement(VAR_LAST_TALKED, moves(face_player))
-    waitmovement(0)
+    faceplayer
     callnative(GetInteractedPokemon)
-    if (flag(FLAG_SYS_POKEDEX_GET)) {setseenmon(VAR_0x8004)}
-    playmoncry(VAR_0x8004, CRY_MODE_NORMAL)
+    if (flag(FLAG_SYS_POKEDEX_GET)) {setseenmon(VAR_RESULT)}
+    playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
     
-    random(5)
+    random(6)
     switch(var(VAR_RESULT)) {
-        case 0: message("?")
-        case 1: message("?")
-        case 2: message("!")
-        case 3: message("...")
-        case 4: message("!?")
-        default: message("?")
+        case 0: applymovement(VAR_LAST_TALKED, moves(emote_question_mark))
+        case 1: applymovement(VAR_LAST_TALKED, moves(emote_question_mark))
+        case 2: applymovement(VAR_LAST_TALKED, moves(emote_question_mark))
+        case 3: applymovement(VAR_LAST_TALKED, moves(emote_exclamation_mark))
+        case 4: applymovement(VAR_LAST_TALKED, moves(emote_exclamation_mark))
+        case 5: applymovement(VAR_LAST_TALKED, moves(emote_double_exclamation_mark))
     }
-    
-    waitmessage
-    //waitmoncry
-    waitbuttonpress
-    releaseall
+    waitmovement(VAR_LAST_TALKED)
+    waitmoncry
+    release
 }
 
+//MARK: Hidden Mons 
+//     (and item piles)
 
-//MARK: Sand / Ash Piles
+script EventScript_SpecialWildEncounter {
+    special(SetupSpecialWildEncounter)
+
+    if (var(VAR_RESULT) != SPECIES_NONE) {
+        waitse
+        playse(SE_PIN)
+        applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_exclamation_mark))
+        waitmovement(0)
+        waitse
+        addobject(LOCALID_SPECIAL_ENCOUNTER_MON)
+        getobjectfacingdirection(OBJ_EVENT_ID_PLAYER, VAR_TEMP_A)
+        switch(var(VAR_TEMP_A)) {
+            case DIR_NORTH: applymovement(LOCALID_SPECIAL_ENCOUNTER_MON, moves(set_visible jump_in_place_down))
+            case DIR_SOUTH: applymovement(LOCALID_SPECIAL_ENCOUNTER_MON, moves(set_visible jump_in_place_up))
+            case DIR_EAST:  applymovement(LOCALID_SPECIAL_ENCOUNTER_MON, moves(set_visible jump_in_place_left))
+            case DIR_WEST:  applymovement(LOCALID_SPECIAL_ENCOUNTER_MON, moves(set_visible jump_in_place_right))
+        }
+        special(DrawWholeMapView)
+        playse(SE_LEDGE)
+        waitmovement(0)
+        waitse
+        playmoncry(VAR_RESULT, CRY_MODE_ENCOUNTER)
+        waitmoncry
+        special(DoSpecialWildEncounter)
+        removeobject(LOCALID_SPECIAL_ENCOUNTER_MON)
+    } else {
+        special(DrawWholeMapView)
+    }
+}
 
 // Finding a hidden item
 script Common_EventScript_FindItemSand {
     getobjectxy(VAR_LAST_TALKED, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
     setmetatile(VAR_TEMP_1, VAR_TEMP_2, METATILE_General_SandPit_Center, FALSE)
+    special(DrawWholeMapView)
+    applymovement(VAR_LAST_TALKED, moves(set_visible))
     callnative(GetItemBallIdAndAmountFromTemplate)
 	finditem(VAR_RESULT, VAR_0x8009)
-}
-
-// Setting / Finding hidden Pokemon
-// VAR_TEMP_0 = id, VAR_TEMP_1 = x, VAR_TEMP_2 = y
-script Generic_SetPokemonSandPile {
-    setmetatile(VAR_TEMP_1, VAR_TEMP_2, METATILE_General_SandPile, TRUE)
-    setobjectxy(VAR_TEMP_0, VAR_TEMP_1, VAR_TEMP_2)
-    applymovement(VAR_TEMP_0, moves(face_down set_invisible))
-    waitmovement(0)
-}
-
-// Set the species to VAR_0x8008 and level to VAR_0x800B
-script Common_EventScript_FindPokemonSand {
-    getobjectxy(VAR_LAST_TALKED, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
-    setmetatile(VAR_TEMP_1, VAR_TEMP_2, METATILE_General_SandPit_Center, FALSE)
-    applymovement(VAR_LAST_TALKED, moves(set_visible jump_in_place_down delay_16))
-    waitmovement(0)
-    playse(SE_PIN)
-    applymovement(VAR_LAST_TALKED, moves(emote_exclamation_mark delay_16 face_player))
-    waitmovement(0)
-    waitse
-    callnative(GetInteractedPokemon)
-    playmoncry(VAR_0x8008, CRY_MODE_ENCOUNTER)
-    setwildbattle(VAR_0x800A, VAR_0x800B)
-    waitmoncry
-    dowildbattle
-    applymovement(VAR_LAST_TALKED, moves(set_invisible))
-    waitmovement(0)
-    setobjectxyperm(VAR_LAST_TALKED, 0, 0)
 }
 
 script Common_EventScript_FindItemAsh {
     getobjectxy(VAR_LAST_TALKED, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
     setmetatile(VAR_TEMP_1, VAR_TEMP_2, METATILE_Fallarbor_AshField, FALSE)
+    special(DrawWholeMapView)
+    applymovement(VAR_LAST_TALKED, moves(set_visible))
     callnative(GetItemBallIdAndAmountFromTemplate)
 	finditem(VAR_RESULT, VAR_0x8009)
 }

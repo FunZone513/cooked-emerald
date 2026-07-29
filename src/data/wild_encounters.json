@@ -37102,6 +37102,35 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_BLANKMAP",
+          "base_label": "gblankmap",
+          "special_mons": {
+            "encounter_rate": 100,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TORTERRA"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TORTERRA"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TORTERRA"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TORTERRA"
+              }
+            ]
+          }
         }
       ]
     },

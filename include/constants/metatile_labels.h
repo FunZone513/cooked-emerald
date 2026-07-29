@@ -206,6 +206,7 @@
 // gTileset_Fallarbor
 #define METATILE_Fallarbor_AshField                  0x218
 #define METATILE_Fallarbor_AshGrass                  0x20A
+#define METATILE_Fallarbor_AshPile_Encounter         0x231
 #define METATILE_Fallarbor_BrownCaveEntrance_Bottom  0x261
 #define METATILE_Fallarbor_BrownCaveEntrance_Top     0x259
 #define METATILE_Fallarbor_BrownCaveIndent           0x208
@@ -282,6 +283,7 @@
 #define METATILE_General_RoughDeepWater        0x14F
 #define METATILE_General_RoughWater            0x14E
 #define METATILE_General_SandPile              0x0FC
+#define METATILE_General_SandPile_Encounter    0x0FD
 #define METATILE_General_SandPit_Center        0x121
 #define METATILE_General_SecretBase_TreeLeft   0x026
 #define METATILE_General_SecretBase_TreeRight  0x027

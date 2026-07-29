@@ -11,6 +11,7 @@
 #include "field_player_avatar.h"
 #include "link.h"
 #include "metatile_behavior.h"
+#include "constants/metatile_labels.h"
 #include "overworld.h"
 #include "ow_abilities.h"
 #include "pokeblock.h"
@@ -30,6 +31,8 @@
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/weather.h"
+#include "constants/event_objects.h"
+#include "event_object_movement.h"
 
 extern const u8 EventScript_SprayWoreOff[];
 
@@ -860,7 +863,89 @@ void RockSmashWildEncounter(void)
     }
 }
 
-void SpecialWildEncounter(void)
+// does the setup stuff for when a special encounter is triggered
+void SetupSpecialWildEncounter(void) {
+
+    // clearing the interact tile
+    s16 x, y;
+    u8 metatileBehavior;
+
+    GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
+    metatileBehavior = MapGridGetMetatileBehaviorAt(x, y);
+
+    if (MetatileBehavior_IsSpecialEncounterSand(metatileBehavior) == TRUE) {
+        MapGridSetMetatileIdAt(x, y, METATILE_General_SandPit_Center);
+
+    } else if (MetatileBehavior_IsSpecialEncounterAsh(metatileBehavior) == TRUE) {
+        MapGridSetMetatileIdAt(x, y, METATILE_Fallarbor_AshField);
+
+    } else {
+        MapGridSetMetatileIdAt(x, y, METATILE_General_Grass);
+    }
+
+    // get the species and level from map data
+    u32 headerId = GetCurrentMapWildMonHeaderId();
+    u8 wildMonIndex;
+    u16 species;
+    u8 level;
+    enum TimeOfDay timeOfDay;
+
+    if (headerId != HEADER_NONE) {
+        timeOfDay = GetTimeOfDayForEncounters(headerId, WILD_AREA_SPECIAL);
+
+        const struct WildPokemonInfo *wildPokemonInfo = gWildMonHeaders[headerId].encounterTypes[timeOfDay].specialMonsInfo;
+
+        if (wildPokemonInfo == NULL) {
+            species = SPECIES_NONE;
+            level = 0;
+        
+        } else {
+            wildMonIndex = ChooseWildMonIndex_Special();
+            species = wildPokemonInfo->wildPokemon[wildMonIndex].species;
+            level = ChooseWildMonLevel(wildPokemonInfo->wildPokemon, wildMonIndex, WILD_AREA_SPECIAL);
+        }
+
+    } else {
+        species = SPECIES_NONE;
+        level = 0;
+    }
+
+    // create the pokemon
+    u32 personality;
+    bool32 shiny, female; // the functions return a bool32
+    
+    if (species != SPECIES_NONE) {        
+        CreateWildMon(species, level);
+
+        personality = GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_PERSONALITY);
+        shiny = ComputePlayerShinyOdds(personality, READ_OTID_FROM_SAVE);
+        female = (GetGenderFromSpeciesAndPersonality(species, personality) == MON_FEMALE);
+        
+        struct ObjectEventTemplate objectEventTemplate = {
+            .localId = LOCALID_SPECIAL_ENCOUNTER_MON,
+            .graphicsId = GetGraphicsIdForMon(species, shiny, female),
+            .x = x -= MAP_OFFSET,
+            .y = y -= MAP_OFFSET,
+            .elevation = MapGridGetElevationAt(x, y),
+            .movementType = MOVEMENT_TYPE_INVISIBLE,
+            .trainerType = 0, // ← TRAINER_TYPE_NONE
+        };
+        SpawnSpecialObjectEvent(&objectEventTemplate);
+
+        gSpecialVar_Result = species;
+    
+    } else {
+        gSpecialVar_Result = SPECIES_NONE;
+    }
+}
+
+// start the battle with the predefined pokemon
+void DoSpecialWildEncounter(void) {
+    BattleSetup_StartWildBattle();
+}
+
+// finds mon and begins encounter
+void ForceSpecialWildEncounter(void)
 {
     u32 headerId = GetCurrentMapWildMonHeaderId();
     enum TimeOfDay timeOfDay;

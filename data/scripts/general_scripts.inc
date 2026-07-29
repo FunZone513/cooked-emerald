@@ -17,8 +17,6 @@ Generic_DefaultSettings::
 	givemon SPECIES_BALTOY, 5
 # 17 "data/scripts/general_scripts.pory"
 	setflag FLAG_SYS_POKEMON_GET
-# 18 "data/scripts/general_scripts.pory"
-	setflag FLAG_SYS_QUEST_MENU_GET
 # 19 "data/scripts/general_scripts.pory"
 	setflag FLAG_SYS_POKEDEX_GET
 # 20 "data/scripts/general_scripts.pory"
@@ -209,573 +207,659 @@ Generic_POKEMON_INTERACT::
 # 87 "data/scripts/general_scripts.pory"
 	lock
 # 88 "data/scripts/general_scripts.pory"
-	applymovement VAR_LAST_TALKED, Generic_POKEMON_INTERACT_Movement_0
+	faceplayer
 # 89 "data/scripts/general_scripts.pory"
-	waitmovement 0
-# 90 "data/scripts/general_scripts.pory"
 	callnative GetInteractedPokemon
-# 91 "data/scripts/general_scripts.pory"
+# 90 "data/scripts/general_scripts.pory"
 	goto_if_set FLAG_SYS_POKEDEX_GET, Generic_POKEMON_INTERACT_2
 Generic_POKEMON_INTERACT_1:
-# 92 "data/scripts/general_scripts.pory"
-	playmoncry VAR_0x8004, CRY_MODE_NORMAL
+# 91 "data/scripts/general_scripts.pory"
+	playmoncry VAR_RESULT, CRY_MODE_NORMAL
+# 93 "data/scripts/general_scripts.pory"
+	random 6
 # 94 "data/scripts/general_scripts.pory"
-	random 5
-# 95 "data/scripts/general_scripts.pory"
 	switch VAR_RESULT
-# 96 "data/scripts/general_scripts.pory"
+# 95 "data/scripts/general_scripts.pory"
 	case 0, Generic_POKEMON_INTERACT_6
-# 97 "data/scripts/general_scripts.pory"
+# 96 "data/scripts/general_scripts.pory"
 	case 1, Generic_POKEMON_INTERACT_7
-# 98 "data/scripts/general_scripts.pory"
+# 97 "data/scripts/general_scripts.pory"
 	case 2, Generic_POKEMON_INTERACT_8
-# 99 "data/scripts/general_scripts.pory"
+# 98 "data/scripts/general_scripts.pory"
 	case 3, Generic_POKEMON_INTERACT_9
-# 100 "data/scripts/general_scripts.pory"
+# 99 "data/scripts/general_scripts.pory"
 	case 4, Generic_POKEMON_INTERACT_10
-# 101 "data/scripts/general_scripts.pory"
-	message Generic_POKEMON_INTERACT_Text_0
+# 100 "data/scripts/general_scripts.pory"
+	case 5, Generic_POKEMON_INTERACT_11
 Generic_POKEMON_INTERACT_4:
+# 102 "data/scripts/general_scripts.pory"
+	waitmovement VAR_LAST_TALKED
+# 103 "data/scripts/general_scripts.pory"
+	waitmoncry
 # 104 "data/scripts/general_scripts.pory"
-	waitmessage
-# 106 "data/scripts/general_scripts.pory"
-	waitbuttonpress
-# 107 "data/scripts/general_scripts.pory"
-	releaseall
+	release
 	return
 
 Generic_POKEMON_INTERACT_2:
-# 91 "data/scripts/general_scripts.pory"
-	setseenmon VAR_0x8004
+# 90 "data/scripts/general_scripts.pory"
+	setseenmon VAR_RESULT
 	goto Generic_POKEMON_INTERACT_1
 
 Generic_POKEMON_INTERACT_6:
-# 96 "data/scripts/general_scripts.pory"
-	message Generic_POKEMON_INTERACT_Text_0
+# 95 "data/scripts/general_scripts.pory"
+	applymovement VAR_LAST_TALKED, Generic_POKEMON_INTERACT_Movement_0
 	goto Generic_POKEMON_INTERACT_4
 
 Generic_POKEMON_INTERACT_7:
-# 97 "data/scripts/general_scripts.pory"
-	message Generic_POKEMON_INTERACT_Text_0
+# 96 "data/scripts/general_scripts.pory"
+	applymovement VAR_LAST_TALKED, Generic_POKEMON_INTERACT_Movement_0
 	goto Generic_POKEMON_INTERACT_4
 
 Generic_POKEMON_INTERACT_8:
-# 98 "data/scripts/general_scripts.pory"
-	message Generic_POKEMON_INTERACT_Text_1
+# 97 "data/scripts/general_scripts.pory"
+	applymovement VAR_LAST_TALKED, Generic_POKEMON_INTERACT_Movement_0
 	goto Generic_POKEMON_INTERACT_4
 
 Generic_POKEMON_INTERACT_9:
-# 99 "data/scripts/general_scripts.pory"
-	message Generic_POKEMON_INTERACT_Text_2
+# 98 "data/scripts/general_scripts.pory"
+	applymovement VAR_LAST_TALKED, Generic_POKEMON_INTERACT_Movement_1
 	goto Generic_POKEMON_INTERACT_4
 
 Generic_POKEMON_INTERACT_10:
+# 99 "data/scripts/general_scripts.pory"
+	applymovement VAR_LAST_TALKED, Generic_POKEMON_INTERACT_Movement_1
+	goto Generic_POKEMON_INTERACT_4
+
+Generic_POKEMON_INTERACT_11:
 # 100 "data/scripts/general_scripts.pory"
-	message Generic_POKEMON_INTERACT_Text_3
+	applymovement VAR_LAST_TALKED, Generic_POKEMON_INTERACT_Movement_2
 	goto Generic_POKEMON_INTERACT_4
 
 
-Common_EventScript_FindItemSand::
-# 112 "data/scripts/general_scripts.pory"
-	getobjectxy VAR_LAST_TALKED, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2
+EventScript_SpecialWildEncounter::
+# 111 "data/scripts/general_scripts.pory"
+	special SetupSpecialWildEncounter
 # 113 "data/scripts/general_scripts.pory"
-	setmetatile VAR_TEMP_1, VAR_TEMP_2, METATILE_General_SandPit_Center, FALSE
+	compare VAR_RESULT, SPECIES_NONE
+	goto_if_ne EventScript_SpecialWildEncounter_1
+# 136 "data/scripts/general_scripts.pory"
+	special DrawWholeMapView
+	return
+
+EventScript_SpecialWildEncounter_1:
 # 114 "data/scripts/general_scripts.pory"
-	callnative GetItemBallIdAndAmountFromTemplate
+	waitse
 # 115 "data/scripts/general_scripts.pory"
+	playse SE_PIN
+# 116 "data/scripts/general_scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, Generic_POKEMON_INTERACT_Movement_1
+# 117 "data/scripts/general_scripts.pory"
+	waitmovement 0
+# 118 "data/scripts/general_scripts.pory"
+	waitse
+# 119 "data/scripts/general_scripts.pory"
+	addobject LOCALID_SPECIAL_ENCOUNTER_MON
+# 120 "data/scripts/general_scripts.pory"
+	getobjectfacingdirection OBJ_EVENT_ID_PLAYER, VAR_TEMP_A
+# 121 "data/scripts/general_scripts.pory"
+	switch VAR_TEMP_A
+# 122 "data/scripts/general_scripts.pory"
+	case DIR_NORTH, EventScript_SpecialWildEncounter_6
+# 123 "data/scripts/general_scripts.pory"
+	case DIR_SOUTH, EventScript_SpecialWildEncounter_7
+# 124 "data/scripts/general_scripts.pory"
+	case DIR_EAST, EventScript_SpecialWildEncounter_8
+# 125 "data/scripts/general_scripts.pory"
+	case DIR_WEST, EventScript_SpecialWildEncounter_9
+EventScript_SpecialWildEncounter_4:
+# 127 "data/scripts/general_scripts.pory"
+	special DrawWholeMapView
+# 128 "data/scripts/general_scripts.pory"
+	playse SE_LEDGE
+# 129 "data/scripts/general_scripts.pory"
+	waitmovement 0
+# 130 "data/scripts/general_scripts.pory"
+	waitse
+# 131 "data/scripts/general_scripts.pory"
+	playmoncry VAR_RESULT, CRY_MODE_ENCOUNTER
+# 132 "data/scripts/general_scripts.pory"
+	waitmoncry
+# 133 "data/scripts/general_scripts.pory"
+	special DoSpecialWildEncounter
+# 134 "data/scripts/general_scripts.pory"
+	removeobject LOCALID_SPECIAL_ENCOUNTER_MON
+	return
+
+EventScript_SpecialWildEncounter_6:
+# 122 "data/scripts/general_scripts.pory"
+	applymovement LOCALID_SPECIAL_ENCOUNTER_MON, EventScript_SpecialWildEncounter_Movement_0
+	goto EventScript_SpecialWildEncounter_4
+
+EventScript_SpecialWildEncounter_7:
+# 123 "data/scripts/general_scripts.pory"
+	applymovement LOCALID_SPECIAL_ENCOUNTER_MON, EventScript_SpecialWildEncounter_Movement_1
+	goto EventScript_SpecialWildEncounter_4
+
+EventScript_SpecialWildEncounter_8:
+# 124 "data/scripts/general_scripts.pory"
+	applymovement LOCALID_SPECIAL_ENCOUNTER_MON, EventScript_SpecialWildEncounter_Movement_2
+	goto EventScript_SpecialWildEncounter_4
+
+EventScript_SpecialWildEncounter_9:
+# 125 "data/scripts/general_scripts.pory"
+	applymovement LOCALID_SPECIAL_ENCOUNTER_MON, EventScript_SpecialWildEncounter_Movement_3
+	goto EventScript_SpecialWildEncounter_4
+
+
+Common_EventScript_FindItemSand::
+# 142 "data/scripts/general_scripts.pory"
+	getobjectxy VAR_LAST_TALKED, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2
+# 143 "data/scripts/general_scripts.pory"
+	setmetatile VAR_TEMP_1, VAR_TEMP_2, METATILE_General_SandPit_Center, FALSE
+# 144 "data/scripts/general_scripts.pory"
+	special DrawWholeMapView
+# 145 "data/scripts/general_scripts.pory"
+	applymovement VAR_LAST_TALKED, Common_EventScript_FindItemSand_Movement_0
+# 146 "data/scripts/general_scripts.pory"
+	callnative GetItemBallIdAndAmountFromTemplate
+# 147 "data/scripts/general_scripts.pory"
 	finditem VAR_RESULT, VAR_0x8009
 	return
 
 
 Common_EventScript_FindItemAsh::
-# 118 "data/scripts/general_scripts.pory"
+# 151 "data/scripts/general_scripts.pory"
 	getobjectxy VAR_LAST_TALKED, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2
-# 119 "data/scripts/general_scripts.pory"
+# 152 "data/scripts/general_scripts.pory"
 	setmetatile VAR_TEMP_1, VAR_TEMP_2, METATILE_Fallarbor_AshField, FALSE
-# 120 "data/scripts/general_scripts.pory"
+# 153 "data/scripts/general_scripts.pory"
+	special DrawWholeMapView
+# 154 "data/scripts/general_scripts.pory"
+	applymovement VAR_LAST_TALKED, Common_EventScript_FindItemSand_Movement_0
+# 155 "data/scripts/general_scripts.pory"
 	callnative GetItemBallIdAndAmountFromTemplate
-# 121 "data/scripts/general_scripts.pory"
+# 156 "data/scripts/general_scripts.pory"
 	finditem VAR_RESULT, VAR_0x8009
 	return
 
 
 Generic_POKEMART::
-# 126 "data/scripts/general_scripts.pory"
+# 162 "data/scripts/general_scripts.pory"
 	lock
-# 127 "data/scripts/general_scripts.pory"
+# 163 "data/scripts/general_scripts.pory"
 	faceplayer
-# 128 "data/scripts/general_scripts.pory"
+# 164 "data/scripts/general_scripts.pory"
 	message Generic_POKEMART_Text_0
-# 129 "data/scripts/general_scripts.pory"
+# 165 "data/scripts/general_scripts.pory"
 	waitmessage
-# 130 "data/scripts/general_scripts.pory"
+# 166 "data/scripts/general_scripts.pory"
 	call Generic_GetBadgeCount
-# 131 "data/scripts/general_scripts.pory"
+# 167 "data/scripts/general_scripts.pory"
 	switch VAR_RESULT
-# 132 "data/scripts/general_scripts.pory"
+# 168 "data/scripts/general_scripts.pory"
 	case 0, Generic_POKEMART_3
-# 136 "data/scripts/general_scripts.pory"
+# 172 "data/scripts/general_scripts.pory"
 	case 1, Generic_POKEMART_4
-# 140 "data/scripts/general_scripts.pory"
+# 176 "data/scripts/general_scripts.pory"
 	case 2, Generic_POKEMART_5
-# 144 "data/scripts/general_scripts.pory"
+# 180 "data/scripts/general_scripts.pory"
 	case 3, Generic_POKEMART_6
-# 148 "data/scripts/general_scripts.pory"
+# 184 "data/scripts/general_scripts.pory"
 	case 4, Generic_POKEMART_7
-# 149 "data/scripts/general_scripts.pory"
+# 185 "data/scripts/general_scripts.pory"
 	case 5, Generic_POKEMART_7
-# 150 "data/scripts/general_scripts.pory"
+# 186 "data/scripts/general_scripts.pory"
 	case 6, Generic_POKEMART_7
-# 151 "data/scripts/general_scripts.pory"
+# 187 "data/scripts/general_scripts.pory"
 	case 7, Generic_POKEMART_7
-# 152 "data/scripts/general_scripts.pory"
+# 188 "data/scripts/general_scripts.pory"
 	case 8, Generic_POKEMART_7
 Generic_POKEMART_7:
-# 154 "data/scripts/general_scripts.pory"
+# 190 "data/scripts/general_scripts.pory"
 	pokemart GenericPokeMart_5
 Generic_POKEMART_1:
-# 156 "data/scripts/general_scripts.pory"
+# 192 "data/scripts/general_scripts.pory"
 	msgbox Generic_POKEMART_Text_1, MSGBOX_DEFAULT
-# 157 "data/scripts/general_scripts.pory"
+# 193 "data/scripts/general_scripts.pory"
 	release
 	return
 
 Generic_POKEMART_3:
-# 133 "data/scripts/general_scripts.pory"
+# 169 "data/scripts/general_scripts.pory"
 	pokemart GenericPokeMart_1
 	goto Generic_POKEMART_1
 
 Generic_POKEMART_4:
-# 137 "data/scripts/general_scripts.pory"
+# 173 "data/scripts/general_scripts.pory"
 	pokemart GenericPokeMart_2
 	goto Generic_POKEMART_1
 
 Generic_POKEMART_5:
-# 141 "data/scripts/general_scripts.pory"
+# 177 "data/scripts/general_scripts.pory"
 	pokemart GenericPokeMart_3
 	goto Generic_POKEMART_1
 
 Generic_POKEMART_6:
-# 145 "data/scripts/general_scripts.pory"
+# 181 "data/scripts/general_scripts.pory"
 	pokemart GenericPokeMart_4
 	goto Generic_POKEMART_1
 
 
 	.align 2
-# 160 "data/scripts/general_scripts.pory"
-GenericPokeMart_1:
-# 161 "data/scripts/general_scripts.pory"
-	.2byte ITEM_POKE_BALL
-# 162 "data/scripts/general_scripts.pory"
-	.2byte ITEM_POTION
-# 163 "data/scripts/general_scripts.pory"
-	.2byte ITEM_REPEL
-# 164 "data/scripts/general_scripts.pory"
-	.2byte ITEM_ANTIDOTE
-# 165 "data/scripts/general_scripts.pory"
-	.2byte ITEM_PARALYZE_HEAL
-# 166 "data/scripts/general_scripts.pory"
-	.2byte ITEM_AWAKENING
-# 167 "data/scripts/general_scripts.pory"
-	.2byte ITEM_BURN_HEAL
-	.2byte ITEM_NONE
-
-	.align 2
-# 170 "data/scripts/general_scripts.pory"
-GenericPokeMart_2:
-# 171 "data/scripts/general_scripts.pory"
-	.2byte ITEM_POKE_BALL
-# 172 "data/scripts/general_scripts.pory"
-	.2byte ITEM_GREAT_BALL
-# 173 "data/scripts/general_scripts.pory"
-	.2byte ITEM_POTION
-# 174 "data/scripts/general_scripts.pory"
-	.2byte ITEM_SUPER_POTION
-# 175 "data/scripts/general_scripts.pory"
-	.2byte ITEM_REPEL
-# 176 "data/scripts/general_scripts.pory"
-	.2byte ITEM_SUPER_REPEL
-# 177 "data/scripts/general_scripts.pory"
-	.2byte ITEM_ANTIDOTE
-# 178 "data/scripts/general_scripts.pory"
-	.2byte ITEM_PARALYZE_HEAL
-# 179 "data/scripts/general_scripts.pory"
-	.2byte ITEM_AWAKENING
-# 180 "data/scripts/general_scripts.pory"
-	.2byte ITEM_BURN_HEAL
-	.2byte ITEM_NONE
-
-	.align 2
-# 183 "data/scripts/general_scripts.pory"
-GenericPokeMart_3:
-# 184 "data/scripts/general_scripts.pory"
-	.2byte ITEM_POKE_BALL
-# 185 "data/scripts/general_scripts.pory"
-	.2byte ITEM_GREAT_BALL
-# 186 "data/scripts/general_scripts.pory"
-	.2byte ITEM_ULTRA_BALL
-# 187 "data/scripts/general_scripts.pory"
-	.2byte ITEM_POTION
-# 188 "data/scripts/general_scripts.pory"
-	.2byte ITEM_SUPER_POTION
-# 189 "data/scripts/general_scripts.pory"
-	.2byte ITEM_HYPER_POTION
-# 190 "data/scripts/general_scripts.pory"
-	.2byte ITEM_REPEL
-# 191 "data/scripts/general_scripts.pory"
-	.2byte ITEM_SUPER_REPEL
-# 192 "data/scripts/general_scripts.pory"
-	.2byte ITEM_MAX_REPEL
-# 193 "data/scripts/general_scripts.pory"
-	.2byte ITEM_ANTIDOTE
-# 194 "data/scripts/general_scripts.pory"
-	.2byte ITEM_PARALYZE_HEAL
-# 195 "data/scripts/general_scripts.pory"
-	.2byte ITEM_AWAKENING
 # 196 "data/scripts/general_scripts.pory"
-	.2byte ITEM_BURN_HEAL
+GenericPokeMart_1:
 # 197 "data/scripts/general_scripts.pory"
-	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_POKE_BALL
 # 198 "data/scripts/general_scripts.pory"
-	.2byte ITEM_REVIVE
+	.2byte ITEM_POTION
 # 199 "data/scripts/general_scripts.pory"
-	.2byte ITEM_ETHER
+	.2byte ITEM_REPEL
 # 200 "data/scripts/general_scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 201 "data/scripts/general_scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 202 "data/scripts/general_scripts.pory"
+	.2byte ITEM_AWAKENING
+# 203 "data/scripts/general_scripts.pory"
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_NONE
+
+	.align 2
+# 206 "data/scripts/general_scripts.pory"
+GenericPokeMart_2:
+# 207 "data/scripts/general_scripts.pory"
+	.2byte ITEM_POKE_BALL
+# 208 "data/scripts/general_scripts.pory"
+	.2byte ITEM_GREAT_BALL
+# 209 "data/scripts/general_scripts.pory"
+	.2byte ITEM_POTION
+# 210 "data/scripts/general_scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 211 "data/scripts/general_scripts.pory"
+	.2byte ITEM_REPEL
+# 212 "data/scripts/general_scripts.pory"
+	.2byte ITEM_SUPER_REPEL
+# 213 "data/scripts/general_scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 214 "data/scripts/general_scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 215 "data/scripts/general_scripts.pory"
+	.2byte ITEM_AWAKENING
+# 216 "data/scripts/general_scripts.pory"
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_NONE
+
+	.align 2
+# 219 "data/scripts/general_scripts.pory"
+GenericPokeMart_3:
+# 220 "data/scripts/general_scripts.pory"
+	.2byte ITEM_POKE_BALL
+# 221 "data/scripts/general_scripts.pory"
+	.2byte ITEM_GREAT_BALL
+# 222 "data/scripts/general_scripts.pory"
+	.2byte ITEM_ULTRA_BALL
+# 223 "data/scripts/general_scripts.pory"
+	.2byte ITEM_POTION
+# 224 "data/scripts/general_scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 225 "data/scripts/general_scripts.pory"
+	.2byte ITEM_HYPER_POTION
+# 226 "data/scripts/general_scripts.pory"
+	.2byte ITEM_REPEL
+# 227 "data/scripts/general_scripts.pory"
+	.2byte ITEM_SUPER_REPEL
+# 228 "data/scripts/general_scripts.pory"
+	.2byte ITEM_MAX_REPEL
+# 229 "data/scripts/general_scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 230 "data/scripts/general_scripts.pory"
+	.2byte ITEM_PARALYZE_HEAL
+# 231 "data/scripts/general_scripts.pory"
+	.2byte ITEM_AWAKENING
+# 232 "data/scripts/general_scripts.pory"
+	.2byte ITEM_BURN_HEAL
+# 233 "data/scripts/general_scripts.pory"
+	.2byte ITEM_FULL_HEAL
+# 234 "data/scripts/general_scripts.pory"
+	.2byte ITEM_REVIVE
+# 235 "data/scripts/general_scripts.pory"
+	.2byte ITEM_ETHER
+# 236 "data/scripts/general_scripts.pory"
 	.2byte ITEM_ELIXIR
 	.2byte ITEM_NONE
 
 	.align 2
-# 203 "data/scripts/general_scripts.pory"
+# 239 "data/scripts/general_scripts.pory"
 GenericPokeMart_4:
-# 204 "data/scripts/general_scripts.pory"
+# 240 "data/scripts/general_scripts.pory"
 	.2byte ITEM_POKE_BALL
-# 205 "data/scripts/general_scripts.pory"
+# 241 "data/scripts/general_scripts.pory"
 	.2byte ITEM_GREAT_BALL
-# 206 "data/scripts/general_scripts.pory"
+# 242 "data/scripts/general_scripts.pory"
 	.2byte ITEM_ULTRA_BALL
-# 207 "data/scripts/general_scripts.pory"
+# 243 "data/scripts/general_scripts.pory"
 	.2byte ITEM_POTION
-# 208 "data/scripts/general_scripts.pory"
+# 244 "data/scripts/general_scripts.pory"
 	.2byte ITEM_SUPER_POTION
-# 209 "data/scripts/general_scripts.pory"
+# 245 "data/scripts/general_scripts.pory"
 	.2byte ITEM_HYPER_POTION
-# 210 "data/scripts/general_scripts.pory"
+# 246 "data/scripts/general_scripts.pory"
 	.2byte ITEM_MAX_POTION
-# 211 "data/scripts/general_scripts.pory"
+# 247 "data/scripts/general_scripts.pory"
 	.2byte ITEM_FULL_RESTORE
-# 212 "data/scripts/general_scripts.pory"
+# 248 "data/scripts/general_scripts.pory"
 	.2byte ITEM_REPEL
-# 213 "data/scripts/general_scripts.pory"
+# 249 "data/scripts/general_scripts.pory"
 	.2byte ITEM_SUPER_REPEL
-# 214 "data/scripts/general_scripts.pory"
+# 250 "data/scripts/general_scripts.pory"
 	.2byte ITEM_MAX_REPEL
-# 215 "data/scripts/general_scripts.pory"
+# 251 "data/scripts/general_scripts.pory"
 	.2byte ITEM_ANTIDOTE
-# 216 "data/scripts/general_scripts.pory"
+# 252 "data/scripts/general_scripts.pory"
 	.2byte ITEM_PARALYZE_HEAL
-# 217 "data/scripts/general_scripts.pory"
+# 253 "data/scripts/general_scripts.pory"
 	.2byte ITEM_AWAKENING
-# 218 "data/scripts/general_scripts.pory"
+# 254 "data/scripts/general_scripts.pory"
 	.2byte ITEM_BURN_HEAL
-# 219 "data/scripts/general_scripts.pory"
+# 255 "data/scripts/general_scripts.pory"
 	.2byte ITEM_FULL_HEAL
-# 220 "data/scripts/general_scripts.pory"
+# 256 "data/scripts/general_scripts.pory"
 	.2byte ITEM_REVIVE
-# 221 "data/scripts/general_scripts.pory"
+# 257 "data/scripts/general_scripts.pory"
 	.2byte ITEM_MAX_REVIVE
-# 222 "data/scripts/general_scripts.pory"
+# 258 "data/scripts/general_scripts.pory"
 	.2byte ITEM_ETHER
-# 223 "data/scripts/general_scripts.pory"
+# 259 "data/scripts/general_scripts.pory"
 	.2byte ITEM_MAX_ETHER
-# 224 "data/scripts/general_scripts.pory"
+# 260 "data/scripts/general_scripts.pory"
 	.2byte ITEM_ELIXIR
-# 225 "data/scripts/general_scripts.pory"
+# 261 "data/scripts/general_scripts.pory"
 	.2byte ITEM_MAX_ELIXIR
 	.2byte ITEM_NONE
 
 	.align 2
-# 228 "data/scripts/general_scripts.pory"
+# 264 "data/scripts/general_scripts.pory"
 GenericPokeMart_5:
-# 229 "data/scripts/general_scripts.pory"
+# 265 "data/scripts/general_scripts.pory"
 	.2byte ITEM_POKE_BALL
-# 230 "data/scripts/general_scripts.pory"
+# 266 "data/scripts/general_scripts.pory"
 	.2byte ITEM_GREAT_BALL
-# 231 "data/scripts/general_scripts.pory"
+# 267 "data/scripts/general_scripts.pory"
 	.2byte ITEM_ULTRA_BALL
-# 232 "data/scripts/general_scripts.pory"
+# 268 "data/scripts/general_scripts.pory"
 	.2byte ITEM_POTION
-# 233 "data/scripts/general_scripts.pory"
+# 269 "data/scripts/general_scripts.pory"
 	.2byte ITEM_SUPER_POTION
-# 234 "data/scripts/general_scripts.pory"
+# 270 "data/scripts/general_scripts.pory"
 	.2byte ITEM_HYPER_POTION
-# 235 "data/scripts/general_scripts.pory"
+# 271 "data/scripts/general_scripts.pory"
 	.2byte ITEM_MAX_POTION
-# 236 "data/scripts/general_scripts.pory"
+# 272 "data/scripts/general_scripts.pory"
 	.2byte ITEM_FULL_RESTORE
-# 237 "data/scripts/general_scripts.pory"
+# 273 "data/scripts/general_scripts.pory"
 	.2byte ITEM_REPEL
-# 238 "data/scripts/general_scripts.pory"
+# 274 "data/scripts/general_scripts.pory"
 	.2byte ITEM_SUPER_REPEL
-# 239 "data/scripts/general_scripts.pory"
+# 275 "data/scripts/general_scripts.pory"
 	.2byte ITEM_MAX_REPEL
-# 240 "data/scripts/general_scripts.pory"
+# 276 "data/scripts/general_scripts.pory"
 	.2byte ITEM_FULL_HEAL
-# 241 "data/scripts/general_scripts.pory"
+# 277 "data/scripts/general_scripts.pory"
 	.2byte ITEM_REVIVE
-# 242 "data/scripts/general_scripts.pory"
+# 278 "data/scripts/general_scripts.pory"
 	.2byte ITEM_MAX_REVIVE
-# 243 "data/scripts/general_scripts.pory"
+# 279 "data/scripts/general_scripts.pory"
 	.2byte ITEM_ETHER
-# 244 "data/scripts/general_scripts.pory"
+# 280 "data/scripts/general_scripts.pory"
 	.2byte ITEM_MAX_ETHER
-# 245 "data/scripts/general_scripts.pory"
+# 281 "data/scripts/general_scripts.pory"
 	.2byte ITEM_ELIXIR
-# 246 "data/scripts/general_scripts.pory"
+# 282 "data/scripts/general_scripts.pory"
 	.2byte ITEM_MAX_ELIXIR
 	.2byte ITEM_NONE
 
 Generic_POKEMART_BERRY::
-# 251 "data/scripts/general_scripts.pory"
+# 287 "data/scripts/general_scripts.pory"
 	lock
-# 252 "data/scripts/general_scripts.pory"
+# 288 "data/scripts/general_scripts.pory"
 	faceplayer
-# 253 "data/scripts/general_scripts.pory"
+# 289 "data/scripts/general_scripts.pory"
 	message Generic_POKEMART_BERRY_Text_0
-# 254 "data/scripts/general_scripts.pory"
+# 290 "data/scripts/general_scripts.pory"
 	waitmessage
-# 255 "data/scripts/general_scripts.pory"
+# 291 "data/scripts/general_scripts.pory"
 	call Generic_GetBadgeCount
-# 256 "data/scripts/general_scripts.pory"
+# 292 "data/scripts/general_scripts.pory"
 	switch VAR_RESULT
-# 257 "data/scripts/general_scripts.pory"
+# 293 "data/scripts/general_scripts.pory"
 	case 0, Generic_POKEMART_BERRY_3
-# 258 "data/scripts/general_scripts.pory"
+# 294 "data/scripts/general_scripts.pory"
 	case 1, Generic_POKEMART_BERRY_3
-# 259 "data/scripts/general_scripts.pory"
+# 295 "data/scripts/general_scripts.pory"
 	case 2, Generic_POKEMART_BERRY_3
-# 263 "data/scripts/general_scripts.pory"
+# 299 "data/scripts/general_scripts.pory"
 	case 3, Generic_POKEMART_BERRY_4
-# 264 "data/scripts/general_scripts.pory"
+# 300 "data/scripts/general_scripts.pory"
 	case 4, Generic_POKEMART_BERRY_4
-# 265 "data/scripts/general_scripts.pory"
+# 301 "data/scripts/general_scripts.pory"
 	case 5, Generic_POKEMART_BERRY_4
-# 266 "data/scripts/general_scripts.pory"
+# 302 "data/scripts/general_scripts.pory"
 	case 6, Generic_POKEMART_BERRY_4
-# 267 "data/scripts/general_scripts.pory"
+# 303 "data/scripts/general_scripts.pory"
 	case 7, Generic_POKEMART_BERRY_4
-# 271 "data/scripts/general_scripts.pory"
+# 307 "data/scripts/general_scripts.pory"
 	case 8, Generic_POKEMART_BERRY_5
 Generic_POKEMART_BERRY_5:
-# 273 "data/scripts/general_scripts.pory"
+# 309 "data/scripts/general_scripts.pory"
 	pokemart GenericPokeMart_Berry3
 Generic_POKEMART_BERRY_1:
-# 276 "data/scripts/general_scripts.pory"
+# 312 "data/scripts/general_scripts.pory"
 	msgbox Generic_POKEMART_Text_1, MSGBOX_DEFAULT
-# 277 "data/scripts/general_scripts.pory"
+# 313 "data/scripts/general_scripts.pory"
 	release
 	return
 
 Generic_POKEMART_BERRY_3:
-# 260 "data/scripts/general_scripts.pory"
+# 296 "data/scripts/general_scripts.pory"
 	pokemart GenericPokeMart_Berry1
 	goto Generic_POKEMART_BERRY_1
 
 Generic_POKEMART_BERRY_4:
-# 268 "data/scripts/general_scripts.pory"
+# 304 "data/scripts/general_scripts.pory"
 	pokemart GenericPokeMart_Berry2
 	goto Generic_POKEMART_BERRY_1
 
 
 	.align 2
-# 280 "data/scripts/general_scripts.pory"
-GenericPokeMart_Berry1:
-# 281 "data/scripts/general_scripts.pory"
-	.2byte ITEM_ORAN_BERRY
-# 282 "data/scripts/general_scripts.pory"
-	.2byte ITEM_PECHA_BERRY
-# 283 "data/scripts/general_scripts.pory"
-	.2byte ITEM_CHERI_BERRY
-# 284 "data/scripts/general_scripts.pory"
-	.2byte ITEM_CHESTO_BERRY
-# 285 "data/scripts/general_scripts.pory"
-	.2byte ITEM_RAWST_BERRY
-# 286 "data/scripts/general_scripts.pory"
-	.2byte ITEM_ASPEAR_BERRY
-# 287 "data/scripts/general_scripts.pory"
-	.2byte ITEM_LEPPA_BERRY
-# 288 "data/scripts/general_scripts.pory"
-	.2byte ITEM_PERSIM_BERRY
-	.2byte ITEM_NONE
-
-	.align 2
-# 291 "data/scripts/general_scripts.pory"
-GenericPokeMart_Berry2:
-# 292 "data/scripts/general_scripts.pory"
-	.2byte ITEM_ORAN_BERRY
-# 293 "data/scripts/general_scripts.pory"
-	.2byte ITEM_SITRUS_BERRY
-# 294 "data/scripts/general_scripts.pory"
-	.2byte ITEM_PECHA_BERRY
-# 295 "data/scripts/general_scripts.pory"
-	.2byte ITEM_CHERI_BERRY
-# 296 "data/scripts/general_scripts.pory"
-	.2byte ITEM_CHESTO_BERRY
-# 297 "data/scripts/general_scripts.pory"
-	.2byte ITEM_RAWST_BERRY
-# 298 "data/scripts/general_scripts.pory"
-	.2byte ITEM_ASPEAR_BERRY
-# 299 "data/scripts/general_scripts.pory"
-	.2byte ITEM_LUM_BERRY
-# 300 "data/scripts/general_scripts.pory"
-	.2byte ITEM_LEPPA_BERRY
-# 301 "data/scripts/general_scripts.pory"
-	.2byte ITEM_PERSIM_BERRY
-# 302 "data/scripts/general_scripts.pory"
-	.2byte ITEM_BABIRI_BERRY
-# 303 "data/scripts/general_scripts.pory"
-	.2byte ITEM_CHARTI_BERRY
-# 304 "data/scripts/general_scripts.pory"
-	.2byte ITEM_CHILAN_BERRY
-# 305 "data/scripts/general_scripts.pory"
-	.2byte ITEM_CHOPLE_BERRY
-# 306 "data/scripts/general_scripts.pory"
-	.2byte ITEM_COBA_BERRY
-# 307 "data/scripts/general_scripts.pory"
-	.2byte ITEM_COLBUR_BERRY
-# 308 "data/scripts/general_scripts.pory"
-	.2byte ITEM_HABAN_BERRY
-# 309 "data/scripts/general_scripts.pory"
-	.2byte ITEM_KASIB_BERRY
-# 310 "data/scripts/general_scripts.pory"
-	.2byte ITEM_KEBIA_BERRY
-# 311 "data/scripts/general_scripts.pory"
-	.2byte ITEM_OCCA_BERRY
-# 312 "data/scripts/general_scripts.pory"
-	.2byte ITEM_PASSHO_BERRY
-# 313 "data/scripts/general_scripts.pory"
-	.2byte ITEM_PAYAPA_BERRY
-# 314 "data/scripts/general_scripts.pory"
-	.2byte ITEM_RINDO_BERRY
-# 315 "data/scripts/general_scripts.pory"
-	.2byte ITEM_ROSELI_BERRY
 # 316 "data/scripts/general_scripts.pory"
-	.2byte ITEM_SHUCA_BERRY
+GenericPokeMart_Berry1:
 # 317 "data/scripts/general_scripts.pory"
-	.2byte ITEM_TANGA_BERRY
+	.2byte ITEM_ORAN_BERRY
 # 318 "data/scripts/general_scripts.pory"
-	.2byte ITEM_WACAN_BERRY
+	.2byte ITEM_PECHA_BERRY
 # 319 "data/scripts/general_scripts.pory"
+	.2byte ITEM_CHERI_BERRY
+# 320 "data/scripts/general_scripts.pory"
+	.2byte ITEM_CHESTO_BERRY
+# 321 "data/scripts/general_scripts.pory"
+	.2byte ITEM_RAWST_BERRY
+# 322 "data/scripts/general_scripts.pory"
+	.2byte ITEM_ASPEAR_BERRY
+# 323 "data/scripts/general_scripts.pory"
+	.2byte ITEM_LEPPA_BERRY
+# 324 "data/scripts/general_scripts.pory"
+	.2byte ITEM_PERSIM_BERRY
+	.2byte ITEM_NONE
+
+	.align 2
+# 327 "data/scripts/general_scripts.pory"
+GenericPokeMart_Berry2:
+# 328 "data/scripts/general_scripts.pory"
+	.2byte ITEM_ORAN_BERRY
+# 329 "data/scripts/general_scripts.pory"
+	.2byte ITEM_SITRUS_BERRY
+# 330 "data/scripts/general_scripts.pory"
+	.2byte ITEM_PECHA_BERRY
+# 331 "data/scripts/general_scripts.pory"
+	.2byte ITEM_CHERI_BERRY
+# 332 "data/scripts/general_scripts.pory"
+	.2byte ITEM_CHESTO_BERRY
+# 333 "data/scripts/general_scripts.pory"
+	.2byte ITEM_RAWST_BERRY
+# 334 "data/scripts/general_scripts.pory"
+	.2byte ITEM_ASPEAR_BERRY
+# 335 "data/scripts/general_scripts.pory"
+	.2byte ITEM_LUM_BERRY
+# 336 "data/scripts/general_scripts.pory"
+	.2byte ITEM_LEPPA_BERRY
+# 337 "data/scripts/general_scripts.pory"
+	.2byte ITEM_PERSIM_BERRY
+# 338 "data/scripts/general_scripts.pory"
+	.2byte ITEM_BABIRI_BERRY
+# 339 "data/scripts/general_scripts.pory"
+	.2byte ITEM_CHARTI_BERRY
+# 340 "data/scripts/general_scripts.pory"
+	.2byte ITEM_CHILAN_BERRY
+# 341 "data/scripts/general_scripts.pory"
+	.2byte ITEM_CHOPLE_BERRY
+# 342 "data/scripts/general_scripts.pory"
+	.2byte ITEM_COBA_BERRY
+# 343 "data/scripts/general_scripts.pory"
+	.2byte ITEM_COLBUR_BERRY
+# 344 "data/scripts/general_scripts.pory"
+	.2byte ITEM_HABAN_BERRY
+# 345 "data/scripts/general_scripts.pory"
+	.2byte ITEM_KASIB_BERRY
+# 346 "data/scripts/general_scripts.pory"
+	.2byte ITEM_KEBIA_BERRY
+# 347 "data/scripts/general_scripts.pory"
+	.2byte ITEM_OCCA_BERRY
+# 348 "data/scripts/general_scripts.pory"
+	.2byte ITEM_PASSHO_BERRY
+# 349 "data/scripts/general_scripts.pory"
+	.2byte ITEM_PAYAPA_BERRY
+# 350 "data/scripts/general_scripts.pory"
+	.2byte ITEM_RINDO_BERRY
+# 351 "data/scripts/general_scripts.pory"
+	.2byte ITEM_ROSELI_BERRY
+# 352 "data/scripts/general_scripts.pory"
+	.2byte ITEM_SHUCA_BERRY
+# 353 "data/scripts/general_scripts.pory"
+	.2byte ITEM_TANGA_BERRY
+# 354 "data/scripts/general_scripts.pory"
+	.2byte ITEM_WACAN_BERRY
+# 355 "data/scripts/general_scripts.pory"
 	.2byte ITEM_YACHE_BERRY
 	.2byte ITEM_NONE
 
 	.align 2
-# 322 "data/scripts/general_scripts.pory"
+# 358 "data/scripts/general_scripts.pory"
 GenericPokeMart_Berry3:
-# 323 "data/scripts/general_scripts.pory"
+# 359 "data/scripts/general_scripts.pory"
 	.2byte ITEM_ORAN_BERRY
-# 324 "data/scripts/general_scripts.pory"
+# 360 "data/scripts/general_scripts.pory"
 	.2byte ITEM_SITRUS_BERRY
-# 325 "data/scripts/general_scripts.pory"
+# 361 "data/scripts/general_scripts.pory"
 	.2byte ITEM_PECHA_BERRY
-# 326 "data/scripts/general_scripts.pory"
+# 362 "data/scripts/general_scripts.pory"
 	.2byte ITEM_CHERI_BERRY
-# 327 "data/scripts/general_scripts.pory"
+# 363 "data/scripts/general_scripts.pory"
 	.2byte ITEM_CHESTO_BERRY
-# 328 "data/scripts/general_scripts.pory"
+# 364 "data/scripts/general_scripts.pory"
 	.2byte ITEM_RAWST_BERRY
-# 329 "data/scripts/general_scripts.pory"
+# 365 "data/scripts/general_scripts.pory"
 	.2byte ITEM_ASPEAR_BERRY
-# 330 "data/scripts/general_scripts.pory"
+# 366 "data/scripts/general_scripts.pory"
 	.2byte ITEM_LUM_BERRY
-# 331 "data/scripts/general_scripts.pory"
+# 367 "data/scripts/general_scripts.pory"
 	.2byte ITEM_LEPPA_BERRY
-# 332 "data/scripts/general_scripts.pory"
+# 368 "data/scripts/general_scripts.pory"
 	.2byte ITEM_PERSIM_BERRY
-# 333 "data/scripts/general_scripts.pory"
+# 369 "data/scripts/general_scripts.pory"
 	.2byte ITEM_BABIRI_BERRY
-# 334 "data/scripts/general_scripts.pory"
+# 370 "data/scripts/general_scripts.pory"
 	.2byte ITEM_CHARTI_BERRY
-# 335 "data/scripts/general_scripts.pory"
+# 371 "data/scripts/general_scripts.pory"
 	.2byte ITEM_CHILAN_BERRY
-# 336 "data/scripts/general_scripts.pory"
+# 372 "data/scripts/general_scripts.pory"
 	.2byte ITEM_CHOPLE_BERRY
-# 337 "data/scripts/general_scripts.pory"
+# 373 "data/scripts/general_scripts.pory"
 	.2byte ITEM_COBA_BERRY
-# 338 "data/scripts/general_scripts.pory"
+# 374 "data/scripts/general_scripts.pory"
 	.2byte ITEM_COLBUR_BERRY
-# 339 "data/scripts/general_scripts.pory"
+# 375 "data/scripts/general_scripts.pory"
 	.2byte ITEM_HABAN_BERRY
-# 340 "data/scripts/general_scripts.pory"
+# 376 "data/scripts/general_scripts.pory"
 	.2byte ITEM_KASIB_BERRY
-# 341 "data/scripts/general_scripts.pory"
+# 377 "data/scripts/general_scripts.pory"
 	.2byte ITEM_KEBIA_BERRY
-# 342 "data/scripts/general_scripts.pory"
+# 378 "data/scripts/general_scripts.pory"
 	.2byte ITEM_OCCA_BERRY
-# 343 "data/scripts/general_scripts.pory"
+# 379 "data/scripts/general_scripts.pory"
 	.2byte ITEM_PASSHO_BERRY
-# 344 "data/scripts/general_scripts.pory"
+# 380 "data/scripts/general_scripts.pory"
 	.2byte ITEM_PAYAPA_BERRY
-# 345 "data/scripts/general_scripts.pory"
+# 381 "data/scripts/general_scripts.pory"
 	.2byte ITEM_RINDO_BERRY
-# 346 "data/scripts/general_scripts.pory"
+# 382 "data/scripts/general_scripts.pory"
 	.2byte ITEM_ROSELI_BERRY
-# 347 "data/scripts/general_scripts.pory"
+# 383 "data/scripts/general_scripts.pory"
 	.2byte ITEM_SHUCA_BERRY
-# 348 "data/scripts/general_scripts.pory"
+# 384 "data/scripts/general_scripts.pory"
 	.2byte ITEM_TANGA_BERRY
-# 349 "data/scripts/general_scripts.pory"
+# 385 "data/scripts/general_scripts.pory"
 	.2byte ITEM_WACAN_BERRY
-# 350 "data/scripts/general_scripts.pory"
+# 386 "data/scripts/general_scripts.pory"
 	.2byte ITEM_YACHE_BERRY
-# 351 "data/scripts/general_scripts.pory"
+# 387 "data/scripts/general_scripts.pory"
 	.2byte ITEM_ENIGMA_BERRY
 	.2byte ITEM_NONE
 
 RestArea_Indoor_BedTaken::
-# 356 "data/scripts/general_scripts.pory"
+# 392 "data/scripts/general_scripts.pory"
 	msgbox RestArea_Indoor_BedTaken_Text_0, MSGBOX_DEFAULT
 	return
 
 
 RestArea_Indoor_BedHeal::
-# 360 "data/scripts/general_scripts.pory"
+# 396 "data/scripts/general_scripts.pory"
 	msgbox RestArea_Indoor_BedHeal_Text_0, MSGBOX_YESNO
-# 361 "data/scripts/general_scripts.pory"
+# 397 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq RestArea_Indoor_BedHeal_2
 RestArea_Indoor_BedHeal_1:
-# 365 "data/scripts/general_scripts.pory"
+# 401 "data/scripts/general_scripts.pory"
 	releaseall
 	return
 
 RestArea_Indoor_BedHeal_2:
-# 362 "data/scripts/general_scripts.pory"
+# 398 "data/scripts/general_scripts.pory"
 	msgbox RestArea_Indoor_BedHeal_Text_1, MSGBOX_DEFAULT
-# 363 "data/scripts/general_scripts.pory"
+# 399 "data/scripts/general_scripts.pory"
 	call Common_EventScript_OutOfCenterPartyHeal
 	goto RestArea_Indoor_BedHeal_1
 
 
 ThicketBrushInteract::
-# 371 "data/scripts/general_scripts.pory"
+# 407 "data/scripts/general_scripts.pory"
 	lockall
-# 375 "data/scripts/general_scripts.pory"
+# 411 "data/scripts/general_scripts.pory"
 	random 10
-# 376 "data/scripts/general_scripts.pory"
+# 412 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 1
 	goto_if_lt ThicketBrushInteract_2
-# 387 "data/scripts/general_scripts.pory"
+# 423 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 1
 	goto_if_ge ThicketBrushInteract_9
 ThicketBrushInteract_7:
-# 390 "data/scripts/general_scripts.pory"
+# 426 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 3
 	goto_if_ge ThicketBrushInteract_6
 ThicketBrushInteract_5:
-# 400 "data/scripts/general_scripts.pory"
+# 436 "data/scripts/general_scripts.pory"
 	createmon 1, 0, VAR_TEMP_0, VAR_TEMP_1
 ThicketBrushInteract_1:
-# 403 "data/scripts/general_scripts.pory"
+# 439 "data/scripts/general_scripts.pory"
 	release
 	return
 
@@ -790,287 +874,337 @@ ThicketBrushInteract_3:
 	goto ThicketBrushInteract_1
 
 ThicketBrushInteract_4:
-# 392 "data/scripts/general_scripts.pory"
+# 428 "data/scripts/general_scripts.pory"
 	createmon 1, 0, VAR_TEMP_0, VAR_TEMP_1
-# 394 "data/scripts/general_scripts.pory"
+# 430 "data/scripts/general_scripts.pory"
 	createmon 1, 1, VAR_TEMP_0, VAR_TEMP_1
-# 395 "data/scripts/general_scripts.pory"
+# 431 "data/scripts/general_scripts.pory"
 	setwilddoubleflag
 	goto ThicketBrushInteract_1
 
 ThicketBrushInteract_6:
-# 390 "data/scripts/general_scripts.pory"
+# 426 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 5
 	goto_if_lt ThicketBrushInteract_4
 	goto ThicketBrushInteract_5
 
 ThicketBrushInteract_9:
-# 387 "data/scripts/general_scripts.pory"
+# 423 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 3
 	goto_if_lt ThicketBrushInteract_3
 	goto ThicketBrushInteract_7
 
 ThicketBrushInteract_13:
-# 379 "data/scripts/general_scripts.pory"
+# 415 "data/scripts/general_scripts.pory"
 	additem VAR_TEMP_0
-# 380 "data/scripts/general_scripts.pory"
+# 416 "data/scripts/general_scripts.pory"
 	playfanfare MUS_OBTAIN_BERRY
-# 381 "data/scripts/general_scripts.pory"
+# 417 "data/scripts/general_scripts.pory"
 	message ThicketBrushInteract_Text_0
-# 382 "data/scripts/general_scripts.pory"
+# 418 "data/scripts/general_scripts.pory"
 	waitmessage
-# 383 "data/scripts/general_scripts.pory"
+# 419 "data/scripts/general_scripts.pory"
 	waitfanfare
-# 384 "data/scripts/general_scripts.pory"
+# 420 "data/scripts/general_scripts.pory"
 	waitbuttonpress
 	goto ThicketBrushInteract_1
 
 
 ThicketBrushInteract_Nothing::
-# 407 "data/scripts/general_scripts.pory"
+# 443 "data/scripts/general_scripts.pory"
 	msgbox ThicketBrushInteract_Nothing_Text_0, MSGBOX_SIGN
 	return
 
 
 ThicketBrush_WildEncounter::
-# 412 "data/scripts/general_scripts.pory"
+# 448 "data/scripts/general_scripts.pory"
 	playse SE_PIN
-# 413 "data/scripts/general_scripts.pory"
+# 449 "data/scripts/general_scripts.pory"
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
-# 414 "data/scripts/general_scripts.pory"
+# 450 "data/scripts/general_scripts.pory"
 	waitmovement 0
-# 415 "data/scripts/general_scripts.pory"
+# 451 "data/scripts/general_scripts.pory"
 	message ThicketBrush_WildEncounter_Text_0
-# 416 "data/scripts/general_scripts.pory"
+# 452 "data/scripts/general_scripts.pory"
 	waitmessage
-# 417 "data/scripts/general_scripts.pory"
+# 453 "data/scripts/general_scripts.pory"
 	waitbuttonpress
-# 418 "data/scripts/general_scripts.pory"
+# 454 "data/scripts/general_scripts.pory"
 	dowildbattle
 	return
 
 
 ThicketBrushInteract_GetPokemon::
-# 422 "data/scripts/general_scripts.pory"
+# 458 "data/scripts/general_scripts.pory"
 	random 100
-# 423 "data/scripts/general_scripts.pory"
+# 459 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 4
 	goto_if_lt ThicketBrushInteract_GetPokemon_2
-# 428 "data/scripts/general_scripts.pory"
+# 464 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 4
 	goto_if_ge ThicketBrushInteract_GetPokemon_14
 ThicketBrushInteract_GetPokemon_12:
-# 433 "data/scripts/general_scripts.pory"
+# 469 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 37
 	goto_if_ge ThicketBrushInteract_GetPokemon_11
 ThicketBrushInteract_GetPokemon_9:
-# 438 "data/scripts/general_scripts.pory"
+# 474 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 70
 	goto_if_ge ThicketBrushInteract_GetPokemon_8
 ThicketBrushInteract_GetPokemon_7:
-# 443 "data/scripts/general_scripts.pory"
+# 479 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 85
 	goto_if_ge ThicketBrushInteract_GetPokemon_6
 ThicketBrushInteract_GetPokemon_1:
 	return
 
 ThicketBrushInteract_GetPokemon_2:
-# 424 "data/scripts/general_scripts.pory"
+# 460 "data/scripts/general_scripts.pory"
 	random 10
-# 425 "data/scripts/general_scripts.pory"
+# 461 "data/scripts/general_scripts.pory"
 	copyvar VAR_TEMP_1, VAR_RESULT
-# 426 "data/scripts/general_scripts.pory"
+# 462 "data/scripts/general_scripts.pory"
 	addvar VAR_TEMP_1, 13
-# 427 "data/scripts/general_scripts.pory"
+# 463 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, SPECIES_LARVESTA
 	goto ThicketBrushInteract_GetPokemon_1
 
 ThicketBrushInteract_GetPokemon_3:
-# 429 "data/scripts/general_scripts.pory"
+# 465 "data/scripts/general_scripts.pory"
 	random 10
-# 430 "data/scripts/general_scripts.pory"
+# 466 "data/scripts/general_scripts.pory"
 	copyvar VAR_TEMP_1, VAR_RESULT
-# 431 "data/scripts/general_scripts.pory"
+# 467 "data/scripts/general_scripts.pory"
 	addvar VAR_TEMP_1, 13
-# 432 "data/scripts/general_scripts.pory"
+# 468 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, SPECIES_SPINARAK
 	goto ThicketBrushInteract_GetPokemon_1
 
 ThicketBrushInteract_GetPokemon_4:
-# 434 "data/scripts/general_scripts.pory"
+# 470 "data/scripts/general_scripts.pory"
 	random 10
-# 435 "data/scripts/general_scripts.pory"
+# 471 "data/scripts/general_scripts.pory"
 	copyvar VAR_TEMP_1, VAR_RESULT
-# 436 "data/scripts/general_scripts.pory"
+# 472 "data/scripts/general_scripts.pory"
 	addvar VAR_TEMP_1, 13
-# 437 "data/scripts/general_scripts.pory"
+# 473 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, SPECIES_JOLTIK
 	goto ThicketBrushInteract_GetPokemon_1
 
 ThicketBrushInteract_GetPokemon_5:
-# 439 "data/scripts/general_scripts.pory"
+# 475 "data/scripts/general_scripts.pory"
 	random 4
-# 440 "data/scripts/general_scripts.pory"
+# 476 "data/scripts/general_scripts.pory"
 	copyvar VAR_TEMP_1, VAR_RESULT
-# 441 "data/scripts/general_scripts.pory"
+# 477 "data/scripts/general_scripts.pory"
 	addvar VAR_TEMP_1, 24
-# 442 "data/scripts/general_scripts.pory"
+# 478 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, SPECIES_ARIADOS
 	goto ThicketBrushInteract_GetPokemon_1
 
 ThicketBrushInteract_GetPokemon_6:
-# 444 "data/scripts/general_scripts.pory"
+# 480 "data/scripts/general_scripts.pory"
 	random 4
-# 445 "data/scripts/general_scripts.pory"
+# 481 "data/scripts/general_scripts.pory"
 	copyvar VAR_TEMP_1, VAR_RESULT
-# 446 "data/scripts/general_scripts.pory"
+# 482 "data/scripts/general_scripts.pory"
 	addvar VAR_TEMP_1, 24
-# 447 "data/scripts/general_scripts.pory"
+# 483 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, SPECIES_GALVANTULA
 	goto ThicketBrushInteract_GetPokemon_1
 
 ThicketBrushInteract_GetPokemon_8:
-# 438 "data/scripts/general_scripts.pory"
+# 474 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 85
 	goto_if_lt ThicketBrushInteract_GetPokemon_5
 	goto ThicketBrushInteract_GetPokemon_7
 
 ThicketBrushInteract_GetPokemon_11:
-# 433 "data/scripts/general_scripts.pory"
+# 469 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 70
 	goto_if_lt ThicketBrushInteract_GetPokemon_4
 	goto ThicketBrushInteract_GetPokemon_9
 
 ThicketBrushInteract_GetPokemon_14:
-# 428 "data/scripts/general_scripts.pory"
+# 464 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 37
 	goto_if_lt ThicketBrushInteract_GetPokemon_3
 	goto ThicketBrushInteract_GetPokemon_12
 
 
 ThicketBrushInteract_GetItem::
-# 453 "data/scripts/general_scripts.pory"
+# 489 "data/scripts/general_scripts.pory"
 	random 10
-# 454 "data/scripts/general_scripts.pory"
+# 490 "data/scripts/general_scripts.pory"
 	switch VAR_RESULT
-# 455 "data/scripts/general_scripts.pory"
+# 491 "data/scripts/general_scripts.pory"
 	case 1, ThicketBrushInteract_GetItem_3
-# 456 "data/scripts/general_scripts.pory"
+# 492 "data/scripts/general_scripts.pory"
 	case 2, ThicketBrushInteract_GetItem_4
-# 457 "data/scripts/general_scripts.pory"
+# 493 "data/scripts/general_scripts.pory"
 	case 3, ThicketBrushInteract_GetItem_5
-# 458 "data/scripts/general_scripts.pory"
+# 494 "data/scripts/general_scripts.pory"
 	case 4, ThicketBrushInteract_GetItem_6
-# 459 "data/scripts/general_scripts.pory"
+# 495 "data/scripts/general_scripts.pory"
 	case 5, ThicketBrushInteract_GetItem_7
-# 460 "data/scripts/general_scripts.pory"
+# 496 "data/scripts/general_scripts.pory"
 	case 6, ThicketBrushInteract_GetItem_8
-# 461 "data/scripts/general_scripts.pory"
+# 497 "data/scripts/general_scripts.pory"
 	case 7, ThicketBrushInteract_GetItem_9
-# 462 "data/scripts/general_scripts.pory"
+# 498 "data/scripts/general_scripts.pory"
 	case 8, ThicketBrushInteract_GetItem_10
-# 463 "data/scripts/general_scripts.pory"
+# 499 "data/scripts/general_scripts.pory"
 	case 9, ThicketBrushInteract_GetItem_11
-# 464 "data/scripts/general_scripts.pory"
+# 500 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_RARE_CANDY
 ThicketBrushInteract_GetItem_1:
 	return
 
 ThicketBrushInteract_GetItem_3:
-# 455 "data/scripts/general_scripts.pory"
+# 491 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_TINY_MUSHROOM
 	goto ThicketBrushInteract_GetItem_1
 
 ThicketBrushInteract_GetItem_4:
-# 456 "data/scripts/general_scripts.pory"
+# 492 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_BALM_MUSHROOM
 	goto ThicketBrushInteract_GetItem_1
 
 ThicketBrushInteract_GetItem_5:
-# 457 "data/scripts/general_scripts.pory"
+# 493 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_BIG_MUSHROOM
 	goto ThicketBrushInteract_GetItem_1
 
 ThicketBrushInteract_GetItem_6:
-# 458 "data/scripts/general_scripts.pory"
+# 494 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_POKE_BALL
 	goto ThicketBrushInteract_GetItem_1
 
 ThicketBrushInteract_GetItem_7:
-# 459 "data/scripts/general_scripts.pory"
+# 495 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_TINY_MUSHROOM
 	goto ThicketBrushInteract_GetItem_1
 
 ThicketBrushInteract_GetItem_8:
-# 460 "data/scripts/general_scripts.pory"
+# 496 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_TINY_MUSHROOM
 	goto ThicketBrushInteract_GetItem_1
 
 ThicketBrushInteract_GetItem_9:
-# 461 "data/scripts/general_scripts.pory"
+# 497 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_BIG_MUSHROOM
 	goto ThicketBrushInteract_GetItem_1
 
 ThicketBrushInteract_GetItem_10:
-# 462 "data/scripts/general_scripts.pory"
+# 498 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_POKE_BALL
 	goto ThicketBrushInteract_GetItem_1
 
 ThicketBrushInteract_GetItem_11:
-# 463 "data/scripts/general_scripts.pory"
+# 499 "data/scripts/general_scripts.pory"
 	setvar VAR_TEMP_0, ITEM_TINY_MUSHROOM
 	goto ThicketBrushInteract_GetItem_1
 
 
 ThicketBrushInteract_ClearTile::
-# 470 "data/scripts/general_scripts.pory"
+# 506 "data/scripts/general_scripts.pory"
 	playse SE_FU_ZAKU
-# 471 "data/scripts/general_scripts.pory"
+# 507 "data/scripts/general_scripts.pory"
 	getobjectfacingdirection OBJ_EVENT_ID_PLAYER, VAR_TEMP_C
-# 472 "data/scripts/general_scripts.pory"
+# 508 "data/scripts/general_scripts.pory"
 	getobjectxy OBJ_EVENT_ID_PLAYER, CURRENT_POSITION, VAR_TEMP_A, VAR_TEMP_B
-# 473 "data/scripts/general_scripts.pory"
+# 509 "data/scripts/general_scripts.pory"
 	switch VAR_TEMP_C
-# 474 "data/scripts/general_scripts.pory"
+# 510 "data/scripts/general_scripts.pory"
 	case DIR_NORTH, ThicketBrushInteract_ClearTile_3
-# 477 "data/scripts/general_scripts.pory"
+# 513 "data/scripts/general_scripts.pory"
 	case DIR_SOUTH, ThicketBrushInteract_ClearTile_4
-# 480 "data/scripts/general_scripts.pory"
+# 516 "data/scripts/general_scripts.pory"
 	case DIR_EAST, ThicketBrushInteract_ClearTile_5
-# 483 "data/scripts/general_scripts.pory"
+# 519 "data/scripts/general_scripts.pory"
 	case DIR_WEST, ThicketBrushInteract_ClearTile_6
 ThicketBrushInteract_ClearTile_1:
-# 488 "data/scripts/general_scripts.pory"
+# 524 "data/scripts/general_scripts.pory"
 	special DrawWholeMapView
-# 489 "data/scripts/general_scripts.pory"
+# 525 "data/scripts/general_scripts.pory"
 	waitse
 	return
 
 ThicketBrushInteract_ClearTile_3:
-# 475 "data/scripts/general_scripts.pory"
+# 511 "data/scripts/general_scripts.pory"
 	subvar VAR_TEMP_B, 1
 	goto ThicketBrushInteract_ClearTile_1
 
 ThicketBrushInteract_ClearTile_4:
-# 478 "data/scripts/general_scripts.pory"
+# 514 "data/scripts/general_scripts.pory"
 	addvar VAR_TEMP_B, 1
 	goto ThicketBrushInteract_ClearTile_1
 
 ThicketBrushInteract_ClearTile_5:
-# 481 "data/scripts/general_scripts.pory"
+# 517 "data/scripts/general_scripts.pory"
 	addvar VAR_TEMP_A, 1
 	goto ThicketBrushInteract_ClearTile_1
 
 ThicketBrushInteract_ClearTile_6:
-# 484 "data/scripts/general_scripts.pory"
+# 520 "data/scripts/general_scripts.pory"
 	subvar VAR_TEMP_A, 1
 	goto ThicketBrushInteract_ClearTile_1
 
 
-# 88 "data/scripts/general_scripts.pory"
+# 95 "data/scripts/general_scripts.pory"
 Generic_POKEMON_INTERACT_Movement_0:
-# 88 "data/scripts/general_scripts.pory"
-	face_player
+# 95 "data/scripts/general_scripts.pory"
+	emote_question_mark
+	step_end
+
+# 98 "data/scripts/general_scripts.pory"
+Generic_POKEMON_INTERACT_Movement_1:
+# 98 "data/scripts/general_scripts.pory"
+	emote_exclamation_mark
+	step_end
+
+# 100 "data/scripts/general_scripts.pory"
+Generic_POKEMON_INTERACT_Movement_2:
+# 100 "data/scripts/general_scripts.pory"
+	emote_double_exclamation_mark
+	step_end
+
+# 122 "data/scripts/general_scripts.pory"
+EventScript_SpecialWildEncounter_Movement_0:
+# 122 "data/scripts/general_scripts.pory"
+	set_visible
+# 122 "data/scripts/general_scripts.pory"
+	jump_in_place_down
+	step_end
+
+# 123 "data/scripts/general_scripts.pory"
+EventScript_SpecialWildEncounter_Movement_1:
+# 123 "data/scripts/general_scripts.pory"
+	set_visible
+# 123 "data/scripts/general_scripts.pory"
+	jump_in_place_up
+	step_end
+
+# 124 "data/scripts/general_scripts.pory"
+EventScript_SpecialWildEncounter_Movement_2:
+# 124 "data/scripts/general_scripts.pory"
+	set_visible
+# 124 "data/scripts/general_scripts.pory"
+	jump_in_place_left
+	step_end
+
+# 125 "data/scripts/general_scripts.pory"
+EventScript_SpecialWildEncounter_Movement_3:
+# 125 "data/scripts/general_scripts.pory"
+	set_visible
+# 125 "data/scripts/general_scripts.pory"
+	jump_in_place_right
+	step_end
+
+# 145 "data/scripts/general_scripts.pory"
+Common_EventScript_FindItemSand_Movement_0:
+# 145 "data/scripts/general_scripts.pory"
+	set_visible
 	step_end
 
 Generic_InfoNPC_Text_0:
@@ -1081,54 +1215,38 @@ Generic_GYM_LEVEL_GUIDE_Text_0:
 # 75 "data/scripts/general_scripts.pory"
 	.string "Current Level Cap:\n{STR_VAR_1}$"
 
-Generic_POKEMON_INTERACT_Text_0:
-# 96 "data/scripts/general_scripts.pory"
-	.string "?$"
-
-Generic_POKEMON_INTERACT_Text_1:
-# 98 "data/scripts/general_scripts.pory"
-	.string "!$"
-
-Generic_POKEMON_INTERACT_Text_2:
-# 99 "data/scripts/general_scripts.pory"
-	.string "...$"
-
-Generic_POKEMON_INTERACT_Text_3:
-# 100 "data/scripts/general_scripts.pory"
-	.string "!?$"
-
 Generic_POKEMART_Text_0:
-# 128 "data/scripts/general_scripts.pory"
+# 164 "data/scripts/general_scripts.pory"
 	.string "Welcome!\pHow may I serve you?$"
 
 Generic_POKEMART_Text_1:
-# 156 "data/scripts/general_scripts.pory"
+# 192 "data/scripts/general_scripts.pory"
 	.string "Please come again!$"
 
 Generic_POKEMART_BERRY_Text_0:
-# 253 "data/scripts/general_scripts.pory"
+# 289 "data/scripts/general_scripts.pory"
 	.string "Welcome!\pAre you interested in some berries?$"
 
 RestArea_Indoor_BedTaken_Text_0:
-# 356 "data/scripts/general_scripts.pory"
+# 392 "data/scripts/general_scripts.pory"
 	.string "It looks like this bed is taken.$"
 
 RestArea_Indoor_BedHeal_Text_0:
-# 360 "data/scripts/general_scripts.pory"
+# 396 "data/scripts/general_scripts.pory"
 	.string "Looks like this bed is free.\nTake a rest?$"
 
 RestArea_Indoor_BedHeal_Text_1:
-# 362 "data/scripts/general_scripts.pory"
+# 398 "data/scripts/general_scripts.pory"
 	.string "You take a short rest.$"
 
 ThicketBrushInteract_Text_0:
-# 381 "data/scripts/general_scripts.pory"
+# 417 "data/scripts/general_scripts.pory"
 	.string "You found an item!$"
 
 ThicketBrushInteract_Nothing_Text_0:
-# 407 "data/scripts/general_scripts.pory"
+# 443 "data/scripts/general_scripts.pory"
 	.string "You didn't find anything...$"
 
 ThicketBrush_WildEncounter_Text_0:
-# 415 "data/scripts/general_scripts.pory"
+# 451 "data/scripts/general_scripts.pory"
 	.string "You were attacked!$"
