@@ -4434,7 +4434,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TMBall = {
     .tileTag = TAG_NONE,
-    .paletteTag = OBJ_EVENT_PAL_TAG_NPC_2,
+    .paletteTag = OBJ_EVENT_PAL_TAG_BALL_PARK,
     .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,
     .size = 256,
     .width = 16,
@@ -4447,7 +4447,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_TMBall = {
     .oam = &gObjectEventBaseOam_16x32,
     .subspriteTables = sOamTables_16x32,
     .anims = sAnimTable_Following,
-    .images = sPicTable_ParkBall,
+    .images = sPicTable_Ball_PARK,
 };
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower = {

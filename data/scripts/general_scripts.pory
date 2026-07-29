@@ -85,10 +85,11 @@ script Generic_GYM_LEVEL_GUIDE {
 //MARK: Generic PKMN
 script Generic_POKEMON_INTERACT {
     lock
-    faceplayer
+    applymovement(VAR_LAST_TALKED, moves(face_player))
+    waitmovement(VAR_LAST_TALKED)
     callnative(GetInteractedPokemon)
-    if (flag(FLAG_SYS_POKEDEX_GET)) {setseenmon(VAR_RESULT)}
-    playmoncry(VAR_RESULT, CRY_MODE_NORMAL)
+    if (flag(FLAG_SYS_POKEDEX_GET)) {setseenmon(VAR_0x8004)}
+    playmoncry(VAR_0x8004, CRY_MODE_NORMAL)
     
     random(6)
     switch(var(VAR_RESULT)) {
