@@ -1075,9 +1075,9 @@
 #define FLAG_ITEM_DAWNSHORE_CITY_2                                  0x3F6 
 #define FLAG_ITEM_DAWNSHORE_CITY_3                                  0x3F7
 #define FLAG_ITEM_REST_AREA1                                        0x3F8
-#define FLAG_ITEM_0x3F9                      0x3F9
-#define FLAG_ITEM_0x3FA                      0x3FA
-#define FLAG_ITEM_0x3FB                      0x3FB
+#define FLAG_ITEM_DAWNSHORE_CITY_4                                  0x3F9
+#define FLAG_ITEM_ROUTE3                      0x3FA
+#define FLAG_ITEM_ROUTE3_1                      0x3FB
 #define FLAG_ITEM_0x3FC                      0x3FC
 #define FLAG_ITEM_0x3FD                      0x3FD
 #define FLAG_ITEM_0x3FE                      0x3FE
@@ -1518,8 +1518,8 @@
 //MARK: Misc Flags
 #define FLAG_BEAT_HORIZON_PORT_KIDS                 (SYSTEM_FLAGS + 0x85)
 #define FLAG_BEAT_ROUTE1_OW_MON                     (SYSTEM_FLAGS + 0x86)
-#define FLAG_UNUSED_0x8E7                           (SYSTEM_FLAGS + 0x87) // Unused Flag
-#define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) // Unused Flag
+#define FLAG_CUT_ROUTE3_TREE_L                      (SYSTEM_FLAGS + 0x87) // Unused Flag
+#define FLAG_CUT_ROUTE3_TREE_R                      (SYSTEM_FLAGS + 0x88) // Unused Flag
 #define FLAG_UNUSED_0x8E9                           (SYSTEM_FLAGS + 0x89) // Unused Flag
 #define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
 #define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) // Unused Flag

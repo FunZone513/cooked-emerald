@@ -36785,7 +36785,7 @@
               {
                 "min_level": 3,
                 "max_level": 5,
-                "species": "SPECIES_CLAUNCHER"
+                "species": "SPECIES_GOLDEEN"
               },
               {
                 "min_level": 5,
@@ -36795,12 +36795,12 @@
               {
                 "min_level": 5,
                 "max_level": 15,
-                "species": "SPECIES_CLAUNCHER"
+                "species": "SPECIES_GOLDEEN"
               },
               {
                 "min_level": 5,
                 "max_level": 15,
-                "species": "SPECIES_CLAUNCHER"
+                "species": "SPECIES_GOLDEEN"
               },
               {
                 "min_level": 15,
@@ -36810,7 +36810,7 @@
               {
                 "min_level": 15,
                 "max_level": 40,
-                "species": "SPECIES_CLAUNCHER"
+                "species": "SPECIES_GOLDEEN"
               },
               {
                 "min_level": 30,
@@ -36820,12 +36820,12 @@
               {
                 "min_level": 37,
                 "max_level": 40,
-                "species": "SPECIES_CLAWITZER"
+                "species": "SPECIES_SEAKING"
               },
               {
                 "min_level": 37,
                 "max_level": 40,
-                "species": "SPECIES_CLAWITZER"
+                "species": "SPECIES_SEAKING"
               }
             ]
           }
@@ -37001,12 +37001,12 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 5,
+                "min_level": 3,
                 "max_level": 5,
                 "species": "SPECIES_KRABBY"
               },
               {
-                "min_level": 5,
+                "min_level": 3,
                 "max_level": 5,
                 "species": "SPECIES_TENTACOOL"
               },
@@ -37128,6 +37128,155 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_TORTERRA"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_ROUTE_3",
+          "base_label": "gRoute_3",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_LILLIPUP"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_TAILLOW"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_LILLIPUP"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_TAILLOW"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_BUNEARY"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_BUNEARY"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_BUNEARY"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_SHROOMISH"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_SHROOMISH"
+              },
+              {
+                "min_level": 4,
+                "max_level": 7,
+                "species": "SPECIES_SHROOMISH"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_KRABBY"
+              },
+              {
+                "min_level": 3,
+                "max_level": 5,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_KRABBY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_KRABBY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_SHELLDER"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_SKRELP"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_SKRELP"
+              }
+            ]
+          },
+          "special_mons": {
+            "encounter_rate": 100,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_SANDYGAST"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_KRABBY"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_SANDYGAST"
+              },
+              {
+                "min_level": 5,
+                "max_level": 5,
+                "species": "SPECIES_KRABBY"
               }
             ]
           }
