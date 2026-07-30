@@ -161,7 +161,7 @@ Gender: Male
 Music: Male
 AI: Basic Trainer
 
-Venipede
+Yanma
 Level: 3
 
 === TRAINER_ROUTE1_PICNICKER ===
@@ -404,6 +404,71 @@ AI: Smart Trainer
 
 Tentacool
 Level: 11
+
+=== TRAINER_ROUTE3_PICNICKER ===
+Name: SUSANNE
+Class: Picnicker
+Pic: Picnicker FRLG
+Gender: Female
+Music: Girl
+AI: Basic Trainer
+
+Azurill
+Level: 7
+
+Taillow
+Level: 8
+
+=== TRAINER_ROUTE3_BLACKBELT ===
+Name: HUGH
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Music: Intense
+Double Battle: No
+AI: Basic Trainer
+
+Machop
+Level: 9
+
+=== TRAINER_ROUTE3_NINJA_BOY ===
+Name: LIAM
+Class: Ninja Boy
+Pic: Ninja Boy
+Gender: Male
+Music: Suspicious
+Double Battle: Yes
+AI: Tricky
+
+Paras
+Level: 6
+
+Shroomish
+Level: 6
+
+Shroomish
+Level: 7
+
+Paras
+Level: 7
+
+=== TRAINER_ROUTE3_BUG_CATCHER ===
+Name: BRAD
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Music: Male
+AI: Basic Trainer
+
+Yanma
+Level: 8
+
+Venipede
+Level: 8
+
+
+
+
 
 
 

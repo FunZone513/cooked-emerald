@@ -107,9 +107,9 @@ Route_2_Fisherman::
 # 55 "data/maps/Route_2/scripts.pory"
 	checktrainerflag TRAINER_ROUTE2_FISHERMAN
 	goto_if 0, Route_2_Fisherman_1
-# 76 "data/maps/Route_2/scripts.pory"
+# 77 "data/maps/Route_2/scripts.pory"
 	goto_if_unset FLAG_RECEIVED_OLD_ROD, Route_2_Fisherman_7
-# 82 "data/maps/Route_2/scripts.pory"
+# 83 "data/maps/Route_2/scripts.pory"
 	msgbox Route_2_Fisherman_Text_6, MSGBOX_NPC
 	return
 
@@ -138,13 +138,13 @@ Route_2_Fisherman_4:
 	return
 
 Route_2_Fisherman_7:
-# 77 "data/maps/Route_2/scripts.pory"
-	msgbox Route_2_Fisherman_Text_3, MSGBOX_NPC
 # 78 "data/maps/Route_2/scripts.pory"
-	giveitem ITEM_OLD_ROD
+	msgbox Route_2_Fisherman_Text_3, MSGBOX_NPC
 # 79 "data/maps/Route_2/scripts.pory"
-	setflag FLAG_RECEIVED_OLD_ROD
+	giveitem ITEM_OLD_ROD
 # 80 "data/maps/Route_2/scripts.pory"
+	setflag FLAG_RECEIVED_OLD_ROD
+# 81 "data/maps/Route_2/scripts.pory"
 	msgbox Route_2_Fisherman_Text_4, MSGBOX_NPC
 	return
 
@@ -161,9 +161,9 @@ Route_2_Fisherman_10:
 
 
 Route_2_Hiker::
-# 89 "data/maps/Route_2/scripts.pory"
+# 90 "data/maps/Route_2/scripts.pory"
 	trainerbattle_single TRAINER_ROUTE2_HIKER, Route_2_Hiker_Text_0, Route_2_Hiker_Text_1
-# 94 "data/maps/Route_2/scripts.pory"
+# 95 "data/maps/Route_2/scripts.pory"
 	msgbox Route_2_Hiker_Text_2, MSGBOX_NPC
 	return
 
@@ -241,17 +241,17 @@ Route_2_Fisherman_Text_5:
 	.string "Well if you fancy giving fishing a try,\nyou know where to find me.$"
 
 Route_2_Fisherman_Text_6:
-# 82 "data/maps/Route_2/scripts.pory"
+# 83 "data/maps/Route_2/scripts.pory"
 	.string "I hope your fishing is going well!$"
 
 Route_2_Hiker_Text_0:
-# 91 "data/maps/Route_2/scripts.pory"
+# 92 "data/maps/Route_2/scripts.pory"
 	.string "Whew, climbing up here really winded me.$"
 
 Route_2_Hiker_Text_1:
-# 92 "data/maps/Route_2/scripts.pory"
+# 93 "data/maps/Route_2/scripts.pory"
 	.string "Wait! I hadn't caught my breath yet!$"
 
 Route_2_Hiker_Text_2:
-# 94 "data/maps/Route_2/scripts.pory"
+# 95 "data/maps/Route_2/scripts.pory"
 	.string "After my surgery I can't hike like I\nused to, but at least I can relive some\lof the joy of it up here.$"

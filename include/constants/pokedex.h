@@ -1112,18 +1112,24 @@ enum NationalDexOrder
     F(EXPLOUD) \
     F(HOOTHOOT) \
     F(NOCTOWL) \
-    F(BUNEARY) \
-    F(LOPUNNY) \
     F(KRABBY) \
     F(KINGLER) \
+    F(SANDYGAST) \
+    F(PALOSSAND) \
     F(CORPHISH) \
     F(CRAWDAUNT) \
     F(GOLDEEN) \
     F(SEAKING) \
     F(TENTACOOL) \
     F(TENTACRUEL) \
-    F(SANDYGAST) \
-    F(PALOSSAND) \
+    F(BUNEARY) \
+    F(LOPUNNY) \
+    F(ZUBAT) \
+    F(GOLBAT) \
+    F(CROBAT) \
+    F(MACHOP) \
+    F(MACHOKE) \
+    F(MACHAMP) \
     F(SHROOMISH) \
     F(BRELOOM) \
     F(VENIPEDE) \
@@ -1131,19 +1137,13 @@ enum NationalDexOrder
     F(SCOLIPEDE) \
     F(JOLTIK) \
     F(GALVANTULA) \
-    F(ZUBAT) \
-    F(GOLBAT) \
-    F(CROBAT) \
-    F(GULPIN) \
-    F(SWALOT) \
-    F(MACHOP) \
-    F(MACHOKE) \
-    F(MACHAMP) \
     F(ARON) \
     F(LAIRON) \
     F(AGGRON) \
     F(CARBINK) \
     F(DIANCIE) \
+    F(GULPIN) \
+    F(SWALOT) \
     F(FLETCHLING) \
     F(FLETCHINDER) \
     F(TALONFLAME) \

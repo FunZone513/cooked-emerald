@@ -1,1 +1,43 @@
-mapscripts Route_3_MapScripts {}
+mapscripts Route_3_MapScripts {
+    MAP_SCRIPT_ON_LOAD: Route_3_OnLoad
+}
+
+script Route_3_OnLoad {
+    //
+}
+
+script Route_3_Picnicker {
+    trainerbattle_single(
+        TRAINER_ROUTE3_PICNICKER, 
+        "The grass around here is dense!",
+        "Another loss for me..."
+    )
+    msgbox("If I spent more time training than\nfrolicking I would probably win more.", MSGBOX_NPC)
+}
+
+script Route_3_BlackBelt {
+    trainerbattle_single(
+        TRAINER_ROUTE3_BLACKBELT, 
+        "I'M PUNCHING THIS TREE!",
+        "MY KNUCKLES FAILED ME!"
+    )
+    msgbox("I train alongside my Pokemon so it\ndoesn't feel forced into it.", MSGBOX_NPC)
+}
+
+script Route_3_NinjaBoy {
+    trainerbattle_single(
+        TRAINER_ROUTE3_NINJA_BOY, 
+        "Haha!\nBet you didn't expect this!",
+        "What? No!"
+    )
+    msgbox("How did my incredible disguise not work?", MSGBOX_NPC)
+}
+
+script Route_3_BugCatcher {
+    trainerbattle_single(
+        TRAINER_ROUTE3_BUG_CATCHER, 
+        "...sniffle...",
+        "...A-\pACHOO!"
+    )
+    msgbox("Being allergic to grass makes finding\nPokemon really difficult...", MSGBOX_NPC)
+}

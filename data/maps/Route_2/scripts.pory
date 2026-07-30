@@ -72,6 +72,7 @@ script Route_2_Fisherman {
         } else {
             msgbox("Well if you fancy giving fishing a try,\nyou know where to find me.", MSGBOX_NPC)
         }
+
     } else {
         if (!flag(FLAG_RECEIVED_OLD_ROD)) {
             msgbox("I'm a man of my word, here you go!", MSGBOX_NPC)
