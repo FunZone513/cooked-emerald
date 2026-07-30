@@ -1,4 +1,20 @@
-mapscripts DawnshoreCity_MapScripts {}
+mapscripts DawnshoreCity_MapScripts {
+    MAP_SCRIPT_ON_LOAD: DawnshoreCity_OnLoad
+}
+
+script DawnshoreCity_OnLoad {
+    if (flag(FLAG_ITEM_DAWNSHORE_CITY)) {
+        setmetatile(15, 2, METATILE_General_SandPit_Center, FALSE)
+    }
+
+    if (flag(FLAG_ITEM_DAWNSHORE_CITY_2)) {
+        setmetatile(21, 17, METATILE_General_SandPit_Center, FALSE)
+    }
+
+    if (flag(FLAG_ITEM_DAWNSHORE_CITY_3)) {
+        setmetatile(8, 21, METATILE_General_SandPit_Center, FALSE)
+    }
+}
 
 script DawnshoreCity_GymSign {
     msgbox("Dawnshore Gym:\nSun-kissed and Beach ready!")

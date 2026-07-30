@@ -3,6 +3,10 @@ mapscripts HorizonPort_MapScripts {
 }
 
 script HorizonPort_OnLoad {
+    if (flag(FLAG_ITEM_HORIZON_PORT_4)) {
+        setmetatile(32, 11, METATILE_General_SandPit_Center, FALSE)
+    }
+
     //! debug
     if (!flag(FLAG_ADVENTURE_STARTED)) {
         call(Generic_DefaultSettings)

@@ -143,7 +143,8 @@ script Common_EventScript_FindItemSand {
     getobjectxy(VAR_LAST_TALKED, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
     setmetatile(VAR_TEMP_1, VAR_TEMP_2, METATILE_General_SandPit_Center, FALSE)
     special(DrawWholeMapView)
-    applymovement(VAR_LAST_TALKED, moves(set_visible))
+    applymovement(VAR_LAST_TALKED, moves(set_visible delay_16))
+    waitmovement(0)
     callnative(GetItemBallIdAndAmountFromTemplate)
 	finditem(VAR_RESULT, VAR_0x8009)
 }
@@ -152,7 +153,8 @@ script Common_EventScript_FindItemAsh {
     getobjectxy(VAR_LAST_TALKED, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
     setmetatile(VAR_TEMP_1, VAR_TEMP_2, METATILE_Fallarbor_AshField, FALSE)
     special(DrawWholeMapView)
-    applymovement(VAR_LAST_TALKED, moves(set_visible))
+    applymovement(VAR_LAST_TALKED, moves(set_visible delay_16))
+    waitmovement(0)
     callnative(GetItemBallIdAndAmountFromTemplate)
 	finditem(VAR_RESULT, VAR_0x8009)
 }

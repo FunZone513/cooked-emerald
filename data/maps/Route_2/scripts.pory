@@ -3,11 +3,16 @@ mapscripts Route_2_MapScripts {
 }
 
 script Route_2_OnLoad {
-    random(3)
-    switch(var(VAR_RESULT)) {
-        case 0:
-        default: break
-    }
+    if (flag(FLAG_ITEM_DAWNSHORE_CITY)) { setmetatile(21, 20, METATILE_General_SandPit_Center, FALSE) }
+
+    // its easier to visualise as a negative
+    random(6)
+    if (var(VAR_RESULT) != 0) { setmetatile(14, 11, METATILE_General_SandPit_Center, FALSE) }
+    if (var(VAR_RESULT) != 1) { setmetatile(19, 14, METATILE_General_SandPit_Center, FALSE) }
+    if (var(VAR_RESULT) != 2) { setmetatile(18, 18, METATILE_General_SandPit_Center, FALSE) }
+    if (var(VAR_RESULT) != 3) { setmetatile(13, 21, METATILE_General_SandPit_Center, FALSE) }
+    if (var(VAR_RESULT) != 4) { setmetatile(17, 23, METATILE_General_SandPit_Center, FALSE) }
+    if (var(VAR_RESULT) != 5) { setmetatile(11, 25, METATILE_General_SandPit_Center, FALSE) }
 }
 
 script Route_2_Youngster {
