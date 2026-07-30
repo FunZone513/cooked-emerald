@@ -84,10 +84,17 @@ script Generic_GYM_LEVEL_GUIDE {
 
 //MARK: Generic PKMN
 script Generic_POKEMON_INTERACT {
-    lock
-    applymovement(VAR_LAST_TALKED, moves(face_player))
-    waitmovement(VAR_LAST_TALKED)
+    // faceplayer macro is broken for asym mons
+    getobjectfacingdirection(OBJ_EVENT_ID_PLAYER, VAR_TEMP_A)
+    switch(var(VAR_TEMP_A)) {
+        case DIR_NORTH: turnobject(VAR_LAST_TALKED, DIR_SOUTH)
+        case DIR_SOUTH: turnobject(VAR_LAST_TALKED, DIR_NORTH)
+        case DIR_EAST:  turnobject(VAR_LAST_TALKED, DIR_WEST)
+        case DIR_WEST:  turnobject(VAR_LAST_TALKED, DIR_EAST)
+    }
+
     callnative(GetInteractedPokemon)
+    waitse
     if (flag(FLAG_SYS_POKEDEX_GET)) {setseenmon(VAR_0x8004)}
     playmoncry(VAR_0x8004, CRY_MODE_NORMAL)
     

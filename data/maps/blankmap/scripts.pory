@@ -5,5 +5,12 @@ script blankmap_NPC_TEST {
 }
 
 script blankmap_NPC_TEST2 {
-    msgbox("asym", MSGBOX_NPC)
+    getobjectfacingdirection(OBJ_EVENT_ID_PLAYER, VAR_TEMP_A)
+    switch(var(VAR_TEMP_A)) {
+        case DIR_NORTH: turnobject(VAR_LAST_TALKED, DIR_SOUTH)
+        case DIR_SOUTH: turnobject(VAR_LAST_TALKED, DIR_NORTH)
+        case DIR_EAST:  turnobject(VAR_LAST_TALKED, DIR_WEST)
+        case DIR_WEST:  turnobject(VAR_LAST_TALKED, DIR_EAST)
+    }
+    msgbox("asym", MSGBOX_AUTOCLOSE)
 }
