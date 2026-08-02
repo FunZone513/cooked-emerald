@@ -1521,9 +1521,9 @@
 #define FLAG_CUT_ROUTE3_TREE_L                      (SYSTEM_FLAGS + 0x87) // Unused Flag
 #define FLAG_CUT_ROUTE3_TREE_R                      (SYSTEM_FLAGS + 0x88) // Unused Flag
 #define FLAG_HIDE_ROUTE3_GIRL                       (SYSTEM_FLAGS + 0x89) // Unused Flag
-#define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
-#define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) // Unused Flag
-#define FLAG_UNUSED_0x8EC                           (SYSTEM_FLAGS + 0x8C) // Unused Flag
+#define FLAG_TEST_FISHING                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
+#define FLAG_TEST_FISHING_CAUGHT                    (SYSTEM_FLAGS + 0x8B) // Unused Flag
+#define FLAG_TEST_FISHING_TALKED                    (SYSTEM_FLAGS + 0x8C) // Unused Flag
 #define FLAG_UNUSED_0x8ED                           (SYSTEM_FLAGS + 0x8D) // Unused Flag
 #define FLAG_UNUSED_0x8EE                           (SYSTEM_FLAGS + 0x8E) // Unused Flag
 #define FLAG_UNUSED_0x8EF                           (SYSTEM_FLAGS + 0x8F) // Unused Flag

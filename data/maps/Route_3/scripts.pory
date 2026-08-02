@@ -1,9 +1,135 @@
 mapscripts Route_3_MapScripts {
     MAP_SCRIPT_ON_LOAD: Route_3_OnLoad
+    MAP_SCRIPT_ON_RESUME: Route_3_OnResume
 }
 
 script Route_3_OnLoad {
     //
+}
+
+script Route_3_OnResume {
+    
+    // check if finished fishing encounter
+    getobjectxy(OBJ_EVENT_ID_PLAYER, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 8 && var(VAR_TEMP_2) == 8) {
+        if (flag(FLAG_TEST_FISHING)) {
+            if (flag(FLAG_TEST_FISHING_CAUGHT)) {
+                goto(Route_3_Fisherman_Success)
+            } else { setvar(VAR_TEMP_A, 1) }
+        }
+    }
+}
+
+script Route_3_DisableFishingFlag {
+    if (flag(FLAG_TEST_FISHING)) {
+        msgbox("Are you finished fishing?", MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES) {
+            clearflag(FLAG_TEST_FISHING)
+            setvar(VAR_TEMP_A, 0)
+            removeitem(ITEM_OLD_ROD)
+            releaseall
+        } else {
+            lock
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_left))
+            waitmovement(0)
+            releaseall
+        }
+    }
+}
+
+script Route_3_Fisherman {
+    if (flag(FLAG_TEST_FISHING)) {
+        if (!flag(FLAG_TEST_FISHING_CAUGHT)) {
+            lock
+            faceplayer
+            msgbox(
+                "Fishing is all about patience...\p"
+                "But sometimes you need to know when\nto call it for the day.\p"
+                "Are you done?"
+            , MSGBOX_YESNO)
+            if (var(VAR_RESULT) == YES) {
+                clearflag(FLAG_TEST_FISHING)
+                removeitem(ITEM_OLD_ROD)
+                setvar(VAR_TEMP_A, 0)
+            }
+            releaseall
+        } else {
+            goto(Route_3_Fisherman_Success)
+        }
+
+    } else {
+
+        if (flag(FLAG_RECEIVED_OLD_ROD)) {
+            msgbox("I hope that Ol' Rod is treating you well.", MSGBOX_NPC)
+            applymovement(LOCALID_FISHERMAN, moves(face_down))
+            waitmovement(0)
+            releaseall
+        } else {
+
+            if (!flag(FLAG_TEST_FISHING_TALKED)) {
+                setflag(FLAG_TEST_FISHING_TALKED)
+                lock
+                msgbox("...What a beautiful day...\pThe smell of the sea...\nThe sun in the sky...\pFish on my rod...", MSGBOX_DEFAULT)
+                waitmessage
+                playse(SE_PIN)
+                applymovement(LOCALID_FISHERMAN, moves(emote_exclamation_mark))
+                waitmovement(0)
+                faceplayer
+                msgbox(
+                    "Well hello there!\nYou're a new face around here!\p"
+                    "You must be one of the newcomers for\nthe Pokemon Adventure.\p"
+                    "I'm flattered you've come to speak to\nme, yet I have only wisdom to give.\p"
+                    "...Actually,\nI think I might have something.\p"
+                    "I have this Old Fishing Rod laying\naround I don't have a use for.\p"
+                    "Do you think you could give it a go?"
+                , MSGBOX_YESNO)
+                
+                if (var(VAR_RESULT) == YES) {
+                    goto(Route_3_Fisherman_Explain)
+                } else { goto(Route_3_Fisherman_Decline) }
+            
+            } else {
+                lock
+                faceplayer
+                msgbox("Here to give fishing another chance?", MSGBOX_YESNO)
+                if (var(VAR_RESULT) == YES) {
+                    goto(Route_3_Fisherman_Explain)
+                } else { goto(Route_3_Fisherman_Decline) }
+            } 
+        }
+    }
+}
+
+script Route_3_Fisherman_Decline {
+    msgbox("I understand.\nFishing isn't for everyone after all.", MSGBOX_DEFAULT)
+    applymovement(LOCALID_FISHERMAN, moves(face_down))
+    waitmovement(0)
+    releaseall
+}
+
+script Route_3_Fisherman_Explain {
+    setflag(FLAG_TEST_FISHING)
+    setvar(VAR_TEMP_A, 1)
+    msgbox(
+        "I'll lend you my Old Rod to give it a try.\p"
+        "The first catch might take a while since\nyou're still getting used to it,\p"
+        "But I'm sure you'll have no troubles\nafter that."
+    , MSGBOX_NPC)
+    giveitem(ITEM_OLD_ROD)
+    msgbox("Try catching something in this here\ninlet, I'll be rooting for you!", MSGBOX_AUTOCLOSE)
+    applymovement(LOCALID_FISHERMAN, moves(face_down))
+    waitmovement(0)
+    releaseall
+}
+
+script Route_3_Fisherman_Success {
+    lock
+    applymovement(LOCALID_FISHERMAN, moves(face_right))
+    waitmovement(0)
+    msgbox("Well done!\nI knew you had it in you!\pYou can go ahead and keep that Rod,\nI hope you catch many more with it!", MSGBOX_AUTOCLOSE)
+    clearflag(FLAG_TEST_FISHING)
+    setflag(FLAG_RECEIVED_OLD_ROD)
+    releaseall
 }
 
 script Route_3_Picnicker {

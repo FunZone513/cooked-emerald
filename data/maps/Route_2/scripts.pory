@@ -52,38 +52,12 @@ script Route_2_Runner {
 }
 
 script Route_2_Fisherman {
-    if (!defeated(TRAINER_ROUTE2_FISHERMAN)) {
-        lock
-        face_player
-        msgbox("I give out spare fishing rods to those\nthat beat me in battle.\pCare to give it a try?", MSGBOX_YESNO)
-        if (var(VAR_RESULT) == YES) {
-            trainerbattle_single(
-                TRAINER_ROUTE2_FISHERMAN, 
-                "Let's see if you have what it takes!",
-                "Looks like we have a freshly\ncaught fisherman over here!"
-            )
-            specialvar(VAR_RESULT, GetBattleOutcome)
-            if (var(VAR_RESULT) == B_OUTCOME_WON) {
-                msgbox("I'm a man of my word, here you go!", MSGBOX_NPC)
-                giveitem(ITEM_OLD_ROD)
-                setflag(FLAG_RECEIVED_OLD_ROD)
-                msgbox("Good luck with your fishing adventures!", MSGBOX_NPC)
-            } 
-        } else {
-            msgbox("Well if you fancy giving fishing a try,\nyou know where to find me.", MSGBOX_NPC)
-        }
-
-    } else {
-        if (!flag(FLAG_RECEIVED_OLD_ROD)) {
-            msgbox("I'm a man of my word, here you go!", MSGBOX_NPC)
-            giveitem(ITEM_OLD_ROD)
-            setflag(FLAG_RECEIVED_OLD_ROD)
-            msgbox("Good luck with your fishing adventures!", MSGBOX_NPC)
-        } else {  
-            msgbox("I hope your fishing is going well!", MSGBOX_NPC)
-        }
-    }
-    
+    trainerbattle_single(
+        TRAINER_ROUTE2_FISHERMAN, 
+        "I was fishing for Pokemon,\nbut I've caught a trainer instead!",
+        "Throw me back!"
+    )
+    msgbox(format("My friend has a secret fishing spot over on Route 3 that he likes to chill at."), MSGBOX_NPC)
 }
 
 script Route_2_Hiker {

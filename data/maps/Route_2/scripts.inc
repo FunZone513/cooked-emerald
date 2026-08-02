@@ -105,65 +105,16 @@ Route_2_Runner::
 
 Route_2_Fisherman::
 # 55 "data/maps/Route_2/scripts.pory"
-	checktrainerflag TRAINER_ROUTE2_FISHERMAN
-	goto_if 0, Route_2_Fisherman_1
-# 77 "data/maps/Route_2/scripts.pory"
-	goto_if_unset FLAG_RECEIVED_OLD_ROD, Route_2_Fisherman_7
-# 83 "data/maps/Route_2/scripts.pory"
-	msgbox Route_2_Fisherman_Text_6, MSGBOX_NPC
-	return
-
-Route_2_Fisherman_1:
-# 56 "data/maps/Route_2/scripts.pory"
-	lock
-# 57 "data/maps/Route_2/scripts.pory"
-	face_player
-# 58 "data/maps/Route_2/scripts.pory"
-	msgbox Route_2_Fisherman_Text_0, MSGBOX_YESNO
-# 59 "data/maps/Route_2/scripts.pory"
-	compare VAR_RESULT, YES
-	goto_if_eq Route_2_Fisherman_4
-# 73 "data/maps/Route_2/scripts.pory"
-	msgbox Route_2_Fisherman_Text_5, MSGBOX_NPC
-	return
-
-Route_2_Fisherman_4:
+	trainerbattle_single TRAINER_ROUTE2_FISHERMAN, Route_2_Fisherman_Text_0, Route_2_Fisherman_Text_1
 # 60 "data/maps/Route_2/scripts.pory"
-	trainerbattle_single TRAINER_ROUTE2_FISHERMAN, Route_2_Fisherman_Text_1, Route_2_Fisherman_Text_2
-# 65 "data/maps/Route_2/scripts.pory"
-	specialvar VAR_RESULT, GetBattleOutcome
-# 66 "data/maps/Route_2/scripts.pory"
-	compare VAR_RESULT, B_OUTCOME_WON
-	goto_if_eq Route_2_Fisherman_10
-	return
-
-Route_2_Fisherman_7:
-# 78 "data/maps/Route_2/scripts.pory"
-	msgbox Route_2_Fisherman_Text_3, MSGBOX_NPC
-# 79 "data/maps/Route_2/scripts.pory"
-	giveitem ITEM_OLD_ROD
-# 80 "data/maps/Route_2/scripts.pory"
-	setflag FLAG_RECEIVED_OLD_ROD
-# 81 "data/maps/Route_2/scripts.pory"
-	msgbox Route_2_Fisherman_Text_4, MSGBOX_NPC
-	return
-
-Route_2_Fisherman_10:
-# 67 "data/maps/Route_2/scripts.pory"
-	msgbox Route_2_Fisherman_Text_3, MSGBOX_NPC
-# 68 "data/maps/Route_2/scripts.pory"
-	giveitem ITEM_OLD_ROD
-# 69 "data/maps/Route_2/scripts.pory"
-	setflag FLAG_RECEIVED_OLD_ROD
-# 70 "data/maps/Route_2/scripts.pory"
-	msgbox Route_2_Fisherman_Text_4, MSGBOX_NPC
+	msgbox Route_2_Fisherman_Text_2, MSGBOX_NPC
 	return
 
 
 Route_2_Hiker::
-# 90 "data/maps/Route_2/scripts.pory"
+# 64 "data/maps/Route_2/scripts.pory"
 	trainerbattle_single TRAINER_ROUTE2_HIKER, Route_2_Hiker_Text_0, Route_2_Hiker_Text_1
-# 95 "data/maps/Route_2/scripts.pory"
+# 69 "data/maps/Route_2/scripts.pory"
 	msgbox Route_2_Hiker_Text_2, MSGBOX_NPC
 	return
 
@@ -217,41 +168,27 @@ Route_2_Runner_Text_2:
 	.string "Running with my 'Mons makes for a\ngood workout!$"
 
 Route_2_Fisherman_Text_0:
-# 58 "data/maps/Route_2/scripts.pory"
-	.string "I give out spare fishing rods to those\nthat beat me in battle.\pCare to give it a try?$"
+# 57 "data/maps/Route_2/scripts.pory"
+	.string "I was fishing for Pokemon,\nbut I've caught a trainer instead!$"
 
 Route_2_Fisherman_Text_1:
-# 62 "data/maps/Route_2/scripts.pory"
-	.string "Let's see if you have what it takes!$"
+# 58 "data/maps/Route_2/scripts.pory"
+	.string "Throw me back!$"
 
 Route_2_Fisherman_Text_2:
-# 63 "data/maps/Route_2/scripts.pory"
-	.string "Looks like we have a freshly\ncaught fisherman over here!$"
-
-Route_2_Fisherman_Text_3:
-# 67 "data/maps/Route_2/scripts.pory"
-	.string "I'm a man of my word, here you go!$"
-
-Route_2_Fisherman_Text_4:
-# 70 "data/maps/Route_2/scripts.pory"
-	.string "Good luck with your fishing adventures!$"
-
-Route_2_Fisherman_Text_5:
-# 73 "data/maps/Route_2/scripts.pory"
-	.string "Well if you fancy giving fishing a try,\nyou know where to find me.$"
-
-Route_2_Fisherman_Text_6:
-# 83 "data/maps/Route_2/scripts.pory"
-	.string "I hope your fishing is going well!$"
+# 60 "data/maps/Route_2/scripts.pory"
+	.string "My friend has a secret fishing spot\n"
+	.string "over on Route 3 that he likes to chill\l"
+	.string "at.$"
 
 Route_2_Hiker_Text_0:
-# 92 "data/maps/Route_2/scripts.pory"
+# 66 "data/maps/Route_2/scripts.pory"
 	.string "Whew, climbing up here really winded me.$"
 
 Route_2_Hiker_Text_1:
-# 93 "data/maps/Route_2/scripts.pory"
+# 67 "data/maps/Route_2/scripts.pory"
 	.string "Wait! I hadn't caught my breath yet!$"
 
 Route_2_Hiker_Text_2:
-# 95 "data/maps/Route_2/scripts.pory"
+# 69 "data/maps/Route_2/scripts.pory"
 	.string "After my surgery I can't hike like I\nused to, but at least I can relive some\lof the joy of it up here.$"

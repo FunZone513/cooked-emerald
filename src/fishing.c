@@ -13,6 +13,7 @@
 #include "text.h"
 #include "tv.h"
 #include "wild_encounter.h"
+#include "event_data.h"
 #include "config/fishing.h"
 
 static void Task_Fishing(u8);
@@ -173,9 +174,18 @@ static bool32 Fishing_GetRodOut(struct Task *task)
         [GOOD_ROD]  = 3,
         [SUPER_ROD] = 6
     };
+    const s16 minRoundsFlag[] = {
+        [OLD_ROD]   = 5,
+        [GOOD_ROD]  = 5,
+        [SUPER_ROD] = 5
+    };
+
+    s16 minRounds = minRounds1[task->tFishingRod] + (Random() % minRounds2[task->tFishingRod]);
+    if (FlagGet(FLAG_TEST_FISHING))
+        minRounds += minRoundsFlag[task->tFishingRod];
 
     task->tRoundsPlayed = 0;
-    task->tMinRoundsRequired = minRounds1[task->tFishingRod] + (Random() % minRounds2[task->tFishingRod]);
+    task->tMinRoundsRequired = minRounds;
     task->tPlayerGfxId = gObjectEvents[gPlayerAvatar.objectEventId].graphicsId;
     playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
     ObjectEventClearHeldMovementIfActive(playerObjEvent);
@@ -400,8 +410,12 @@ static bool32 Fishing_StartEncounter(struct Task *task)
     {
         gPlayerAvatar.preventStep = FALSE;
         UnlockPlayerFieldControls();
-        FishingWildEncounter(task->tFishingRod);
-        RecordFishingAttemptForTV(TRUE);
+        if (FlagGet(FLAG_TEST_FISHING) && !FlagGet(FLAG_TEST_FISHING_CAUGHT)) {
+            FlagSet(FLAG_TEST_FISHING_CAUGHT);
+        } else {
+            FishingWildEncounter(task->tFishingRod);
+            RecordFishingAttemptForTV(TRUE);
+        }
         DestroyTask(FindTaskIdByFunc(Task_Fishing));
     }
     return FALSE;

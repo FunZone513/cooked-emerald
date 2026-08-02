@@ -9340,7 +9340,7 @@
       "width": 12,
       "height": 12,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fallarbor",
+      "secondary_tileset": "gTileset_MysteryEventsHouse",
       "border_filepath": "data/layouts/blankmap/border.bin",
       "blockdata_filepath": "data/layouts/blankmap/map.bin"
     },
