@@ -1124,14 +1124,14 @@ enum NationalDexOrder
     F(TENTACRUEL) \
     F(BUNEARY) \
     F(LOPUNNY) \
+    F(SHROOMISH) \
+    F(BRELOOM) \
     F(ZUBAT) \
     F(GOLBAT) \
     F(CROBAT) \
     F(MACHOP) \
     F(MACHOKE) \
     F(MACHAMP) \
-    F(SHROOMISH) \
-    F(BRELOOM) \
     F(VENIPEDE) \
     F(WHIRLIPEDE) \
     F(SCOLIPEDE) \

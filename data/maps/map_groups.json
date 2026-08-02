@@ -113,7 +113,10 @@
     "DawnshoreCity_CuttersHouse",
     "DawnshoreCity_Gym"
   ],
-  "gMapGroup_IndoorRoutes": [],
+  "gMapGroup_IndoorRoutes": [
+    "Route3_DiggersHut",
+    "Route3_DiggersHut_Back"
+  ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
     "SlateportCity",

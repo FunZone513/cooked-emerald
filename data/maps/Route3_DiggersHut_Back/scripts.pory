@@ -1,0 +1,7 @@
+mapscripts Route3_DiggersHut_Back_MapScripts {
+    MAP_SCRIPT_ON_LOAD: Route3_DiggersHut_Back_OnLoad
+}
+
+script Route3_DiggersHut_Back_OnLoad {  
+    callnative(SetRoute3DiggersTunnelEncounters)
+}

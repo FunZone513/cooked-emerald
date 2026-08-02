@@ -1775,3 +1775,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/RestArea1_Indoor/scripts.inc"
 
 	.include "data/maps/Route_3/scripts.inc"
+
+	.include "data/maps/Route3_DiggersHut/scripts.inc"
+
+	.include "data/maps/Route3_DiggersHut_Back/scripts.inc"

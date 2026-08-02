@@ -9503,6 +9503,26 @@
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/Route_3/border.bin",
       "blockdata_filepath": "data/layouts/Route_3/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE3_DIGGERS_HUT",
+      "name": "Route3_DiggersHut_Layout",
+      "width": 16,
+      "height": 10,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Route3_DiggersHut/border.bin",
+      "blockdata_filepath": "data/layouts/Route3_DiggersHut/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE3_DIGGERS_HUT_BACK",
+      "name": "Route3_DiggersHut_Back_Layout",
+      "width": 13,
+      "height": 36,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/Route3_DiggersHut_Back/border.bin",
+      "blockdata_filepath": "data/layouts/Route3_DiggersHut_Back/map.bin"
     }
   ]
 }

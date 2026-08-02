@@ -37936,18 +37936,18 @@
                 "species": "SPECIES_PARAS"
               },
               {
-                "min_level": 4,
-                "max_level": 7,
+                "min_level": 5,
+                "max_level": 8,
                 "species": "SPECIES_LILLIPUP"
               },
               {
-                "min_level": 4,
-                "max_level": 7,
+                "min_level": 5,
+                "max_level": 8,
                 "species": "SPECIES_TAILLOW"
               },
               {
-                "min_level": 4,
-                "max_level": 7,
+                "min_level": 5,
+                "max_level": 8,
                 "species": "SPECIES_PARAS"
               },
               {
@@ -37961,8 +37961,8 @@
                 "species": "SPECIES_BUNEARY"
               },
               {
-                "min_level": 4,
-                "max_level": 7,
+                "min_level": 5,
+                "max_level": 8,
                 "species": "SPECIES_BUNEARY"
               },
               {
@@ -37976,8 +37976,8 @@
                 "species": "SPECIES_SHROOMISH"
               },
               {
-                "min_level": 4,
-                "max_level": 7,
+                "min_level": 5,
+                "max_level": 8,
                 "species": "SPECIES_SHROOMISH"
               }
             ]
@@ -38158,6 +38158,100 @@
                 "min_level": 5,
                 "max_level": 5,
                 "species": "SPECIES_SKRELP"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_ROUTE3_DIGGERS_HUT_BACK",
+          "base_label": "gRoute3_DiggersHut_Back",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 5,
+                "max_level": 9,
+                "species": "SPECIES_ZUBAT"
+              },
+              {
+                "min_level": 5,
+                "max_level": 9,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 6,
+                "max_level": 10,
+                "species": "SPECIES_ZUBAT"
+              },
+              {
+                "min_level": 5,
+                "max_level": 9,
+                "species": "SPECIES_MACHOP"
+              },
+              {
+                "min_level": 5,
+                "max_level": 10,
+                "species": "SPECIES_ZUBAT"
+              },
+              {
+                "min_level": 6,
+                "max_level": 10,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 5,
+                "max_level": 9,
+                "species": "SPECIES_ZUBAT"
+              },
+              {
+                "min_level": 6,
+                "max_level": 10,
+                "species": "SPECIES_MACHOP"
+              },
+              {
+                "min_level": 5,
+                "max_level": 10,
+                "species": "SPECIES_SANDYGAST"
+              },
+              {
+                "min_level": 5,
+                "max_level": 10,
+                "species": "SPECIES_SANDYGAST"
+              },
+              {
+                "min_level": 5,
+                "max_level": 10,
+                "species": "SPECIES_SANDYGAST"
+              },
+              {
+                "min_level": 5,
+                "max_level": 10,
+                "species": "SPECIES_SANDYGAST"
+              }
+            ]
+          },
+          "special_mons": {
+            "encounter_rate": 100,
+            "mons": [
+              {
+                "min_level": 6,
+                "max_level": 10,
+                "species": "SPECIES_SANDYGAST"
+              },
+              {
+                "min_level": 6,
+                "max_level": 10,
+                "species": "SPECIES_SANDYGAST"
+              },
+              {
+                "min_level": 6,
+                "max_level": 10,
+                "species": "SPECIES_SANDYGAST"
+              },
+              {
+                "min_level": 6,
+                "max_level": 10,
+                "species": "SPECIES_SANDYGAST"
               }
             ]
           }

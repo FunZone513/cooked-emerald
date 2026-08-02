@@ -1076,9 +1076,9 @@
 #define FLAG_ITEM_DAWNSHORE_CITY_3                                  0x3F7
 #define FLAG_ITEM_REST_AREA1                                        0x3F8
 #define FLAG_ITEM_DAWNSHORE_CITY_4                                  0x3F9
-#define FLAG_ITEM_ROUTE3                      0x3FA
-#define FLAG_ITEM_ROUTE3_1                      0x3FB
-#define FLAG_ITEM_0x3FC                      0x3FC
+#define FLAG_ITEM_ROUTE3                                            0x3FA
+#define FLAG_ITEM_ROUTE3_1                                          0x3FB
+#define FLAG_ITEM_DIGGERS_TUNNEL                                    0x3FC
 #define FLAG_ITEM_0x3FD                      0x3FD
 #define FLAG_ITEM_0x3FE                      0x3FE
 #define FLAG_ITEM_0x3FF                      0x3FF

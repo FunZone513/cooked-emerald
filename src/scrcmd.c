@@ -67,6 +67,7 @@
 #include "constants/event_objects.h"
 #include "constants/map_types.h"
 #include "constants/party_menu.h"
+#include "constants/metatile_labels.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
@@ -3710,4 +3711,72 @@ bool8 CanUseFieldMove(struct ScriptContext *ctx) {
     }
 
     return FALSE;
+}
+
+// picks random positions for the encoutner tiles in the diggers tunnel
+void SetRoute3DiggersTunnelEncounters(void) {
+    u8 topPositions[6];
+    u8 midPositions[4];
+    u8 botPositions[11];
+    u8 spots[] = {2, 1, 3}; // how many encounter tiles per section
+    u8 total, i, j, picked;
+
+    // total element count = bytes in array / byte of element 
+    total = sizeof(topPositions) / sizeof(topPositions[0]);
+    for (i = 0; i < spots[0]; i++) {
+
+        // pick a random index (metatile position)
+        picked = Random() % total;
+        switch (picked) {
+            case 0: MapGridSetMetatileIdAt(3 + MAP_OFFSET, 2 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 1: MapGridSetMetatileIdAt(6 + MAP_OFFSET, 2 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 2: MapGridSetMetatileIdAt(3 + MAP_OFFSET, 3 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 3: MapGridSetMetatileIdAt(7 + MAP_OFFSET, 3 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 4: MapGridSetMetatileIdAt(7 + MAP_OFFSET, 4 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 5: MapGridSetMetatileIdAt(6 + MAP_OFFSET, 8 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+        }
+
+        // shift remaining values over
+        for (j = picked; j < total - 1; j++)
+            topPositions[j] = topPositions[j + 1];
+
+        total--; 
+    }
+
+    // middle only needs 1, no loop
+    total = sizeof(midPositions) / sizeof(midPositions[0]);
+    picked = Random() % total;
+    switch (picked) {
+        case 0: MapGridSetMetatileIdAt(6 + MAP_OFFSET, 13 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+        case 1: MapGridSetMetatileIdAt(7 + MAP_OFFSET, 13 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+        case 2: MapGridSetMetatileIdAt(7 + MAP_OFFSET, 18 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+        case 3: MapGridSetMetatileIdAt(10 + MAP_OFFSET, 17 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+    }
+
+    // bottom
+    total = sizeof(botPositions) / sizeof(botPositions[0]);
+    for (i = 0; i < spots[2]; i++) {
+
+        // pick a random index (metatile position)
+        picked = Random() % total;
+        switch (picked) {
+            case 0: MapGridSetMetatileIdAt(6 + MAP_OFFSET, 24 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 1: MapGridSetMetatileIdAt(7 + MAP_OFFSET, 24 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 2: MapGridSetMetatileIdAt(3 + MAP_OFFSET, 25 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 3: MapGridSetMetatileIdAt(2 + MAP_OFFSET, 26 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 4: MapGridSetMetatileIdAt(3 + MAP_OFFSET, 26 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 5: MapGridSetMetatileIdAt(6 + MAP_OFFSET, 28 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 6: MapGridSetMetatileIdAt(4 + MAP_OFFSET, 31 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 7: MapGridSetMetatileIdAt(4 + MAP_OFFSET, 32 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 8: MapGridSetMetatileIdAt(7 + MAP_OFFSET, 32 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 9: MapGridSetMetatileIdAt(8 + MAP_OFFSET, 33 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 10: MapGridSetMetatileIdAt(9 + MAP_OFFSET, 33 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+        }
+
+        // shift remaining values over
+        for (j = picked; j < total - 1; j++)
+            botPositions[j] = botPositions[j + 1];
+
+        total--; 
+    }
 }
