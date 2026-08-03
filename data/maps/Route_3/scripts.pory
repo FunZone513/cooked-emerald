@@ -1,23 +1,7 @@
 mapscripts Route_3_MapScripts {
-    MAP_SCRIPT_ON_LOAD: Route_3_OnLoad
-    MAP_SCRIPT_ON_RESUME: Route_3_OnResume
-}
-
-script Route_3_OnLoad {
-    //
-}
-
-script Route_3_OnResume {
-    
-    // check if finished fishing encounter
-    getobjectxy(OBJ_EVENT_ID_PLAYER, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
-    if (var(VAR_TEMP_1) == 8 && var(VAR_TEMP_2) == 8) {
-        if (flag(FLAG_TEST_FISHING)) {
-            if (flag(FLAG_TEST_FISHING_CAUGHT)) {
-                goto(Route_3_Fisherman_Success)
-            } else { setvar(VAR_TEMP_A, 1) }
-        }
-    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TEMP_A, 69: Route_3_Fisherman_Catch
+    ]
 }
 
 script Route_3_DisableFishingFlag {
@@ -122,14 +106,44 @@ script Route_3_Fisherman_Explain {
     releaseall
 }
 
+script Route_3_Fisherman_Catch {
+    lock
+    setflag(FLAG_TEST_FISHING_CAUGHT)
+    setvar(VAR_TEMP_A, 1)
+    setwildbattle(SPECIES_TENTACOOL, 10)
+    applymovement(LOCALID_FISHERMAN, moves(face_right))
+    waitmovement(0)
+    message("You've got it! Go for it!")
+    waitmessage
+    waitbuttonpress
+    closemessage
+    dowildbattle
+    specialvar(VAR_RESULT, GetBattleOutcome)
+    if (var(VAR_RESULT) == B_OUTCOME_WON || var(VAR_RESULT) == B_OUTCOME_CAUGHT || var(VAR_RESULT) == B_OUTCOME_DREW ) {
+        goto(Route_3_Fisherman_Success)
+    } else {
+        clearflag(FLAG_TEST_FISHING)
+        clearflag(FLAG_TEST_FISHING_CAUGHT)
+        removeitem(ITEM_OLD_ROD)
+    }
+    releaseall
+}
+
 script Route_3_Fisherman_Success {
     lock
     applymovement(LOCALID_FISHERMAN, moves(face_right))
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(face_left))
     waitmovement(0)
     msgbox("Well done!\nI knew you had it in you!\pYou can go ahead and keep that Rod,\nI hope you catch many more with it!", MSGBOX_AUTOCLOSE)
     clearflag(FLAG_TEST_FISHING)
     setflag(FLAG_RECEIVED_OLD_ROD)
+    applymovement(LOCALID_FISHERMAN, moves(face_down))
+    waitmovement(0)
     releaseall
+}
+
+script Route_3_Sign {
+    msgbox("Digger's Hut,\nFortune one grain at a time.", MSGBOX_SIGN)
 }
 
 script Route_3_Picnicker {

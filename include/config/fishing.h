@@ -10,4 +10,10 @@
 #define I_FISHING_PROXIMITY         FALSE      // In XY, bite chance is boosted by the number of adjacent non-surfable tiles next to your fishing line
 #define I_FISHING_TIME_OF_DAY_BOOST FALSE      // In XY, bite chance is boosted during morning and evening
 
+// 1 - x given range of attempts to fish up a mon
+// ie; how many times "Oh! There's a bite!" will occur
+#define FISHING_MAX_ATTEMPTS_OLD        2
+#define FISHING_MAX_ATTEMPTS_GOOD       4
+#define FISHING_MAX_ATTEMPTS_SUPER      8
+
 #endif // GUARD_CONFIG_FISHING_H

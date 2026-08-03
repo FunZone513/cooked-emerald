@@ -37550,18 +37550,18 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 3,
-                "max_level": 5,
+                "min_level": 4,
+                "max_level": 9,
                 "species": "SPECIES_CORPHISH"
               },
               {
-                "min_level": 3,
-                "max_level": 5,
+                "min_level": 4,
+                "max_level": 9,
                 "species": "SPECIES_GOLDEEN"
               },
               {
-                "min_level": 3,
-                "max_level": 5,
+                "min_level": 4,
+                "max_level": 9,
                 "species": "SPECIES_GOLDEEN"
               },
               {
@@ -37778,18 +37778,18 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 3,
-                "max_level": 5,
+                "min_level": 4,
+                "max_level": 9,
                 "species": "SPECIES_KRABBY"
               },
               {
-                "min_level": 3,
-                "max_level": 5,
+                "min_level": 4,
+                "max_level": 9,
                 "species": "SPECIES_TENTACOOL"
               },
               {
-                "min_level": 3,
-                "max_level": 6,
+                "min_level": 4,
+                "max_level": 9,
                 "species": "SPECIES_KRABBY"
               },
               {
@@ -37986,18 +37986,18 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 3,
-                "max_level": 5,
+                "min_level": 4,
+                "max_level": 9,
                 "species": "SPECIES_TENTACOOL"
               },
               {
-                "min_level": 3,
-                "max_level": 5,
+                "min_level": 4,
+                "max_level": 9,
                 "species": "SPECIES_KRABBY"
               },
               {
-                "min_level": 3,
-                "max_level": 5,
+                "min_level": 4,
+                "max_level": 9,
                 "species": "SPECIES_SKRELP"
               },
               {

@@ -49,17 +49,17 @@ static u32 CalculateFishingTimeOfDayBoost(void);
 #define FISHING_GEN3_STICKY_CHANCE 85  //Active if config I_FISHING_STICKY_BOOST is set to GEN_3 or lower
 
 #if I_FISHING_BITE_ODDS >= GEN_4
-    #define FISHING_OLD_ROD_ODDS 25
-    #define FISHING_GOOD_ROD_ODDS 50
-    #define FISHING_SUPER_ROD_ODDS 75
+    #define FISHING_OLD_ROD_ODDS 100
+    #define FISHING_GOOD_ROD_ODDS 100
+    #define FISHING_SUPER_ROD_ODDS 100
 #elif I_FISHING_BITE_ODDS >= GEN_3
-    #define FISHING_OLD_ROD_ODDS 50
-    #define FISHING_GOOD_ROD_ODDS 50
-    #define FISHING_SUPER_ROD_ODDS 50
+    #define FISHING_OLD_ROD_ODDS 100
+    #define FISHING_GOOD_ROD_ODDS 100
+    #define FISHING_SUPER_ROD_ODDS 100
 #else
     #define FISHING_OLD_ROD_ODDS 100
-    #define FISHING_GOOD_ROD_ODDS 33
-    #define FISHING_SUPER_ROD_ODDS 50
+    #define FISHING_GOOD_ROD_ODDS 100
+    #define FISHING_SUPER_ROD_ODDS 100
 #endif
 
 static const u8 sText_OhABite[] = _("Oh! A bite!");
@@ -170,9 +170,9 @@ static bool32 Fishing_GetRodOut(struct Task *task)
         [SUPER_ROD] = 1
     };
     const s16 minRounds2[] = {
-        [OLD_ROD]   = 1,
-        [GOOD_ROD]  = 3,
-        [SUPER_ROD] = 6
+        [OLD_ROD]   = FISHING_MAX_ATTEMPTS_OLD,
+        [GOOD_ROD]  = FISHING_MAX_ATTEMPTS_GOOD,
+        [SUPER_ROD] = FISHING_MAX_ATTEMPTS_SUPER
     };
     const s16 minRoundsFlag[] = {
         [OLD_ROD]   = 5,
@@ -410,8 +410,8 @@ static bool32 Fishing_StartEncounter(struct Task *task)
     {
         gPlayerAvatar.preventStep = FALSE;
         UnlockPlayerFieldControls();
-        if (FlagGet(FLAG_TEST_FISHING) && !FlagGet(FLAG_TEST_FISHING_CAUGHT)) {
-            FlagSet(FLAG_TEST_FISHING_CAUGHT);
+        if (FlagGet(FLAG_TEST_FISHING)) {
+            VarSet(VAR_TEMP_A, 69); // set it to something it won't be accidently set to
         } else {
             FishingWildEncounter(task->tFishingRod);
             RecordFishingAttemptForTV(TRUE);
