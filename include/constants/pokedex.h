@@ -1126,9 +1126,6 @@ enum NationalDexOrder
     F(LOPUNNY) \
     F(SHROOMISH) \
     F(BRELOOM) \
-    F(ZUBAT) \
-    F(GOLBAT) \
-    F(CROBAT) \
     F(MACHOP) \
     F(MACHOKE) \
     F(MACHAMP) \
@@ -1137,6 +1134,9 @@ enum NationalDexOrder
     F(SCOLIPEDE) \
     F(JOLTIK) \
     F(GALVANTULA) \
+    F(ZUBAT) \
+    F(GOLBAT) \
+    F(CROBAT) \
     F(ARON) \
     F(LAIRON) \
     F(AGGRON) \

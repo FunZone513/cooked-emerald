@@ -33,9 +33,12 @@
 #define TRAINER_ROUTE3_BLACKBELT                26
 #define TRAINER_ROUTE3_NINJA_BOY                27
 #define TRAINER_ROUTE3_BUG_CATCHER              28
+#define TRAINER_DIGGERS_HUT_HIKER               29
+#define TRAINER_DIGGERS_HUT_MANIAC              30
+#define TRAINER_DIGGERS_HUT_BLACKBELT           31
 
 //== update this every time
-#define TRAINERS_COUNT_EMERALD     29
+#define TRAINERS_COUNT_EMERALD     32
 
 // don't go over this I guess (theres no fucking way I add 800+ trainers)
 #define MAX_TRAINERS_COUNT_EMERALD 864

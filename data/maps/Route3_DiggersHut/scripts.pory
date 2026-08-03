@@ -1,1 +1,51 @@
-mapscripts Route3_DiggersHut_MapScripts {}
+mapscripts Route3_DiggersHut_MapScripts {
+    MAP_SCRIPT_ON_LOAD: Route3_DiggersHut_OnLoad
+}
+
+script Route3_DiggersHut_OnLoad {
+    if (!flag(FLAG_OPEN_DIGGERS_HUT)) {
+        setobjectxy(LOCALID_BLOCKER, 7, 2)
+        setobjectmovementtype(LOCALID_BLOCKER, MOVEMENT_TYPE_FACE_UP)
+    }
+}
+
+script Route3_DiggersHut_Blocker {
+    if (!flag(FLAG_OPEN_DIGGERS_HUT)) {
+        lockall
+        applymovement(LOCALID_BLOCKER, moves(face_down delay_4 emote_question_mark))
+        waitmovement(0)
+        msgbox(
+            "Hm? Another one?\p"
+            "Some other guy came through here just\nbefore, wasn't overly polite about it.\p"
+            "So what's your deal then?\p"
+            "...\pOh I see, well you're welcome to go\nout the back as well.\p"
+            "Careful though, the Owner is a bit...\nEccentric.\p"
+            "The other guy seemed pretty eccentric\nin his own way too...\p"
+            "Actually, I don't think he's left yet.\p"
+            "No matter, go on in and check it out for\nyourself.\p"
+            "As odd as the Owner may be, you might\njust end up learning useful."
+        , MSGBOX_DEFAULT)
+        closemessage
+        getobjectxy(OBJ_EVENT_ID_PLAYER, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
+        if (var(VAR_TEMP_1) == 6 && var(VAR_TEMP_2) == 2) {
+            applymovement(OBJ_EVENT_ID_PLAYER, moves(lock_facing_direction walk_down unlock_facing_direction))
+        }
+        applymovement(LOCALID_BLOCKER, moves(delay_8 walk_left face_down))
+        waitmovement(0)
+        releaseall
+    } else {
+        msgbox("Go see him for yourself.", MSGBOX_NPC)
+    }
+}
+
+script Route3_DiggersHut_Woman {
+    msgbox(format("I tend to let my Herdier do the digging for me, the sand roughs up my skin."), MSGBOX_NPC)
+}
+
+script Route3_DiggersHut_Man {
+    msgbox(format("My brother is obssessed with digging. I don't know where he got it from."), MSGBOX_NPC)
+}
+
+script Route3_DiggersHut_OldMan {
+    msgbox(format("Digging this... Digging that... Why not dig up a spouse and finally move out..."), MSGBOX_AUTOCLOSE)
+}

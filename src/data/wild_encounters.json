@@ -37522,7 +37522,7 @@
               {
                 "min_level": 5,
                 "max_level": 20,
-                "species": "SPECIES_MARILL"
+                "species": "SPECIES_GOLDEEN"
               },
               {
                 "min_level": 5,
@@ -37537,12 +37537,12 @@
               {
                 "min_level": 5,
                 "max_level": 20,
-                "species": "SPECIES_CLAUNCHER"
+                "species": "SPECIES_GOLDEEN"
               },
               {
                 "min_level": 5,
                 "max_level": 20,
-                "species": "SPECIES_CLAUNCHER"
+                "species": "SPECIES_MARILL"
               }
             ]
           },
@@ -38146,7 +38146,7 @@
               {
                 "min_level": 5,
                 "max_level": 9,
-                "species": "SPECIES_ZUBAT"
+                "species": "SPECIES_KRABBY"
               },
               {
                 "min_level": 5,
@@ -38156,7 +38156,7 @@
               {
                 "min_level": 6,
                 "max_level": 10,
-                "species": "SPECIES_ZUBAT"
+                "species": "SPECIES_KRABBY"
               },
               {
                 "min_level": 5,
@@ -38166,7 +38166,7 @@
               {
                 "min_level": 5,
                 "max_level": 10,
-                "species": "SPECIES_ZUBAT"
+                "species": "SPECIES_KRABBY"
               },
               {
                 "min_level": 6,
@@ -38176,7 +38176,7 @@
               {
                 "min_level": 5,
                 "max_level": 9,
-                "species": "SPECIES_ZUBAT"
+                "species": "SPECIES_KRABBY"
               },
               {
                 "min_level": 6,

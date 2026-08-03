@@ -84,6 +84,7 @@ script Generic_GYM_LEVEL_GUIDE {
 
 //MARK: Generic PKMN
 script Generic_POKEMON_INTERACT {
+    lock
     // faceplayer macro is broken for asym mons
     getobjectfacingdirection(OBJ_EVENT_ID_PLAYER, VAR_TEMP_A)
     switch(var(VAR_TEMP_A)) {
@@ -116,6 +117,8 @@ script Generic_POKEMON_INTERACT {
 //     (and item piles)
 
 script EventScript_SpecialWildEncounter {
+    call(Generic_CheckCanDigPile)
+
     special(SetupSpecialWildEncounter)
 
     if (var(VAR_RESULT) != SPECIES_NONE) {
@@ -147,23 +150,32 @@ script EventScript_SpecialWildEncounter {
 
 // Finding a hidden item
 script Common_EventScript_FindItemSand {
+    call(Generic_CheckCanDigPile)
     getobjectxy(VAR_LAST_TALKED, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
     setmetatile(VAR_TEMP_1, VAR_TEMP_2, METATILE_General_SandPit_Center, FALSE)
     special(DrawWholeMapView)
-    applymovement(VAR_LAST_TALKED, moves(set_visible delay_16))
+    applymovement(VAR_LAST_TALKED, moves(set_visible jump_in_place_down delay_8))
     waitmovement(0)
     callnative(GetItemBallIdAndAmountFromTemplate)
 	finditem(VAR_RESULT, VAR_0x8009)
 }
 
 script Common_EventScript_FindItemAsh {
+    call(Generic_CheckCanDigPile)
     getobjectxy(VAR_LAST_TALKED, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
     setmetatile(VAR_TEMP_1, VAR_TEMP_2, METATILE_Fallarbor_AshField, FALSE)
     special(DrawWholeMapView)
-    applymovement(VAR_LAST_TALKED, moves(set_visible delay_16))
+    applymovement(VAR_LAST_TALKED, moves(set_visible jump_in_place_down delay_8))
     waitmovement(0)
     callnative(GetItemBallIdAndAmountFromTemplate)
 	finditem(VAR_RESULT, VAR_0x8009)
+}
+
+script Generic_CheckCanDigPile {
+    if (!flag(FLAG_CAN_DIG_PILE)) {
+        msgbox("It looks like there might be something\nburied here...", MSGBOX_AUTOCLOSE)
+        end
+    }
 }
 
 

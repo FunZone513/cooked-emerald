@@ -38,7 +38,7 @@ script HorizonPort_House2_Blackbelt {
 }
 
 script HorizonPort_House2_Scientist {
-    msgbox(format("I got in trouble once for trying to extract one of the Carnink's gems..."), MSGBOX_NPC)
+    msgbox(format("I got in trouble once for trying to extract one of the Carbink's gems..."), MSGBOX_NPC)
 }
 
 script HorizonPort_House2_FanDuoM {

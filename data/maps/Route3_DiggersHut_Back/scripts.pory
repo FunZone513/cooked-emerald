@@ -2,6 +2,43 @@ mapscripts Route3_DiggersHut_Back_MapScripts {
     MAP_SCRIPT_ON_LOAD: Route3_DiggersHut_Back_OnLoad
 }
 
-script Route3_DiggersHut_Back_OnLoad {  
+script Route3_DiggersHut_Back_OnLoad {
+    // instead of doing the normal inverse stuff it was easier to make a C func due to the amount
     callnative(SetRoute3DiggersTunnelEncounters)
+
+    if (!flag(FLAG_BEAT_DIGGERS_HUT_RICHARD)) {
+        setvar(VAR_TEMP_A, 1)
+    }
+}
+
+script Route3_DiggersHut_Back_RichardFight {
+    setvar(VAR_TEMP_A, 0)
+    setflag(FLAG_BEAT_DIGGERS_HUT_RICHARD)
+}
+
+script Route3_DiggersHut_Back_Hiker {
+    trainerbattle_single(
+        TRAINER_DIGGERS_HUT_HIKER, 
+        "I've got sand in my boots!",
+        "No! The sand is in my socks now!"
+    )
+    msgbox(format("I thought big boots would be a good idea, but not if they fill up with sand..."), MSGBOX_NPC)
+}
+
+script Route3_DiggersHut_Back_Maniac {
+    trainerbattle_single(
+        TRAINER_DIGGERS_HUT_MANIAC, 
+        "You ever wondered what sand tastes\nlike?",
+        "Blegh, sand everywhere."
+    )
+    msgbox("I'm not one to get my hands dirty,\nso I normally hire people to dig for me.", MSGBOX_NPC)
+}
+
+script Route3_DiggersHut_Back_BlackBelt {
+    trainerbattle_single(
+        TRAINER_DIGGERS_HUT_BLACKBELT, 
+        "AH! DON'T SCARE ME LIKE THAT!",
+        "JUMPSTARTS AREN'T GOOD FOR MY HEART!"
+    )
+    msgbox(format("I'm using my bare hands to dig through these rocks, but I think rock might be super-effective on bone."), MSGBOX_NPC)
 }

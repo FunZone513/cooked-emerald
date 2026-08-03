@@ -419,7 +419,6 @@ Class: Black Belt
 Pic: Black Belt
 Gender: Male
 Music: Intense
-Double Battle: No
 AI: Basic Trainer
 
 Machop
@@ -460,11 +459,57 @@ Level: 8
 Venipede
 Level: 8
 
+=== TRAINER_DIGGERS_HUT_HIKER ===
+Name: DUSTIN
+Class: Hiker
+Pic: Hiker FRLG
+Gender: Male
+Music: Hiker
+AI: Basic Trainer
 
+Lillipup
+Level: 10
 
+Aron
+Level: 11
 
+=== TRAINER_DIGGERS_HUT_MANIAC ===
+Name: JOSEPH
+Class: Collector
+Pic: Collector
+Gender: Male
+Music: Suspicious
+Double Battle: Yes
+AI: Basic Trainer
 
+Marill
+Level: 8
 
+Shroomish
+Level: 8
+
+Buneary
+Level: 8
+
+Hoothoot
+Level: 8
+
+Paras
+Level: 8
+
+Yanma
+Level: 8
+
+=== TRAINER_DIGGERS_HUT_BLACKBELT ===
+Name: BARRY
+Class: Black Belt
+Pic: Black Belt
+Gender: Male
+Music: Intense
+AI: Basic Trainer
+
+Machop
+Level: 12
 
 
 

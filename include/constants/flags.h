@@ -685,8 +685,8 @@
 #define FLAG_CAN_USE_ROCK_CLIMB         0x274
 #define FLAG_CAN_USE_WATERFALL          0x275 
 #define FLAG_CAN_USE_DIVE               0x276
+#define FLAG_CAN_DIG_PILE               0x277
 
-#define FLAG_UNUSED_0x277  0x277 // Unused Flag
 #define FLAG_UNUSED_0x278  0x278 // Unused Flag
 #define FLAG_UNUSED_0x279  0x279 // Unused Flag
 #define FLAG_UNUSED_0x27A  0x27A // Unused Flag
@@ -1524,8 +1524,8 @@
 #define FLAG_TEST_FISHING                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
 #define FLAG_TEST_FISHING_CAUGHT                    (SYSTEM_FLAGS + 0x8B) // Unused Flag
 #define FLAG_TEST_FISHING_TALKED                    (SYSTEM_FLAGS + 0x8C) // Unused Flag
-#define FLAG_UNUSED_0x8ED                           (SYSTEM_FLAGS + 0x8D) // Unused Flag
-#define FLAG_UNUSED_0x8EE                           (SYSTEM_FLAGS + 0x8E) // Unused Flag
+#define FLAG_OPEN_DIGGERS_HUT                       (SYSTEM_FLAGS + 0x8D) // Unused Flag
+#define FLAG_BEAT_DIGGERS_HUT_RICHARD               (SYSTEM_FLAGS + 0x8E) // Unused Flag
 #define FLAG_UNUSED_0x8EF                           (SYSTEM_FLAGS + 0x8F) // Unused Flag
 #define FLAG_UNUSED_0x8F0                           (SYSTEM_FLAGS + 0x90) // Unused Flag
 #define FLAG_UNUSED_0x8F1                           (SYSTEM_FLAGS + 0x91) // Unused Flag

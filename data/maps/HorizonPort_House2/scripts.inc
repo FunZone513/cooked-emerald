@@ -153,7 +153,7 @@ HorizonPort_House2_Blackbelt_Text_0:
 HorizonPort_House2_Scientist_Text_0:
 # 41 "data/maps/HorizonPort_House2/scripts.pory"
 	.string "I got in trouble once for trying to\n"
-	.string "extract one of the Carnink's gems...$"
+	.string "extract one of the Carbink's gems...$"
 
 HorizonPort_House2_FanDuoM_Text_0:
 # 46 "data/maps/HorizonPort_House2/scripts.pory"

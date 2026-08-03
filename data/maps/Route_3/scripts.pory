@@ -159,7 +159,7 @@ script Route_3_BlackBelt {
     trainerbattle_single(
         TRAINER_ROUTE3_BLACKBELT, 
         "I'M PUNCHING THIS TREE!",
-        "MY KNUCKLES FAILED ME!"
+        "NO! MY WOOD!"
     )
     msgbox("I train alongside my Pokemon so it\ndoesn't feel forced into it.", MSGBOX_NPC)
 }

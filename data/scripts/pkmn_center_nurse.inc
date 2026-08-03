@@ -18,6 +18,7 @@ EventScript_PkmnCenterNurse_HealPkmn::
 	waitmessage
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
 	call EventScript_PkmnCenterNurse_ReturnPkmn
+	releaseall
 	end
 
 EventScript_PkmnCenterNurse_IllTakeYourPkmn::
@@ -45,6 +46,7 @@ EventScript_PkmnCenterNurse_ReturnPkmn::
 	message gText_WeHopeToSeeYouAgain
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
 	waitmovement 0
+	waitbuttonpress
 	return
 
 Movement_PkmnCenterNurse_Bow:

@@ -391,7 +391,7 @@ Route_3_BlackBelt_Text_0:
 
 Route_3_BlackBelt_Text_1:
 # 162 "data/maps/Route_3/scripts.pory"
-	.string "MY KNUCKLES FAILED ME!$"
+	.string "NO! MY WOOD!$"
 
 Route_3_BlackBelt_Text_2:
 # 164 "data/maps/Route_3/scripts.pory"
