@@ -11,7 +11,6 @@
 #include "field_player_avatar.h"
 #include "link.h"
 #include "metatile_behavior.h"
-#include "constants/metatile_labels.h"
 #include "overworld.h"
 #include "ow_abilities.h"
 #include "pokeblock.h"
@@ -32,6 +31,8 @@
 #include "constants/layouts.h"
 #include "constants/weather.h"
 #include "constants/event_objects.h"
+#include "constants/metatile_labels.h"
+#include "constants/metatile_behaviors.h"
 #include "event_object_movement.h"
 
 extern const u8 EventScript_SprayWoreOff[];
@@ -880,20 +881,21 @@ void SetupSpecialWildEncounter(void) {
 
     // loop through the neighbours, find which behaviour is the most common
     // not elegant, but functional at this super low scale
-    u8 i, j, highest, count;
-    u8 metatileBehavior;
-    for (i = 0; i < 4, i++) {
-        count = 1;
+    u8 i, j;
+    u8 highest = 0;
+    u8 metatileBehavior = MB_NORMAL;
+    for (i = 0; i < 4; i++) {
+        u8 count = 1;
 
         // compare the current behaviour to every other in the list to count multiples
-        for (j = i+1; j < 4, j++) {
+        for (j = i+1; j < 4; j++) {
             if (nMB[i] == nMB[j])
                 count++;
         }
 
         // replace the highest frequency behaviour
-        if (count > best) {
-            best = count;
+        if (count > highest) {
+            highest = count;
             metatileBehavior = nMB[i];
         }
     }
@@ -909,12 +911,12 @@ void SetupSpecialWildEncounter(void) {
         case MB_SAND:
         case MB_OCEAN_WATER:
         case MB_SHALLOW_WATER:
-            MapGridSetMetatileIdAt(x, y, METATILE_General_Sandpit_Center);
+            MapGridSetMetatileIdAt(x, y, METATILE_General_SandPit_Center);
             break;
         
         // sand piles in cave
         case MB_CAVE:
-            MapGridSetMetatileIdAt(x, y, METATILE_Cave_Sandpit_Center);
+            MapGridSetMetatileIdAt(x, y, METATILE_Cave_SandPit_Center);
             break;
         
         // I have no idea
