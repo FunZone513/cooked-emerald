@@ -90,7 +90,7 @@ Class: Rival Richard
 Pic: Rival Richard
 Gender: Male
 Music: Male
-AI: Basic Trainer
+AI: Rival
 
 Deino
 Level: 5
@@ -511,6 +511,22 @@ AI: Basic Trainer
 Machop
 Level: 12
 
+=== TRAINER_DIGGERS_HUT_RICHARD ===
+Name: RICHARD
+Class: Rival Richard
+Pic: Rival Richard
+Gender: Male
+Music: Male
+AI: Rival
+
+Corphish
+Level: 13
+
+Shroomish
+Level: 13
+
+Deino
+Level: 15
 
 
 

@@ -72,15 +72,14 @@ script BeginningBoat_PostStarter {
     )
     waitmessage
     waitbuttonpress
-    fadenewbgm(MUS_RG_ENCOUNTER_RIVAL)
-    delay(16)
-    applymovement(LOCALID_RICHARD, moves(set_visible walk_down walk_left*8))
+    playbgm(MUS_RG_ENCOUNTER_RIVAL, 0)
+    applymovement(LOCALID_RICHARD_BOAT, moves(set_visible walk_down walk_left*8))
     message("With that all out of the way, I believe\nwe can move on to-")
-    waitmovement(LOCALID_RICHARD)
+    waitmovement(LOCALID_RICHARD_BOAT)
     closemessage
     playse(SE_WALL_HIT)
     applymovement(LOCALID_CAPTAIN, moves(lock_facing_direction walk_up unlock_facing_direction))
-    applymovement(LOCALID_RICHARD, moves(walk_left face_down))
+    applymovement(LOCALID_RICHARD_BOAT, moves(walk_left face_down))
     waitmovement(0)
     message("Now that's what I'm talking about!\nThe options upstairs were just trash.")
     waitmessage
@@ -92,7 +91,7 @@ script BeginningBoat_PostStarter {
     closemessage
     fadedefaultbgm
     delay(8)
-    applymovement(LOCALID_RICHARD, moves(walk_right*8 set_invisible))
+    applymovement(LOCALID_RICHARD_BOAT, moves(walk_right*8 set_invisible))
     applymovement(LOCALID_CAPTAIN, moves(delay_16*2 face_right delay_16*2))
     waitmovement(0)
     message("What the...?")

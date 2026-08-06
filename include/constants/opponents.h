@@ -36,9 +36,10 @@
 #define TRAINER_DIGGERS_HUT_HIKER               29
 #define TRAINER_DIGGERS_HUT_MANIAC              30
 #define TRAINER_DIGGERS_HUT_BLACKBELT           31
+#define TRAINER_DIGGERS_HUT_RICHARD             32
 
 //== update this every time
-#define TRAINERS_COUNT_EMERALD     32
+#define TRAINERS_COUNT_EMERALD     33
 
 // don't go over this I guess (theres no fucking way I add 800+ trainers)
 #define MAX_TRAINERS_COUNT_EMERALD 864

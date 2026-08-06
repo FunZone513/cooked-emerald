@@ -113,111 +113,111 @@ BeginningBoat_PostStarter_1:
 # 74 "data/maps/BeginningBoat/scripts.pory"
 	waitbuttonpress
 # 75 "data/maps/BeginningBoat/scripts.pory"
-	fadenewbgm MUS_RG_ENCOUNTER_RIVAL
+	playbgm MUS_RG_ENCOUNTER_RIVAL, 0
 # 76 "data/maps/BeginningBoat/scripts.pory"
-	delay 16
+	applymovement LOCALID_RICHARD_BOAT, BeginningBoat_PostStarter_Movement_1
 # 77 "data/maps/BeginningBoat/scripts.pory"
-	applymovement LOCALID_RICHARD, BeginningBoat_PostStarter_Movement_1
-# 78 "data/maps/BeginningBoat/scripts.pory"
 	message BeginningBoat_PostStarter_Text_1
+# 78 "data/maps/BeginningBoat/scripts.pory"
+	waitmovement LOCALID_RICHARD_BOAT
 # 79 "data/maps/BeginningBoat/scripts.pory"
-	waitmovement LOCALID_RICHARD
+	closemessage
 # 80 "data/maps/BeginningBoat/scripts.pory"
-	closemessage
-# 81 "data/maps/BeginningBoat/scripts.pory"
 	playse SE_WALL_HIT
-# 82 "data/maps/BeginningBoat/scripts.pory"
+# 81 "data/maps/BeginningBoat/scripts.pory"
 	applymovement LOCALID_CAPTAIN, BeginningBoat_PostStarter_Movement_2
+# 82 "data/maps/BeginningBoat/scripts.pory"
+	applymovement LOCALID_RICHARD_BOAT, BeginningBoat_PostStarter_Movement_3
 # 83 "data/maps/BeginningBoat/scripts.pory"
-	applymovement LOCALID_RICHARD, BeginningBoat_PostStarter_Movement_3
+	waitmovement 0
 # 84 "data/maps/BeginningBoat/scripts.pory"
-	waitmovement 0
-# 85 "data/maps/BeginningBoat/scripts.pory"
 	message BeginningBoat_PostStarter_Text_2
+# 85 "data/maps/BeginningBoat/scripts.pory"
+	waitmessage
 # 86 "data/maps/BeginningBoat/scripts.pory"
-	waitmessage
+	waitbuttonpress
 # 87 "data/maps/BeginningBoat/scripts.pory"
-	waitbuttonpress
-# 88 "data/maps/BeginningBoat/scripts.pory"
 	message BeginningBoat_PostStarter_Text_3
+# 88 "data/maps/BeginningBoat/scripts.pory"
+	waitmessage
 # 89 "data/maps/BeginningBoat/scripts.pory"
-	waitmessage
-# 90 "data/maps/BeginningBoat/scripts.pory"
 	removeobject LOCALID_BALL_DEINO
+# 90 "data/maps/BeginningBoat/scripts.pory"
+	waitbuttonpress
 # 91 "data/maps/BeginningBoat/scripts.pory"
-	waitbuttonpress
+	closemessage
 # 92 "data/maps/BeginningBoat/scripts.pory"
-	closemessage
-# 93 "data/maps/BeginningBoat/scripts.pory"
 	fadedefaultbgm
-# 94 "data/maps/BeginningBoat/scripts.pory"
+# 93 "data/maps/BeginningBoat/scripts.pory"
 	delay 8
+# 94 "data/maps/BeginningBoat/scripts.pory"
+	applymovement LOCALID_RICHARD_BOAT, BeginningBoat_PostStarter_Movement_4
 # 95 "data/maps/BeginningBoat/scripts.pory"
-	applymovement LOCALID_RICHARD, BeginningBoat_PostStarter_Movement_4
-# 96 "data/maps/BeginningBoat/scripts.pory"
 	applymovement LOCALID_CAPTAIN, BeginningBoat_PostStarter_Movement_5
+# 96 "data/maps/BeginningBoat/scripts.pory"
+	waitmovement 0
 # 97 "data/maps/BeginningBoat/scripts.pory"
-	waitmovement 0
-# 98 "data/maps/BeginningBoat/scripts.pory"
 	message BeginningBoat_PostStarter_Text_4
+# 98 "data/maps/BeginningBoat/scripts.pory"
+	waitmessage
 # 99 "data/maps/BeginningBoat/scripts.pory"
-	waitmessage
+	waitbuttonpress
 # 100 "data/maps/BeginningBoat/scripts.pory"
-	waitbuttonpress
-# 101 "data/maps/BeginningBoat/scripts.pory"
 	applymovement LOCALID_CAPTAIN, BeginningBoat_PostStarter_Movement_6
-# 102 "data/maps/BeginningBoat/scripts.pory"
+# 101 "data/maps/BeginningBoat/scripts.pory"
 	waitmovement 0
-# 103 "data/maps/BeginningBoat/scripts.pory"
+# 102 "data/maps/BeginningBoat/scripts.pory"
 	message BeginningBoat_PostStarter_Text_5
+# 112 "data/maps/BeginningBoat/scripts.pory"
+	waitmessage
 # 113 "data/maps/BeginningBoat/scripts.pory"
-	waitmessage
+	waitbuttonpress
 # 114 "data/maps/BeginningBoat/scripts.pory"
-	waitbuttonpress
+	closemessage
 # 115 "data/maps/BeginningBoat/scripts.pory"
-	closemessage
-# 116 "data/maps/BeginningBoat/scripts.pory"
 	playse SE_DING_DONG
+# 116 "data/maps/BeginningBoat/scripts.pory"
+	waitse
 # 117 "data/maps/BeginningBoat/scripts.pory"
-	waitse
-# 118 "data/maps/BeginningBoat/scripts.pory"
 	message BeginningBoat_PostStarter_Text_6
+# 118 "data/maps/BeginningBoat/scripts.pory"
+	waitmessage
 # 119 "data/maps/BeginningBoat/scripts.pory"
-	waitmessage
+	waitbuttonpress
 # 120 "data/maps/BeginningBoat/scripts.pory"
-	waitbuttonpress
+	closemessage
 # 121 "data/maps/BeginningBoat/scripts.pory"
-	closemessage
-# 122 "data/maps/BeginningBoat/scripts.pory"
 	message BeginningBoat_PostStarter_Text_7
-# 123 "data/maps/BeginningBoat/scripts.pory"
+# 122 "data/maps/BeginningBoat/scripts.pory"
 	waitmessage
-# 124 "data/maps/BeginningBoat/scripts.pory"
+# 123 "data/maps/BeginningBoat/scripts.pory"
 	waitbuttonpress
-# 125 "data/maps/BeginningBoat/scripts.pory"
+# 124 "data/maps/BeginningBoat/scripts.pory"
 	closemessage
-# 126 "data/maps/BeginningBoat/scripts.pory"
+# 125 "data/maps/BeginningBoat/scripts.pory"
 	delay 20
-# 127 "data/maps/BeginningBoat/scripts.pory"
+# 126 "data/maps/BeginningBoat/scripts.pory"
 	playse SE_SHIP
-# 128 "data/maps/BeginningBoat/scripts.pory"
+# 127 "data/maps/BeginningBoat/scripts.pory"
 	fadescreen FADE_TO_WHITE
+# 128 "data/maps/BeginningBoat/scripts.pory"
+	waitse
 # 129 "data/maps/BeginningBoat/scripts.pory"
-	waitse
-# 130 "data/maps/BeginningBoat/scripts.pory"
 	delay 60
-# 131 "data/maps/BeginningBoat/scripts.pory"
+# 130 "data/maps/BeginningBoat/scripts.pory"
 	playse SE_EXIT
-# 132 "data/maps/BeginningBoat/scripts.pory"
+# 131 "data/maps/BeginningBoat/scripts.pory"
 	waitse
-# 133 "data/maps/BeginningBoat/scripts.pory"
+# 132 "data/maps/BeginningBoat/scripts.pory"
 	setflag FLAG_SYS_B_DASH
-# 134 "data/maps/BeginningBoat/scripts.pory"
+# 133 "data/maps/BeginningBoat/scripts.pory"
 	setflag FLAG_SYS_POKEDEX_GET
-# 135 "data/maps/BeginningBoat/scripts.pory"
+# 134 "data/maps/BeginningBoat/scripts.pory"
 	special SetUnlockedPokedexFlags
-# 136 "data/maps/BeginningBoat/scripts.pory"
+# 135 "data/maps/BeginningBoat/scripts.pory"
 	setvar VAR_GAME_PROGRESS, GP_LEFT_BOAT
+# 136 "data/maps/BeginningBoat/scripts.pory"
+	setrespawn HEAL_LOCATION_HORIZON_PORT
 # 137 "data/maps/BeginningBoat/scripts.pory"
 	warpsilent MAP_HORIZON_PORT, 1
 # 138 "data/maps/BeginningBoat/scripts.pory"
@@ -494,87 +494,87 @@ BeginningBoat_PostStarter_Movement_0:
 	walk_left
 	step_end
 
-# 77 "data/maps/BeginningBoat/scripts.pory"
+# 76 "data/maps/BeginningBoat/scripts.pory"
 BeginningBoat_PostStarter_Movement_1:
-# 77 "data/maps/BeginningBoat/scripts.pory"
+# 76 "data/maps/BeginningBoat/scripts.pory"
 	set_visible
-# 77 "data/maps/BeginningBoat/scripts.pory"
+# 76 "data/maps/BeginningBoat/scripts.pory"
 	walk_down
-# 77 "data/maps/BeginningBoat/scripts.pory"
+# 76 "data/maps/BeginningBoat/scripts.pory"
 	walk_left
-# 77 "data/maps/BeginningBoat/scripts.pory"
+# 76 "data/maps/BeginningBoat/scripts.pory"
 	walk_left
-# 77 "data/maps/BeginningBoat/scripts.pory"
+# 76 "data/maps/BeginningBoat/scripts.pory"
 	walk_left
-# 77 "data/maps/BeginningBoat/scripts.pory"
+# 76 "data/maps/BeginningBoat/scripts.pory"
 	walk_left
-# 77 "data/maps/BeginningBoat/scripts.pory"
+# 76 "data/maps/BeginningBoat/scripts.pory"
 	walk_left
-# 77 "data/maps/BeginningBoat/scripts.pory"
+# 76 "data/maps/BeginningBoat/scripts.pory"
 	walk_left
-# 77 "data/maps/BeginningBoat/scripts.pory"
+# 76 "data/maps/BeginningBoat/scripts.pory"
 	walk_left
-# 77 "data/maps/BeginningBoat/scripts.pory"
+# 76 "data/maps/BeginningBoat/scripts.pory"
 	walk_left
 	step_end
 
-# 82 "data/maps/BeginningBoat/scripts.pory"
+# 81 "data/maps/BeginningBoat/scripts.pory"
 BeginningBoat_PostStarter_Movement_2:
-# 82 "data/maps/BeginningBoat/scripts.pory"
+# 81 "data/maps/BeginningBoat/scripts.pory"
 	lock_facing_direction
-# 82 "data/maps/BeginningBoat/scripts.pory"
+# 81 "data/maps/BeginningBoat/scripts.pory"
 	walk_up
-# 82 "data/maps/BeginningBoat/scripts.pory"
+# 81 "data/maps/BeginningBoat/scripts.pory"
 	unlock_facing_direction
 	step_end
 
-# 83 "data/maps/BeginningBoat/scripts.pory"
+# 82 "data/maps/BeginningBoat/scripts.pory"
 BeginningBoat_PostStarter_Movement_3:
-# 83 "data/maps/BeginningBoat/scripts.pory"
+# 82 "data/maps/BeginningBoat/scripts.pory"
 	walk_left
-# 83 "data/maps/BeginningBoat/scripts.pory"
+# 82 "data/maps/BeginningBoat/scripts.pory"
 	face_down
 	step_end
 
-# 95 "data/maps/BeginningBoat/scripts.pory"
+# 94 "data/maps/BeginningBoat/scripts.pory"
 BeginningBoat_PostStarter_Movement_4:
-# 95 "data/maps/BeginningBoat/scripts.pory"
+# 94 "data/maps/BeginningBoat/scripts.pory"
 	walk_right
-# 95 "data/maps/BeginningBoat/scripts.pory"
+# 94 "data/maps/BeginningBoat/scripts.pory"
 	walk_right
-# 95 "data/maps/BeginningBoat/scripts.pory"
+# 94 "data/maps/BeginningBoat/scripts.pory"
 	walk_right
-# 95 "data/maps/BeginningBoat/scripts.pory"
+# 94 "data/maps/BeginningBoat/scripts.pory"
 	walk_right
-# 95 "data/maps/BeginningBoat/scripts.pory"
+# 94 "data/maps/BeginningBoat/scripts.pory"
 	walk_right
-# 95 "data/maps/BeginningBoat/scripts.pory"
+# 94 "data/maps/BeginningBoat/scripts.pory"
 	walk_right
-# 95 "data/maps/BeginningBoat/scripts.pory"
+# 94 "data/maps/BeginningBoat/scripts.pory"
 	walk_right
-# 95 "data/maps/BeginningBoat/scripts.pory"
+# 94 "data/maps/BeginningBoat/scripts.pory"
 	walk_right
-# 95 "data/maps/BeginningBoat/scripts.pory"
+# 94 "data/maps/BeginningBoat/scripts.pory"
 	set_invisible
 	step_end
 
-# 96 "data/maps/BeginningBoat/scripts.pory"
+# 95 "data/maps/BeginningBoat/scripts.pory"
 BeginningBoat_PostStarter_Movement_5:
-# 96 "data/maps/BeginningBoat/scripts.pory"
+# 95 "data/maps/BeginningBoat/scripts.pory"
 	delay_16
-# 96 "data/maps/BeginningBoat/scripts.pory"
+# 95 "data/maps/BeginningBoat/scripts.pory"
 	delay_16
-# 96 "data/maps/BeginningBoat/scripts.pory"
+# 95 "data/maps/BeginningBoat/scripts.pory"
 	face_right
-# 96 "data/maps/BeginningBoat/scripts.pory"
+# 95 "data/maps/BeginningBoat/scripts.pory"
 	delay_16
-# 96 "data/maps/BeginningBoat/scripts.pory"
+# 95 "data/maps/BeginningBoat/scripts.pory"
 	delay_16
 	step_end
 
-# 101 "data/maps/BeginningBoat/scripts.pory"
+# 100 "data/maps/BeginningBoat/scripts.pory"
 BeginningBoat_PostStarter_Movement_6:
-# 101 "data/maps/BeginningBoat/scripts.pory"
+# 100 "data/maps/BeginningBoat/scripts.pory"
 	walk_down
 	step_end
 
@@ -618,23 +618,23 @@ BeginningBoat_PostStarter_Text_0:
 	.string "The island region has designated\nRoutes and Towns for you to progress\lthrough, so make sure to stay within\lthe bounds while exploring!$"
 
 BeginningBoat_PostStarter_Text_1:
-# 78 "data/maps/BeginningBoat/scripts.pory"
+# 77 "data/maps/BeginningBoat/scripts.pory"
 	.string "With that all out of the way, I believe\nwe can move on to-$"
 
 BeginningBoat_PostStarter_Text_2:
-# 85 "data/maps/BeginningBoat/scripts.pory"
+# 84 "data/maps/BeginningBoat/scripts.pory"
 	.string "Now that's what I'm talking about!\nThe options upstairs were just trash.$"
 
 BeginningBoat_PostStarter_Text_3:
-# 88 "data/maps/BeginningBoat/scripts.pory"
+# 87 "data/maps/BeginningBoat/scripts.pory"
 	.string "I'm takin' this one, see you on the\nisland idiots!$"
 
 BeginningBoat_PostStarter_Text_4:
-# 98 "data/maps/BeginningBoat/scripts.pory"
+# 97 "data/maps/BeginningBoat/scripts.pory"
 	.string "What the...?$"
 
 BeginningBoat_PostStarter_Text_5:
-# 104 "data/maps/BeginningBoat/scripts.pory"
+# 103 "data/maps/BeginningBoat/scripts.pory"
 	.string "Ahem!\p"
 	.string "As I was saying before being rudely\ninterrupted, I'll explain some specifics\lof the adventure.\p"
 	.string "As we're about to Dock, I'll make it\nbrief.\p"
@@ -645,11 +645,11 @@ BeginningBoat_PostStarter_Text_5:
 	.string "We're all here to enjoy Pokemon\ntogether!$"
 
 BeginningBoat_PostStarter_Text_6:
-# 118 "data/maps/BeginningBoat/scripts.pory"
+# 117 "data/maps/BeginningBoat/scripts.pory"
 	.string "We are arriving at HORIZON PORT.\nPlease be ready to disembark.$"
 
 BeginningBoat_PostStarter_Text_7:
-# 122 "data/maps/BeginningBoat/scripts.pory"
+# 121 "data/maps/BeginningBoat/scripts.pory"
 	.string "Woops!\pLooks like that's all the time we have!\pGood luck out there!$"
 
 BeginningBoat_TryPickPokeball_Text_0:

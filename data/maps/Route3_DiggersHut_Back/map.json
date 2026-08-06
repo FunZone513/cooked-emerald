@@ -15,6 +15,7 @@
   "connections": null,
   "object_events": [
     {
+      "local_id": "LOCALID_DIGGER",
       "graphics_id": "OBJ_EVENT_GFX_HIKER_FRLG",
       "x": 5,
       "y": 3,
@@ -24,7 +25,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route3_DiggersHut_Back_Digger",
       "flag": "0"
     },
     {
@@ -82,7 +83,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
       "x": 3,
-      "y": 21,
+      "y": 19,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_UP_AND_RIGHT",
       "movement_range_x": 0,
@@ -93,6 +94,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_RICHARD_DIGGERSHUT",
       "graphics_id": "OBJ_EVENT_GFX_RIVAL_RICHARD",
       "x": 5,
       "y": 4,
@@ -119,7 +121,7 @@
     {
       "type": "trigger",
       "x": 4,
-      "y": 6,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_A",
       "var_value": "1",
@@ -128,7 +130,7 @@
     {
       "type": "trigger",
       "x": 5,
-      "y": 6,
+      "y": 7,
       "elevation": 0,
       "var": "VAR_TEMP_A",
       "var_value": "1",

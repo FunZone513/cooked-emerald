@@ -3716,7 +3716,7 @@ bool8 CanUseFieldMove(struct ScriptContext *ctx) {
 // picks random positions for the encoutner tiles in the diggers tunnel
 void SetRoute3DiggersTunnelEncounters(void) {
     u8 topPositions[6];
-    u8 midPositions[4];
+    u8 midPositions[3];
     u8 botPositions[11];
     u8 spots[] = {2, 1, 3}; // how many encounter tiles per section
     u8 total, i, j, picked;
@@ -3747,10 +3747,9 @@ void SetRoute3DiggersTunnelEncounters(void) {
     total = sizeof(midPositions) / sizeof(midPositions[0]);
     picked = Random() % total;
     switch (picked) {
-        case 0: MapGridSetMetatileIdAt( 6 + MAP_OFFSET, 13 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-        case 1: MapGridSetMetatileIdAt( 7 + MAP_OFFSET, 13 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-        case 2: MapGridSetMetatileIdAt( 7 + MAP_OFFSET, 18 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-        case 3: MapGridSetMetatileIdAt(10 + MAP_OFFSET, 17 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+        case 0: MapGridSetMetatileIdAt( 7 + MAP_OFFSET, 13 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+        case 1: MapGridSetMetatileIdAt( 7 + MAP_OFFSET, 18 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+        case 2: MapGridSetMetatileIdAt(10 + MAP_OFFSET, 17 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
     }
 
     // bottom

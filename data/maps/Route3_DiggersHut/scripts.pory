@@ -4,14 +4,16 @@ mapscripts Route3_DiggersHut_MapScripts {
 
 script Route3_DiggersHut_OnLoad {
     if (!flag(FLAG_OPEN_DIGGERS_HUT)) {
-        setobjectxy(LOCALID_BLOCKER, 7, 2)
+        setobjectxyperm(LOCALID_BLOCKER, 7, 2)
         setobjectmovementtype(LOCALID_BLOCKER, MOVEMENT_TYPE_FACE_UP)
+    } else {
+        setobjectxyperm(LOCALID_BLOCKER, 6, 2)
     }
 }
 
 script Route3_DiggersHut_Blocker {
     if (!flag(FLAG_OPEN_DIGGERS_HUT)) {
-        lockall
+        lock
         applymovement(LOCALID_BLOCKER, moves(face_down delay_4 emote_question_mark))
         waitmovement(0)
         msgbox(
@@ -32,6 +34,7 @@ script Route3_DiggersHut_Blocker {
         }
         applymovement(LOCALID_BLOCKER, moves(delay_8 walk_left face_down))
         waitmovement(0)
+        setflag(FLAG_OPEN_DIGGERS_HUT)
         releaseall
     } else {
         msgbox("Go see him for yourself.", MSGBOX_NPC)

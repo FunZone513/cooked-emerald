@@ -6,7 +6,12 @@ mapscripts DawnshoreCity_CuttersHouse_MapScripts {}
 // Maybe do this after you beat the gym so it makes sense? proof of ability maybe?
 
 script DawnshoreCity_CuttersHouse_Man {
-    msgbox(format("Congrats you can use cut once you beat the gym."), MSGBOX_NPC)
+    if (!flag(FLAG_BADGE01_GET)) {
+        msgbox("Come back once you beat the gym", MSGBOX_NPC)
+    } else {
+        msgbox("congrats you can cut trees now.\nThis'll be an actual thing later", MSGBOX_NPC)
+        setflag(FLAG_CAN_USE_CUT)
+    }
 }
 
 script DawnshoreCity_CuttersHouse_Woman {

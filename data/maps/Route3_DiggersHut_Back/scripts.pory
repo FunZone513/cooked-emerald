@@ -8,12 +8,93 @@ script Route3_DiggersHut_Back_OnLoad {
 
     if (!flag(FLAG_BEAT_DIGGERS_HUT_RICHARD)) {
         setvar(VAR_TEMP_A, 1)
+        setobjectmovementtype(LOCALID_DIGGER, MOVEMENT_TYPE_FACE_DOWN)
+    } else {
+        setobjectmovementtype(LOCALID_DIGGER, MOVEMENT_TYPE_FACE_UP)
     }
 }
 
 script Route3_DiggersHut_Back_RichardFight {
+    lock
+    playbgm(MUS_RG_ENCOUNTER_RIVAL, 1)
     setvar(VAR_TEMP_A, 0)
+    getobjectxy(LOCALID_PLAYER, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 4) {
+        applymovement(LOCALID_PLAYER, moves(walk_right))
+        waitmovement(0)
+    }
+    applymovement(LOCALID_PLAYER, moves(walk_up))
+    waitmovement(0)
+    msgbox(
+        "I heard that there would be treasure,\nbut you want me to dig around in sand\lfor what, random items and Pokemon?\p"
+        "Who do you think you are to tell me to\nrummage around in the dirt?\p"
+        "I've got much better things to do than\nget my hands dirty!\p"
+        "That's what Pokemon are for!"
+    , MSGBOX_DEFAULT)
+    applymovement(LOCALID_RICHARD_DIGGERSHUT, moves(walk_down))
+    waitmovement(0)
+    message("Get out of my way!")
+    applymovement(LOCALID_PLAYER, moves(face_right lock_facing_direction walk_left unlock_facing_direction))
+    applymovement(LOCALID_RICHARD_DIGGERSHUT, moves(walk_down*3))
+    waitmovement(LOCALID_RICHARD_DIGGERSHUT)
+    delay(20)
+    applymovement(LOCALID_PLAYER, moves(face_down))
+    message("...")
+    delay(30)
+    applymovement(LOCALID_RICHARD_DIGGERSHUT, moves(face_up))
+    waitmovement(0)
+    message("Wait a minute...\pIt's you! The one from Horizon Port!\pHaha it's my lucky day!\nI'll take this frustration out on you!")
+    waitmessage
+    waitbuttonpress
+    closemessage
+    applymovement(LOCALID_RICHARD_DIGGERSHUT, moves(walk_fast_left, walk_fast_up))
+    waitmovement(0)
+    trainerbattle_no_intro(TRAINER_DIGGERS_HUT_RICHARD, "What? Not again!\nHow are you doing that!?")
+    msgbox(
+        "I bet you think you're all that,\ndefeating me again.\p"
+        "Next time I'll get some better Pokemon,\nthen we'll see who's stronger.\p"
+        "Tell me your name, that way I'll at least\nknow what to carve on your gravestone\lafter you die of shame.\p"
+        "...\p"
+        "{PLAYER}? Pfft.\nStupid name for a stupid person.\p"
+        "Your luck can only carry you so far,\n'{PLAYER}'."
+    , MSGBOX_AUTOCLOSE)
+    fadedefaultbgm
+    applymovement(LOCALID_RICHARD_DIGGERSHUT, moves(walk_down*5 set_invisible))
+    waitmovement(0)
+    applymovement(LOCALID_PLAYER, moves(walk_right walk_up*2))
+    waitmovement(0)
+    msgbox(
+        "Well, that was certainly an experience.\p"
+        "Trainers aren't normally as...\nspirited as he is, thankfully.\p"
+        "Thanks for putting him in his place, I'd\nhate to think he can act like that and\lget away with it.\p"
+        "Oh right, digging!\p"
+        "That's probably why you came here in\nthe first place right?\p"
+        "I'd be happy to give you a few pointers\non how to dig up things!\p"
+        "Here, grab this shovel and we can get\nstarted...."
+    , MSGBOX_AUTOCLOSE)
+    fadescreenspeed(FADE_TO_BLACK, 2)
+    delay(30)
+    playse(SE_M_DIG)
+    waitse
+    playse(SE_M_DIG)
+    waitse
+    delay(10)
+    playse(SE_M_DIG)
+    waitse
+    delay(30)
+    playse(MUS_OBTAIN_ITEM)
+    setflag(FLAG_CAN_DIG_PILE)
     setflag(FLAG_BEAT_DIGGERS_HUT_RICHARD)
+    fadescreen(FADE_FROM_BLACK)
+    msgbox("Whew! That was fun!\pI hope these skills help you out on your\nPokemon Adventure!", MSGBOX_AUTOCLOSE)
+    applymovement(LOCALID_DIGGER, moves(face_up))
+    applymovement(LOCALID_PLAYER, moves(face_down))
+    waitmovement(0)
+    releaseall
+}
+
+script Route3_DiggersHut_Back_Digger {
+    msgbox("Lairon makes for a great helper!\nHe does tend to eat a lot though...", MSGBOX_NPC)
 }
 
 script Route3_DiggersHut_Back_Hiker {
