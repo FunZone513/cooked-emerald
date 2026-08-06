@@ -3,7 +3,7 @@ mapscripts Route_2_MapScripts {
 }
 
 script Route_2_OnLoad {
-    if (flag(FLAG_ITEM_DAWNSHORE_CITY)) { setmetatile(21, 20, METATILE_General_SandPit_Center, FALSE) }
+    if (flag(FLAG_ITEM_ROUTE2_2)) { setmetatile(21, 20, METATILE_General_SandPit_Center, FALSE) }
 
     // its easier to visualise as a negative
     random(6)

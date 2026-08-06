@@ -6,7 +6,7 @@ Route_2_MapScripts::
 
 Route_2_OnLoad::
 # 6 "data/maps/Route_2/scripts.pory"
-	goto_if_set FLAG_ITEM_DAWNSHORE_CITY, Route_2_OnLoad_2
+	goto_if_set FLAG_ITEM_ROUTE2_2, Route_2_OnLoad_2
 Route_2_OnLoad_1:
 # 9 "data/maps/Route_2/scripts.pory"
 	random 6

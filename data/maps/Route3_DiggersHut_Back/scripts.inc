@@ -25,7 +25,7 @@ Route3_DiggersHut_Back_RichardFight::
 # 18 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	lock
 # 19 "data/maps/Route3_DiggersHut_Back/scripts.pory"
-	playbgm MUS_RG_ENCOUNTER_RIVAL, 0
+	playbgm MUS_RG_ENCOUNTER_RIVAL, 1
 # 20 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	setvar VAR_TEMP_A, 0
 # 21 "data/maps/Route3_DiggersHut_Back/scripts.pory"
@@ -79,58 +79,56 @@ Route3_DiggersHut_Back_RichardFight_1:
 # 52 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	trainerbattle_no_intro TRAINER_DIGGERS_HUT_RICHARD, Route3_DiggersHut_Back_RichardFight_Text_4
 # 53 "data/maps/Route3_DiggersHut_Back/scripts.pory"
-	playbgm MUS_RG_RIVAL_EXIT, 0
-# 54 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	msgbox Route3_DiggersHut_Back_RichardFight_Text_5, MSGBOX_AUTOCLOSE
-# 62 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 61 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	fadedefaultbgm
-# 63 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 62 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	applymovement LOCALID_RICHARD_DIGGERSHUT, Route3_DiggersHut_Back_RichardFight_Movement_8
+# 63 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+	waitmovement 0
 # 64 "data/maps/Route3_DiggersHut_Back/scripts.pory"
-	waitmovement 0
-# 65 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	applymovement LOCALID_PLAYER, Route3_DiggersHut_Back_RichardFight_Movement_9
+# 65 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+	waitmovement 0
 # 66 "data/maps/Route3_DiggersHut_Back/scripts.pory"
-	waitmovement 0
-# 67 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	msgbox Route3_DiggersHut_Back_RichardFight_Text_6, MSGBOX_AUTOCLOSE
-# 76 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 75 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	fadescreenspeed FADE_TO_BLACK, 2
+# 76 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+	delay 30
 # 77 "data/maps/Route3_DiggersHut_Back/scripts.pory"
-	delay 30
+	playse SE_M_DIG
 # 78 "data/maps/Route3_DiggersHut_Back/scripts.pory"
-	playse SE_M_DIG
+	waitse
 # 79 "data/maps/Route3_DiggersHut_Back/scripts.pory"
-	waitse
+	playse SE_M_DIG
 # 80 "data/maps/Route3_DiggersHut_Back/scripts.pory"
-	playse SE_M_DIG
+	waitse
 # 81 "data/maps/Route3_DiggersHut_Back/scripts.pory"
-	waitse
-# 82 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	delay 10
-# 83 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 82 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	playse SE_M_DIG
-# 84 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 83 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	waitse
-# 85 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 84 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	delay 30
-# 86 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 85 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	playse MUS_OBTAIN_ITEM
-# 87 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 86 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	setflag FLAG_CAN_DIG_PILE
-# 88 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 87 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	setflag FLAG_BEAT_DIGGERS_HUT_RICHARD
-# 89 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 88 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	fadescreen FADE_FROM_BLACK
-# 90 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 89 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	msgbox Route3_DiggersHut_Back_RichardFight_Text_7, MSGBOX_AUTOCLOSE
-# 91 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 90 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	applymovement LOCALID_DIGGER, Route3_DiggersHut_Back_RichardFight_Movement_6
-# 92 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 91 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	applymovement LOCALID_PLAYER, Route3_DiggersHut_Back_RichardFight_Movement_5
-# 93 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 92 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	waitmovement 0
-# 94 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 93 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	releaseall
 	return
 
@@ -143,31 +141,31 @@ Route3_DiggersHut_Back_RichardFight_2:
 
 
 Route3_DiggersHut_Back_Digger::
-# 98 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 97 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	msgbox Route3_DiggersHut_Back_Digger_Text_0, MSGBOX_NPC
 	return
 
 
 Route3_DiggersHut_Back_Hiker::
-# 102 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 101 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	trainerbattle_single TRAINER_DIGGERS_HUT_HIKER, Route3_DiggersHut_Back_Hiker_Text_0, Route3_DiggersHut_Back_Hiker_Text_1
-# 107 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 106 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	msgbox Route3_DiggersHut_Back_Hiker_Text_2, MSGBOX_NPC
 	return
 
 
 Route3_DiggersHut_Back_Maniac::
-# 111 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 110 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	trainerbattle_single TRAINER_DIGGERS_HUT_MANIAC, Route3_DiggersHut_Back_Maniac_Text_0, Route3_DiggersHut_Back_Maniac_Text_1
-# 116 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 115 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	msgbox Route3_DiggersHut_Back_Maniac_Text_2, MSGBOX_NPC
 	return
 
 
 Route3_DiggersHut_Back_BlackBelt::
-# 120 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 119 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	trainerbattle_single TRAINER_DIGGERS_HUT_BLACKBELT, Route3_DiggersHut_Back_BlackBelt_Text_0, Route3_DiggersHut_Back_BlackBelt_Text_1
-# 125 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 124 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	msgbox Route3_DiggersHut_Back_BlackBelt_Text_2, MSGBOX_NPC
 	return
 
@@ -232,29 +230,29 @@ Route3_DiggersHut_Back_RichardFight_Movement_7:
 	walk_fast_up
 	step_end
 
-# 63 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 62 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 Route3_DiggersHut_Back_RichardFight_Movement_8:
-# 63 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 62 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	walk_down
-# 63 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 62 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	walk_down
-# 63 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 62 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	walk_down
-# 63 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 62 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	walk_down
-# 63 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 62 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	walk_down
-# 63 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 62 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	set_invisible
 	step_end
 
-# 65 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 64 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 Route3_DiggersHut_Back_RichardFight_Movement_9:
-# 65 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 64 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	walk_right
-# 65 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 64 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	walk_up
-# 65 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 64 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	walk_up
 	step_end
 
@@ -282,7 +280,7 @@ Route3_DiggersHut_Back_RichardFight_Text_4:
 	.string "What? Not again!\nHow are you doing that!?$"
 
 Route3_DiggersHut_Back_RichardFight_Text_5:
-# 55 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 54 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	.string "I bet you think you're all that,\ndefeating me again.\p"
 	.string "Next time I'll get some better Pokemon,\nthen we'll see who's stronger.\p"
 	.string "Tell me your name, that way I'll at least\nknow what to carve on your gravestone\lafter you die of shame.\p"
@@ -291,58 +289,58 @@ Route3_DiggersHut_Back_RichardFight_Text_5:
 	.string "Your luck can only carry you so far,\n'{PLAYER}'.$"
 
 Route3_DiggersHut_Back_RichardFight_Text_6:
-# 68 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 67 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	.string "Well, that was certainly an experience.\p"
 	.string "Trainers aren't normally as...\nspirited as he is, thankfully.\p"
-	.string "Thanks for putting him in his place, I'd\nhate to think he can act like that and\nget away with it.\p"
+	.string "Thanks for putting him in his place, I'd\nhate to think he can act like that and\lget away with it.\p"
 	.string "Oh right, digging!\p"
 	.string "That's probably why you came here in\nthe first place right?\p"
 	.string "I'd be happy to give you a few pointers\non how to dig up things!\p"
 	.string "Here, grab this shovel and we can get\nstarted....$"
 
 Route3_DiggersHut_Back_RichardFight_Text_7:
-# 90 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 89 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	.string "Whew! That was fun!\pI hope these skills help you out on your\nPokemon Adventure!$"
 
 Route3_DiggersHut_Back_Digger_Text_0:
-# 98 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 97 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	.string "Lairon makes for a great helper!\nHe does tend to eat a lot though...$"
 
 Route3_DiggersHut_Back_Hiker_Text_0:
-# 104 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 103 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	.string "I've got sand in my boots!$"
 
 Route3_DiggersHut_Back_Hiker_Text_1:
-# 105 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 104 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	.string "No! The sand is in my socks now!$"
 
 Route3_DiggersHut_Back_Hiker_Text_2:
-# 107 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 106 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	.string "I thought big boots would be a good\n"
 	.string "idea, but not if they fill up with sand...$"
 
 Route3_DiggersHut_Back_Maniac_Text_0:
-# 113 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 112 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	.string "You ever wondered what sand tastes\nlike?$"
 
 Route3_DiggersHut_Back_Maniac_Text_1:
-# 114 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 113 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	.string "Blegh, sand everywhere.$"
 
 Route3_DiggersHut_Back_Maniac_Text_2:
-# 116 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 115 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	.string "I'm not one to get my hands dirty,\nso I normally hire people to dig for me.$"
 
 Route3_DiggersHut_Back_BlackBelt_Text_0:
-# 122 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 121 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	.string "AH! DON'T SCARE ME LIKE THAT!$"
 
 Route3_DiggersHut_Back_BlackBelt_Text_1:
-# 123 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 122 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	.string "JUMPSTARTS AREN'T GOOD FOR MY HEART!$"
 
 Route3_DiggersHut_Back_BlackBelt_Text_2:
-# 125 "data/maps/Route3_DiggersHut_Back/scripts.pory"
+# 124 "data/maps/Route3_DiggersHut_Back/scripts.pory"
 	.string "I'm using my bare hands to dig through\n"
 	.string "these rocks, but I think rock might be\l"
 	.string "super-effective on bone.$"
