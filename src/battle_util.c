@@ -5582,9 +5582,13 @@ enum Obedience GetAttackerObedienceForAction(void)
     if (FlagGet(FLAG_BADGE08_GET)) // Rain Badge, ignore obedience altogether
         return OBEYS;
 
-    obedienceLevel = 10;
+    obedienceLevel = VarGet(VAR_CURRENT_LEVEL_CAP);
 
-    if (FlagGet(FLAG_BADGE01_GET)) // Stone Badge
+    #ifndef RELEASE
+    return OBEYS;
+    #endif
+
+    /* if (FlagGet(FLAG_BADGE01_GET)) // Stone Badge
         obedienceLevel = 20;
     if (FlagGet(FLAG_BADGE02_GET)) // Knuckle Badge
         obedienceLevel = 30;
@@ -5597,7 +5601,7 @@ enum Obedience GetAttackerObedienceForAction(void)
     if (FlagGet(FLAG_BADGE06_GET)) // Feather Badge
         obedienceLevel = 70;
     if (FlagGet(FLAG_BADGE07_GET)) // Mind Badge
-        obedienceLevel = 80;
+        obedienceLevel = 80; */
 
     if (B_OBEDIENCE_MECHANICS >= GEN_8
      && !IsOtherTrainer(gBattleMons[gBattlerAttacker].otId, gBattleMons[gBattlerAttacker].otName))
