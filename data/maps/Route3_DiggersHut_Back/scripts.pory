@@ -16,7 +16,7 @@ script Route3_DiggersHut_Back_OnLoad {
 
 script Route3_DiggersHut_Back_RichardFight {
     lock
-    playbgm(MUS_RG_ENCOUNTER_RIVAL, 1)
+    playbgm(MUS_RG_ENCOUNTER_RIVAL, 0)
     setvar(VAR_TEMP_A, 0)
     getobjectxy(LOCALID_PLAYER, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
     if (var(VAR_TEMP_1) == 4) {
@@ -49,6 +49,7 @@ script Route3_DiggersHut_Back_RichardFight {
     closemessage
     applymovement(LOCALID_RICHARD_DIGGERSHUT, moves(walk_fast_left, walk_fast_up))
     waitmovement(0)
+    savebgm(MUS_RG_RIVAL_EXIT)
     trainerbattle_no_intro(TRAINER_DIGGERS_HUT_RICHARD, "What? Not again!\nHow are you doing that!?")
     msgbox(
         "I bet you think you're all that,\ndefeating me again.\p"
@@ -86,7 +87,10 @@ script Route3_DiggersHut_Back_RichardFight {
     setflag(FLAG_CAN_DIG_PILE)
     setflag(FLAG_BEAT_DIGGERS_HUT_RICHARD)
     fadescreen(FADE_FROM_BLACK)
-    msgbox("Whew! That was fun!\pI hope these skills help you out on your\nPokemon Adventure!", MSGBOX_AUTOCLOSE)
+    message("Whew! That was fun!\p")
+    waitse
+    waitmessage
+    msgbox("I hope these skills help you out on your\nPokemon Adventure!", MSGBOX_AUTOCLOSE)
     applymovement(LOCALID_DIGGER, moves(face_up))
     applymovement(LOCALID_PLAYER, moves(face_down))
     waitmovement(0)
