@@ -85,7 +85,10 @@
   ],
   "gMapGroup_Test": [
     "testmap",
-    "blankmap"
+    "blankmap",
+    "BeginningBoat",
+    "BeginningBoat_Room",
+    "BeginningBoat_Ocean"
   ],
   "gMapGroup_Towns": [
     "HorizonPort",

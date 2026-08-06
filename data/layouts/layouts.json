@@ -9523,6 +9523,36 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Route3_DiggersHut_Back/border.bin",
       "blockdata_filepath": "data/layouts/Route3_DiggersHut_Back/map.bin"
+    },
+    {
+      "id": "LAYOUT_BEGINNING_BOAT",
+      "name": "BeginningBoat_Layout",
+      "width": 22,
+      "height": 12,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/BeginningBoat/border.bin",
+      "blockdata_filepath": "data/layouts/BeginningBoat/map.bin"
+    },
+    {
+      "id": "LAYOUT_BEGINNING_BOAT_ROOM",
+      "name": "BeginningBoat_Room_Layout",
+      "width": 14,
+      "height": 15,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/BeginningBoat_Room/border.bin",
+      "blockdata_filepath": "data/layouts/BeginningBoat_Room/map.bin"
+    },
+    {
+      "id": "LAYOUT_BEGINNING_BOAT_OCEAN",
+      "name": "BeginningBoat_Ocean_Layout",
+      "width": 60,
+      "height": 12,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_InsideShip",
+      "border_filepath": "data/layouts/BeginningBoat_Ocean/border.bin",
+      "blockdata_filepath": "data/layouts/BeginningBoat_Ocean/map.bin"
     }
   ]
 }

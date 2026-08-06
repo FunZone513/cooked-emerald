@@ -74,6 +74,7 @@
 #include "constants/vars.h"
 #include "constants/weather.h"
 #include "constants/quests.h"
+#include "constants/game_progress.h"
 #include "constants/speaker_names.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
@@ -1779,3 +1780,9 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/Route3_DiggersHut/scripts.inc"
 
 	.include "data/maps/Route3_DiggersHut_Back/scripts.inc"
+
+	.include "data/maps/BeginningBoat/scripts.inc"
+
+	.include "data/maps/BeginningBoat_Room/scripts.inc"
+
+	.include "data/maps/BeginningBoat_Ocean/scripts.inc"

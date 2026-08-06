@@ -2355,5 +2355,8 @@ extern const u8 gText_OakThisIsListOfPokemon[];
 extern const u8 gText_Boy[];
 extern const u8 gText_Girl[];
 
+extern const u8 gText_StarterSettingsExpShare[];
+extern const u8 gText_StarterSettingsExpBoost[];
+extern const u8 gText_StarterSettingsLevelcap[];
 
 #endif // GUARD_STRINGS_H

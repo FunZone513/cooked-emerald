@@ -1,0 +1,46 @@
+{
+  "id": "MAP_BEGINNING_BOAT_OCEAN",
+  "name": "BeginningBoat_Ocean",
+  "layout": "LAYOUT_BEGINNING_BOAT_OCEAN",
+  "music": "MUS_GSC_ROUTE38",
+  "region_map_section": "MAPSEC_NONE",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_BEGINNING_BOAT_OCEAN",
+      "offset": 0,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_BEGINNING_BOAT_OCEAN",
+      "offset": 0,
+      "direction": "right"
+    }
+  ],
+  "object_events": [
+    {
+      "local_id": "LOCALID_BOAT",
+      "graphics_id": "OBJ_EVENT_GFX_SS_TIDAL",
+      "x": 58,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    }
+  ],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": []
+}

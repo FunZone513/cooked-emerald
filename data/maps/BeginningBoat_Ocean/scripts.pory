@@ -1,0 +1,25 @@
+mapscripts BeginningBoat_Ocean_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [ 
+        VAR_GAME_PROGRESS, GP_NOT_STARTED: BeginningBoat_Ocean_BoatMove
+    ]
+}
+
+script BeginningBoat_Ocean_BoatMove {
+    lock
+    special(SpawnCameraObject)
+    applymovement(LOCALID_BOAT, moves(walk_fast_left*40))
+    applymovement(LOCALID_CAMERA, moves(walk_fast_left*40))
+    delay(60)
+    playse(SE_DING_DONG)
+    delay(20)
+    message("We're getting close to our destination,\nplease ensure you've gotten ready.")
+    waitmovement(0)
+    closemessage
+    applymovement(LOCALID_BOAT, moves(walk_fast_left*10))
+    applymovement(LOCALID_CAMERA, moves(walk_fast_left*10))
+    fadescreenspeed(FADE_TO_BLACK, 2)
+    waitmovement(0)
+    setflag(FLAG_SPAWN_INVISIBLE)
+    special(RemoveCameraObject)
+    warpsilent(MAP_BEGINNING_BOAT_ROOM, 5, 10)
+}

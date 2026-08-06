@@ -1,0 +1,221 @@
+mapscripts BeginningBoat_MapScripts {}
+
+script BeginningBoat_CrushGirl {
+    if (var(VAR_GAME_PROGRESS) == GP_BOAT_ROOM) {
+        msgbox(
+            "Oh hey!\nYou starting your adventure too?\p"
+            "They're handing out Pokemon to the\nlast few people.\p"
+            "Oh! You probably need to get through,\nhere."
+        , MSGBOX_NPC)
+        applymovement(LOCALID_CRUSH, moves(walk_up delay_16 face_down))
+        waitmovement(0)
+        msgbox("I hope your adventure goes well!\nI'll be rooting for you!", MSGBOX_AUTOCLOSE)
+        applymovement(LOCALID_CRUSH, moves(face_up))
+        waitmovement(0)
+        setvar(VAR_GAME_PROGRESS, GP_BEFORE_PICK_STARTER)
+    } else {
+        msgbox("Are you going to pick one?\nI've already got mine!", MSGBOX_NPC)
+    }
+    releaseall
+}
+
+script BeginningBoat_Trigger {
+    if (var(VAR_GAME_PROGRESS) == GP_BEFORE_PICK_STARTER) {
+        lock
+        applymovement(LOCALID_PLAYER, moves(walk_right walk_up walk_right))
+        waitmovement(0)
+        special(SpawnCameraObject)
+        applymovement(LOCALID_PLAYER, moves(face_up))
+        applymovement(LOCALID_CAMERA, moves(walk_up*2))
+        call(BeginningBoat_CorrectPositions)
+        waitmovement(LOCALID_CAMERA)
+        message(
+            "Thank you all for coming!\p"
+            "I see some returning faces here,\nremember you only get the one Pokemon!\p"
+            "To those that haven't gotten a Pokemon\nyet, feel free to choose one!\p"
+            "Some of you have already made your\nchoice, so once everyone has picked one\lI'll explain more about the island!"
+        )
+        waitmessage
+        waitbuttonpress
+        closemessage
+        applymovement(LOCALID_CAMERA, moves(walk_down*2))
+        waitmovement(0)
+        special(RemoveCameraObject)
+        setvar(VAR_GAME_PROGRESS, GP_PICKING_STARTER)
+        releaseall
+    } else {
+        message("You should probably pick a Pokemon!")
+        waitbuttonpress
+        applymovement(LOCALID_PLAYER, moves(walk_right))
+        waitmovement(0)
+        releaseall
+    }
+}
+
+script BeginningBoat_PostStarter {
+    lock
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, moves(walk_up*2))
+    waitmovement(0)
+    call(BeginningBoat_CorrectPositions)
+    getobjectxy(OBJ_EVENT_ID_PLAYER, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 10) {
+        applymovement(LOCALID_CAMERA, moves(walk_right))
+    } else { applymovement(LOCALID_CAMERA, moves(walk_left)) }
+    waitmovement(0)
+    message(
+        "Now that we all have our Pokemon, I'd\nlike to explain about the island!\p"
+        "The island you'll be exploring is\nteeming with wild Pokemon, but it also\lhas permanent residents.\p"
+        "These residents may be trainers\nthemselves, or just normal citizens.\p"
+        "These people are not sponsored by\nthe Pokemon Adventure initiative, so\lmake sure to be mindful of that.\p"
+        "The island region has designated\nRoutes and Towns for you to progress\lthrough, so make sure to stay within\lthe bounds while exploring!"
+    )
+    waitmessage
+    waitbuttonpress
+    fadenewbgm(MUS_RG_ENCOUNTER_RIVAL)
+    delay(16)
+    applymovement(LOCALID_RICHARD, moves(set_visible walk_down walk_left*8))
+    message("With that all out of the way, I believe\nwe can move on to-")
+    waitmovement(LOCALID_RICHARD)
+    closemessage
+    playse(SE_WALL_HIT)
+    applymovement(LOCALID_CAPTAIN, moves(lock_facing_direction walk_up unlock_facing_direction))
+    applymovement(LOCALID_RICHARD, moves(walk_left face_down))
+    waitmovement(0)
+    message("Now that's what I'm talking about!\nThe options upstairs were just trash.")
+    waitmessage
+    waitbuttonpress
+    message("I'm takin' this one, see you on the\nisland idiots!")
+    waitmessage
+    removeobject(LOCALID_BALL_DEINO)
+    waitbuttonpress
+    closemessage
+    fadedefaultbgm
+    delay(8)
+    applymovement(LOCALID_RICHARD, moves(walk_right*8 set_invisible))
+    applymovement(LOCALID_CAPTAIN, moves(delay_16*2 face_right delay_16*2))
+    waitmovement(0)
+    message("What the...?")
+    waitmessage
+    waitbuttonpress
+    applymovement(LOCALID_CAPTAIN, moves(walk_down))
+    waitmovement(0)
+    message(
+        "Ahem!\p"
+        "As I was saying before being rudely\ninterrupted, I'll explain some specifics\lof the adventure.\p"
+        "As we're about to Dock, I'll make it\nbrief.\p"
+        "There's 4 Gyms on the island, beat them\nand collect the badges to challenge the\lleague!\p"
+        "Climb to the top and you'll be the\nwinner of your adventuring cohort!\p"
+        "Remember, the Pokemon Adventure is\nand experience designed for enjoyment\lfirst and foremost!\p"
+        "Outside of legally held Trainer Battles,\nno other types of interference is\lallowed!\p"
+        "We're all here to enjoy Pokemon\ntogether!"
+    )
+    waitmessage
+    waitbuttonpress
+    closemessage
+    playse(SE_DING_DONG)
+    waitse
+    message("We are arriving at HORIZON PORT.\nPlease be ready to disembark.")
+    waitmessage
+    waitbuttonpress
+    closemessage
+    message("Woops!\pLooks like that's all the time we have!\pGood luck out there!")
+    waitmessage
+    waitbuttonpress
+    closemessage
+    delay(20)
+    playse(SE_SHIP)
+    fadescreen(FADE_TO_WHITE)
+    waitse
+    delay(60)
+    playse(SE_EXIT)
+    waitse
+    setflag(FLAG_SYS_B_DASH)
+    setflag(FLAG_SYS_POKEDEX_GET)
+    special(SetUnlockedPokedexFlags)
+    setvar(VAR_GAME_PROGRESS, GP_LEFT_BOAT)
+    setrespawn(HEAL_LOCATION_HORIZON_PORT)
+    warpsilent(MAP_HORIZON_PORT, 1)
+    releaseall
+}
+
+script BeginningBoat_TryPickPokeball {
+    if (var(VAR_GAME_PROGRESS) != GP_PICKING_STARTER) {
+        msgbox("Now's not the time for this!", MSGBOX_AUTOCLOSE)
+        releaseall
+    } else {
+        getobjectxy(OBJ_EVENT_ID_PLAYER, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
+        if (var(VAR_TEMP_1) == 10) {
+            setvar(VAR_TEMP_A, SPECIES_CHINCHOU)
+            bufferstring(STR_VAR_1, "CHINCHOU")
+        } else { 
+            setvar(VAR_TEMP_A, SPECIES_BALTOY) 
+            bufferstring(STR_VAR_1, "BALTOY")
+        }
+        showmonpic(VAR_TEMP_A, 10, 3)
+        playmoncry(VAR_TEMP_A, CRY_MODE_NORMAL)
+        
+        msgbox("Do you want to choose {STR_VAR_1}?", MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES) { goto(BeginningBoat_GetStarter) }
+
+        hidemonpic
+        releaseall
+    }
+}
+
+script BeginningBoat_GetStarter {
+    givemon(VAR_TEMP_A, 5, ITEM_NONE, ITEM_PREMIER_BALL)
+    playfanfare(MUS_OBTAIN_ITEM)
+    msgbox("You recieved the {STR_VAR_1}!")
+    if (var(VAR_TEMP_A) == SPECIES_CHINCHOU) {
+        applymovement(LOCALID_BALL_CHINCHOU, moves(set_invisible))
+    } else { applymovement(LOCALID_BALL_BALTOY, moves(set_invisible)) } 
+    setflag(FLAG_SYS_POKEMON_GET)
+    waitfanfare
+    call(BeginningBoat_Nickname)
+    hidemonpic
+    goto(BeginningBoat_PostStarter)
+}
+
+script BeginningBoat_Nickname {
+    msgbox("Do you want to give it a nickname?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+    return
+}
+
+script BeginningBoat_TryPickDeino {
+    if (var(VAR_GAME_PROGRESS) == GP_PICKING_STARTER) {
+        showmonpic(SPECIES_DEINO, 10, 3)
+        playmoncry(SPECIES_DEINO, CRY_MODE_NORMAL)
+        msgbox("It looks like you can't reach that!", MSGBOX_AUTOCLOSE)
+        hidemonpic
+        releaseall
+    }
+}
+
+script BeginningBoat_CorrectPositions {
+    applymovement(11, moves(face_up))
+    applymovement(5, moves(face_up))
+    applymovement(13, moves(face_up))
+    applymovement(12, moves(face_up))
+    applymovement(6, moves(face_up))
+    applymovement(8, moves(face_up))
+    applymovement(7, moves(face_up))
+    waitmovement(0)
+}
+
+script BeginningBoat_SignRoom1  { msgbox("Room 1\nYour Room", MSGBOX_SIGN) }
+script BeginningBoat_SignRoom2  { msgbox("Room 2", MSGBOX_SIGN) }
+script BeginningBoat_SignRoom3  { msgbox("Room 3", MSGBOX_SIGN) }
+script BeginningBoat_SignRoom4  { msgbox("Room 4", MSGBOX_SIGN) }
+script BeginningBoat_Sailor     { msgbox(format("Don't miss out on your Pokemon!"), MSGBOX_NPC) }
+script BeginningBoat_Sailor2    { msgbox(format("I'm doing a final check before we dock."), MSGBOX_NPC) }
+script BeginningBoat_Lass       { msgbox(format("I'm so excited!"), MSGBOX_NPC) }
+script BeginningBoat_Gentleman  { msgbox(format("I remember my first Pokemon Adventure..."), MSGBOX_NPC) }
+script BeginningBoat_Boy        { msgbox(format("I bet my Pokemon is gonna be super cool!"), MSGBOX_NPC) }
+script BeginningBoat_Boy2       { msgbox(format("I got mine earlier, I bet you're jealous!"), MSGBOX_NPC) }
+script BeginningBoat_Man        { msgbox(format("I heard all the starters are natives to the island."), MSGBOX_NPC) }
+script BeginningBoat_Woman      { msgbox(format("I want a little cutie!"), MSGBOX_NPC) }

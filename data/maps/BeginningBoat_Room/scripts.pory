@@ -1,0 +1,93 @@
+mapscripts BeginningBoat_Room_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [ 
+        VAR_GAME_PROGRESS, GP_NOT_STARTED: BeginningBoat_Room_JumpOutOfBed
+    ]
+}
+
+script BeginningBoat_Room_Bag {
+    lock
+    message("Gameplay settings.\nThese can't be changed later.")
+    multichoice(25, 5, MULTI_STARTER_SETTINGS, 0)
+    closemessage
+    switch(var(VAR_RESULT)) {
+        case 0: goto(StarterSettings_LEVELCAP)
+        case 1: goto(StarterSettings_EXPSHARE)
+        case 2: goto(StarterSettings_EXPBOOST)
+    }
+    releaseall
+}
+
+script StarterSettings_LEVELCAP {
+    if (flag(FLAG_SHARED_EXP)) {
+        message("Levelcaps stop you from over levelling.\nCurrently ON.")
+        multichoice(25, 5, MULTI_ONOFF, 0)
+        closemessage
+        if (var(VAR_RESULT) == 1) {
+            setvar(VAR_CURRENT_LEVEL_CAP, 100)
+            msgbox("Levelcaps have been disabled.", MSGBOX_DEFAULT)
+        }
+    } else {
+        message("Levelcaps stop you from over levelling.\nCurrently OFF.")
+        multichoice(25, 5, MULTI_ONOFF, 0)
+        closemessage
+        if (var(VAR_RESULT) == 0) {
+            call(Generic_UPDATE_LEVELCAP)
+            msgbox("Levelcaps have been enabled.", MSGBOX_DEFAULT)
+        }
+    }
+    goto(BeginningBoat_Room_Bag)
+}
+
+script StarterSettings_EXPSHARE {
+    if (flag(FLAG_SHARED_EXP)) {
+        message("Party-wide exp is currently ON.")
+        multichoice(25, 5, MULTI_ONOFF, 0)
+        closemessage
+        if (var(VAR_RESULT) == 1) {
+            clearflag(FLAG_SHARED_EXP)
+            msgbox("Party-wide exp has been disabled.", MSGBOX_DEFAULT)
+        }
+    } else {
+        message("Party-wide exp is currently OFF.")
+        multichoice(25, 5, MULTI_ONOFF, 0)
+        closemessage
+        if (var(VAR_RESULT) == 0) {
+            setflag(FLAG_SHARED_EXP)
+            msgbox("Party-wide exp has been enabled.", MSGBOX_DEFAULT)
+        }
+    }
+    goto(BeginningBoat_Room_Bag)
+}
+
+script StarterSettings_EXPBOOST {
+    msgbox("Exp gain is always increased compared\nto vanilla to reduce grind.\pDo you wish to increase it further?\n( 1.5x -> 2x )", MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        setvar(VAR_INCREASE_EXP_GAIN, 100)
+        msgbox("Exp gain is increased further.", MSGBOX_DEFAULT)
+    } else { 
+        setvar(VAR_INCREASE_EXP_GAIN, 50)
+        msgbox("Exp gain has normal increase.", MSGBOX_DEFAULT)
+    }
+    goto(BeginningBoat_Room_Bag)
+}
+
+script BeginningBoat_Room_WarpTrigger {
+    msgbox("Are you finished in here?", MSGBOX_YESNO)
+    if (var(VAR_RESULT) == YES) {
+        warp(MAP_BEGINNING_BOAT, 0)
+    } else {
+        applymovement(LOCALID_PLAYER, moves(walk_up))
+        waitmovement(0)
+    }
+    releaseall
+}
+
+script BeginningBoat_Room_JumpOutOfBed {
+    lock
+    setvar(VAR_GAME_PROGRESS, GP_BOAT_ROOM)
+    playse(SE_LEDGE)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(set_visible jump_left delay_16))
+    waitmovement(0)
+    call(Generic_DefaultSettings)
+    release
+}

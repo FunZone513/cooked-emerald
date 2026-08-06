@@ -284,8 +284,8 @@
 #define VAR_WILD_BATTLE_CHANCE                          VAR_DEWFORD_TOWN_STATE
 #define VAR_INCREASE_EXP_GAIN                           VAR_LAVARIDGE_TOWN_STATE
 #define VAR_TOTAL_PKMN_CENTRE_HEALING                   VAR_CURRENT_SECRET_BASE // 4055
+#define VAR_GAME_PROGRESS                               VAR_VERDANTURF_TOWN_STATE
 /* 
-#define VAR_VERDANTURF_TOWN_STATE                        0x4055 // Unused Var
 #define VAR_PACIFIDLOG_TOWN_STATE                        0x4056 // Unused Var
 #define VAR_PETALBURG_CITY_STATE                         0x4057
 #define VAR_SLATEPORT_CITY_STATE                         0x4058

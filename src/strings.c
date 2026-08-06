@@ -43,7 +43,7 @@ ALIGNED(4) const u8 gText_PickCancel[] = _("{DPAD_UPDOWN}PICK {A_BUTTON}{B_BUTTO
 ALIGNED(4) const u8 gText_AButtonExit[] = _("{A_BUTTON}EXIT");
 const u8 gText_Boy[] = _("BOY");
 const u8 gText_Girl[] = _("GIRL");
-const u8 gText_ThisIsAPokemon[] = _("This is what we call a “POKéMON.”{PAUSE 96}\p");
+const u8 gText_ThisIsAPokemon[] = _("Oh shi-{PAUSE 96}\p");
 const u8 gText_5MarksPokemon[] = _("????? POKéMON");
 const u8 gText_UnkHeight[] = _("{CLEAR_TO 12}??'??”");
 const u8 gText_UnkHeightMetric[] = _("???.? m");
@@ -1378,3 +1378,7 @@ const u8 gText_SubQuest2_Desc17[] = _("Description Sub 17");
 const u8 gText_SubQuest2_Desc18[] = _("Description Sub 18");
 const u8 gText_SubQuest2_Desc19[] = _("Description Sub 19");
 const u8 gText_SubQuest2_Desc20[] = _("Description Sub 20");
+
+const u8 gText_StarterSettingsExpShare[] = _("Exp Share");
+const u8 gText_StarterSettingsExpBoost[] = _("Exp Boost");
+const u8 gText_StarterSettingsLevelcap[] = _("Level Caps");

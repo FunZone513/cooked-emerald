@@ -52,6 +52,7 @@
 #include "constants/items.h"
 #include "difficulty.h"
 #include "follower_npc.h"
+#include "event_data.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
 extern const u8 EventScript_ResetAllMapFlagsFrlg[];
@@ -140,7 +141,8 @@ static void WarpToTruck(void)
     if (IS_FRLG)
         SetWarpDestination(MAP_GROUP(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), MAP_NUM(MAP_PALLET_TOWN_PLAYERS_HOUSE_2F), WARP_ID_NONE, 6, 6);
     else
-        SetWarpDestination(MAP_GROUP(MAP_INSIDE_OF_TRUCK), MAP_NUM(MAP_INSIDE_OF_TRUCK), WARP_ID_NONE, -1, -1);
+        FlagSet(FLAG_SPAWN_INVISIBLE);
+        SetWarpDestination(MAP_GROUP(MAP_BEGINNING_BOAT_OCEAN), MAP_NUM(MAP_BEGINNING_BOAT_OCEAN), WARP_ID_NONE, 58, 6);
     WarpIntoMap();
 }
 

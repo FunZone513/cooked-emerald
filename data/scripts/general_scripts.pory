@@ -7,36 +7,28 @@ script Generic_InfoNPC {
 
 //MARK: Default Settings
 script Generic_DefaultSettings {
-    setflag(FLAG_SYS_B_DASH)
     setflag(FLAG_SHARED_EXP)
     call(Generic_UPDATE_LEVELCAP)
-    call(Generic_IncreaseExpGain)
-
-    //! this is for testing
-    givemon(SPECIES_BALTOY, 5)
-    setflag(FLAG_SYS_POKEMON_GET)
-    //setflag(FLAG_SYS_QUEST_MENU_GET)
-    setflag(FLAG_SYS_POKEDEX_GET)
-    special(SetUnlockedPokedexFlags)
-    //setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
-    //setflag(FLAG_NOCLIP)
-    //!
+    
+    // % increase. EG: 20 = 1.2x experience. Set to 0 for no bonus.
+    setvar(VAR_INCREASE_EXP_GAIN, 100)
 
     // % chance
     setvar(VAR_WILD_BATTLE_CHANCE, 15)
-    
+
+    //! this is for testing
+    //givemon(SPECIES_BALTOY, 5)
+    //setflag(FLAG_SYS_QUEST_MENU_GET)
+    //setflag(FLAG_SYS_POKEDEX_GET)
+    //special(SetUnlockedPokedexFlags)
+    //setflag(FLAG_RECEIVED_POKEDEX_FROM_BIRCH)
+    //setflag(FLAG_NOCLIP)
+    //!
     releaseall
 }
 
-script Generic_IncreaseExpGain {
-    //! this is 2.0x for playtesting purposes
-    setvar(VAR_INCREASE_EXP_GAIN, 100)
-
-    // % increase. EG: 20 = 1.2x experience. Set to 0 for no bonus.
-    //setvar(VAR_INCREASE_EXP_GAIN, 50) 
-}
-
 //MARK: Level Cap
+// change the flags to whatever gates level progression
 script Generic_GetBadgeCount {
     setvar(VAR_RESULT, 0)
     if (flag(FLAG_BADGE01_GET)) { addvar(VAR_RESULT, 1) }
@@ -127,7 +119,6 @@ script EventScript_SpecialWildEncounter {
         applymovement(OBJ_EVENT_ID_PLAYER, moves(emote_exclamation_mark))
         waitmovement(0)
         waitse
-        addobject(LOCALID_SPECIAL_ENCOUNTER_MON)
         getobjectfacingdirection(OBJ_EVENT_ID_PLAYER, VAR_TEMP_A)
         switch(var(VAR_TEMP_A)) {
             case DIR_NORTH: applymovement(LOCALID_SPECIAL_ENCOUNTER_MON, moves(set_visible jump_in_place_down))

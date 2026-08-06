@@ -1122,6 +1122,18 @@ static const struct MenuAction sMultichoiceList_HOF_Eggs_Victories_Quit[] = {
     {gText_ShopQuit}
 };
 
+static const struct MenuAction sMultichoiceList_StarterSettings[] = {
+    {gText_StarterSettingsLevelcap},
+    {gText_StarterSettingsExpBoost},
+    {gText_StarterSettingsExpShare},
+    //{gText_Exit}
+};
+
+static const struct MenuAction sMultichoiceList_OnOff[] = {
+    {COMPOUND_STRING("ON")},
+    {COMPOUND_STRING("OFF")}
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -1294,6 +1306,8 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_HOF_VICTORIES_QUIT]                         = MULTICHOICE(sMultichoiceList_HOF_Victories_Quit),
     [MULTI_EGGS_VICTORIES_QUIT]                        = MULTICHOICE(sMultichoiceList_Eggs_Victories_Quit),
     [MULTI_HOF_EGGS_VICTORIES_QUIT]                    = MULTICHOICE(sMultichoiceList_HOF_Eggs_Victories_Quit),
+    [MULTI_STARTER_SETTINGS]                           = MULTICHOICE(sMultichoiceList_StarterSettings),
+    [MULTI_ONOFF]                                      = MULTICHOICE(sMultichoiceList_OnOff)
 };
 
 const u8 *const gStdStrings[] =
