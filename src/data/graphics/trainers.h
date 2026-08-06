@@ -475,6 +475,9 @@ const u16 gTrainerPalette_PainterFrlg[] = INCGFX_U16("graphics/trainers/palettes
 const u32 gTrainerFrontPic_RivalRichard[] = INCGFX_U32("graphics/trainers/front_pics/rival_richard.png", ".4bpp.smol");
 const u16 gTrainerPalette_RivalRichard[] = INCGFX_U16("graphics/trainers/front_pics/rival_richard.png", ".gbapal");
 
+const u32 gTrainerFrontPic_Medium[] = INCGFX_U32("graphics/trainers/front_pics/medium.png", ".4bpp.smol");
+const u16 gTrainerPalette_Medium[] = INCGFX_U16("graphics/trainers/front_pics/medium.png", ".gbapal");
+
 static const u8 gTrainerBackPic_None[] = INCGFX_U8("graphics/trainers/back_pics/none.png", ".4bpp");
 const u8 gTrainerBackPic_Brendan[] = INCGFX_U8("graphics/trainers/back_pics/brendan.png", ".4bpp");
 const u8 gTrainerBackPic_May[] = INCGFX_U8("graphics/trainers/back_pics/may.png", ".4bpp");
@@ -1239,5 +1242,9 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_RIVAL_RICHARD] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_RivalRichard, gTrainerPalette_RivalRichard),
+    },
+    [TRAINER_PIC_MEDIUM] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_Medium, gTrainerPalette_Medium),
     },
 };
