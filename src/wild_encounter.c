@@ -869,22 +869,56 @@ void RockSmashWildEncounter(void)
 
 // does the setup stuff for when a special encounter is triggered
 void SetupSpecialWildEncounter(void) {
-
-    // clearing the interact tile
     s16 x, y;
-    u8 metatileBehavior;
+    u8 nMB[4]; // neighbouring metatiles    
 
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
-    metatileBehavior = MapGridGetMetatileBehaviorAt(x, y);
+    nMB[0] = MapGridGetMetatileBehaviorAt(x, y-1); // NORTH
+    nMB[1] = MapGridGetMetatileBehaviorAt(x, y+1); // SOUTH
+    nMB[2] = MapGridGetMetatileBehaviorAt(x+1, y); // EAST
+    nMB[3] = MapGridGetMetatileBehaviorAt(x-1, y); // WEST
 
-    if (MetatileBehavior_IsSpecialEncounterSand(metatileBehavior) == TRUE) {
-        MapGridSetMetatileIdAt(x, y, METATILE_General_SandPit_Center);
+    // loop through the neighbours, find which behaviour is the most common
+    // not elegant, but functional at this super low scale
+    u8 i, j, highest, count;
+    u8 metatileBehavior;
+    for (i = 0; i < 4, i++) {
+        count = 1;
 
-    } else if (MetatileBehavior_IsSpecialEncounterAsh(metatileBehavior) == TRUE) {
-        MapGridSetMetatileIdAt(x, y, METATILE_Fallarbor_AshField);
+        // compare the current behaviour to every other in the list to count multiples
+        for (j = i+1; j < 4, j++) {
+            if (nMB[i] == nMB[j])
+                count++;
+        }
 
-    } else {
-        MapGridSetMetatileIdAt(x, y, METATILE_General_Grass);
+        // replace the highest frequency behaviour
+        if (count > best) {
+            best = count;
+            metatileBehavior = nMB[i];
+        }
+    }
+
+    // clearing the interact tile
+    switch (metatileBehavior) {
+        // ash piles
+        case MB_NORMAL: // maybe check the tile id for what to set it to?
+            MapGridSetMetatileIdAt(x, y, METATILE_Fallarbor_AshField);
+            break;
+
+        // sand piles on beach / in desert
+        case MB_SAND:
+        case MB_OCEAN_WATER:
+        case MB_SHALLOW_WATER:
+            MapGridSetMetatileIdAt(x, y, METATILE_General_Sandpit_Center);
+            break;
+        
+        // sand piles in cave
+        case MB_CAVE:
+            MapGridSetMetatileIdAt(x, y, METATILE_Cave_Sandpit_Center);
+            break;
+        
+        // I have no idea
+        default: MapGridSetMetatileIdAt(x, y, METATILE_General_Grass);
     }
 
     // get the species and level from map data

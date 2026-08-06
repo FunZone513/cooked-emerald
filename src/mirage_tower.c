@@ -115,9 +115,9 @@ static const struct MetatileCoords sInvisibleMirageTowerMetatiles[] =
     {18, 57, METATILE_Mauville_DeepSand_BottomMid},
     {19, 57, METATILE_Mauville_DeepSand_BottomMid},
     {20, 57, METATILE_Mauville_DeepSand_BottomMid},
-    {18, 58, METATILE_General_SandPit_Center},
-    {19, 58, METATILE_General_SandPit_Center},
-    {20, 58, METATILE_General_SandPit_Center},
+    {18, 58, METATILE_General_Sandpit_Center},
+    {19, 58, METATILE_General_Sandpit_Center},
+    {20, 58, METATILE_General_Sandpit_Center},
 };
 
 static const union AnimCmd sAnim_FallingFossil[] =

@@ -199,7 +199,5 @@ bool8 MetatileBehavior_IsBurglary(u8 metatileBehavior);
 bool8 MetatileBehavior_IsTrainerTowerMonitor(u8 metatileBehavior);
 bool8 MetatileBehavior_IsOmnidirectionalJump(u8 metatileBehavior);
 bool8 MetatileBehavior_IsSpecialEncounterTile(u8 metatileBehavior);
-bool8 MetatileBehavior_IsSpecialEncounterSand(u8 metatileBehavior);
-bool8 MetatileBehavior_IsSpecialEncounterAsh(u8 metatileBehavior);
 
 #endif // GUARD_METATILE_BEHAVIOR_H

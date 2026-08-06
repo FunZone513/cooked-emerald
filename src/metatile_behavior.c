@@ -1835,23 +1835,7 @@ bool8 MetatileBehavior_IsOmnidirectionalJump(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsSpecialEncounterTile(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_SPECIAL_ENCOUNTER_SAND || metatileBehavior == MB_SPECIAL_ENCOUNTER_ASH)
-        return TRUE;
-    else
-        return FALSE;
-}
-
-bool8 MetatileBehavior_IsSpecialEncounterSand(u8 metatileBehavior)
-{
-    if (metatileBehavior == MB_SPECIAL_ENCOUNTER_SAND)
-        return TRUE;
-    else
-        return FALSE;
-}
-
-bool8 MetatileBehavior_IsSpecialEncounterAsh(u8 metatileBehavior)
-{
-    if (metatileBehavior == MB_SPECIAL_ENCOUNTER_ASH)
+    if (metatileBehavior == MB_SPECIAL_ENCOUNTER)
         return TRUE;
     else
         return FALSE;
