@@ -2295,6 +2295,10 @@ bool32 CanAbilityAbsorbMove(struct DamageContext *ctx)
                 battleScript = BattleScript_AbilityProtectedTarget;
         }
         break;
+    case ABILITY_WATER_COMPACTION:
+        if (ctx->moveType == TYPE_WATER)
+            battleScript = AbsorbedByStatIncreaseAbility(ctx, STAT_DEF, 2);
+        break;
     default:
         break;
     }
@@ -3795,18 +3799,6 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             {
                 gEffectBattler = gBattlerAbility = battler;
                 SetStatChange(battler, STAT_SPEED, 1);
-                BattleScriptCall(BattleScript_AbilityStatChange);
-                effect++;
-            }
-            break;
-        case ABILITY_WATER_COMPACTION:
-            if (IsBattlerTurnDamaged(battler, EXCLUDING_SUBSTITUTES)
-             && IsBattlerAlive(battler)
-             && moveType == TYPE_WATER
-             && CompareStat(battler, STAT_DEF, MAX_STAT_STAGE, CMP_LESS_THAN, gLastUsedAbility))
-            {
-                gEffectBattler = gBattlerAbility = battler;
-                SetStatChange(battler, STAT_DEF, 2);
                 BattleScriptCall(BattleScript_AbilityStatChange);
                 effect++;
             }

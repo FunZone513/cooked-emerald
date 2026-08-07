@@ -1471,7 +1471,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     {
         .name = _("Water Compaction"),
         .description = COMPOUND_STRING("Water boosts Defense."),
-        .aiRating = 4,
+        .aiRating = 7,
     },
 
     [ABILITY_MERCILESS] =
