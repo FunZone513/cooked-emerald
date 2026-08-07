@@ -1516,15 +1516,15 @@
 //MARK: Misc Flags
 #define FLAG_BEAT_HORIZON_PORT_KIDS                 (SYSTEM_FLAGS + 0x85)
 #define FLAG_BEAT_ROUTE1_OW_MON                     (SYSTEM_FLAGS + 0x86)
-#define FLAG_CUT_ROUTE3_TREE_L                      (SYSTEM_FLAGS + 0x87) // Unused Flag
-#define FLAG_CUT_ROUTE3_TREE_R                      (SYSTEM_FLAGS + 0x88) // Unused Flag
-#define FLAG_HIDE_ROUTE3_GIRL                       (SYSTEM_FLAGS + 0x89) // Unused Flag
-#define FLAG_TEST_FISHING                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
-#define FLAG_TEST_FISHING_CAUGHT                    (SYSTEM_FLAGS + 0x8B) // Unused Flag
-#define FLAG_TEST_FISHING_TALKED                    (SYSTEM_FLAGS + 0x8C) // Unused Flag
-#define FLAG_OPEN_DIGGERS_HUT                       (SYSTEM_FLAGS + 0x8D) // Unused Flag
-#define FLAG_BEAT_DIGGERS_HUT_RICHARD               (SYSTEM_FLAGS + 0x8E) // Unused Flag
-#define FLAG_UNUSED_0x8EF                           (SYSTEM_FLAGS + 0x8F) // Unused Flag
+#define FLAG_CUT_ROUTE3_TREE_L                      (SYSTEM_FLAGS + 0x87)
+#define FLAG_CUT_ROUTE3_TREE_R                      (SYSTEM_FLAGS + 0x88) 
+#define FLAG_HIDE_ROUTE3_GIRL                       (SYSTEM_FLAGS + 0x89)
+#define FLAG_TEST_FISHING                           (SYSTEM_FLAGS + 0x8A)
+#define FLAG_TEST_FISHING_CAUGHT                    (SYSTEM_FLAGS + 0x8B)
+#define FLAG_TEST_FISHING_TALKED                    (SYSTEM_FLAGS + 0x8C)
+#define FLAG_OPEN_DIGGERS_HUT                       (SYSTEM_FLAGS + 0x8D)
+#define FLAG_BEAT_DIGGERS_HUT_RICHARD               (SYSTEM_FLAGS + 0x8E)
+#define FLAG_HIDE_HORIZON_PORT_RICHARD              (SYSTEM_FLAGS + 0x8F)
 #define FLAG_UNUSED_0x8F0                           (SYSTEM_FLAGS + 0x90) // Unused Flag
 #define FLAG_UNUSED_0x8F1                           (SYSTEM_FLAGS + 0x91) // Unused Flag
 #define FLAG_UNUSED_0x8F2                           (SYSTEM_FLAGS + 0x92) // Unused Flag

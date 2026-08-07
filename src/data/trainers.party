@@ -84,7 +84,7 @@ Music: Male
 Double Battle: No
 */
 
-=== TRAINER_RIVAL_RICHARD_1 ===
+=== TRAINER_HORIZON_PORT_RICHARD ===
 Name: RICHARD
 Class: Rival Richard
 Pic: Rival Richard
@@ -92,8 +92,10 @@ Gender: Male
 Music: Male
 AI: Rival
 
-Deino
+Deino (M)
 Level: 5
+- Tackle
+- Focus Energy
 
 === TRAINER_HORIZON_PORT_FIRE ===
 Name: ASHLEY
@@ -519,13 +521,13 @@ Gender: Male
 Music: Male
 AI: Rival
 
-Corphish
+Corphish (M)
 Level: 13
 
-Shroomish
+Shroomish (M)
 Level: 13
 
-Deino
+Deino (M)
 Level: 15
 
 

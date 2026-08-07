@@ -276,7 +276,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_REPEL",
+      "trainer_sight_or_berry_tree_id": "ITEM_SUPER_REPEL",
       "script": "Common_EventScript_FindItemSand",
       "flag": "FLAG_ITEM_HORIZON_PORT_4"
     },
@@ -331,6 +331,75 @@
       "trainer_sight_or_berry_tree_id": "LIGHT_TYPE_BALL",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_HORIZONPORT_RICHARD",
+      "graphics_id": "OBJ_EVENT_GFX_RIVAL_RICHARD",
+      "x": 24,
+      "y": 35,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_A"
+    },
+    {
+      "local_id": "LOCALID_HORIZONPORT_CRUSHGIRL",
+      "graphics_id": "OBJ_EVENT_GFX_CRUSH_GIRL",
+      "x": 21,
+      "y": 35,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_A"
+    },
+    {
+      "local_id": "LOCALID_HORIZONPORT_DEINO",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(DEINO)",
+      "x": 23,
+      "y": 35,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_JOG_IN_PLACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_A"
+    },
+    {
+      "local_id": "LOCALID_HORIZONPORT_RALTS",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(RALTS)",
+      "x": 22,
+      "y": 35,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_JOG_IN_PLACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_A"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(KRABBY)",
+      "x": 38,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
+      "movement_range_x": 2,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "SPECIES_KRABBY",
+      "script": "Generic_POKEMON_INTERACT",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -363,7 +432,71 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_TEMP_A",
+      "var_value": "1",
+      "script": "HorizonPort_RichardBattle"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_TEMP_A",
+      "var_value": "1",
+      "script": "HorizonPort_RichardBattle"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_TEMP_A",
+      "var_value": "1",
+      "script": "HorizonPort_RichardBattle"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_TEMP_A",
+      "var_value": "1",
+      "script": "HorizonPort_RichardBattle"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_TEMP_A",
+      "var_value": "1",
+      "script": "HorizonPort_RichardBattle"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_TEMP_A",
+      "var_value": "1",
+      "script": "HorizonPort_RichardBattle"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_TEMP_A",
+      "var_value": "1",
+      "script": "HorizonPort_RichardBattle"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

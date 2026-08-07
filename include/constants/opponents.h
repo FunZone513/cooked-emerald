@@ -4,7 +4,7 @@
 #include "constants/battle_partner.h"
 #include "constants/opponents_frlg.h"
 
-#define TRAINER_RIVAL_RICHARD_1                 0
+#define TRAINER_HORIZON_PORT_RICHARD            0
 #define TRAINER_HORIZON_PORT_FIRE               1
 #define TRAINER_HORIZON_PORT_WATER              2
 #define TRAINER_HORIZON_PORT_GRASS              3
