@@ -4348,7 +4348,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
-        .abilities = { ABILITY_WATER_COMPACTION, ABILITY_NONE, ABILITY_SAND_VEIL },
+        .abilities = { ABILITY_WATER_COMPACTION, ABILITY_SAND_SPIT, ABILITY_NONE },
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Sandygast"),
         .cryId = CRY_SANDYGAST,
@@ -4397,7 +4397,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .levelUpLearnset = sSandygastLevelUpLearnset,
         .teachableLearnset = sSandygastTeachableLearnset,
         .eggMoveLearnset = sSandygastEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 42, SPECIES_PALOSSAND}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 34, SPECIES_PALOSSAND}),
     },
 
     [SPECIES_PALOSSAND] =
@@ -4418,7 +4418,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
-        .abilities = { ABILITY_WATER_COMPACTION, ABILITY_NONE, ABILITY_SAND_VEIL },
+        .abilities = { ABILITY_WATER_COMPACTION, ABILITY_SAND_STREAM, ABILITY_NONE },
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Palossand"),
         .cryId = CRY_PALOSSAND,
@@ -4704,7 +4704,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .friendship = STANDARD_FRIENDSHIP,                                  \
         .growthRate = GROWTH_MEDIUM_SLOW,                                   \
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),                     \
-        .abilities = { ABILITY_SHIELDS_DOWN, ABILITY_NONE, ABILITY_NONE },  \
+        .abilities = { ABILITY_SHIELDS_DOWN, ABILITY_SHIELDS_DOWN, ABILITY_NONE },  \
         .bodyColor = color,                                                 \
         .noFlip = TRUE,                                                     \
         .speciesName = _("Minior"),                                         \
@@ -4719,6 +4719,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         FOOTPRINT(Minior)                                                   \
         .levelUpLearnset = sMiniorLevelUpLearnset,                          \
         .teachableLearnset = sMiniorTeachableLearnset,                      \
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_MOON_STONE, SPECIES_LUNATONE}, {EVO_ITEM, ITEM_SUN_STONE, SPECIES_SOLROCK}),    \
         .formSpeciesIdTable = sMiniorFormSpeciesIdTable
 
 #define MINIOR_METEOR_SPECIES_INFO(Form, heldItem)          \
@@ -4770,7 +4771,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .baseHP        = 60,                                    \
         .baseAttack    = 100,                                   \
         .baseDefense   = 60,                                    \
-        .baseSpeed     = 120,                                   \
+        .baseSpeed     = 100,                                   \
         .baseSpAttack  = 100,                                   \
         .baseSpDefense = 60,                                    \
         .itemCommon = heldItem,                                 \

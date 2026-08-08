@@ -6651,6 +6651,14 @@ static void PrintEvolutionTargetSpeciesAndMethod(u8 taskId, enum Species species
                 case IF_MIN_FRIENDSHIP:
                     StringAppend(gStringVar4, COMPOUND_STRING("{UP_ARROW_2}friendship"));
                     break;
+                case IF_MIN_LEVEL:
+                    StringAppend(gStringVar4, COMPOUND_STRING("{LV}{UP_ARROW}"));
+                    if (evolutions[i].params[j].arg1 > 1)
+                    {
+                        ConvertIntToDecimalStringN(gStringVar2, evolutions[i].params[j].arg1, STR_CONV_MODE_LEFT_ALIGN, EVO_SCREEN_LVL_DIGITS); //level
+                        StringAppend(gStringVar4, gStringVar2);
+                    }
+                    break;
                 case IF_ATK_GT_DEF:
                     StringAppend(gStringVar4, COMPOUND_STRING("Atk > Def"));
                     break;

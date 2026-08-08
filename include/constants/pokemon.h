@@ -281,6 +281,7 @@ enum EvolutionConditions {
     IF_TIME,                            // It is currently the specific time of day.
     IF_NOT_TIME,                        // It is NOT currently the specific time of day.
     IF_MIN_FRIENDSHIP,                  // The Pokémon has the defined amount of Friendship.
+    IF_MIN_LEVEL,                       // The Pokémon is at least the given level.
     IF_ATK_GT_DEF,                      // The Pokémon's Attack is greater than its Defense stat.
     IF_ATK_EQ_DEF,                      // The Pokémon's Attack is equal to its Defense stat.
     IF_ATK_LT_DEF,                      // The Pokémon's Attack is lower than its Defense stat.
