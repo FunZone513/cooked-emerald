@@ -50,15 +50,27 @@ script Route3_DiggersHut_Back_RichardFight {
     applymovement(LOCALID_RICHARD_DIGGERSHUT, moves(walk_fast_left, walk_fast_up))
     waitmovement(0)
     savebgm(MUS_RG_RIVAL_EXIT)
-    trainerbattle_no_intro(TRAINER_DIGGERS_HUT_RICHARD, "What? Not again!\nHow are you doing that!?")
-    msgbox(
-        "I bet you think you're all that,\ndefeating me again.\p"
-        "Next time I'll get some better Pokemon,\nthen we'll see who's stronger.\p"
-        "Tell me your name, that way I'll at least\nknow what to carve on your gravestone\lafter you die of shame.\p"
-        "...\p"
-        "{PLAYER}? Pfft.\nStupid name for a stupid person.\p"
-        "Your luck can only carry you so far,\n'{PLAYER}'."
-    , MSGBOX_AUTOCLOSE)
+    if (defeated(TRAINER_HORIZON_PORT_RICHARD)) {
+        trainerbattle_no_intro(TRAINER_DIGGERS_HUT_RICHARD, "What? Not again!\nHow are you doing that!?")
+        msgbox(
+            "I bet you think you're all that,\ndefeating me again.\p"
+            "Next time I'll get some better Pokemon,\nthen we'll see who's stronger.\p"
+            "Tell me your name, that way I'll at least\nknow what to carve on your gravestone\lafter you die of shame.\p"
+            "...\p"
+            "{PLAYER}? Pfft.\nStupid name for a stupid person.\p"
+            "Your luck can only carry you so far,\n'{PLAYER}'."
+        , MSGBOX_AUTOCLOSE)
+    } else {
+        trainerbattle_no_intro(TRAINER_DIGGERS_HUT_RICHARD, "What? That's not how it goes!")
+        msgbox(
+            "I bet you think you're all that,\nsomehow sneaking a win.\p"
+            "Next time I'll get some better Pokemon,\nthen we'll see who's stronger.\p"
+            "Tell me your name, that way I'll at least\nknow what to carve on your gravestone\lafter you die of shame.\p"
+            "...\p"
+            "{PLAYER}? Pfft.\nStupid name for a stupid person.\p"
+            "Your luck can only carry you so far,\n'{PLAYER}'."
+        , MSGBOX_AUTOCLOSE)
+    }
     fadedefaultbgm
     applymovement(LOCALID_RICHARD_DIGGERSHUT, moves(walk_down*5 set_invisible))
     waitmovement(0)

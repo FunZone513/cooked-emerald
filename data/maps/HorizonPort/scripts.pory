@@ -7,16 +7,13 @@ script HorizonPort_OnLoad {
         setmetatile(32, 11, METATILE_General_SandPit_Center, FALSE)
     }
 
-    if (!flag(FLAG_HIDE_HORIZON_PORT_RICHARD)) {
-        setvar(VAR_TEMP_A, 1)
-    } else {
+    if (var(VAR_GAME_PROGRESS) >= GP_HORIZON_PORT_RIVAL_ENCOUNTERED) {
         setflag(FLAG_TEMP_A)
     }
 }
 
 script HorizonPort_RichardBattle {
-    setvar(VAR_TEMP_A, 0)
-    setflag(FLAG_HIDE_HORIZON_PORT_RICHARD)
+    setvar(VAR_GAME_PROGRESS, GP_HORIZON_PORT_RIVAL_ENCOUNTERED)
     getobjectxy(LOCALID_PLAYER, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
     if (var(VAR_TEMP_1) < 22) {
         while (var(VAR_TEMP_1) < 22) {

@@ -1,4 +1,64 @@
-mapscripts RestArea1_Indoor_MapScripts {}
+mapscripts RestArea1_Indoor_MapScripts {
+    MAP_SCRIPT_ON_LOAD: RestArea1_Indoor_OnLoad
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_GAME_PROGRESS, GP_HORIZON_PORT_RIVAL_ENCOUNTERED: RestArea1_Indoor_Josie
+    ]
+}
+
+script RestArea1_Indoor_OnLoad {
+    if (var(VAR_GAME_PROGRESS) >= GP_REST_AREA_1_ENCOUNTERED ) {
+        setflag(FLAG_TEMP_A)
+    }
+}
+
+script RestArea1_Indoor_Josie {
+    lock
+    setvar(VAR_GAME_PROGRESS, GP_REST_AREA_1_ENCOUNTERED)
+    applymovement(LOCALID_RESTAREA1_JOSIE, moves(walk_right*3 face_down))
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(LOCALID_RESTAREA1_JOSIE, moves(emote_exclamation_mark))
+    waitmovement(0)
+    applymovement(LOCALID_RESTAREA1_JOSIE, moves(walk_down))
+    waitse
+    waitmovement(0)
+    msgbox(
+        "It's good to see you!\p"
+        "I hope Richard didn't give you too much\ntrouble after I left.\p"
+        "..."
+    )
+    if (defeated(TRAINER_HORIZON_PORT_RICHARD)) {
+        msgbox("You beat him?\nNice!\pI bet that really showed him!\nI wish I could've seen it.")
+    } else {
+        msgbox("He got you too did he?\nThat sucks.\pI'm sure you'll get another chance,\nI'll be rooting for you when you do!")
+    }
+    msgbox(
+        "Wait, I never got your name!\p"
+        "This needs to be fixed!\p"
+        "...\p{PLAYER}?\p"
+        "Well, it's good to officially meet you\n{PLAYER}!\p"
+        "My name's Josie!\p"
+        "We should catch up for a Pokemon Battle\nsometime soon!\pI'd offer to do one here but..."
+    )
+    closemessage
+    applymovement(LOCALID_RESTAREA1_JOSIE, moves(face_up delay_16*5 face_down))
+    waitmovement(0)
+    msgbox(
+        "We're not allowed to battle in the\nRest Areas, it's a safety rule.\p"
+        "So we'll have to meet up somewhere else!\p"
+        "I'll head out first {PLAYER},\nhope to see you soon!"
+    )
+    closemessage
+    applymovement(LOCALID_PLAYER, moves(walk_left face_right))
+    waitmovement(0)
+    applymovement(LOCALID_RESTAREA1_JOSIE, moves(walk_down))
+    waitmovement(0)
+    playse(SE_EXIT)
+    waitse
+    applymovement(LOCALID_RESTAREA1_JOSIE, moves(set_invisible))
+    waitmovement(0)
+    releaseall
+}
 
 script RestArea1_Indoor_Nurse {
     msgbox(

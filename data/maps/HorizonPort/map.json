@@ -438,8 +438,8 @@
       "x": 20,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_A",
-      "var_value": "1",
+      "var": "VAR_GAME_PROGRESS",
+      "var_value": "GP_LEFT_BOAT",
       "script": "HorizonPort_RichardBattle"
     },
     {
@@ -447,8 +447,8 @@
       "x": 21,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_A",
-      "var_value": "1",
+      "var": "VAR_GAME_PROGRESS",
+      "var_value": "GP_LEFT_BOAT",
       "script": "HorizonPort_RichardBattle"
     },
     {
@@ -456,8 +456,8 @@
       "x": 22,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_A",
-      "var_value": "1",
+      "var": "VAR_GAME_PROGRESS",
+      "var_value": "GP_LEFT_BOAT",
       "script": "HorizonPort_RichardBattle"
     },
     {
@@ -465,8 +465,8 @@
       "x": 23,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_A",
-      "var_value": "1",
+      "var": "VAR_GAME_PROGRESS",
+      "var_value": "GP_LEFT_BOAT",
       "script": "HorizonPort_RichardBattle"
     },
     {
@@ -474,8 +474,8 @@
       "x": 24,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_A",
-      "var_value": "1",
+      "var": "VAR_GAME_PROGRESS",
+      "var_value": "GP_LEFT_BOAT",
       "script": "HorizonPort_RichardBattle"
     },
     {
@@ -483,8 +483,8 @@
       "x": 25,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_A",
-      "var_value": "1",
+      "var": "VAR_GAME_PROGRESS",
+      "var_value": "GP_LEFT_BOAT",
       "script": "HorizonPort_RichardBattle"
     },
     {
@@ -492,8 +492,8 @@
       "x": 26,
       "y": 33,
       "elevation": 0,
-      "var": "VAR_TEMP_A",
-      "var_value": "1",
+      "var": "VAR_GAME_PROGRESS",
+      "var_value": "GP_LEFT_BOAT",
       "script": "HorizonPort_RichardBattle"
     }
   ],
