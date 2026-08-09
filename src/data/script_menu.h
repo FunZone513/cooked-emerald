@@ -1124,8 +1124,8 @@ static const struct MenuAction sMultichoiceList_HOF_Eggs_Victories_Quit[] = {
 
 static const struct MenuAction sMultichoiceList_StarterSettings[] = {
     {gText_StarterSettingsLevelcap},
-    {gText_StarterSettingsExpBoost},
     {gText_StarterSettingsExpShare},
+    {gText_StarterSettingsExpBoost},
     //{gText_Exit}
 };
 

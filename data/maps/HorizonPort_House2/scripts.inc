@@ -64,50 +64,78 @@ HorizonPort_House2_Scientist::
 
 HorizonPort_House2_FanDuoM::
 # 45 "data/maps/HorizonPort_House2/scripts.pory"
+	lock
+# 46 "data/maps/HorizonPort_House2/scripts.pory"
+	faceplayer
+# 47 "data/maps/HorizonPort_House2/scripts.pory"
 	checktrainerflag TRAINER_HORIZON_PORT_FAN_DUO
 	goto_if 0, HorizonPort_House2_FanDuoM_1
-# 58 "data/maps/HorizonPort_House2/scripts.pory"
-	msgbox HorizonPort_House2_FanDuoM_Text_5
+# 66 "data/maps/HorizonPort_House2/scripts.pory"
+	msgbox HorizonPort_House2_FanDuoM_Text_5, MSGBOX_NPC
 	return
 
 HorizonPort_House2_FanDuoM_1:
-# 46 "data/maps/HorizonPort_House2/scripts.pory"
+# 48 "data/maps/HorizonPort_House2/scripts.pory"
 	msgbox HorizonPort_House2_FanDuoM_Text_0, MSGBOX_YESNO
-# 47 "data/maps/HorizonPort_House2/scripts.pory"
+# 49 "data/maps/HorizonPort_House2/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq HorizonPort_House2_FanDuoM_4
-# 55 "data/maps/HorizonPort_House2/scripts.pory"
+# 63 "data/maps/HorizonPort_House2/scripts.pory"
 	msgbox HorizonPort_House2_FanDuoM_Text_4, MSGBOX_AUTOCLOSE
 	return
 
 HorizonPort_House2_FanDuoM_4:
-# 48 "data/maps/HorizonPort_House2/scripts.pory"
+# 50 "data/maps/HorizonPort_House2/scripts.pory"
+	getpartysize
+# 51 "data/maps/HorizonPort_House2/scripts.pory"
+	compare VAR_RESULT, 1
+	goto_if_gt HorizonPort_House2_FanDuoM_7
+# 59 "data/maps/HorizonPort_House2/scripts.pory"
+	msgbox HorizonPort_House2_FanDuoM_Text_3, MSGBOX_AUTOCLOSE
+	return
+
+HorizonPort_House2_FanDuoM_7:
+# 52 "data/maps/HorizonPort_House2/scripts.pory"
 	trainerbattle_double TRAINER_HORIZON_PORT_FAN_DUO, HorizonPort_House2_FanDuoM_Text_1, HorizonPort_House2_FanDuoM_Text_2, HorizonPort_House2_FanDuoM_Text_3
 	return
 
 
 HorizonPort_House2_FanDuoF::
-# 63 "data/maps/HorizonPort_House2/scripts.pory"
+# 71 "data/maps/HorizonPort_House2/scripts.pory"
+	lock
+# 72 "data/maps/HorizonPort_House2/scripts.pory"
+	faceplayer
+# 73 "data/maps/HorizonPort_House2/scripts.pory"
 	checktrainerflag TRAINER_HORIZON_PORT_FAN_DUO
 	goto_if 0, HorizonPort_House2_FanDuoF_1
-# 77 "data/maps/HorizonPort_House2/scripts.pory"
-	msgbox HorizonPort_House2_FanDuoF_Text_6
+# 93 "data/maps/HorizonPort_House2/scripts.pory"
+	msgbox HorizonPort_House2_FanDuoF_Text_6, MSGBOX_AUTOCLOSE
 	return
 
 HorizonPort_House2_FanDuoF_1:
-# 64 "data/maps/HorizonPort_House2/scripts.pory"
+# 74 "data/maps/HorizonPort_House2/scripts.pory"
 	msgbox HorizonPort_House2_FanDuoF_Text_0, MSGBOX_NPC
-# 65 "data/maps/HorizonPort_House2/scripts.pory"
+# 75 "data/maps/HorizonPort_House2/scripts.pory"
 	msgbox HorizonPort_House2_FanDuoF_Text_1, MSGBOX_YESNO
-# 66 "data/maps/HorizonPort_House2/scripts.pory"
+# 76 "data/maps/HorizonPort_House2/scripts.pory"
 	compare VAR_RESULT, YES
 	goto_if_eq HorizonPort_House2_FanDuoF_4
-# 74 "data/maps/HorizonPort_House2/scripts.pory"
+# 90 "data/maps/HorizonPort_House2/scripts.pory"
 	msgbox HorizonPort_House2_FanDuoF_Text_5, MSGBOX_AUTOCLOSE
 	return
 
 HorizonPort_House2_FanDuoF_4:
-# 67 "data/maps/HorizonPort_House2/scripts.pory"
+# 77 "data/maps/HorizonPort_House2/scripts.pory"
+	getpartysize
+# 78 "data/maps/HorizonPort_House2/scripts.pory"
+	compare VAR_RESULT, 1
+	goto_if_gt HorizonPort_House2_FanDuoF_7
+# 86 "data/maps/HorizonPort_House2/scripts.pory"
+	msgbox HorizonPort_House2_FanDuoF_Text_4, MSGBOX_AUTOCLOSE
+	return
+
+HorizonPort_House2_FanDuoF_7:
+# 79 "data/maps/HorizonPort_House2/scripts.pory"
 	trainerbattle_double TRAINER_HORIZON_PORT_FAN_DUO, HorizonPort_House2_FanDuoF_Text_2, HorizonPort_House2_FanDuoF_Text_3, HorizonPort_House2_FanDuoF_Text_4
 	return
 
@@ -156,57 +184,57 @@ HorizonPort_House2_Scientist_Text_0:
 	.string "extract one of the Carbink's gems...$"
 
 HorizonPort_House2_FanDuoM_Text_0:
-# 46 "data/maps/HorizonPort_House2/scripts.pory"
+# 48 "data/maps/HorizonPort_House2/scripts.pory"
 	.string "We like to battle newcomers to see if\nthey're up to the journey!\pCare to give it a go?$"
 
 HorizonPort_House2_FanDuoM_Text_1:
-# 50 "data/maps/HorizonPort_House2/scripts.pory"
+# 54 "data/maps/HorizonPort_House2/scripts.pory"
 	.string "That's what I like to hear!$"
 
 HorizonPort_House2_FanDuoM_Text_2:
-# 51 "data/maps/HorizonPort_House2/scripts.pory"
+# 55 "data/maps/HorizonPort_House2/scripts.pory"
 	.string "You have promise!$"
 
 HorizonPort_House2_FanDuoM_Text_3:
-# 52 "data/maps/HorizonPort_House2/scripts.pory"
+# 56 "data/maps/HorizonPort_House2/scripts.pory"
 	.string "It's only fair if you also have 2\n"
 	.string "Pokemon, we'll wait.$"
 
 HorizonPort_House2_FanDuoM_Text_4:
-# 55 "data/maps/HorizonPort_House2/scripts.pory"
+# 63 "data/maps/HorizonPort_House2/scripts.pory"
 	.string "No worries, we'll be here if you change\n"
 	.string "your mind.$"
 
 HorizonPort_House2_FanDuoM_Text_5:
-# 58 "data/maps/HorizonPort_House2/scripts.pory"
+# 66 "data/maps/HorizonPort_House2/scripts.pory"
 	.string "I hope your Pokemon are treating you\n"
 	.string "well!$"
 
 HorizonPort_House2_FanDuoF_Text_0:
-# 64 "data/maps/HorizonPort_House2/scripts.pory"
+# 74 "data/maps/HorizonPort_House2/scripts.pory"
 	.string "Hey there! You're new here right?$"
 
 HorizonPort_House2_FanDuoF_Text_1:
-# 65 "data/maps/HorizonPort_House2/scripts.pory"
+# 75 "data/maps/HorizonPort_House2/scripts.pory"
 	.string "We battle newbies to help train them,\nyou wanna go at it?$"
 
 HorizonPort_House2_FanDuoF_Text_2:
-# 69 "data/maps/HorizonPort_House2/scripts.pory"
+# 81 "data/maps/HorizonPort_House2/scripts.pory"
 	.string "Let's get this party started!$"
 
 HorizonPort_House2_FanDuoF_Text_3:
-# 70 "data/maps/HorizonPort_House2/scripts.pory"
+# 82 "data/maps/HorizonPort_House2/scripts.pory"
 	.string "What a rush!$"
 
 HorizonPort_House2_FanDuoF_Text_4:
-# 71 "data/maps/HorizonPort_House2/scripts.pory"
+# 83 "data/maps/HorizonPort_House2/scripts.pory"
 	.string "Hey hey, you need at least 2 Pokemon to\n"
 	.string "play!$"
 
 HorizonPort_House2_FanDuoF_Text_5:
-# 74 "data/maps/HorizonPort_House2/scripts.pory"
+# 90 "data/maps/HorizonPort_House2/scripts.pory"
 	.string "Next time then.$"
 
 HorizonPort_House2_FanDuoF_Text_6:
-# 77 "data/maps/HorizonPort_House2/scripts.pory"
+# 93 "data/maps/HorizonPort_House2/scripts.pory"
 	.string "You sure know how to go at it!$"

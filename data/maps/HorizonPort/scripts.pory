@@ -100,7 +100,7 @@ script HorizonPort_Sign_Market {
 script HorizonPort_Kid_Fire {
     lock
     faceplayer
-    if (!defeated(TRAINER_HORIZON_PORT_FIRE)) {
+    if (!defeated(TRAINER_HORIZON_PORT_FIRE) || var(VAR_GAME_PROGRESS) < GP_HORIZON_PORT_RIVAL_ENCOUNTERED ) {
         msgbox("He he he! You look like someone\nwho's up for a battle!", MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES) {
             trainerbattle_single(
@@ -117,7 +117,7 @@ script HorizonPort_Kid_Fire {
 script HorizonPort_Kid_Water {
     lock
     faceplayer
-    if (!defeated(TRAINER_HORIZON_PORT_WATER)) {
+    if (!defeated(TRAINER_HORIZON_PORT_WATER) || var(VAR_GAME_PROGRESS) < GP_HORIZON_PORT_RIVAL_ENCOUNTERED) {
         msgbox("A challenger!\nDo you wish to do battle?", MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES) {
             trainerbattle_single(
@@ -132,8 +132,8 @@ script HorizonPort_Kid_Water {
 script HorizonPort_Kid_Grass {
     lock
     faceplayer
-    if (!defeated(TRAINER_HORIZON_PORT_GRASS)) {
-        msgbox("You wanna have a battle?", MSGBOX_YESNO)
+    if (!defeated(TRAINER_HORIZON_PORT_GRASS) || var(VAR_GAME_PROGRESS) < GP_HORIZON_PORT_RIVAL_ENCOUNTERED) {
+        msgbox("Huh?\nYou wanna have a battle?", MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES) {
             trainerbattle_single(
                 TRAINER_HORIZON_PORT_GRASS, 
@@ -153,14 +153,18 @@ script HorizonPort_Father {
                 "And who knows when another one might\nbe on the way...\p"
                 "Oh right,\nI have something for you as thanks."
             , MSGBOX_NPC)
-            giveitem(ITEM_ORAN_BERRY, 1)
+            giveitem(ITEM_LEPPA_BERRY, 1)
             setflag(FLAG_BEAT_HORIZON_PORT_KIDS)
             msgbox("I have an abundance of these\nlaying around...", MSGBOX_NPC)
         } else {
             msgbox(format("Thanks for keeping the kids company."), MSGBOX_NPC)
         }
     } else {
-        msgbox(format("These little rascals really like battling, could you please keep them entertained so I can get some peace and quiet?"), MSGBOX_NPC)
+        if (var(VAR_GAME_PROGRESS) < GP_HORIZON_PORT_RIVAL_ENCOUNTERED) {
+            msgbox(format("I'm hoping one of the new trainers would play with my kids."))
+        } else {
+            msgbox("Say, you're a new trainer right?\pCould you battle with my kids so I\ncan get some peace and quiet?", MSGBOX_NPC)
+        }
     }
 }
 

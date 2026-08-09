@@ -20,7 +20,7 @@ script Generic_DefaultSettings {
 }
 
 //MARK: Level Cap
-// change the flags to whatever gates level progression
+// simple count of badges, basically just leftover from my old romhack
 script Generic_GetBadgeCount {
     setvar(VAR_RESULT, 0)
     if (flag(FLAG_BADGE01_GET)) { addvar(VAR_RESULT, 1) }
@@ -34,21 +34,26 @@ script Generic_GetBadgeCount {
     return
 }
 
+// goes through each "boss battle"'s thing (GP_VAR or FLAG) and updates the level cap
 script Generic_UPDATE_LEVELCAP {
-    call(Generic_GetBadgeCount)
-    
-    // this is how many badges you have, so the levelcap is offset by one (ie; 0 = first gym = 15)
-    switch(var(VAR_RESULT)) {
-        case 0: setvar(VAR_CURRENT_LEVEL_CAP, 15) break
-        case 1: setvar(VAR_CURRENT_LEVEL_CAP, 22) break
-        case 2: setvar(VAR_CURRENT_LEVEL_CAP, 30) break
-        case 3: setvar(VAR_CURRENT_LEVEL_CAP, 100) break
-        case 4: setvar(VAR_CURRENT_LEVEL_CAP, 100) break
-        case 5: setvar(VAR_CURRENT_LEVEL_CAP, 100) break
-        case 6: setvar(VAR_CURRENT_LEVEL_CAP, 100) break
-        case 7: setvar(VAR_CURRENT_LEVEL_CAP, 100) break
-        case 8: setvar(VAR_CURRENT_LEVEL_CAP, 100) break
+    // started the game -> nothing done yet, level 5
+    setvar(VAR_CURRENT_LEVEL_CAP, 5)
+
+    // fought Richard in horizon city (set to Nami's ace)
+    if (var(VAR_GAME_PROGRESS) >= GP_HORIZON_PORT_RIVAL_ENCOUNTERED) { 
+        setvar(VAR_CURRENT_LEVEL_CAP, 15) 
     }
+    
+    // beat the first gym (Set to Josie's Ace?)
+    if (flag(FLAG_BADGE01_GET)) { 
+        setvar(VAR_CURRENT_LEVEL_CAP, 18) 
+    }
+    
+    // fought Josie after first gym
+    if (var(VAR_GAME_PROGRESS) >= GP_FOREST_JOSIE_ENCOUNTERED) { 
+        setvar(VAR_CURRENT_LEVEL_CAP, 100) // idk 
+    }
+    
     return
 }
 

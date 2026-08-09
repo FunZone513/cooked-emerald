@@ -42,38 +42,54 @@ script HorizonPort_House2_Scientist {
 }
 
 script HorizonPort_House2_FanDuoM {
+    lock
+    faceplayer
     if (!defeated(TRAINER_HORIZON_PORT_FAN_DUO)) {
         msgbox("We like to battle newcomers to see if\nthey're up to the journey!\pCare to give it a go?", MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES) {
-            trainerbattle_double(
-                TRAINER_HORIZON_PORT_FAN_DUO, 
-                "That's what I like to hear!", 
-                "You have promise!",
-                format("It's only fair if you also have 2 Pokemon, we'll wait.")
-            )
+            getpartysize
+            if (var(VAR_RESULT) > 1) {
+                trainerbattle_double(
+                    TRAINER_HORIZON_PORT_FAN_DUO, 
+                    "That's what I like to hear!", 
+                    "You have promise!",
+                    format("It's only fair if you also have 2 Pokemon, we'll wait.")
+                )
+            } else {
+                msgbox(format("It's only fair if you also have 2 Pokemon, we'll wait."), MSGBOX_AUTOCLOSE)
+            }
+            
         } else {
             msgbox(format("No worries, we'll be here if you change your mind."), MSGBOX_AUTOCLOSE)
         }
     } else {
-        msgbox(format("I hope your Pokemon are treating you well!"))
+        msgbox(format("I hope your Pokemon are treating you well!"), MSGBOX_NPC)
     }
 }
 
 script HorizonPort_House2_FanDuoF {
+    lock
+    faceplayer
     if (!defeated(TRAINER_HORIZON_PORT_FAN_DUO)) {
         msgbox("Hey there! You're new here right?", MSGBOX_NPC)
         msgbox("We battle newbies to help train them,\nyou wanna go at it?", MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES) {
-            trainerbattle_double(
-                TRAINER_HORIZON_PORT_FAN_DUO, 
-                "Let's get this party started!", 
-                "What a rush!",
-                format("Hey hey, you need at least 2 Pokemon to play!")
-            )
+            getpartysize
+            if (var(VAR_RESULT) > 1) {
+                trainerbattle_double(
+                    TRAINER_HORIZON_PORT_FAN_DUO, 
+                    "Let's get this party started!", 
+                    "What a rush!",
+                    format("Hey hey, you need at least 2 Pokemon to play!")
+                )
+            } else {
+                msgbox(format("Hey hey, you need at least 2 Pokemon to play!"), MSGBOX_AUTOCLOSE)
+            }
+            
         } else {
             msgbox(format("Next time then."), MSGBOX_AUTOCLOSE)
         }
     } else {
-        msgbox(format("You sure know how to go at it!"))
+        msgbox(format("You sure know how to go at it!"), MSGBOX_AUTOCLOSE)
     }
 }

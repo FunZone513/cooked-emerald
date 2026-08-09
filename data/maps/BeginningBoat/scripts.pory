@@ -105,8 +105,8 @@ script BeginningBoat_PostStarter {
         "As we're about to Dock, I'll make it\nbrief.\p"
         "There's 4 Gyms on the island, beat them\nand collect the badges to challenge the\lleague!\p"
         "Climb to the top and you'll be the\nwinner of your adventuring cohort!\p"
-        "Remember, the Pokemon Adventure is\nand experience designed for enjoyment\lfirst and foremost!\p"
-        "Outside of legally held Trainer Battles,\nno other types of interference is\lallowed!\p"
+        "Remember, the Pokemon Adventure is\nan experience designed for enjoyment\lfirst and foremost!\p"
+        "Outside of legally held Trainer Battles,\nno other types of interference are\lallowed!\p"
         "We're all here to enjoy Pokemon\ntogether!"
     )
     waitmessage

@@ -93,6 +93,7 @@ Music: Male
 AI: Rival
 
 Deino (M)
+Modest Nature
 Level: 5
 - Tackle
 - Focus Energy
@@ -215,6 +216,24 @@ Level: 3
 
 Shroomish
 Level: 3
+
+=== TRAINER_HORIZON_PORT_FAN_DUO ===
+Name: CHAZ & LOU
+Class: Young Couple
+Pic: Cool Couple FRLG
+Gender: Male
+Music: Intense
+Double Battle: Yes
+AI: Smart Trainer
+
+Goldeen (F)
+Level: 6
+- Water Gun
+
+Makuhita (M)
+Level: 6
+- Tackle
+- Arm Thrust
 
 === TRAINER_ROUTE2_YOUNGSTER ===
 Name: HARRY

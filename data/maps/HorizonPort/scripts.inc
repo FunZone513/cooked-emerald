@@ -201,6 +201,9 @@ HorizonPort_Kid_Fire::
 # 103 "data/maps/HorizonPort/scripts.pory"
 	checktrainerflag TRAINER_HORIZON_PORT_FIRE
 	goto_if 0, HorizonPort_Kid_Fire_1
+# 103 "data/maps/HorizonPort/scripts.pory"
+	compare VAR_GAME_PROGRESS, GP_HORIZON_PORT_RIVAL_ENCOUNTERED
+	goto_if_lt HorizonPort_Kid_Fire_1
 # 113 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_Kid_Fire_Text_4, MSGBOX_NPC
 	return
@@ -210,12 +213,12 @@ HorizonPort_Kid_Fire_1:
 	msgbox HorizonPort_Kid_Fire_Text_0, MSGBOX_YESNO
 # 105 "data/maps/HorizonPort/scripts.pory"
 	compare VAR_RESULT, YES
-	goto_if_eq HorizonPort_Kid_Fire_4
+	goto_if_eq HorizonPort_Kid_Fire_6
 # 111 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_Kid_Fire_Text_3, MSGBOX_AUTOCLOSE
 	return
 
-HorizonPort_Kid_Fire_4:
+HorizonPort_Kid_Fire_6:
 # 106 "data/maps/HorizonPort/scripts.pory"
 	trainerbattle_single TRAINER_HORIZON_PORT_FIRE, HorizonPort_Kid_Fire_Text_1, HorizonPort_Kid_Fire_Text_2
 	return
@@ -229,6 +232,9 @@ HorizonPort_Kid_Water::
 # 120 "data/maps/HorizonPort/scripts.pory"
 	checktrainerflag TRAINER_HORIZON_PORT_WATER
 	goto_if 0, HorizonPort_Kid_Water_1
+# 120 "data/maps/HorizonPort/scripts.pory"
+	compare VAR_GAME_PROGRESS, GP_HORIZON_PORT_RIVAL_ENCOUNTERED
+	goto_if_lt HorizonPort_Kid_Water_1
 # 129 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_Kid_Water_Text_4, MSGBOX_NPC
 	return
@@ -238,12 +244,12 @@ HorizonPort_Kid_Water_1:
 	msgbox HorizonPort_Kid_Water_Text_0, MSGBOX_YESNO
 # 122 "data/maps/HorizonPort/scripts.pory"
 	compare VAR_RESULT, YES
-	goto_if_eq HorizonPort_Kid_Water_4
+	goto_if_eq HorizonPort_Kid_Water_6
 # 128 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_Kid_Water_Text_3, MSGBOX_AUTOCLOSE
 	return
 
-HorizonPort_Kid_Water_4:
+HorizonPort_Kid_Water_6:
 # 123 "data/maps/HorizonPort/scripts.pory"
 	trainerbattle_single TRAINER_HORIZON_PORT_WATER, HorizonPort_Kid_Water_Text_1, HorizonPort_Kid_Water_Text_2
 	return
@@ -257,6 +263,9 @@ HorizonPort_Kid_Grass::
 # 135 "data/maps/HorizonPort/scripts.pory"
 	checktrainerflag TRAINER_HORIZON_PORT_GRASS
 	goto_if 0, HorizonPort_Kid_Grass_1
+# 135 "data/maps/HorizonPort/scripts.pory"
+	compare VAR_GAME_PROGRESS, GP_HORIZON_PORT_RIVAL_ENCOUNTERED
+	goto_if_lt HorizonPort_Kid_Grass_1
 # 144 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_Kid_Grass_Text_4, MSGBOX_NPC
 	return
@@ -266,12 +275,12 @@ HorizonPort_Kid_Grass_1:
 	msgbox HorizonPort_Kid_Grass_Text_0, MSGBOX_YESNO
 # 137 "data/maps/HorizonPort/scripts.pory"
 	compare VAR_RESULT, YES
-	goto_if_eq HorizonPort_Kid_Grass_4
+	goto_if_eq HorizonPort_Kid_Grass_6
 # 143 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_Kid_Grass_Text_3, MSGBOX_AUTOCLOSE
 	return
 
-HorizonPort_Kid_Grass_4:
+HorizonPort_Kid_Grass_6:
 # 138 "data/maps/HorizonPort/scripts.pory"
 	trainerbattle_single TRAINER_HORIZON_PORT_GRASS, HorizonPort_Kid_Grass_Text_1, HorizonPort_Kid_Grass_Text_2
 	return
@@ -283,7 +292,10 @@ HorizonPort_Father::
 	goto_if 1, HorizonPort_Father_4
 HorizonPort_Father_2:
 # 163 "data/maps/HorizonPort/scripts.pory"
-	msgbox HorizonPort_Father_Text_3, MSGBOX_NPC
+	compare VAR_GAME_PROGRESS, GP_HORIZON_PORT_RIVAL_ENCOUNTERED
+	goto_if_lt HorizonPort_Father_11
+# 166 "data/maps/HorizonPort/scripts.pory"
+	msgbox HorizonPort_Father_Text_4, MSGBOX_NPC
 	return
 
 HorizonPort_Father_1:
@@ -309,132 +321,137 @@ HorizonPort_Father_8:
 # 150 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_Father_Text_0, MSGBOX_NPC
 # 156 "data/maps/HorizonPort/scripts.pory"
-	giveitem ITEM_ORAN_BERRY, 1
+	giveitem ITEM_LEPPA_BERRY, 1
 # 157 "data/maps/HorizonPort/scripts.pory"
 	setflag FLAG_BEAT_HORIZON_PORT_KIDS
 # 158 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_Father_Text_1, MSGBOX_NPC
 	return
 
+HorizonPort_Father_11:
+# 164 "data/maps/HorizonPort/scripts.pory"
+	msgbox HorizonPort_Father_Text_3
+	return
+
 
 HorizonPort_OldMan::
-# 168 "data/maps/HorizonPort/scripts.pory"
+# 172 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_OldMan_Text_0, MSGBOX_NPC
 	return
 
 
 HorizonPort_OldMan2::
-# 172 "data/maps/HorizonPort/scripts.pory"
+# 176 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_OldMan2_Text_0, MSGBOX_NPC
 	return
 
 
 HorizonPort_Sailor::
-# 176 "data/maps/HorizonPort/scripts.pory"
+# 180 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_Sailor_Text_0, MSGBOX_NPC
 	return
 
 
 HorizonPort_Sailor2::
-# 180 "data/maps/HorizonPort/scripts.pory"
+# 184 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_Sailor2_Text_0, MSGBOX_NPC
 	return
 
 
 HorizonPort_Boy::
-# 184 "data/maps/HorizonPort/scripts.pory"
+# 188 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_Boy_Text_0, MSGBOX_NPC
 	return
 
 
 HorizonPort_OldWoman::
-# 188 "data/maps/HorizonPort/scripts.pory"
+# 192 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_OldWoman_Text_0, MSGBOX_NPC
 	return
 
 
 HorizonPort_MarketPerson::
-# 192 "data/maps/HorizonPort/scripts.pory"
+# 196 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_MarketPerson_Text_0, MSGBOX_NPC
-# 193 "data/maps/HorizonPort/scripts.pory"
+# 197 "data/maps/HorizonPort/scripts.pory"
 	pokemart HorizonPort_MarketShop
-# 194 "data/maps/HorizonPort/scripts.pory"
+# 198 "data/maps/HorizonPort/scripts.pory"
 	release
 	return
 
 
 	.align 2
-# 197 "data/maps/HorizonPort/scripts.pory"
-HorizonPort_MarketShop:
-# 198 "data/maps/HorizonPort/scripts.pory"
-	.2byte ITEM_POKE_BALL
-# 199 "data/maps/HorizonPort/scripts.pory"
-	.2byte ITEM_GREAT_BALL
-# 200 "data/maps/HorizonPort/scripts.pory"
-	.2byte ITEM_POTION
 # 201 "data/maps/HorizonPort/scripts.pory"
-	.2byte ITEM_SUPER_POTION
+HorizonPort_MarketShop:
 # 202 "data/maps/HorizonPort/scripts.pory"
+	.2byte ITEM_POKE_BALL
+# 203 "data/maps/HorizonPort/scripts.pory"
+	.2byte ITEM_GREAT_BALL
+# 204 "data/maps/HorizonPort/scripts.pory"
+	.2byte ITEM_POTION
+# 205 "data/maps/HorizonPort/scripts.pory"
+	.2byte ITEM_SUPER_POTION
+# 206 "data/maps/HorizonPort/scripts.pory"
 	.2byte ITEM_REPEL
 	.2byte ITEM_NONE
 
 HorizonPort_MarketPerson2::
-# 206 "data/maps/HorizonPort/scripts.pory"
+# 210 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_MarketPerson2_Text_0, MSGBOX_NPC
-# 207 "data/maps/HorizonPort/scripts.pory"
+# 211 "data/maps/HorizonPort/scripts.pory"
 	pokemart HorizonPort_MarketShop2
-# 208 "data/maps/HorizonPort/scripts.pory"
+# 212 "data/maps/HorizonPort/scripts.pory"
 	release
 	return
 
 
 	.align 2
-# 211 "data/maps/HorizonPort/scripts.pory"
-HorizonPort_MarketShop2:
-# 212 "data/maps/HorizonPort/scripts.pory"
-	.2byte ITEM_ANTIDOTE
-# 213 "data/maps/HorizonPort/scripts.pory"
-	.2byte ITEM_AWAKENING
-# 214 "data/maps/HorizonPort/scripts.pory"
-	.2byte ITEM_BURN_HEAL
 # 215 "data/maps/HorizonPort/scripts.pory"
-	.2byte ITEM_ICE_HEAL
+HorizonPort_MarketShop2:
 # 216 "data/maps/HorizonPort/scripts.pory"
+	.2byte ITEM_ANTIDOTE
+# 217 "data/maps/HorizonPort/scripts.pory"
+	.2byte ITEM_AWAKENING
+# 218 "data/maps/HorizonPort/scripts.pory"
+	.2byte ITEM_BURN_HEAL
+# 219 "data/maps/HorizonPort/scripts.pory"
+	.2byte ITEM_ICE_HEAL
+# 220 "data/maps/HorizonPort/scripts.pory"
 	.2byte ITEM_PARALYZE_HEAL
 	.2byte ITEM_NONE
 
 HorizonPort_MarketPerson3::
-# 244 "data/maps/HorizonPort/scripts.pory"
+# 248 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_MarketPerson3_Text_0, MSGBOX_NPC
 	return
 
 
 HorizonPort_MarketPerson4::
-# 248 "data/maps/HorizonPort/scripts.pory"
+# 252 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_MarketPerson4_Text_0, MSGBOX_NPC
 	return
 
 
 HorizonPort_MarketPerson5::
-# 252 "data/maps/HorizonPort/scripts.pory"
+# 256 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_MarketPerson5_Text_0, MSGBOX_NPC
 	return
 
 
 HorizonPort_MarketPerson6::
-# 257 "data/maps/HorizonPort/scripts.pory"
+# 261 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_MarketPerson6_Text_0, MSGBOX_NPC
 	return
 
 
 HorizonPort_Mother::
-# 261 "data/maps/HorizonPort/scripts.pory"
+# 265 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_Mother_Text_0, MSGBOX_NPC
 	return
 
 
 HorizonPort_Fisherman::
-# 265 "data/maps/HorizonPort/scripts.pory"
+# 269 "data/maps/HorizonPort/scripts.pory"
 	msgbox HorizonPort_Fisherman_Text_0, MSGBOX_NPC
 	return
 
@@ -675,7 +692,7 @@ HorizonPort_Kid_Water_Text_4:
 
 HorizonPort_Kid_Grass_Text_0:
 # 136 "data/maps/HorizonPort/scripts.pory"
-	.string "You wanna have a battle?$"
+	.string "Huh?\nYou wanna have a battle?$"
 
 HorizonPort_Kid_Grass_Text_1:
 # 140 "data/maps/HorizonPort/scripts.pory"
@@ -710,75 +727,77 @@ HorizonPort_Father_Text_2:
 	.string "Thanks for keeping the kids company.$"
 
 HorizonPort_Father_Text_3:
-# 163 "data/maps/HorizonPort/scripts.pory"
-	.string "These little rascals really like\n"
-	.string "battling, could you please keep them\l"
-	.string "entertained so I can get some peace\l"
-	.string "and quiet?$"
+# 164 "data/maps/HorizonPort/scripts.pory"
+	.string "I'm hoping one of the new trainers would\n"
+	.string "play with my kids.$"
+
+HorizonPort_Father_Text_4:
+# 166 "data/maps/HorizonPort/scripts.pory"
+	.string "Say, you're a new trainer right?\pCould you battle with my kids so I\ncan get some peace and quiet?$"
 
 HorizonPort_OldMan_Text_0:
-# 168 "data/maps/HorizonPort/scripts.pory"
+# 172 "data/maps/HorizonPort/scripts.pory"
 	.string "This lighthouse was put in to make it\n"
 	.string "safer for people to come to the island.$"
 
 HorizonPort_OldMan2_Text_0:
-# 172 "data/maps/HorizonPort/scripts.pory"
+# 176 "data/maps/HorizonPort/scripts.pory"
 	.string "I sometimes come here and gaze out at\n"
 	.string "the sea, thinking about what could have\l"
 	.string "been.$"
 
 HorizonPort_Sailor_Text_0:
-# 176 "data/maps/HorizonPort/scripts.pory"
+# 180 "data/maps/HorizonPort/scripts.pory"
 	.string "We get a lot of travellers coming and\n"
 	.string "going on boats 'round these parts.$"
 
 HorizonPort_Sailor2_Text_0:
-# 180 "data/maps/HorizonPort/scripts.pory"
+# 184 "data/maps/HorizonPort/scripts.pory"
 	.string "Boats are pretty important for this\n"
 	.string "city, so there are displays all over.$"
 
 HorizonPort_Boy_Text_0:
-# 184 "data/maps/HorizonPort/scripts.pory"
+# 188 "data/maps/HorizonPort/scripts.pory"
 	.string "The salt spray from the ocean makes my\n"
 	.string "eyes crusty!$"
 
 HorizonPort_OldWoman_Text_0:
-# 188 "data/maps/HorizonPort/scripts.pory"
+# 192 "data/maps/HorizonPort/scripts.pory"
 	.string "Huh? What do you want? Why don't you\n"
 	.string "get back on your boat and go home!$"
 
 HorizonPort_MarketPerson_Text_0:
-# 192 "data/maps/HorizonPort/scripts.pory"
+# 196 "data/maps/HorizonPort/scripts.pory"
 	.string "Items an aspiring trainer like you might\n"
 	.string "need!$"
 
 HorizonPort_MarketPerson2_Text_0:
-# 206 "data/maps/HorizonPort/scripts.pory"
+# 210 "data/maps/HorizonPort/scripts.pory"
 	.string "Got problems? I've got solutions!$"
 
 HorizonPort_MarketPerson3_Text_0:
-# 244 "data/maps/HorizonPort/scripts.pory"
+# 248 "data/maps/HorizonPort/scripts.pory"
 	.string "Welcome!\nAre you interested in some...\pOh, you're a trainer?\nI don't have any items for trainers.$"
 
 HorizonPort_MarketPerson4_Text_0:
-# 248 "data/maps/HorizonPort/scripts.pory"
+# 252 "data/maps/HorizonPort/scripts.pory"
 	.string "There's always something of interest to\n"
 	.string "be found at markets like these.$"
 
 HorizonPort_MarketPerson5_Text_0:
-# 252 "data/maps/HorizonPort/scripts.pory"
+# 256 "data/maps/HorizonPort/scripts.pory"
 	.string "I'm just... huff... taking a break... hoo...$"
 
 HorizonPort_MarketPerson6_Text_0:
-# 257 "data/maps/HorizonPort/scripts.pory"
+# 261 "data/maps/HorizonPort/scripts.pory"
 	.string "Come back when you're a little more\n"
 	.string "cool.$"
 
 HorizonPort_Mother_Text_0:
-# 261 "data/maps/HorizonPort/scripts.pory"
+# 265 "data/maps/HorizonPort/scripts.pory"
 	.string "After three childred my husband has\nstarted having reservations...\pbut I can be very convincing.$"
 
 HorizonPort_Fisherman_Text_0:
-# 265 "data/maps/HorizonPort/scripts.pory"
+# 269 "data/maps/HorizonPort/scripts.pory"
 	.string "Imagine all the fishing that could be\n"
 	.string "done in a boat like that...$"
