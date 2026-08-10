@@ -1452,17 +1452,19 @@ static void CB2_EndTrainerBattle(void)
             }
             else
             {
-                SetMainCallback2(CB2_WhiteOut);
-                return;
+                if (!FlagGet(FLAG_NO_WHITEOUT)) {
+                    SetMainCallback2(CB2_WhiteOut);
+                    return;
+                }
             }
         }
         else
         {
             gSpecialVar_Result = FALSE;
+            SetBattledTrainerFlag();
         }
         DowngradeBadPoison();
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-        SetBattledTrainerFlag();
     }
     else if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_SECRET_BASE)
     {

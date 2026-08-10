@@ -6,7 +6,7 @@ script Route3_DiggersHut_Back_OnLoad {
     // instead of doing the normal inverse stuff it was easier to make a C func due to the amount
     callnative(SetRoute3DiggersTunnelEncounters)
 
-    if (!flag(FLAG_BEAT_DIGGERS_HUT_RICHARD)) {
+    if (!flag(FLAG_FOUGHT_DIGGERS_HUT_RICHARD)) {
         setvar(VAR_TEMP_A, 1)
         setobjectmovementtype(LOCALID_DIGGER, MOVEMENT_TYPE_FACE_DOWN)
     } else {
@@ -50,66 +50,117 @@ script Route3_DiggersHut_Back_RichardFight {
     applymovement(LOCALID_RICHARD_DIGGERSHUT, moves(walk_fast_left, walk_fast_up))
     waitmovement(0)
     savebgm(MUS_RG_RIVAL_EXIT)
+    setflag(FLAG_NO_WHITEOUT)
+
+    // 1 - 0
     if (defeated(TRAINER_HORIZON_PORT_RICHARD)) {
-        trainerbattle_no_intro(TRAINER_DIGGERS_HUT_RICHARD, "What? Not again!\nHow are you doing that!?")
-        msgbox(
-            "I bet you think you're all that,\ndefeating me again.\p"
-            "Next time I'll get some better Pokemon,\nthen we'll see who's stronger.\p"
-            "Tell me your name, that way I'll at least\nknow what to carve on your gravestone\lafter you die of shame.\p"
-            "...\p"
-            "{PLAYER}? Pfft.\nStupid name for a stupid person.\p"
-            "Your luck can only carry you so far,\n'{PLAYER}'."
-        , MSGBOX_AUTOCLOSE)
+        trainerbattle_earlyrival(
+            TRAINER_DIGGERS_HUT_RICHARD,
+            0,
+            "What? Not again!\nHow are you doing that!?", 
+            "Looks like your luck ran out."
+        )
+        
+        // 2 - 0
+        if (defeated(TRAINER_DIGGERS_HUT_RICHARD)) {
+            msgbox(
+                "I bet you think you're all that,\ndefeating me again.\p"
+                "Next time I'll get some better Pokemon,\nthen we'll see who's stronger."
+            , MSGBOX_DEFAULT)
+
+        // 1 - 1
+        } else {
+            msgbox(
+                "Last time was just a fluke, this time\nwas the real deal.\p"
+                "Polish your skills for next time, it'll\nmake winning much more satisfying."
+            , MSGBOX_DEFAULT)
+        }
+    
+    // 0 - 1
     } else {
-        trainerbattle_no_intro(TRAINER_DIGGERS_HUT_RICHARD, "What? That's not how it goes!")
-        msgbox(
-            "I bet you think you're all that,\nsomehow sneaking a win.\p"
-            "Next time I'll get some better Pokemon,\nthen we'll see who's stronger.\p"
-            "Tell me your name, that way I'll at least\nknow what to carve on your gravestone\lafter you die of shame.\p"
-            "...\p"
-            "{PLAYER}? Pfft.\nStupid name for a stupid person.\p"
-            "Your luck can only carry you so far,\n'{PLAYER}'."
-        , MSGBOX_AUTOCLOSE)
+        trainerbattle_earlyrival(
+            TRAINER_DIGGERS_HUT_RICHARD,
+            0, 
+            "What? That's not how it goes!",
+            "Man, you suck at this."
+        )
+        
+        // 1 - 1
+        if (defeated(TRAINER_DIGGERS_HUT_RICHARD)) {
+            msgbox(
+                "Well, you've found some good Pokemon\nsince Horizon Port.\p"
+                "Next time I'll get some better Pokemon,\nthen we'll see who's stronger.\p"
+            , MSGBOX_DEFAULT)
+        
+        // 0 - 2
+        } else {
+            msgbox(
+                "You spent all that time exploring for\nthat team?\p"
+                "At this rate you don't even make a\ngood stepping stone."
+            , MSGBOX_DEFAULT)
+        }
     }
+    msgbox(
+        "Tell me your name, that way I'll at least\nknow what to carve on your gravestone\lafter you die of shame.\p"
+        "...\p"
+        "{PLAYER}? Pfft.\nStupid name for a stupid person.\p"
+        "I'll see you again, '{PLAYER}'."
+    , MSGBOX_AUTOCLOSE)
+    clearflag(FLAG_NO_WHITEOUT)
     fadedefaultbgm
     applymovement(LOCALID_RICHARD_DIGGERSHUT, moves(walk_down*5 set_invisible))
     waitmovement(0)
     applymovement(LOCALID_PLAYER, moves(walk_right walk_up*2))
     waitmovement(0)
+    setflag(FLAG_FOUGHT_DIGGERS_HUT_RICHARD)
     msgbox(
         "Well, that was certainly an experience.\p"
         "Trainers aren't normally as...\nspirited as he is, thankfully.\p"
         "Thanks for putting him in his place, I'd\nhate to think he can act like that and\lget away with it.\p"
         "Oh right, digging!\p"
-        "That's probably why you came here in\nthe first place right?\p"
-        "I'd be happy to give you a few pointers\non how to dig up things!\p"
-        "Here, grab this shovel and we can get\nstarted...."
-    , MSGBOX_AUTOCLOSE)
-    fadescreenspeed(FADE_TO_BLACK, 2)
-    delay(30)
-    playse(SE_M_DIG)
-    waitse
-    playse(SE_M_DIG)
-    waitse
-    delay(10)
-    playse(SE_M_DIG)
-    waitse
-    delay(30)
-    playse(MUS_OBTAIN_ITEM)
-    setflag(FLAG_CAN_DIG_PILE)
-    setflag(FLAG_BEAT_DIGGERS_HUT_RICHARD)
-    fadescreen(FADE_FROM_BLACK)
-    message("Whew! That was fun!\p")
-    waitse
-    waitmessage
-    msgbox("I hope these skills help you out on your\nPokemon Adventure!", MSGBOX_AUTOCLOSE)
-    applymovement(LOCALID_DIGGER, moves(face_up))
-    applymovement(LOCALID_PLAYER, moves(face_down))
-    waitmovement(0)
-    releaseall
+    , MSGBOX_DEFAULT)
+    goto(Route3_DiggersHut_Back_Digger)
 }
 
 script Route3_DiggersHut_Back_Digger {
+    if (!flag(FLAG_CAN_DIG_PILE)) {
+        lock
+        applymovement(LOCALID_DIGGER, moves(face_player))
+        waitmovement(0)
+        msgbox(
+            "You look like someone who would love\nto get their hands dirty!\p"
+            "That's probably why you came here in\nthe first place right?\p"
+            "I'd be happy to give you a few pointers\non how to dig up things!\p"
+            "It's real easy, and you might get some\ncool goodies from it too!\p"
+            "Here, grab this shovel and we can get\nstarted...."
+        , MSGBOX_AUTOCLOSE)
+        fadescreenspeed(FADE_TO_BLACK, 2)
+        delay(30)
+        playse(SE_M_DIG)
+        waitse
+        playse(SE_M_DIG)
+        waitse
+        delay(30)
+        playse(SE_M_DIG)
+        waitse
+        playse(SE_M_DIG)
+        waitse
+        delay(20)
+        playse(SE_M_DIG)
+        waitse
+        delay(40)
+        playse(MUS_OBTAIN_ITEM)
+        setflag(FLAG_CAN_DIG_PILE)
+        delay(10)
+        fadescreen(FADE_FROM_BLACK)
+        message("Whew! That was fun!\p")
+        waitse
+        waitmessage
+        msgbox("I hope these skills help you out on your\nPokemon Adventure!", MSGBOX_AUTOCLOSE)
+        applymovement(LOCALID_DIGGER, moves(face_up))
+        waitmovement(0)
+        releaseall
+    }
     msgbox("Lairon makes for a great helper!\nHe does tend to eat a lot though...", MSGBOX_NPC)
 }
 

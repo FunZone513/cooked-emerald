@@ -44,14 +44,14 @@ script HorizonPort_RichardBattle {
     message("No! Ralts!")
     waitmessage
     playmoncry(SPECIES_RALTS, CRY_MODE_FAINT)
-    applymovement(LOCALID_HORIZONPORT_RALTS, moves(face_up face_left face_down face_right))
+    applymovement(LOCALID_HORIZONPORT_RALTS, moves(face_up delay_1 face_left delay_1 face_down delay_1 face_right))
     waitmovement(0)
     applymovement(LOCALID_HORIZONPORT_RALTS, moves(lock_facing_direction jump_left set_invisible))
     waitmovement(0)
     waitmoncry
     waitbuttonpress
     msgbox("You jerk!\pThat was so unnecessary!", MSGBOX_DEFAULT)
-    msgbox("I beg to differ, people need to know\ntheir place.", MSGBOX_AUTOCLOSE)
+    msgbox("Sorry, I don't listen to losers.", MSGBOX_AUTOCLOSE)
     applymovement(LOCALID_HORIZONPORT_CRUSHGIRL, moves(walk_up*2))
     applymovement(LOCALID_CAMERA, moves(walk_up))
     waitmovement(LOCALID_HORIZONPORT_CRUSHGIRL)
@@ -77,15 +77,29 @@ script HorizonPort_RichardBattle {
     waitmovement(0)
     msgbox("And who are you supposed to be?\pNo, wait.\nI don't care.\pYou're just another NPC for me to win\nagainst.", MSGBOX_DEFAULT)
     savebgm(MUS_RG_RIVAL_EXIT)
-    trainerbattle_no_intro(TRAINER_HORIZON_PORT_RICHARD, "Wait what?")
-    msgbox(
-        "That isn't how it was supposed to go.\p"
-        "I must've been distracted after the\nfree win from before.\p"
-        "It won't happen again, see you never."
-    , MSGBOX_AUTOCLOSE)
+    setflag(FLAG_NO_WHITEOUT)
+    trainerbattle_earlyrival(TRAINER_HORIZON_PORT_RICHARD, 0, "Wait what?", "Ahahaha!")
+    clearflag(FLAG_NO_WHITEOUT)
+    special(HealPlayerParty)
+    if (defeated(TRAINER_HORIZON_PORT_RICHARD)) {
+        msgbox(
+            "That isn't how it was supposed to go.\p"
+            "I must've been distracted after the\nfree win from before.\p"
+            "It won't happen again, see you never."
+        , MSGBOX_AUTOCLOSE)
+    } else {
+        msgbox(
+            "And another one down.\p"
+            "Man, this Pokemon stuff is easy.\p"
+            "Just get the best ones and there's no\ncontest.\p"
+            "Well, thanks for the free exp I guess,\nI'll see you later to get some more."
+        , MSGBOX_AUTOCLOSE)
+    }
     applymovement(LOCALID_HORIZONPORT_RICHARD, moves(walk_down*7 set_invisible))
     fadedefaultbgm
     waitmovement(0)
+    call(Generic_UPDATE_LEVELCAP)
+    setflag(FLAG_TEMP_A)
     releaseall
 }
 
