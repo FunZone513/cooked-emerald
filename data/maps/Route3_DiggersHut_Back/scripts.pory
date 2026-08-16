@@ -16,7 +16,6 @@ script Route3_DiggersHut_Back_OnLoad {
 
 script Route3_DiggersHut_Back_RichardFight {
     lock
-    playbgm(MUS_RG_ENCOUNTER_RIVAL, 0)
     setvar(VAR_TEMP_A, 0)
     getobjectxy(LOCALID_PLAYER, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
     if (var(VAR_TEMP_1) == 4) {
@@ -24,6 +23,7 @@ script Route3_DiggersHut_Back_RichardFight {
         waitmovement(0)
     }
     applymovement(LOCALID_PLAYER, moves(walk_up))
+    playbgm(MUS_RG_ENCOUNTER_RIVAL, 0)
     waitmovement(0)
     msgbox(
         "I heard that there would be treasure,\nbut you want me to dig around in sand\lfor what, random items and Pokemon?\p"
@@ -34,9 +34,11 @@ script Route3_DiggersHut_Back_RichardFight {
     applymovement(LOCALID_RICHARD_DIGGERSHUT, moves(walk_down))
     waitmovement(0)
     message("Get out of my way!")
+    playse(SE_WALL_HIT)
     applymovement(LOCALID_PLAYER, moves(face_right lock_facing_direction walk_left unlock_facing_direction))
     applymovement(LOCALID_RICHARD_DIGGERSHUT, moves(walk_down*3))
     waitmovement(LOCALID_RICHARD_DIGGERSHUT)
+    waitse
     delay(20)
     applymovement(LOCALID_PLAYER, moves(face_down))
     message("...")
@@ -110,6 +112,7 @@ script Route3_DiggersHut_Back_RichardFight {
     fadedefaultbgm
     applymovement(LOCALID_RICHARD_DIGGERSHUT, moves(walk_down*5 set_invisible))
     waitmovement(0)
+    if (!defeated(TRAINER_DIGGERS_HUT_RICHARD)) { goto(EventScript_FieldWhiteOut) }
     applymovement(LOCALID_PLAYER, moves(walk_right walk_up*2))
     waitmovement(0)
     setflag(FLAG_FOUGHT_DIGGERS_HUT_RICHARD)

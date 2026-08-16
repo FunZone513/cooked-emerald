@@ -210,8 +210,12 @@ Debug_Total_Healing_Text:
 	.string "Total Healing: {STR_VAR_1}$"
 
 Debug_EventScript_Script_2::
-	release
+	setflag FLAG_BADGE01_GET
+	msgbox Debug_SetBadgeFlag_Text, MSGBOX_AUTOCLOSE
 	end
+
+Debug_SetBadgeFlag_Text:
+	.string "Set Badge 1 flag.$"
 
 Debug_EventScript_Script_3::
 	release

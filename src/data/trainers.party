@@ -325,16 +325,16 @@ Double Battle: No
 AI: Leader
 
 Goldeen
-Level: 11
+Level: 14
 
 Shellder
-Level: 11
+Level: 14
 
 Sandygast
-Level: 12
+Level: 14
 
 Wailmer
-Level: 13
+Level: 15
 
 === TRAINER_DAWNSHORE_CITY_GYM_CAMPER ===
 Name: STEWART
@@ -345,10 +345,10 @@ Music: Male
 AI: Smart Trainer
 
 Shroomish
-Level: 9
+Level: 11
 
 Carvanha
-Level: 9
+Level: 11
 
 === TRAINER_DAWNSHORE_CITY_GYM_TUBER ===
 Name: GEORGE
@@ -359,10 +359,10 @@ Music: Girl
 AI: Smart Trainer
 
 Yanma
-Level: 8
+Level: 12
 
 Tentacool
-Level: 8
+Level: 11
 
 === TRAINER_DAWNSHORE_CITY_GYM_BATTLE_GIRL ===
 Name: HARIETTE
@@ -373,10 +373,10 @@ Music: Intense
 AI: Smart Trainer
 
 Marill
-Level: 9
+Level: 11
 
 Buneary
-Level: 9
+Level: 12
 
 === TRAINER_DAWNSHORE_CITY_GYM_SWIMMER ===
 Name: DECLAN
@@ -387,13 +387,13 @@ Music: Swimmer
 AI: Smart Trainer
 
 Taillow
-Level: 9
+Level: 11
 
 Krabby
-Level: 9
+Level: 12
 
 Taillow
-Level: 9
+Level: 11
 
 === TRAINER_DAWNSHORE_CITY_GYM_TUBER_B ===
 Name: CHARLIE
@@ -404,10 +404,10 @@ Music: Girl
 AI: Smart Trainer
 
 Krabby
-Level: 10
+Level: 12
 
 Corphish
-Level: 10
+Level: 12
 
 === TRAINER_DAWNSHORE_CITY_GYM_SWIMMER_B ===
 Name: DANIELLE
@@ -418,7 +418,7 @@ Music: Swimmer
 AI: Smart Trainer
 
 Tentacool
-Level: 11
+Level: 14
 
 === TRAINER_ROUTE3_PICNICKER ===
 Name: SUSANNE

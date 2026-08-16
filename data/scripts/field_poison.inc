@@ -12,7 +12,7 @@ EventScript_FieldWhiteOut::
 	waitbuttonpress
 	special Script_FadeOutMapMusic
 	fadescreen FADE_TO_BLACK
-	call_if_set FLAG_WHITEOUT_TO_LAVARIDGE, EventScript_SetRespawnLavaridgePkmnCenter
+	//call_if_set FLAG_WHITEOUT_TO_LAVARIDGE, EventScript_SetRespawnLavaridgePkmnCenter
 	special SetCB2WhiteOut
 	end
 

@@ -1524,7 +1524,7 @@
 #define FLAG_TEST_FISHING_TALKED                    (SYSTEM_FLAGS + 0x8C)
 #define FLAG_OPEN_DIGGERS_HUT                       (SYSTEM_FLAGS + 0x8D)
 #define FLAG_FOUGHT_DIGGERS_HUT_RICHARD             (SYSTEM_FLAGS + 0x8E)
-#define FLAG_UNUSED_0x8EF                           (SYSTEM_FLAGS + 0x8F)
+#define FLAG_SPOKEN_TO_CUTTER                       (SYSTEM_FLAGS + 0x8F)
 #define FLAG_UNUSED_0x8F0                           (SYSTEM_FLAGS + 0x90) // Unused Flag
 #define FLAG_UNUSED_0x8F1                           (SYSTEM_FLAGS + 0x91) // Unused Flag
 #define FLAG_UNUSED_0x8F2                           (SYSTEM_FLAGS + 0x92) // Unused Flag

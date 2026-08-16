@@ -1,19 +1,140 @@
 mapscripts DawnshoreCity_CuttersHouse_MapScripts {}
 
-//TODO: something for getting cut, maybe a cutscene or something before you battle them?
-// Have richard be in here already, call you a slacker for being slow or something, maybe challenge you to a battle
-// the old couple shows you how to use cut through a cutscene where they have a pokemon slash one of the trees
-// Maybe do this after you beat the gym so it makes sense? proof of ability maybe?
-
 script DawnshoreCity_CuttersHouse_Man {
+    if (!flag(FLAG_SPOKEN_TO_CUTTER)) {
+        msgbox(
+            "You look like someone on an adventure.\p"
+            "I remember when I used to go on\nadventures, it's how I met my wife.\p"
+            "This island has some deliberate\nobstacles placed around it.\p"
+            "After all, a journey is only as fun\nas the effort put into it.\p"
+            "My job is to teach the newcomers how\nand what to do when they encounter one\lof these obstacles.\p"
+            "There is a certain type of fast\ngrowing tree that is used as a natural\lbarrier around the place.\p"
+            "I can teach you how to remove them\nif you would like."
+        , MSGBOX_NPC)
+        setflag(FLAG_SPOKEN_TO_CUTTER)
+    }
+
     if (!flag(FLAG_BADGE01_GET)) {
-        msgbox("Come back once you beat the gym", MSGBOX_NPC)
+        msgbox(
+            "Hmm... I'm only supposed to teach\ntrainers that have proven to be\lsomewhat competent.\p"
+            "The island gets more wild and dangerous\nthe further you progress after all.\p"
+            "Come back once you have a badge under\nyour belt, then I'll show you."
+        , MSGBOX_NPC)
     } else {
-        msgbox("congrats you can cut trees now.\nThis'll be an actual thing later", MSGBOX_NPC)
-        setflag(FLAG_CAN_USE_CUT)
+
+        if (!flag(FLAG_CAN_USE_CUT)) {
+            msgbox(
+                "It looks like you've earned yourself a\nbadge!\p"
+                "Nicely done.\p"
+                "With that, I can teach you the skill of\ncutting down trees."
+            , MSGBOX_NPC)
+
+            msgbox("Would you like to learn it now?", MSGBOX_YESNO)
+            if (var(VAR_RESULT) == YES) {
+                goto(DawnshoreCity_CuttersHouse_CUTScene)
+            } else {
+                msgbox("I'm not sure what value there is in\nwaiting, but I'll be here all the same.", MSGBOX_AUTOCLOSE)
+            }
+
+        } else {
+            msgbox(
+                "If you need a refresher on what\nPokemon can use Cut;\p"
+                "Grass or Bug types, or those with\nHyper Cutter or Sharpness."
+            , MSGBOX_NPC)
+        }
     }
 }
 
+// lol
+script DawnshoreCity_CuttersHouse_CUTScene {
+    lock
+    msgbox("Very well.\nLet us begin.\pTake a few steps back and I'll get\nstarted.", MSGBOX_AUTOCLOSE)
+    getobjectxy(LOCALID_PLAYER, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 6) {
+        applymovement(LOCALID_PLAYER, moves(walk_left walk_down*2 walk_right*2))
+        waitmovement(0)
+    } else {
+        applymovement(LOCALID_PLAYER, moves(walk_down))
+        waitmovement(0)
+    }
+    applymovement(LOCALID_CUTTERSHOUSE_CUTTER, moves(face_down))
+    applymovement(LOCALID_PLAYER, moves(walk_down delay_8 face_up))
+    waitmovement(0)
+    special(SpawnCameraObject)
+    applymovement(LOCALID_CAMERA, moves(walk_up))
+    waitmovement(0)
+    msgbox("Hmm... one more step.", MSGBOX_AUTOCLOSE)
+    applymovement(LOCALID_PLAYER, moves(walk_down delay_16 face_up))
+    waitmovement(0)
+    msgbox("Looks good.", MSGBOX_AUTOCLOSE)
+    applymovement(LOCALID_CUTTERSHOUSE_CUTTER, moves(walk_slow_down*2 delay_16*2 face_left))
+    waitmovement(0)
+    msgbox("Cutting trees isn't all that difficult,\nyou're not the one cutting it after all.", MSGBOX_AUTOCLOSE)
+    getobjectxy(LOCALID_CUTTERSHOUSE_CUTTER, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
+    playse(SE_BALL_THROW)
+    setobjectxy(LOCALID_CUTTERSHOUSE_BALL, VAR_TEMP_1, VAR_TEMP_2)
+    applymovement(LOCALID_CUTTERSHOUSE_BALL, moves(set_visible face_down lock_facing_direction jump_2_left))
+    waitmovement(LOCALID_CUTTERSHOUSE_BALL)
+    subvar(VAR_TEMP_1, 2)
+    setobjectxy(LOCALID_CUTTERSHOUSE_MON, VAR_TEMP_1, VAR_TEMP_2)
+    playse(SE_BALL_OPEN)
+    applymovement(LOCALID_CUTTERSHOUSE_BALL, moves(set_invisible))
+    applymovement(LOCALID_CUTTERSHOUSE_MON, moves(face_right set_visible))
+    waitmovement(0)
+    waitse
+    playmoncry(SPECIES_TROPIUS, CRY_MODE_NORMAL)
+    applymovement(LOCALID_CUTTERSHOUSE_MON, moves(walk_in_place_left*2))
+    waitmovement(0)
+    waitmoncry
+    msgbox("Any Pokemon can cut down a tree,\nprovided they meet a certain criteria.", MSGBOX_AUTOCLOSE)
+    playse(SE_LEDGE)
+    applymovement(LOCALID_CUTTERSHOUSE_MON, moves(jump_left))
+    waitmovement(0)
+    waitse
+    msgbox("A Pokemon must be Grass or Bug type,\nor have an ability related to cutting.\pLike Sharpness or Hyper Cutter.", MSGBOX_AUTOCLOSE)
+    applymovement(LOCALID_CUTTERSHOUSE_MON, moves(walk_in_place_faster_left*3))
+    playmoncry(SPECIES_TROPIUS, CRY_MODE_NORMAL)
+    waitmoncry
+    playse(SE_M_CUT)
+    applymovement(LOCALID_CUTTERSHOUSE_TREEL, moves(cut_tree))
+    waitmovement(0)
+    setflag(FLAG_TEMP_10)
+    waitse
+    delay(60)
+    playse(SE_LEDGE)
+    applymovement(LOCALID_CUTTERSHOUSE_MON, moves(jump_right delay_16 walk_slow_right))
+    waitmovement(0)
+    waitse
+    playmoncry(SPECIES_TROPIUS, CRY_MODE_NORMAL)
+    applymovement(LOCALID_CUTTERSHOUSE_MON, moves(walk_in_place_right*2))
+    waitmoncry
+    waitmovement(0)
+    msgbox("Well done.", MSGBOX_AUTOCLOSE)
+    playse(SE_BALL_OPEN)
+    addvar(VAR_TEMP_1, 1)
+    setobjectxy(LOCALID_CUTTERSHOUSE_BALL, VAR_TEMP_1, VAR_TEMP_2)
+    applymovement(LOCALID_CUTTERSHOUSE_MON, moves(set_invisible))
+    applymovement(LOCALID_CUTTERSHOUSE_BALL, moves(set_visible delay_16*3 jump_right delay_8 set_invisible delay_16*2))
+    waitmovement(0)
+    applymovement(LOCALID_CUTTERSHOUSE_CUTTER, moves(face_down))
+    waitmovement(0)
+    msgbox("And there you have it, it's as simple\nas that.\pI hope this knowledge will treat you\nwell.", MSGBOX_AUTOCLOSE)
+    applymovement(LOCALID_CUTTERSHOUSE_CUTTER, moves(walk_slow_up*2 face_down))
+    applymovement(LOCALID_CAMERA, moves(walk_down*2))
+    waitmovement(LOCALID_CUTTERSHOUSE_CUTTER)
+    special(RemoveCameraObject)
+    setflag(FLAG_CAN_USE_CUT)
+    releaseall
+}
+
 script DawnshoreCity_CuttersHouse_Woman {
-    msgbox(format("placeholder text"))
+    if (!flag(FLAG_SPOKEN_TO_CUTTER)) {
+        msgbox("Well hello dear.\pIf you're looking for the Cutter,\nthat would be my husband.", MSGBOX_NPC)
+    } else {
+        if (flag(FLAG_CAN_USE_CUT)) {
+            msgbox("Some trees won't grow back once cut\ndown you know.\pThey're normally the ones that fully\nblock your adventuring progress.", MSGBOX_NPC)
+        } else {
+            msgbox("Have you learnt how to cut down trees\nyet?", MSGBOX_NPC)
+        }
+    }
 }
