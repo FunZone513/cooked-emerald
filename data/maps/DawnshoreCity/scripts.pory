@@ -17,11 +17,19 @@ script DawnshoreCity_OnLoad {
 }
 
 script DawnshoreCity_GymSign {
-    msgbox("Dawnshore Gym:\nSun-kissed and Beach ready!")
+    msgbox("Dawnshore Gym:\nSun-kissed and Beach ready!", MSGBOX_SIGN)
+}
+
+script DawnshoreCity_CutterTree {
+    if (flag(FLAG_CAN_USE_CUT)) {
+        msgbox("You probably shouldn't start cutting up\ntheir garden!", MSGBOX_SIGN)
+    } else {
+        msgbox("This tree looks like it can be\nCUT down!", MSGBOX_SIGN)
+    }
 }
 
 script DawnshoreCity_CutterSign {
-    msgbox("Home of Mr. Auburn,\nTree cutting extraordinaire.")
+    msgbox("Home of Mr. Auburn,\nTree cutting extraordinaire.", MSGBOX_SIGN)
 }
 
 script DawnshoreCity_Man {

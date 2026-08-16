@@ -9367,7 +9367,7 @@
     {
       "id": "LAYOUT_DAWNSHORE_CITY",
       "name": "DawnshoreCity_Layout",
-      "width": 36,
+      "width": 52,
       "height": 34,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
@@ -9497,8 +9497,8 @@
     {
       "id": "LAYOUT_ROUTE_3",
       "name": "Route_3_Layout",
-      "width": 46,
-      "height": 16,
+      "width": 56,
+      "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/Route_3/border.bin",

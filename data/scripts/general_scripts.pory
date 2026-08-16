@@ -20,7 +20,7 @@ script Generic_DefaultSettings {
 }
 
 //MARK: Level Cap
-// simple count of badges, basically just leftover from my old romhack
+// simple count of badges
 script Generic_GetBadgeCount {
     setvar(VAR_RESULT, 0)
     if (flag(FLAG_BADGE01_GET)) { addvar(VAR_RESULT, 1) }

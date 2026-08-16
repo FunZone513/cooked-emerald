@@ -15,19 +15,19 @@
   "connections": [
     {
       "map": "MAP_ROUTE_2",
-      "offset": 4,
+      "offset": 20,
       "direction": "up"
     },
     {
       "map": "MAP_ROUTE_3",
-      "offset": -2,
+      "offset": 4,
       "direction": "down"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
-      "x": 17,
+      "x": 33,
       "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -40,7 +40,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE_FRLG",
-      "x": 19,
+      "x": 35,
       "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -53,7 +53,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M_LAND",
-      "x": 11,
+      "x": 27,
       "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -66,7 +66,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F_LAND",
-      "x": 12,
+      "x": 28,
       "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -79,7 +79,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
-      "x": 11,
+      "x": 27,
       "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -92,7 +92,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_TUBER_F",
-      "x": 10,
+      "x": 26,
       "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -105,7 +105,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
-      "x": 28,
+      "x": 44,
       "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -118,7 +118,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_4",
-      "x": 28,
+      "x": 44,
       "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -131,7 +131,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
-      "x": 20,
+      "x": 36,
       "y": 20,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
@@ -144,7 +144,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(KRABBY)",
-      "x": 10,
+      "x": 26,
       "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
@@ -157,7 +157,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(LOUDRED)",
-      "x": 28,
+      "x": 44,
       "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_UP",
@@ -170,7 +170,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(KRABBY)",
-      "x": 7,
+      "x": 23,
       "y": 20,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
@@ -183,7 +183,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 21,
+      "x": 37,
       "y": 17,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -196,7 +196,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
-      "x": 15,
+      "x": 31,
       "y": 2,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -209,7 +209,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 8,
+      "x": 24,
       "y": 21,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",
@@ -222,7 +222,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 26,
+      "x": 42,
       "y": 32,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
@@ -236,28 +236,28 @@
   ],
   "warp_events": [
     {
-      "x": 19,
+      "x": 35,
       "y": 16,
       "elevation": 0,
       "dest_map": "MAP_DAWNSHORE_CITY_POKE_CENTRE",
       "dest_warp_id": "0"
     },
     {
-      "x": 15,
+      "x": 31,
       "y": 27,
       "elevation": 0,
       "dest_map": "MAP_DAWNSHORE_CITY_MART",
       "dest_warp_id": "0"
     },
     {
-      "x": 18,
+      "x": 34,
       "y": 4,
       "elevation": 0,
       "dest_map": "MAP_DAWNSHORE_CITY_CUTTERS_HOUSE",
       "dest_warp_id": "0"
     },
     {
-      "x": 31,
+      "x": 47,
       "y": 18,
       "elevation": 0,
       "dest_map": "MAP_DAWNSHORE_CITY_GYM",
@@ -268,7 +268,7 @@
   "bg_events": [
     {
       "type": "sign",
-      "x": 20,
+      "x": 36,
       "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -276,7 +276,7 @@
     },
     {
       "type": "sign",
-      "x": 21,
+      "x": 37,
       "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -284,7 +284,7 @@
     },
     {
       "type": "sign",
-      "x": 16,
+      "x": 32,
       "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -292,7 +292,7 @@
     },
     {
       "type": "sign",
-      "x": 17,
+      "x": 33,
       "y": 27,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
@@ -300,7 +300,7 @@
     },
     {
       "type": "sign",
-      "x": 26,
+      "x": 42,
       "y": 14,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -308,11 +308,27 @@
     },
     {
       "type": "sign",
-      "x": 17,
+      "x": 33,
       "y": 10,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "DawnshoreCity_CutterSign"
+    },
+    {
+      "type": "sign",
+      "x": 33,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
+    },
+    {
+      "type": "sign",
+      "x": 35,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "NULL"
     }
   ]
 }

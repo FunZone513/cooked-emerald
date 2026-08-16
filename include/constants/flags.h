@@ -1077,7 +1077,7 @@
 #define FLAG_ITEM_ROUTE3                                            0x3FA
 #define FLAG_ITEM_ROUTE3_1                                          0x3FB
 #define FLAG_ITEM_DIGGERS_TUNNEL                                    0x3FC
-#define FLAG_ITEM_0x3FD                      0x3FD
+#define FLAG_ITEM_ROUTE3_2                                          0x3FD
 #define FLAG_ITEM_0x3FE                      0x3FE
 #define FLAG_ITEM_0x3FF                      0x3FF
 #define FLAG_ITEM_0x400                      0x400
