@@ -49,7 +49,8 @@ BeginningBoat_Room_Bag_5:
 
 StarterSettings_LEVELCAP::
 # 21 "data/maps/BeginningBoat_Room/scripts.pory"
-	goto_if_set FLAG_SHARED_EXP, StarterSettings_LEVELCAP_2
+	compare VAR_CURRENT_LEVEL_CAP, 100
+	goto_if_lt StarterSettings_LEVELCAP_2
 # 30 "data/maps/BeginningBoat_Room/scripts.pory"
 	message StarterSettings_LEVELCAP_Text_2
 # 31 "data/maps/BeginningBoat_Room/scripts.pory"
@@ -142,7 +143,7 @@ StarterSettings_EXPBOOST::
 	compare VAR_RESULT, YES
 	goto_if_eq StarterSettings_EXPBOOST_2
 # 68 "data/maps/BeginningBoat_Room/scripts.pory"
-	setvar VAR_INCREASE_EXP_GAIN, 50
+	setvar VAR_INCREASE_EXP_GAIN, 20
 # 69 "data/maps/BeginningBoat_Room/scripts.pory"
 	msgbox StarterSettings_EXPBOOST_Text_2, MSGBOX_DEFAULT
 StarterSettings_EXPBOOST_1:
@@ -152,7 +153,7 @@ StarterSettings_EXPBOOST_1:
 
 StarterSettings_EXPBOOST_2:
 # 65 "data/maps/BeginningBoat_Room/scripts.pory"
-	setvar VAR_INCREASE_EXP_GAIN, 100
+	setvar VAR_INCREASE_EXP_GAIN, 50
 # 66 "data/maps/BeginningBoat_Room/scripts.pory"
 	msgbox StarterSettings_EXPBOOST_Text_1, MSGBOX_DEFAULT
 	goto StarterSettings_EXPBOOST_1
@@ -251,7 +252,7 @@ StarterSettings_EXPSHARE_Text_3:
 
 StarterSettings_EXPBOOST_Text_0:
 # 63 "data/maps/BeginningBoat_Room/scripts.pory"
-	.string "Exp gain is always increased compared\nto vanilla to reduce grind.\pDo you wish to increase it further?\n( 1.5x -> 2x )$"
+	.string "Exp gain is always increased compared\nto vanilla to reduce grind.\pDo you wish to increase it further?\n( +20% -> +50% )$"
 
 StarterSettings_EXPBOOST_Text_1:
 # 66 "data/maps/BeginningBoat_Room/scripts.pory"

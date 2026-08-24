@@ -180,9 +180,9 @@ script Route3_DiggersHut_Back_Maniac {
     trainerbattle_single(
         TRAINER_DIGGERS_HUT_MANIAC, 
         "You ever wondered what sand tastes\nlike?",
-        "Blegh, sand everywhere."
+        "crunch... crunch..."
     )
-    msgbox("I'm not one to get my hands dirty,\nso I normally hire people to dig for me.", MSGBOX_NPC)
+    msgbox("Turns out, sand is not great to eat.", MSGBOX_NPC)
 }
 
 script Route3_DiggersHut_Back_BlackBelt {

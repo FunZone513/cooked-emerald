@@ -96,6 +96,7 @@ script HorizonPort_RichardBattle {
         , MSGBOX_AUTOCLOSE)
     }
     applymovement(LOCALID_HORIZONPORT_RICHARD, moves(walk_down*7 set_invisible))
+    savebgm(MUS_LILYCOVE)
     fadedefaultbgm
     waitmovement(0)
     call(Generic_UPDATE_LEVELCAP)
@@ -114,7 +115,7 @@ script HorizonPort_Sign_Market {
 script HorizonPort_Kid_Fire {
     lock
     faceplayer
-    if (!defeated(TRAINER_HORIZON_PORT_FIRE) || var(VAR_GAME_PROGRESS) < GP_HORIZON_PORT_RIVAL_ENCOUNTERED ) {
+    if (!defeated(TRAINER_HORIZON_PORT_FIRE) && var(VAR_GAME_PROGRESS) >= GP_HORIZON_PORT_RIVAL_ENCOUNTERED ) {
         msgbox("He he he! You look like someone\nwho's up for a battle!", MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES) {
             trainerbattle_single(
@@ -131,7 +132,7 @@ script HorizonPort_Kid_Fire {
 script HorizonPort_Kid_Water {
     lock
     faceplayer
-    if (!defeated(TRAINER_HORIZON_PORT_WATER) || var(VAR_GAME_PROGRESS) < GP_HORIZON_PORT_RIVAL_ENCOUNTERED) {
+    if (!defeated(TRAINER_HORIZON_PORT_WATER) && var(VAR_GAME_PROGRESS) >= GP_HORIZON_PORT_RIVAL_ENCOUNTERED) {
         msgbox("A challenger!\nDo you wish to do battle?", MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES) {
             trainerbattle_single(
@@ -146,7 +147,7 @@ script HorizonPort_Kid_Water {
 script HorizonPort_Kid_Grass {
     lock
     faceplayer
-    if (!defeated(TRAINER_HORIZON_PORT_GRASS) || var(VAR_GAME_PROGRESS) < GP_HORIZON_PORT_RIVAL_ENCOUNTERED) {
+    if (!defeated(TRAINER_HORIZON_PORT_GRASS) && var(VAR_GAME_PROGRESS) >= GP_HORIZON_PORT_RIVAL_ENCOUNTERED) {
         msgbox("Huh?\nYou wanna have a battle?", MSGBOX_YESNO)
         if (var(VAR_RESULT) == YES) {
             trainerbattle_single(
@@ -257,6 +258,44 @@ mart HorizonPort_MarketShop2 {
 //    ITEM_NAIVE_MINT
 //    ITEM_SERIOUS_MINT
 //}
+
+// TODO: make this a quest? each new location is a subquest?
+script HorizonPort_Gambler {
+    if (!flag(FLAG_HORIZON_PORT_GAMBLER_SPOKEN)) {
+        setobjectxy(LOCALID_HORIZONPORT_GAMBLER, 24, 25)
+        lock
+        playse(SE_WALL_HIT)
+        playbgm(MUS_TRICK_HOUSE, FALSE)
+        applymovement(LOCALID_PLAYER, moves(lock_facing_direction walk_left unlock_facing_direction))
+        applymovement(LOCALID_HORIZONPORT_GAMBLER, moves(set_visible walk_left))
+        waitmovement(0)
+        msgbox(
+            "Hello Hello!\p"
+            "I bet you weren't expecting to see a\ndashing man such as myself back here!\p"
+            "I like to hide around and give gifts to\nanyone who can find me!\p"
+            "Since you've just started out on your\nadventure, how about I give you a\lnice and simple gift!\p"
+            "Next time, we can even play a little\ngame for it!"
+        , MSGBOX_DEFAULT)
+        giveitem(ITEM_FULL_HEAL)
+        msgbox("Well then, I shall hide once more and\nwait for you with bated breath!", MSGBOX_AUTOCLOSE)
+        playse(SE_WARP_OUT)
+        applymovement(LOCALID_HORIZONPORT_GAMBLER, moves(face_down disable_anim slide_up slide_up slide_up slide_up slide_up set_invisible))
+        waitmovement(0)
+        fadedefaultbgm
+        setflag(FLAG_HORIZON_PORT_GAMBLER_SPOKEN)
+        releaseall
+    } else {
+        msgbox("He's gone...", MSGBOX_SIGN)
+    }    
+}
+
+script HorizonPort_Man {
+    if (var(VAR_CURRENT_LEVEL_CAP) < 100) {
+        msgbox("The Trainer Card is a neat bit of gear\ngiven by the adventure initiative.\pDid you know it tracks your current\nLevel Cap?", MSGBOX_NPC)
+    } else {
+        msgbox("The Trainer Card is a neat bit of gear\ngiven by the adventure initiative.", MSGBOX_NPC)
+    }
+}
 
 script HorizonPort_MarketPerson3 {
     msgbox("Welcome!\nAre you interested in some...\pOh, you're a trainer?\nI don't have any items for trainers.", MSGBOX_NPC)

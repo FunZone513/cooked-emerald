@@ -114,7 +114,7 @@ script DawnshoreCity_CuttersHouse_CUTScene {
     addvar(VAR_TEMP_1, 1)
     setobjectxy(LOCALID_CUTTERSHOUSE_BALL, VAR_TEMP_1, VAR_TEMP_2)
     applymovement(LOCALID_CUTTERSHOUSE_MON, moves(set_invisible))
-    applymovement(LOCALID_CUTTERSHOUSE_BALL, moves(set_visible delay_16*3 jump_right delay_8 set_invisible delay_16*2))
+    applymovement(LOCALID_CUTTERSHOUSE_BALL, moves(set_visible delay_16*3 disable_jump_landing_ground_effect jump_right delay_8 set_invisible delay_16*2))
     waitmovement(0)
     applymovement(LOCALID_CUTTERSHOUSE_CUTTER, moves(face_down))
     waitmovement(0)
@@ -122,6 +122,8 @@ script DawnshoreCity_CuttersHouse_CUTScene {
     applymovement(LOCALID_CUTTERSHOUSE_CUTTER, moves(walk_slow_up*2 face_down))
     applymovement(LOCALID_CAMERA, moves(walk_down*2))
     waitmovement(LOCALID_CUTTERSHOUSE_CUTTER)
+    setobjectxyperm(LOCALID_CUTTERSHOUSE_MON, 0, 0)
+    setobjectxyperm(LOCALID_CUTTERSHOUSE_BALL, 0, 0)
     special(RemoveCameraObject)
     setflag(FLAG_CAN_USE_CUT)
     releaseall

@@ -450,11 +450,11 @@ Route3_DiggersHut_Back_Maniac_Text_0:
 
 Route3_DiggersHut_Back_Maniac_Text_1:
 # 183 "data/maps/Route3_DiggersHut_Back/scripts.pory"
-	.string "Blegh, sand everywhere.$"
+	.string "crunch... crunch...$"
 
 Route3_DiggersHut_Back_Maniac_Text_2:
 # 185 "data/maps/Route3_DiggersHut_Back/scripts.pory"
-	.string "I'm not one to get my hands dirty,\nso I normally hire people to dig for me.$"
+	.string "Turns out, sand is not great to eat.$"
 
 Route3_DiggersHut_Back_BlackBelt_Text_0:
 # 191 "data/maps/Route3_DiggersHut_Back/scripts.pory"

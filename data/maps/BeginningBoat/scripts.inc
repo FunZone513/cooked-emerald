@@ -637,7 +637,7 @@ BeginningBoat_PostStarter_Text_5:
 # 103 "data/maps/BeginningBoat/scripts.pory"
 	.string "Ahem!\p"
 	.string "As I was saying before being rudely\ninterrupted, I'll explain some specifics\lof the adventure.\p"
-	.string "As we're about to Dock, I'll make it\nbrief.\p"
+	.string "As we're about to dock, I'll make it\nbrief.\p"
 	.string "There's 4 Gyms on the island, beat them\nand collect the badges to challenge the\lleague!\p"
 	.string "Climb to the top and you'll be the\nwinner of your adventuring cohort!\p"
 	.string "Remember, the Pokemon Adventure is\nan experience designed for enjoyment\lfirst and foremost!\p"

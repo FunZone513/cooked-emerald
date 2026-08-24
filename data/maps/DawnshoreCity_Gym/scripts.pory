@@ -96,6 +96,7 @@ script DawnshoreCity_Gym_Nami_Defeated {
         "I wish you luck on the rest of the Gyms,\nand I hope to see you climbing to the\ltop of the league some day!", 
     MSGBOX_DEFAULT)
 	setflag(FLAG_BADGE01_GET)
+    call(Generic_UPDATE_LEVELCAP)
     call(DawnshoreCity_Gym_SetGymTrainers)
     releaseall
 }

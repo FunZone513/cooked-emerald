@@ -5158,7 +5158,7 @@ static bool8 CalculateMoves(void)
     for (i = 0; teachableLearnset[i] != MOVE_UNAVAILABLE; i++)
         numTeachableMoves++;
 
-    sPokedexView->numEggMoves = numEggMoves;
+    sPokedexView->numEggMoves = 0; //numEggMoves
     sPokedexView->numLevelUpMoves = numLevelUpMoves;
     sPokedexView->numTeachableMoves = numTeachableMoves;
     sPokedexView->movesTotal = (numEggMoves + numLevelUpMoves + numTeachableMoves);

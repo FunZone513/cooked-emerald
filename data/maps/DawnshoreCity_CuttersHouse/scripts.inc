@@ -190,10 +190,14 @@ DawnshoreCity_CuttersHouse_CUTScene_1:
 # 124 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
 	waitmovement LOCALID_CUTTERSHOUSE_CUTTER
 # 125 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
-	special RemoveCameraObject
+	setobjectxyperm LOCALID_CUTTERSHOUSE_MON, 0, 0
 # 126 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
-	setflag FLAG_CAN_USE_CUT
+	setobjectxyperm LOCALID_CUTTERSHOUSE_BALL, 0, 0
 # 127 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
+	special RemoveCameraObject
+# 128 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
+	setflag FLAG_CAN_USE_CUT
+# 129 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
 	releaseall
 	return
 
@@ -206,21 +210,21 @@ DawnshoreCity_CuttersHouse_CUTScene_2:
 
 
 DawnshoreCity_CuttersHouse_Woman::
-# 131 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
+# 133 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
 	goto_if_unset FLAG_SPOKEN_TO_CUTTER, DawnshoreCity_CuttersHouse_Woman_1
-# 134 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
+# 136 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
 	goto_if_set FLAG_CAN_USE_CUT, DawnshoreCity_CuttersHouse_Woman_4
-# 137 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
+# 139 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
 	msgbox DawnshoreCity_CuttersHouse_Woman_Text_2, MSGBOX_NPC
 	return
 
 DawnshoreCity_CuttersHouse_Woman_1:
-# 132 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
+# 134 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
 	msgbox DawnshoreCity_CuttersHouse_Woman_Text_0, MSGBOX_NPC
 	return
 
 DawnshoreCity_CuttersHouse_Woman_4:
-# 135 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
+# 137 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
 	msgbox DawnshoreCity_CuttersHouse_Woman_Text_1, MSGBOX_NPC
 	return
 
@@ -376,6 +380,8 @@ DawnshoreCity_CuttersHouse_CUTScene_Movement_16:
 # 117 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
 	delay_16
 # 117 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
+	disable_jump_landing_ground_effect
+# 117 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
 	jump_right
 # 117 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
 	delay_8
@@ -473,13 +479,13 @@ DawnshoreCity_CuttersHouse_CUTScene_Text_7:
 	.string "And there you have it, it's as simple\nas that.\pI hope this knowledge will treat you\nwell.$"
 
 DawnshoreCity_CuttersHouse_Woman_Text_0:
-# 132 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
+# 134 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
 	.string "Well hello dear.\pIf you're looking for the Cutter,\nthat would be my husband.$"
 
 DawnshoreCity_CuttersHouse_Woman_Text_1:
-# 135 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
+# 137 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
 	.string "Some trees won't grow back once cut\ndown you know.\pThey're normally the ones that fully\nblock your adventuring progress.$"
 
 DawnshoreCity_CuttersHouse_Woman_Text_2:
-# 137 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
+# 139 "data/maps/DawnshoreCity_CuttersHouse/scripts.pory"
 	.string "Have you learnt how to cut down trees\nyet?$"

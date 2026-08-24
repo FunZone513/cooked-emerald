@@ -11,7 +11,7 @@ script Generic_DefaultSettings {
     call(Generic_UPDATE_LEVELCAP)
     
     // % increase. EG: 20 = 1.2x experience. Set to 0 for no bonus.
-    setvar(VAR_INCREASE_EXP_GAIN, 50)
+    setvar(VAR_INCREASE_EXP_GAIN, 20)
 
     // % chance
     setvar(VAR_WILD_BATTLE_CHANCE, 15)
@@ -403,13 +403,13 @@ mart GenericPokeMart_Berry3 {
 
 //MARK: Rest Area
 script RestArea_Indoor_BedTaken {
-    msgbox("It looks like this bed is taken.", MSGBOX_DEFAULT)
+    msgbox("It looks like this bed is taken.", MSGBOX_AUTOCLOSE)
 }
 
 script RestArea_Indoor_BedHeal {
     msgbox("Looks like this bed is free.\nTake a rest?", MSGBOX_YESNO)
     if (var(VAR_RESULT) == YES) {
-        msgbox("You take a short rest.", MSGBOX_DEFAULT)
+        msgbox("You take a short rest.", MSGBOX_AUTOCLOSE)
         call(Common_EventScript_OutOfCenterPartyHeal)
     }
     releaseall

@@ -10,7 +10,7 @@ Generic_DefaultSettings::
 # 11 "data/scripts/general_scripts.pory"
 	call Generic_UPDATE_LEVELCAP
 # 14 "data/scripts/general_scripts.pory"
-	setvar VAR_INCREASE_EXP_GAIN, 50
+	setvar VAR_INCREASE_EXP_GAIN, 20
 # 17 "data/scripts/general_scripts.pory"
 	setvar VAR_WILD_BATTLE_CHANCE, 15
 # 19 "data/scripts/general_scripts.pory"
@@ -817,7 +817,7 @@ GenericPokeMart_Berry3:
 
 RestArea_Indoor_BedTaken::
 # 406 "data/scripts/general_scripts.pory"
-	msgbox RestArea_Indoor_BedTaken_Text_0, MSGBOX_DEFAULT
+	msgbox RestArea_Indoor_BedTaken_Text_0, MSGBOX_AUTOCLOSE
 	return
 
 
@@ -834,7 +834,7 @@ RestArea_Indoor_BedHeal_1:
 
 RestArea_Indoor_BedHeal_2:
 # 412 "data/scripts/general_scripts.pory"
-	msgbox RestArea_Indoor_BedHeal_Text_1, MSGBOX_DEFAULT
+	msgbox RestArea_Indoor_BedHeal_Text_1, MSGBOX_AUTOCLOSE
 # 413 "data/scripts/general_scripts.pory"
 	call Common_EventScript_OutOfCenterPartyHeal
 	goto RestArea_Indoor_BedHeal_1

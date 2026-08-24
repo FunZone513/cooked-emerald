@@ -687,7 +687,7 @@
 #define FLAG_CAN_DIG_PILE               0x277
 #define FLAG_SPAWN_INVISIBLE            0x278   // Player warps invisible
 #define FLAG_NO_WHITEOUT                0x279   // Won't whiteout when losing battle
-#define FLAG_UNUSED_0x27A  0x27A // Unused Flag
+#define FLAG_CAN_EDIT_STATS              0x27A   // Whether the stat allocator is unlocked or not
 #define FLAG_UNUSED_0x27B  0x27B // Unused Flag
 #define FLAG_UNUSED_0x27C  0x27C // Unused Flag
 #define FLAG_UNUSED_0x27D  0x27D // Unused Flag
@@ -1525,7 +1525,7 @@
 #define FLAG_OPEN_DIGGERS_HUT                       (SYSTEM_FLAGS + 0x8D)
 #define FLAG_FOUGHT_DIGGERS_HUT_RICHARD             (SYSTEM_FLAGS + 0x8E)
 #define FLAG_SPOKEN_TO_CUTTER                       (SYSTEM_FLAGS + 0x8F)
-#define FLAG_UNUSED_0x8F0                           (SYSTEM_FLAGS + 0x90) // Unused Flag
+#define FLAG_HORIZON_PORT_GAMBLER_SPOKEN            (SYSTEM_FLAGS + 0x90)
 #define FLAG_UNUSED_0x8F1                           (SYSTEM_FLAGS + 0x91) // Unused Flag
 #define FLAG_UNUSED_0x8F2                           (SYSTEM_FLAGS + 0x92) // Unused Flag
 #define FLAG_UNUSED_0x8F3                           (SYSTEM_FLAGS + 0x93) // Unused Flag

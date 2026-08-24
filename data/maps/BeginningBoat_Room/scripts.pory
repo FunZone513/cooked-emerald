@@ -18,7 +18,7 @@ script BeginningBoat_Room_Bag {
 }
 
 script StarterSettings_LEVELCAP {
-    if (flag(FLAG_SHARED_EXP)) {
+    if (var(VAR_CURRENT_LEVEL_CAP) < 100) {
         message("Levelcaps stop you from over levelling.\nCurrently ON.")
         multichoice(25, 5, MULTI_ONOFF, 0)
         closemessage
@@ -60,12 +60,12 @@ script StarterSettings_EXPSHARE {
 }
 
 script StarterSettings_EXPBOOST {
-    msgbox("Exp gain is always increased compared\nto vanilla to reduce grind.\pDo you wish to increase it further?\n( 1.5x -> 2x )", MSGBOX_YESNO)
+    msgbox("Exp gain is always increased compared\nto vanilla to reduce grind.\pDo you wish to increase it further?\n( +20% -> +50% )", MSGBOX_YESNO)
     if (var(VAR_RESULT) == YES) {
-        setvar(VAR_INCREASE_EXP_GAIN, 100)
+        setvar(VAR_INCREASE_EXP_GAIN, 50)
         msgbox("Exp gain is increased further.", MSGBOX_DEFAULT)
     } else { 
-        setvar(VAR_INCREASE_EXP_GAIN, 50)
+        setvar(VAR_INCREASE_EXP_GAIN, 20)
         msgbox("Exp gain has normal increase.", MSGBOX_DEFAULT)
     }
     goto(BeginningBoat_Room_Bag)

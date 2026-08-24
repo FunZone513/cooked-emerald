@@ -102,7 +102,7 @@ script BeginningBoat_PostStarter {
     message(
         "Ahem!\p"
         "As I was saying before being rudely\ninterrupted, I'll explain some specifics\lof the adventure.\p"
-        "As we're about to Dock, I'll make it\nbrief.\p"
+        "As we're about to dock, I'll make it\nbrief.\p"
         "There's 4 Gyms on the island, beat them\nand collect the badges to challenge the\lleague!\p"
         "Climb to the top and you'll be the\nwinner of your adventuring cohort!\p"
         "Remember, the Pokemon Adventure is\nan experience designed for enjoyment\lfirst and foremost!\p"
