@@ -10225,6 +10225,8 @@ bool32 CanMoveSkipAccuracyCalc(enum BattlerId battlerAtk, enum BattlerId battler
             effect = TRUE;
         else if ((attackerWeather & B_WEATHER_ICY_ANY) && MoveAlwaysHitsInHailSnow(move))
             effect = TRUE;
+        else if ((attackerWeather & B_WEATHER_SANDSTORM) && MoveAlwaysHitsInSand(move))
+            effect = TRUE;
 
         if (effect)
             return effect;

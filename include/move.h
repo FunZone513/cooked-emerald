@@ -143,6 +143,7 @@ struct MoveInfo
     bool32 forcePressure:1;
     bool32 cantUseTwice:1;
     bool32 alwaysHitsInRain:1;
+    bool32 alwaysHitsInSand:1;
     bool32 accuracy50InSun:1;
     bool32 alwaysHitsInHailSnow:1;
     bool32 alwaysHitsOnSameType:1; // Always hits if user is of same type as move
@@ -475,6 +476,11 @@ static inline bool32 MoveCantBeUsedTwice(enum Move moveId)
 static inline bool32 MoveAlwaysHitsInRain(enum Move moveId)
 {
     return gMovesInfo[SanitizeMoveId(moveId)].alwaysHitsInRain;
+}
+
+static inline bool32 MoveAlwaysHitsInSand(enum Move moveId)
+{
+    return gMovesInfo[SanitizeMoveId(moveId)].alwaysHitsInSand;
 }
 
 static inline bool32 MoveHas50AccuracyInSun(enum Move moveId)
