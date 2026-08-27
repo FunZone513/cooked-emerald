@@ -133,7 +133,7 @@ static const u8 sText_TripleBullet[] = _("   ···");
 ALIGNED(4) static const u8 sExpandedPlaceholder_PokedexDescription[] = _("");
 static const u16 sSizeScreenSilhouette_Pal[] = INCGFX_U16("graphics/pokedex/size_silhouette.pal", ".gbapal");
 
-static const u8 sText_Stats_Buttons[] = _("{A_BUTTON}TOGGLE   {DPAD_UPDOWN}MOVES");
+static const u8 sText_Stats_Buttons[] = _(" {DPAD_UPDOWN} SEARCH MOVES");
 static const u8 sText_Stats_Buttons_Decapped[] = _("{A_BUTTON}Toggle   {DPAD_UPDOWN}Moves");
 static const u8 sText_Stats_HP[] = _("HP");
 static const u8 sText_Stats_Attack[] = _("ATK");
@@ -5023,7 +5023,7 @@ static void UNUSED FreeStatsScreenWindowAndBgBuffers(void)
 
 static void Task_HandleStatsScreenInput(u8 taskId)
 {
-    if (JOY_NEW(A_BUTTON))
+    /* if (JOY_NEW(A_BUTTON))
     {
         PlaySE(SE_DEX_PAGE);
         if (gTasks[taskId].data[5] == 0)
@@ -5043,7 +5043,7 @@ static void Task_HandleStatsScreenInput(u8 taskId)
 
         FillWindowPixelBuffer(WIN_STATS_ABILITIES, PIXEL_FILL(0));
         PrintStatsScreen_Abilities(taskId);
-    }
+    } */
     if (JOY_NEW(B_BUTTON))
     {
         BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 16, RGB_BLACK);
