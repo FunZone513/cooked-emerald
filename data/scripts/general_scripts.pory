@@ -1,10 +1,3 @@
-//MARK: Game Version
-script Generic_InfoNPC {
-    msgbox("Current Game Version is:\n- 0.0.1 -", MSGBOX_NPC)
-}
-
-
-
 //MARK: Default Settings
 script Generic_DefaultSettings {
     setflag(FLAG_SHARED_EXP)

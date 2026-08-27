@@ -1,8 +1,9 @@
-GAME_VERSION ?= EMERALD
-TITLE        ?= POKEMON EMER
-GAME_CODE    ?= BPEE
-BUILD_NAME   ?= emerald
-MAP_VERSION  ?= emerald
+GAME_VERSION 	?= EMERALD
+TITLE        	?= POKEMON EMER
+GAME_CODE    	?= BPEE
+BUILD_NAME   	?= island
+BUILD_VERSION	?= 0.1
+MAP_VERSION  	?= emerald
 
 ifeq (firered, $(or $(BUILD), $(MAKECMDGOALS)))
   	GAME_VERSION 	:= FIRERED
@@ -26,7 +27,7 @@ REVISION    := 0
 KEEP_TEMPS  ?= 0
 
 # `File name`.gba
-FILE_NAME := cooked$(BUILD_NAME)
+FILE_NAME := $(BUILD_NAME)
 BUILD_DIR := build
 
 # Compares the ROM to a checksum of the original - only makes sense using when non-modern
@@ -94,6 +95,8 @@ CPP := $(PREFIX)cpp
 
 ifeq ($(RELEASE),1)
 	FILE_NAME := $(FILE_NAME)-release
+else
+	FILE_NAME := $(FILE_NAME)-v$(BUILD_VERSION)
 endif
 
 ROM_NAME := $(FILE_NAME).gba
