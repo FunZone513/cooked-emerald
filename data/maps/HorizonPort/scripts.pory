@@ -101,6 +101,7 @@ script HorizonPort_RichardBattle {
     waitmovement(0)
     call(Generic_UPDATE_LEVELCAP)
     setflag(FLAG_TEMP_A)
+    setobjectxyperm(LOCALID_HORIZONPORT_RICHARD, 0, 0)
     releaseall
 }
 
@@ -176,7 +177,7 @@ script HorizonPort_Father {
         }
     } else {
         if (var(VAR_GAME_PROGRESS) < GP_HORIZON_PORT_RIVAL_ENCOUNTERED) {
-            msgbox(format("I'm hoping one of the new trainers would play with my kids."))
+            msgbox(format("I'm hoping one of the new trainers would play with my kids."), MSGBOX_NPC)
         } else {
             msgbox("Say, you're a new trainer right?\pCould you battle with my kids so I\ncan get some peace and quiet?", MSGBOX_NPC)
         }

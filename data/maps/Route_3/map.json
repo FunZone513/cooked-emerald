@@ -17,6 +17,11 @@
       "map": "MAP_DAWNSHORE_CITY",
       "offset": -4,
       "direction": "up"
+    },
+    {
+      "map": "MAP_CROWN_FOREST_NORTH",
+      "offset": 50,
+      "direction": "down"
     }
   ],
   "object_events": [
