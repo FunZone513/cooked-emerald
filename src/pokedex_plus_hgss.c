@@ -5053,9 +5053,21 @@ static void Task_HandleStatsScreenInput(u8 taskId)
     }
 
     //Change moves
-    if (JOY_REPEAT(DPAD_UP) && sPokedexView->moveSelected > 0)
-    {
-        sPokedexView->moveSelected -= 1;
+    if (JOY_REPEAT(DPAD_DOWN) || JOY_REPEAT(DPAD_UP)) {
+        if (JOY_REPEAT(DPAD_DOWN)) {
+            if (sPokedexView->moveSelected > 0) {
+                sPokedexView->moveSelected -= 1;
+            } else {
+                sPokedexView->moveSelected = sPokedexView->movesTotal -1;
+            }
+        } else { // DPAD_UP
+            if (sPokedexView->moveSelected < sPokedexView->movesTotal -1) {
+                sPokedexView->moveSelected = sPokedexView->moveSelected + 1;
+            } else {
+                sPokedexView->moveSelected = 0;
+            }
+        }
+
         PlaySE(SE_SELECT);
         FillWindowPixelBuffer(WIN_STATS_MOVES_TOP, PIXEL_FILL(0));
         PrintStatsScreen_DestroyMoveItemIcon(taskId);
@@ -5068,21 +5080,7 @@ static void Task_HandleStatsScreenInput(u8 taskId)
         FillWindowPixelRect(WIN_STATS_MOVES_BOTTOM, PIXEL_FILL(0), 120, 0, 20, 16);
         PrintStatsScreen_Moves_Bottom(taskId);
     }
-    if (JOY_REPEAT(DPAD_DOWN) && sPokedexView->moveSelected < sPokedexView->movesTotal -1 )
-    {
-        sPokedexView->moveSelected = sPokedexView->moveSelected + 1;
-        PlaySE(SE_SELECT);
-        FillWindowPixelBuffer(WIN_STATS_MOVES_TOP, PIXEL_FILL(0));
-        PrintStatsScreen_DestroyMoveItemIcon(taskId);
-        PrintStatsScreen_Moves_Top(taskId);
-
-        FillWindowPixelBuffer(WIN_STATS_MOVES_DESCRIPTION, PIXEL_FILL(0));
-        PrintStatsScreen_Moves_Description(taskId);
-
-        FillWindowPixelRect(WIN_STATS_MOVES_BOTTOM, PIXEL_FILL(0), 50, 0, 20, 16);
-        FillWindowPixelRect(WIN_STATS_MOVES_BOTTOM, PIXEL_FILL(0), 120, 0, 20, 16);
-        PrintStatsScreen_Moves_Bottom(taskId);
-    }
+    
 
     //Switch screens
     if ((JOY_NEW(DPAD_LEFT) || (JOY_NEW(L_BUTTON) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_LR)))
@@ -5118,15 +5116,16 @@ static void PrintStatsScreen_DestroyMoveItemIcon(u8 taskId)
     DestroySprite(&gSprites[gTasks[taskId].data[3]]);       //Destroy item icon
 }
 
+// I'm omitting Egg moves and Tms from the pokedex view, breeding isn't a thing and TMs aren't needed here
 static bool8 CalculateMoves(void)
 {
     enum Species species = NationalPokedexNumToSpeciesHGSS(sPokedexListItem->dexNum);
 
-    u16 statsMovesEgg[EGG_MOVES_ARRAY_COUNT] = {0};
+    //u16 statsMovesEgg[EGG_MOVES_ARRAY_COUNT] = {0};
 
-    u32 numEggMoves = 0;
+    //u32 numEggMoves = 0;
     u32 numLevelUpMoves = 0;
-    u32 numTeachableMoves = 0;
+    //u32 numTeachableMoves = 0;
     u32 i;
 
     // Mega and Gmax Pokémon don't have distinct learnsets from their base form; so use base species for calculation
@@ -5134,7 +5133,7 @@ static bool8 CalculateMoves(void)
         species = GetFormSpeciesId(species, 0);
 
     // Egg moves
-    if (HGSS_SHOW_EGG_MOVES_FOR_EVOS)
+    /* if (HGSS_SHOW_EGG_MOVES_FOR_EVOS)
     {
         enum Species preSpecies = species;
         while (preSpecies != SPECIES_NONE)
@@ -5146,7 +5145,7 @@ static bool8 CalculateMoves(void)
     else
     {
         numEggMoves = GetEggMovesBySpecies(species, statsMovesEgg);
-    }
+    } */
 
     // Level up moves
     const struct LevelUpMove *learnset = GetSpeciesLevelUpLearnset(species);
@@ -5154,14 +5153,14 @@ static bool8 CalculateMoves(void)
         numLevelUpMoves++;
 
     // TM and Tutor moves
-    const u16 *teachableLearnset = GetSpeciesTeachableLearnset(species);
+    /* const u16 *teachableLearnset = GetSpeciesTeachableLearnset(species);
     for (i = 0; teachableLearnset[i] != MOVE_UNAVAILABLE; i++)
-        numTeachableMoves++;
+        numTeachableMoves++; */
 
     sPokedexView->numEggMoves = 0; //numEggMoves
     sPokedexView->numLevelUpMoves = numLevelUpMoves;
-    sPokedexView->numTeachableMoves = numTeachableMoves;
-    sPokedexView->movesTotal = (numEggMoves + numLevelUpMoves + numTeachableMoves);
+    sPokedexView->numTeachableMoves = 0; //numTeachableMoves
+    sPokedexView->movesTotal = numLevelUpMoves; //(numEggMoves + numLevelUpMoves + numTeachableMoves);
 
     return TRUE;
 }
