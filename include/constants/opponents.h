@@ -37,9 +37,17 @@
 #define TRAINER_DIGGERS_HUT_MANIAC              30
 #define TRAINER_DIGGERS_HUT_BLACKBELT           31
 #define TRAINER_DIGGERS_HUT_RICHARD             32
+#define TRAINER_CROWN_NORTH_BUG_MANIAC          33
+#define TRAINER_CROWN_NORTH_HIKER               34
+#define TRAINER_CROWN_NORTH_BLACKBELT           35
+#define TRAINER_CROWN_NORTH_BATTLEGIRL          36
+#define TRAINER_CROWN_NORTH_PARASOL             37
+#define TRAINER_CROWN_NORTH_BIRD_KEEPER         38
+#define TRAINER_CROWN_NORTH_BREEDER             39
+#define TRAINER_CROWN_NORTH_AROMA_LADY          40
 
 //== update this every time
-#define TRAINERS_COUNT_EMERALD     33
+#define TRAINERS_COUNT_EMERALD     41
 
 // don't go over this I guess (theres no fucking way I add 800+ trainers)
 #define MAX_TRAINERS_COUNT_EMERALD 864

@@ -1,0 +1,73 @@
+mapscripts CrownForestNorth_MapScripts {}
+
+script CrownForestNorth_BugManiac {
+    trainerbattle_single(
+        TRAINER_CROWN_NORTH_BUG_MANIAC, 
+        "Shh...\nDo you hear that?",
+        "I was trying to listen!"
+    )
+    msgbox(format("I can hear something rustling about in the grass..."), MSGBOX_NPC)
+}
+
+script CrownForestNorth_Hiker {
+    trainerbattle_single(
+        TRAINER_CROWN_NORTH_HIKER, 
+        "I'm getting soaked!",
+        "No! My socks got wet!"
+    )
+    msgbox(format("I should've packed an umbrella..."), MSGBOX_NPC)
+}
+
+script CrownForestNorth_BlackBelt {
+    trainerbattle_single(
+        TRAINER_CROWN_NORTH_BLACKBELT, 
+        "LET US COMMENCE BATTLE!",
+        "THE BATTLE DIDN'T GO AS PLANNED!"
+    )
+    msgbox(format("How's it going?"), MSGBOX_NPC)
+}
+
+script CrownForestNorth_BattleGirl {
+    trainerbattle_single(
+        TRAINER_CROWN_NORTH_BATTLEGIRL, 
+        "If I win you have to drop and give\nme 20!",
+        "Suit yourself, more pushups for me!"
+    )
+    msgbox(format("Get a load of these guns!"), MSGBOX_NPC)
+}
+
+script CrownForestNorth_Parasol {
+    trainerbattle_single(
+        TRAINER_CROWN_NORTH_PARASOL, 
+        "Am I the only person prepared?",
+        "You may have won, but I'm still dry.\nSo who's the real winner?"
+    )
+    msgbox(format("I'd heard that it rains a lot in here, but it really does."), MSGBOX_NPC)
+}
+
+script CrownForestNorth_BirdKeeper {
+    trainerbattle_single(
+        TRAINER_CROWN_NORTH_BIRD_KEEPER, 
+        "Wet wings can still fly!",
+        "Help! Feathers full of water!"
+    )
+    msgbox(format("Flying types are good against all the bugs here."), MSGBOX_NPC)
+}
+
+script CrownForestNorth_Breeder {
+    trainerbattle_single(
+        TRAINER_CROWN_NORTH_BREEDER, 
+        "I'm just out for a stroll, care to have\nsome fun?",
+        "My babies need to expend their energy\nsomehow after all."
+    )
+    msgbox(format("Even if I lose, battling trainers is a good way to exercise."), MSGBOX_NPC)
+}
+
+script CrownForestNorth_AromaLady {
+    trainerbattle_single(
+        TRAINER_CROWN_NORTH_AROMA_LADY, 
+        "I'm not really a fan of standing around\nin the rain.",
+        "Oh dear..."
+    )
+    msgbox(format("At least the Rest Area stays dry."), MSGBOX_NPC)
+}

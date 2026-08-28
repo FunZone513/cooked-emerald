@@ -549,6 +549,135 @@ Level: 13
 Deino (M)
 Level: 15
 
+=== TRAINER_CROWN_NORTH_BUG_MANIAC ===
+Name: REY
+Class: Bug Maniac
+Pic: Bug Maniac
+Gender: Male
+Music: Suspicious
+AI: Basic Trainer
+
+Yanma
+Level: 12
+
+Yanma
+Level: 12
+
+Venipede
+Level: 13
+
+=== TRAINER_CROWN_NORTH_HIKER ===
+Name: GREG
+Class: Hiker
+Pic: Hiker FRLG
+Gender: Male
+Music: Hiker
+AI: Basic Trainer
+
+Aron
+Level: 13
+
+Corphish
+Level: 13
+
+=== TRAINER_CROWN_NORTH_BLACKBELT ===
+Name: STAN
+Class: Black Belt
+Pic: Black Belt FRLG
+Gender: Male
+Music: Intense
+AI: Basic Trainer
+
+Machop (M)
+Level: 13
+
+Machop (M)
+Level: 13
+
+=== TRAINER_CROWN_NORTH_BATTLEGIRL ===
+Name: HARIETTE
+Class: Battle Girl
+Pic: Battle Girl
+Gender: Female
+Music: Intense
+AI: Basic Trainer
+
+Buneary (F)
+Level: 13
+
+Meditite (F)
+Level: 13
+
+=== TRAINER_CROWN_NORTH_PARASOL ===
+Name: LESLIE
+Class: Parasol Lady
+Pic: Parasol Lady
+Gender: Female
+Music: Female
+AI: Basic Trainer
+
+Whismur
+Level: 12
+
+Goldeen
+Level: 12
+
+Marill
+Level: 14
+
+=== TRAINER_CROWN_NORTH_BIRD_KEEPER ===
+Name: ALBERTO
+Class: Bird Keeper
+Pic: Bird Keeper
+Gender: Male
+Music: Cool
+AI: Basic Trainer
+
+Hoothoot
+Level: 12
+
+Taillow
+Level: 12
+
+Hoothoot
+Level: 12
+
+Taillow
+Level: 12
+
+=== TRAINER_CROWN_NORTH_BREEDER ===
+Name: ANNA
+Class: Pkmn Breeder
+Pic: Pokemon Breeder FRLG
+Gender: Female
+Music: Female
+AI: Basic Trainer
+
+Lillipup (M)
+Level: 11
+
+Azurill (F)
+Level: 11
+
+Whismur (F)
+Level: 11
+
+Lillipup (F)
+Level: 11
+
+=== TRAINER_CROWN_NORTH_AROMA_LADY ===
+Name: LAURA
+Class: Aroma Lady
+Pic: Aroma Lady
+Gender: Female
+Music: Female
+AI: Tricky
+
+Shroomish
+Level: 13
+
+Paras
+Level: 14
 
 
 

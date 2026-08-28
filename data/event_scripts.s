@@ -1786,3 +1786,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/BeginningBoat_Room/scripts.inc"
 
 	.include "data/maps/BeginningBoat_Ocean/scripts.inc"
+
+	.include "data/maps/CrownForestNorth/scripts.inc"

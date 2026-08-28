@@ -100,7 +100,8 @@
     "Route_3"
   ],
   "gMapGroup_Dungeons": [
-    "WhisperWoods"
+    "WhisperWoods",
+    "CrownForestNorth"
   ],
   "gMapGroup_NamedAreas": [
     "RestArea1",
