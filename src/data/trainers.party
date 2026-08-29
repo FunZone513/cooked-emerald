@@ -326,15 +326,19 @@ AI: Leader
 
 Goldeen
 Level: 14
+Ability: ABILITY_LIGHTNING_ROD
 
 Shellder
 Level: 14
+Ability: ABILITY_SHELL_ARMOR
 
 Sandygast
 Level: 14
+Ability: ABILITY_WATER_COMPACTION
 
 Wailmer
 Level: 15
+Ability: ABILITY_WATER_VEIL
 
 === TRAINER_DAWNSHORE_CITY_GYM_CAMPER ===
 Name: STEWART
@@ -344,11 +348,8 @@ Gender: Male
 Music: Male
 AI: Smart Trainer
 
-Shroomish
-Level: 11
-
 Carvanha
-Level: 11
+Level: 12
 
 === TRAINER_DAWNSHORE_CITY_GYM_TUBER ===
 Name: GEORGE
@@ -372,10 +373,10 @@ Gender: Female
 Music: Intense
 AI: Smart Trainer
 
-Marill
+Corphish
 Level: 11
 
-Buneary
+Marill
 Level: 12
 
 === TRAINER_DAWNSHORE_CITY_GYM_SWIMMER ===
@@ -386,14 +387,14 @@ Gender: Male
 Music: Swimmer
 AI: Smart Trainer
 
-Taillow
-Level: 11
+Carvanha
+Level: 10
+
+Carvanha
+Level: 10
 
 Krabby
 Level: 12
-
-Taillow
-Level: 11
 
 === TRAINER_DAWNSHORE_CITY_GYM_TUBER_B ===
 Name: CHARLIE
@@ -406,7 +407,7 @@ AI: Smart Trainer
 Krabby
 Level: 12
 
-Corphish
+Shellder
 Level: 12
 
 === TRAINER_DAWNSHORE_CITY_GYM_SWIMMER_B ===
