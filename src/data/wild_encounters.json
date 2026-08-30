@@ -38145,63 +38145,63 @@
             "mons": [
               {
                 "min_level": 5,
-                "max_level": 9,
+                "max_level": 8,
                 "species": "SPECIES_KRABBY"
               },
               {
                 "min_level": 5,
-                "max_level": 9,
-                "species": "SPECIES_WHISMUR"
+                "max_level": 8,
+                "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 6,
-                "max_level": 10,
+                "max_level": 9,
                 "species": "SPECIES_KRABBY"
               },
               {
                 "min_level": 5,
+                "max_level": 8,
+                "species": "SPECIES_LILLIPUP"
+              },
+              {
+                "min_level": 5,
+                "max_level": 9,
+                "species": "SPECIES_LILLIPUP"
+              },
+              {
+                "min_level": 6,
                 "max_level": 9,
                 "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 5,
-                "max_level": 10,
+                "max_level": 8,
                 "species": "SPECIES_KRABBY"
               },
               {
                 "min_level": 6,
-                "max_level": 10,
-                "species": "SPECIES_WHISMUR"
-              },
-              {
-                "min_level": 5,
                 "max_level": 9,
-                "species": "SPECIES_KRABBY"
-              },
-              {
-                "min_level": 6,
-                "max_level": 10,
                 "species": "SPECIES_MACHOP"
               },
               {
                 "min_level": 5,
-                "max_level": 10,
-                "species": "SPECIES_SANDYGAST"
+                "max_level": 9,
+                "species": "SPECIES_AZURILL"
               },
               {
                 "min_level": 5,
-                "max_level": 10,
-                "species": "SPECIES_SANDYGAST"
+                "max_level": 9,
+                "species": "SPECIES_AZURILL"
               },
               {
                 "min_level": 5,
-                "max_level": 10,
-                "species": "SPECIES_SANDYGAST"
+                "max_level": 9,
+                "species": "SPECIES_AZURILL"
               },
               {
                 "min_level": 5,
-                "max_level": 10,
-                "species": "SPECIES_SANDYGAST"
+                "max_level": 9,
+                "species": "SPECIES_AZURILL"
               }
             ]
           },
