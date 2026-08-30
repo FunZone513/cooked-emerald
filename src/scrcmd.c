@@ -3561,6 +3561,10 @@ bool8 ScrCmd_debugprint(struct ScriptContext *ctx) {
     return FALSE;
 }
 
+void ScrCmd_debugnative(void) {
+    gSpecialVar_Result = gSaveBlock1Ptr->lastHealLocation.warpId;
+}
+
 void GetInteractedPokemon(void) {
     u32 pokemonObjID = (gSpecialVar_LastTalked - 1); // get the map object number
     u32 speciesIndex = gMapHeader.events->objectEvents[pokemonObjID].trainerRange_berryTreeId; // grab the species from sight range    

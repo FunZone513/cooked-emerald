@@ -12,7 +12,7 @@ DawnshoreCity_PokeCentre_OnTransition::
 
 DawnshoreCity_PokeCentre_Nurse::
 # 10 "data/maps/DawnshoreCity_PokeCentre/scripts.pory"
-	setvar VAR_0x800B, NURSE
+	setvar VAR_0x800B, DS_NURSE
 # 11 "data/maps/DawnshoreCity_PokeCentre/scripts.pory"
 	call Common_EventScript_PkmnCenterNurse
 # 12 "data/maps/DawnshoreCity_PokeCentre/scripts.pory"

@@ -417,7 +417,7 @@
     {
       "local_id": "LOCALID_HORIZONPORT_GAMBLER",
       "graphics_id": "OBJ_EVENT_GFX_BARD",
-      "x": 24,
+      "x": 26,
       "y": 25,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_INVISIBLE",

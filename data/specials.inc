@@ -643,3 +643,4 @@ gSpecials::
 	def_special ForceSpecialWildEncounter
 	def_special SetupSpecialWildEncounter
 	def_special DoSpecialWildEncounter
+	def_special ScrCmd_debugnative

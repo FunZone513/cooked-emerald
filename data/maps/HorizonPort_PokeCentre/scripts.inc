@@ -12,7 +12,7 @@ HorizonPort_PokeCentre_OnTransition::
 
 HorizonPort_PokeCentre_Nurse::
 # 10 "data/maps/HorizonPort_PokeCentre/scripts.pory"
-	setvar VAR_0x800B, NURSE
+	setvar VAR_0x800B, HP_NURSE
 # 11 "data/maps/HorizonPort_PokeCentre/scripts.pory"
 	call Common_EventScript_PkmnCenterNurse
 # 12 "data/maps/HorizonPort_PokeCentre/scripts.pory"

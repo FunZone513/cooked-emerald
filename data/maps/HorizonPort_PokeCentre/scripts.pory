@@ -7,7 +7,7 @@ script HorizonPort_PokeCentre_OnTransition {
 }
 
 script HorizonPort_PokeCentre_Nurse {
-	setvar(VAR_0x800B, NURSE)
+	setvar(VAR_0x800B, HP_NURSE)
 	call(Common_EventScript_PkmnCenterNurse)
     releaseall
 }

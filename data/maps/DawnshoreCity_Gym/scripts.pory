@@ -4,6 +4,7 @@ mapscripts DawnshoreCity_Gym_MapScripts {
 
 script DawnshoreCity_Gym_OnLoad {
     call(DawnshoreCity_Gym_UpdateTiles)
+    setflag(FLAG_DISABLE_FOLLOWER_POKEMON)
 }
 
 script DawnshoreCity_Gym_UpdateTiles {

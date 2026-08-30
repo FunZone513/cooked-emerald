@@ -7,7 +7,7 @@ script DawnshoreCity_PokeCentre_OnTransition {
 }
 
 script DawnshoreCity_PokeCentre_Nurse {
-	setvar(VAR_0x800B, NURSE)
+	setvar(VAR_0x800B, DS_NURSE)
 	call(Common_EventScript_PkmnCenterNurse)
     releaseall
 }
