@@ -504,7 +504,7 @@ Music: Suspicious
 Double Battle: Yes
 AI: Basic Trainer
 
-Marill
+Azurill
 Level: 8
 
 Shroomish
@@ -513,13 +513,13 @@ Level: 8
 Buneary
 Level: 8
 
-Hoothoot
+Goldeen
 Level: 8
 
 Paras
 Level: 8
 
-Yanma
+Skrelp
 Level: 8
 
 === TRAINER_DIGGERS_HUT_BLACKBELT ===
@@ -680,6 +680,40 @@ Level: 13
 Paras
 Level: 14
 
+=== TRAINER_CROWN_NORTH_JOSIE ===
+Name: JOSIE
+Class: Rival
+Pic: Lass FRLG
+Gender: Female
+Music: Female
+Items: Full Restore / Full Heal
+AI: Leader
+
+Shroomish (M)
+Level: 15
+- Stun Spore
+- Headbutt
+- Leech Seed
+- Mega Drain
+
+Hoothoot (F)
+Level: 15
+- Peck
+- Echoed Voice
+- Confusion
+- Reflect
+
+Meditite (F)
+Level: 15
+- Confusion
+- Detect
+- Vacuum Wave
+
+Ralts (F)
+Level: 18
+- Psybeam
+- Draining Kiss
+- Double Team
 
 
 

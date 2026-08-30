@@ -9517,8 +9517,8 @@
     {
       "id": "LAYOUT_ROUTE3_DIGGERS_HUT_BACK",
       "name": "Route3_DiggersHut_Back_Layout",
-      "width": 13,
-      "height": 36,
+      "width": 18,
+      "height": 44,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/Route3_DiggersHut_Back/border.bin",
