@@ -108,6 +108,7 @@ script Route3_DiggersHut_Back_RichardFight {
         "I'll see you again, '{PLAYER}'."
     , MSGBOX_AUTOCLOSE)
     clearflag(FLAG_NO_WHITEOUT)
+    savebgm(MUS_ROUTE110)
     fadedefaultbgm
     applymovement(LOCALID_RICHARD_DIGGERSHUT, moves(walk_down*5 set_invisible))
     waitmovement(0)
