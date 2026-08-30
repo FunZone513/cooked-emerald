@@ -3732,12 +3732,12 @@ void SetRoute3DiggersTunnelEncounters(void) {
         // pick a random index (metatile position)
         picked = Random() % total;
         switch (picked) {
-            case 0: MapGridSetMetatileIdAt(3 + MAP_OFFSET, 2 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-            case 1: MapGridSetMetatileIdAt(6 + MAP_OFFSET, 2 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-            case 2: MapGridSetMetatileIdAt(3 + MAP_OFFSET, 3 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-            case 3: MapGridSetMetatileIdAt(7 + MAP_OFFSET, 3 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-            case 4: MapGridSetMetatileIdAt(7 + MAP_OFFSET, 4 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-            case 5: MapGridSetMetatileIdAt(6 + MAP_OFFSET, 8 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 0: MapGridSetMetatileIdAt(5 + MAP_OFFSET, 6 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 1: MapGridSetMetatileIdAt(8 + MAP_OFFSET, 6 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 2: MapGridSetMetatileIdAt(5 + MAP_OFFSET, 7 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 3: MapGridSetMetatileIdAt(9 + MAP_OFFSET, 7 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 4: MapGridSetMetatileIdAt(9 + MAP_OFFSET, 8 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 5: MapGridSetMetatileIdAt(8 + MAP_OFFSET,12 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
         }
 
         // shift remaining values over
@@ -3751,9 +3751,9 @@ void SetRoute3DiggersTunnelEncounters(void) {
     total = sizeof(midPositions) / sizeof(midPositions[0]);
     picked = Random() % total;
     switch (picked) {
-        case 0: MapGridSetMetatileIdAt( 7 + MAP_OFFSET, 13 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-        case 1: MapGridSetMetatileIdAt( 7 + MAP_OFFSET, 18 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-        case 2: MapGridSetMetatileIdAt(10 + MAP_OFFSET, 17 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+        case 0: MapGridSetMetatileIdAt( 9 + MAP_OFFSET, 17 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+        case 1: MapGridSetMetatileIdAt( 9 + MAP_OFFSET, 22 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+        case 2: MapGridSetMetatileIdAt(12 + MAP_OFFSET, 21 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
     }
 
     // bottom
@@ -3763,17 +3763,17 @@ void SetRoute3DiggersTunnelEncounters(void) {
         // pick a random index (metatile position)
         picked = Random() % total;
         switch (picked) {
-            case 0: MapGridSetMetatileIdAt( 6 + MAP_OFFSET, 24 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-            case 1: MapGridSetMetatileIdAt( 7 + MAP_OFFSET, 24 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-            case 2: MapGridSetMetatileIdAt( 3 + MAP_OFFSET, 25 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-            case 3: MapGridSetMetatileIdAt( 2 + MAP_OFFSET, 26 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-            case 4: MapGridSetMetatileIdAt( 3 + MAP_OFFSET, 26 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-            case 5: MapGridSetMetatileIdAt( 6 + MAP_OFFSET, 28 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-            case 6: MapGridSetMetatileIdAt( 4 + MAP_OFFSET, 31 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-            case 7: MapGridSetMetatileIdAt( 4 + MAP_OFFSET, 32 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-            case 8: MapGridSetMetatileIdAt( 7 + MAP_OFFSET, 32 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-            case 9: MapGridSetMetatileIdAt( 8 + MAP_OFFSET, 33 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
-            case 10: MapGridSetMetatileIdAt(9 + MAP_OFFSET, 33 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 0: MapGridSetMetatileIdAt( 8 + MAP_OFFSET, 28 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 1: MapGridSetMetatileIdAt( 9 + MAP_OFFSET, 28 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 2: MapGridSetMetatileIdAt( 5 + MAP_OFFSET, 29 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 3: MapGridSetMetatileIdAt( 4 + MAP_OFFSET, 30 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 4: MapGridSetMetatileIdAt( 5 + MAP_OFFSET, 30 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 5: MapGridSetMetatileIdAt( 8 + MAP_OFFSET, 32 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 6: MapGridSetMetatileIdAt( 6 + MAP_OFFSET, 35 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 7: MapGridSetMetatileIdAt( 6 + MAP_OFFSET, 36 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 8: MapGridSetMetatileIdAt( 9 + MAP_OFFSET, 36 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 9: MapGridSetMetatileIdAt(10 + MAP_OFFSET, 37 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
+            case 10:MapGridSetMetatileIdAt(11 + MAP_OFFSET, 37 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
         }
 
         // shift remaining values over
