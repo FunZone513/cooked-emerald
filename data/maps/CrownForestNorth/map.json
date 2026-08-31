@@ -22,8 +22,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
-      "x": 9,
-      "y": 22,
+      "x": 8,
+      "y": 21,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_UP",
       "movement_range_x": 0,
@@ -35,11 +35,11 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER_FRLG",
-      "x": 24,
+      "x": 23,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
-      "movement_range_x": 2,
+      "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_SEE_ALL_DIRECTIONS",
       "trainer_sight_or_berry_tree_id": "1",
@@ -48,8 +48,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
-      "x": 30,
-      "y": 7,
+      "x": 35,
+      "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
@@ -61,7 +61,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
-      "x": 30,
+      "x": 35,
       "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -137,6 +137,97 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_TEMP_A"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 15,
+      "y": 7,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_ANTIDOTE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_CROWN_FOREST_N"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 27,
+      "y": 18,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_MIRACLE_SEED",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_CROWN_FOREST_N_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
+      "x": 45,
+      "y": 33,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM_REFLECT",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_CROWN_FOREST_N_3"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 15,
+      "y": 33,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_BIG_MUSHROOM",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_CROWN_FOREST_N_4"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 41,
+      "y": 14,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_RARE_CANDY",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_CROWN_FOREST_N_5"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE_FRLG",
+      "x": 41,
+      "y": 13,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_CutTree",
+      "flag": "FLAG_TEMP_10"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
+      "x": 9,
+      "y": 6,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM_SOLAR_BEAM",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_CROWN_FOREST_N_6"
     }
   ],
   "warp_events": [
@@ -172,14 +263,14 @@
     },
     {
       "type": "weather",
-      "x": 39,
+      "x": 40,
       "y": 9,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_RAIN"
     },
     {
       "type": "weather",
-      "x": 15,
+      "x": 13,
       "y": 27,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_RAIN"
@@ -228,21 +319,21 @@
     },
     {
       "type": "weather",
-      "x": 42,
+      "x": 43,
       "y": 8,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_SHADE"
     },
     {
       "type": "weather",
-      "x": 38,
+      "x": 39,
       "y": 10,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_RAIN"
     },
     {
       "type": "weather",
-      "x": 37,
+      "x": 38,
       "y": 11,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_RAIN"
@@ -264,6 +355,20 @@
       "var": "VAR_TEMP_A",
       "var_value": "1",
       "script": "CrownForestNorth_JosieEncounter"
+    },
+    {
+      "type": "weather",
+      "x": 13,
+      "y": 8,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 56,
+      "y": 29,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
     }
   ],
   "bg_events": []
