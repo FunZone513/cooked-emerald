@@ -1,6 +1,8 @@
 mapscripts DawnshoreCity_CuttersHouse_MapScripts {}
 
 script DawnshoreCity_CuttersHouse_Man {
+    lock
+    faceplayer
     if (!flag(FLAG_SPOKEN_TO_CUTTER)) {
         msgbox(
             "You look like someone on an adventure.\p"
@@ -10,7 +12,7 @@ script DawnshoreCity_CuttersHouse_Man {
             "My job is to teach the newcomers how\nand what to do when they encounter one\lof these obstacles.\p"
             "There is a certain type of fast\ngrowing tree that is used as a natural\lbarrier around the place.\p"
             "I can teach you how to remove them\nif you would like."
-        , MSGBOX_NPC)
+        , MSGBOX_DEFAULT)
         setflag(FLAG_SPOKEN_TO_CUTTER)
     }
 
@@ -19,7 +21,7 @@ script DawnshoreCity_CuttersHouse_Man {
             "Hmm... I'm only supposed to teach\ntrainers that have proven to be\lsomewhat competent.\p"
             "The island gets more wild and dangerous\nthe further you progress after all.\p"
             "Come back once you have a badge under\nyour belt, then I'll show you."
-        , MSGBOX_NPC)
+        , MSGBOX_AUTOCLOSE)
     } else {
 
         if (!flag(FLAG_CAN_USE_CUT)) {
@@ -27,7 +29,7 @@ script DawnshoreCity_CuttersHouse_Man {
                 "It looks like you've earned yourself a\nbadge!\p"
                 "Nicely done.\p"
                 "With that, I can teach you the skill of\ncutting down trees."
-            , MSGBOX_NPC)
+            , MSGBOX_DEFAULT)
 
             msgbox("Would you like to learn it now?", MSGBOX_YESNO)
             if (var(VAR_RESULT) == YES) {
@@ -40,7 +42,7 @@ script DawnshoreCity_CuttersHouse_Man {
             msgbox(
                 "If you need a refresher on what\nPokemon can use Cut;\p"
                 "Grass or Bug types, or those with\nHyper Cutter or Sharpness."
-            , MSGBOX_NPC)
+            , MSGBOX_AUTOCLOSE)
         }
     }
 }

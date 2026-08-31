@@ -1526,8 +1526,8 @@
 #define FLAG_FOUGHT_DIGGERS_HUT_RICHARD             (SYSTEM_FLAGS + 0x8E)
 #define FLAG_SPOKEN_TO_CUTTER                       (SYSTEM_FLAGS + 0x8F)
 #define FLAG_HORIZON_PORT_GAMBLER_SPOKEN            (SYSTEM_FLAGS + 0x90)
-#define FLAG_UNUSED_0x8F1                           (SYSTEM_FLAGS + 0x91) // Unused Flag
-#define FLAG_UNUSED_0x8F2                           (SYSTEM_FLAGS + 0x92) // Unused Flag
+#define FLAG_JOSIE_KNOWS_PLAYER                     (SYSTEM_FLAGS + 0x91) // Unused Flag
+#define FLAG_CLEARED_DAWNSHORE_GYM                  (SYSTEM_FLAGS + 0x92) // Unused Flag
 #define FLAG_UNUSED_0x8F3                           (SYSTEM_FLAGS + 0x93) // Unused Flag
 #define FLAG_UNUSED_0x8F4                           (SYSTEM_FLAGS + 0x94) // Unused Flag
 #define FLAG_UNUSED_0x8F5                           (SYSTEM_FLAGS + 0x95) // Unused Flag
