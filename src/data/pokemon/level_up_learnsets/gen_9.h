@@ -471,8 +471,8 @@ static const struct LevelUpMove sKinglerLevelUpLearnset[] = {
 
 //MARK: Sandygast
 static const struct LevelUpMove sSandygastLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_SAND_TOMB),
     LEVEL_UP_MOVE( 1, MOVE_SAND_ATTACK),
+    LEVEL_UP_MOVE( 1, MOVE_SAND_TOMB),
     LEVEL_UP_MOVE( 4, MOVE_ASTONISH),
     LEVEL_UP_MOVE( 7, MOVE_HARDEN),
     LEVEL_UP_MOVE(11, MOVE_MUD_SLAP),

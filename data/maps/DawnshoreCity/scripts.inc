@@ -98,30 +98,34 @@ DawnshoreCity_GymBlocker_Sand_4:
 # 63 "data/maps/DawnshoreCity/scripts.pory"
 	waitmoncry
 # 64 "data/maps/DawnshoreCity/scripts.pory"
-	setwildbattle SPECIES_SANDYGAST, 12, ITEM_NONE, SPECIES_SANDYGAST, 12, ITEM_NONE
+	createmon 1, 0, SPECIES_SANDYGAST, 12, ITEM_NONE, abilityNum = 0, gender = MON_MALE
 # 65 "data/maps/DawnshoreCity/scripts.pory"
-	dowildbattle
+	createmon 1, 1, SPECIES_SANDYGAST, 12, ITEM_NONE, abilityNum = 1, gender = MON_FEMALE
 # 66 "data/maps/DawnshoreCity/scripts.pory"
-	specialvar VAR_RESULT, GetBattleOutcome
+	setwilddoubleflag
 # 67 "data/maps/DawnshoreCity/scripts.pory"
+	dowildbattle
+# 68 "data/maps/DawnshoreCity/scripts.pory"
+	specialvar VAR_RESULT, GetBattleOutcome
+# 69 "data/maps/DawnshoreCity/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq DawnshoreCity_GymBlocker_Sand_11
-# 67 "data/maps/DawnshoreCity/scripts.pory"
+# 69 "data/maps/DawnshoreCity/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_CAUGHT
 	goto_if_eq DawnshoreCity_GymBlocker_Sand_11
-# 67 "data/maps/DawnshoreCity/scripts.pory"
+# 69 "data/maps/DawnshoreCity/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_DREW
 	goto_if_eq DawnshoreCity_GymBlocker_Sand_11
-# 71 "data/maps/DawnshoreCity/scripts.pory"
-	setmetatile VAR_TEMP_1, VAR_TEMP_2, METATILE_General_SandPile, TRUE
-# 72 "data/maps/DawnshoreCity/scripts.pory"
-	special DrawWholeMapView
 # 73 "data/maps/DawnshoreCity/scripts.pory"
-	applymovement LOCALID_DAWNSHORE_SANDMON, DawnshoreCity_GymBlocker_Sand_Movement_5
+	setmetatile VAR_TEMP_1, VAR_TEMP_2, METATILE_General_SandPile, TRUE
 # 74 "data/maps/DawnshoreCity/scripts.pory"
+	special DrawWholeMapView
+# 75 "data/maps/DawnshoreCity/scripts.pory"
+	applymovement LOCALID_DAWNSHORE_SANDMON, DawnshoreCity_GymBlocker_Sand_Movement_5
+# 76 "data/maps/DawnshoreCity/scripts.pory"
 	waitmovement 0
 DawnshoreCity_GymBlocker_Sand_10:
-# 76 "data/maps/DawnshoreCity/scripts.pory"
+# 78 "data/maps/DawnshoreCity/scripts.pory"
 	releaseall
 	return
 
@@ -151,76 +155,76 @@ DawnshoreCity_GymBlocker_Sand_9:
 	goto DawnshoreCity_GymBlocker_Sand_4
 
 DawnshoreCity_GymBlocker_Sand_11:
-# 68 "data/maps/DawnshoreCity/scripts.pory"
+# 70 "data/maps/DawnshoreCity/scripts.pory"
 	setflag FLAG_CLEARED_DAWNSHORE_GYM
-# 69 "data/maps/DawnshoreCity/scripts.pory"
+# 71 "data/maps/DawnshoreCity/scripts.pory"
 	removeobject LOCALID_DAWNSHORE_SANDMON
 	goto DawnshoreCity_GymBlocker_Sand_10
 
 
 DawnshoreCity_GymSign::
-# 80 "data/maps/DawnshoreCity/scripts.pory"
+# 82 "data/maps/DawnshoreCity/scripts.pory"
 	msgbox DawnshoreCity_GymSign_Text_0, MSGBOX_SIGN
 	return
 
 
 DawnshoreCity_CutterTree::
-# 84 "data/maps/DawnshoreCity/scripts.pory"
+# 86 "data/maps/DawnshoreCity/scripts.pory"
 	goto_if_set FLAG_CAN_USE_CUT, DawnshoreCity_CutterTree_1
-# 87 "data/maps/DawnshoreCity/scripts.pory"
+# 89 "data/maps/DawnshoreCity/scripts.pory"
 	msgbox DawnshoreCity_CutterTree_Text_1, MSGBOX_SIGN
 	return
 
 DawnshoreCity_CutterTree_1:
-# 85 "data/maps/DawnshoreCity/scripts.pory"
+# 87 "data/maps/DawnshoreCity/scripts.pory"
 	msgbox DawnshoreCity_CutterTree_Text_0, MSGBOX_SIGN
 	return
 
 
 DawnshoreCity_CutterSign::
-# 92 "data/maps/DawnshoreCity/scripts.pory"
+# 94 "data/maps/DawnshoreCity/scripts.pory"
 	msgbox DawnshoreCity_CutterSign_Text_0, MSGBOX_SIGN
 	return
 
 
 DawnshoreCity_Man::
-# 96 "data/maps/DawnshoreCity/scripts.pory"
+# 98 "data/maps/DawnshoreCity/scripts.pory"
 	msgbox DawnshoreCity_Man_Text_0, MSGBOX_NPC
 	return
 
 
 DawnshoreCity_Man2::
-# 100 "data/maps/DawnshoreCity/scripts.pory"
+# 102 "data/maps/DawnshoreCity/scripts.pory"
 	msgbox DawnshoreCity_Man2_Text_0, MSGBOX_NPC
 	return
 
 
 DawnshoreCity_FatMan::
-# 104 "data/maps/DawnshoreCity/scripts.pory"
+# 106 "data/maps/DawnshoreCity/scripts.pory"
 	msgbox DawnshoreCity_FatMan_Text_0, MSGBOX_NPC
 	return
 
 
 DawnshoreCity_SwimmerM::
-# 108 "data/maps/DawnshoreCity/scripts.pory"
+# 110 "data/maps/DawnshoreCity/scripts.pory"
 	msgbox DawnshoreCity_SwimmerM_Text_0, MSGBOX_NPC
 	return
 
 
 DawnshoreCity_SwimmerF::
-# 112 "data/maps/DawnshoreCity/scripts.pory"
+# 114 "data/maps/DawnshoreCity/scripts.pory"
 	msgbox DawnshoreCity_SwimmerF_Text_0, MSGBOX_NPC
 	return
 
 
 DawnshoreCity_LittleGirl::
-# 116 "data/maps/DawnshoreCity/scripts.pory"
+# 118 "data/maps/DawnshoreCity/scripts.pory"
 	msgbox DawnshoreCity_LittleGirl_Text_0, MSGBOX_NPC
 	return
 
 
 DawnshoreCity_Woman::
-# 120 "data/maps/DawnshoreCity/scripts.pory"
+# 122 "data/maps/DawnshoreCity/scripts.pory"
 	msgbox DawnshoreCity_Woman_Text_0, MSGBOX_NPC
 	return
 
@@ -263,9 +267,9 @@ DawnshoreCity_GymBlocker_Sand_Movement_4:
 	jump_in_place_right
 	step_end
 
-# 73 "data/maps/DawnshoreCity/scripts.pory"
+# 75 "data/maps/DawnshoreCity/scripts.pory"
 DawnshoreCity_GymBlocker_Sand_Movement_5:
-# 73 "data/maps/DawnshoreCity/scripts.pory"
+# 75 "data/maps/DawnshoreCity/scripts.pory"
 	set_invisible
 	step_end
 
@@ -282,51 +286,51 @@ DawnshoreCity_GymBlocker_Sand_Text_0:
 	.string "It looks like there might be something\nburied here...$"
 
 DawnshoreCity_GymSign_Text_0:
-# 80 "data/maps/DawnshoreCity/scripts.pory"
+# 82 "data/maps/DawnshoreCity/scripts.pory"
 	.string "Dawnshore Gym:\nSun-kissed and Beach ready!$"
 
 DawnshoreCity_CutterTree_Text_0:
-# 85 "data/maps/DawnshoreCity/scripts.pory"
+# 87 "data/maps/DawnshoreCity/scripts.pory"
 	.string "You probably shouldn't start cutting up\ntheir garden!$"
 
 DawnshoreCity_CutterTree_Text_1:
-# 87 "data/maps/DawnshoreCity/scripts.pory"
+# 89 "data/maps/DawnshoreCity/scripts.pory"
 	.string "This tree looks like it can be\nCUT down!$"
 
 DawnshoreCity_CutterSign_Text_0:
-# 92 "data/maps/DawnshoreCity/scripts.pory"
+# 94 "data/maps/DawnshoreCity/scripts.pory"
 	.string "Home of Mr. Auburn,\nTree cutting extraordinaire.$"
 
 DawnshoreCity_Man_Text_0:
-# 96 "data/maps/DawnshoreCity/scripts.pory"
+# 98 "data/maps/DawnshoreCity/scripts.pory"
 	.string "My Loudred has been with me since I was\n"
 	.string "a kid, it used to be so cute and quiet...$"
 
 DawnshoreCity_Man2_Text_0:
-# 100 "data/maps/DawnshoreCity/scripts.pory"
+# 102 "data/maps/DawnshoreCity/scripts.pory"
 	.string "They raised the Gym's spot onto a mound\n"
 	.string "for some reason.$"
 
 DawnshoreCity_FatMan_Text_0:
-# 104 "data/maps/DawnshoreCity/scripts.pory"
+# 106 "data/maps/DawnshoreCity/scripts.pory"
 	.string "...do you hear a creaking sound?$"
 
 DawnshoreCity_SwimmerM_Text_0:
-# 108 "data/maps/DawnshoreCity/scripts.pory"
+# 110 "data/maps/DawnshoreCity/scripts.pory"
 	.string "I would get up, but I think I've melted\n"
 	.string "into the chair.$"
 
 DawnshoreCity_SwimmerF_Text_0:
-# 112 "data/maps/DawnshoreCity/scripts.pory"
+# 114 "data/maps/DawnshoreCity/scripts.pory"
 	.string "The sun here is great, I love getting my\n"
 	.string "tan on!$"
 
 DawnshoreCity_LittleGirl_Text_0:
-# 116 "data/maps/DawnshoreCity/scripts.pory"
+# 118 "data/maps/DawnshoreCity/scripts.pory"
 	.string "The sand makes little squeaky sounds\n"
 	.string "when I walk around!$"
 
 DawnshoreCity_Woman_Text_0:
-# 120 "data/maps/DawnshoreCity/scripts.pory"
+# 122 "data/maps/DawnshoreCity/scripts.pory"
 	.string "Sand makes for a good leg workout, too\n"
 	.string "bad it gets all up in everywhere.$"

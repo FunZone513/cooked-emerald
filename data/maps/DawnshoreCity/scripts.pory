@@ -61,7 +61,9 @@ script DawnshoreCity_GymBlocker_Sand {
     waitse
     playmoncry(SPECIES_SANDYGAST, CRY_MODE_ENCOUNTER)
     waitmoncry
-    setwildbattle(SPECIES_SANDYGAST, 12, ITEM_NONE, SPECIES_SANDYGAST, 12, ITEM_NONE)
+    createmon(1, 0, SPECIES_SANDYGAST, 12, ITEM_NONE, abilityNum = 0, gender = MON_MALE)
+    createmon(1, 1, SPECIES_SANDYGAST, 12, ITEM_NONE, abilityNum = 1, gender = MON_FEMALE)
+    setwilddoubleflag
     dowildbattle
     specialvar(VAR_RESULT, GetBattleOutcome)
     if (var(VAR_RESULT) == B_OUTCOME_WON || var(VAR_RESULT) == B_OUTCOME_CAUGHT || var(VAR_RESULT) == B_OUTCOME_DREW ) {
