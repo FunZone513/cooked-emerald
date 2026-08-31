@@ -10027,7 +10027,7 @@ static const u8 sElevationToSubpriority[] = {
 };
 
 static const u8 sElevationToPriority[] = {
-    2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 0, 0, 2
+    2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 3, 3, 2
 };
 
 static const u8 sElevationToSubspriteTableNum[] = {
