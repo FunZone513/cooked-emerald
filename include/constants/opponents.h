@@ -45,9 +45,10 @@
 #define TRAINER_CROWN_NORTH_BIRD_KEEPER         38
 #define TRAINER_CROWN_NORTH_BREEDER             39
 #define TRAINER_CROWN_NORTH_AROMA_LADY          40
+#define TRAINER_CROWN_NORTH_JOSIE               41
 
 //== update this every time
-#define TRAINERS_COUNT_EMERALD     41
+#define TRAINERS_COUNT_EMERALD     42
 
 // don't go over this I guess (theres no fucking way I add 800+ trainers)
 #define MAX_TRAINERS_COUNT_EMERALD 864

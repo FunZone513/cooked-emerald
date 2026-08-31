@@ -1,4 +1,83 @@
-mapscripts CrownForestNorth_MapScripts {}
+mapscripts CrownForestNorth_MapScripts {
+    MAP_SCRIPT_ON_LOAD: CrownForestNorth_OnLoad
+}
+
+script CrownForestNorth_OnLoad {
+    if (var(VAR_GAME_PROGRESS) < GP_FOREST_JOSIE_ENCOUNTERED) {
+        setvar(VAR_TEMP_A, 1)
+    } else {
+        setflag(FLAG_TEMP_A)
+    }
+}
+
+script CrownForestNorth_JosieEncounter {
+    setvar(VAR_TEMP_A, 0)
+    applymovement(LOCALID_PLAYER, moves(walk_down*3 face_right))
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(emote_exclamation_mark delay_16*2 face_left))
+    waitmovement(0)
+    getobjectxy(LOCALID_PLAYER, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
+    if (var(VAR_TEMP_1) == 2) { 
+        applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(walk_left))
+        waitmovement(0) 
+    }
+    if (flag(FLAG_JOSIE_KNOWS_PLAYER)) {
+        msgbox(
+            "{PLAYER}!\p"
+            "I see you've made it past the trees on\nRoute 3!\p"
+            "How did you go with the Gym battle?\nI hope it was fun for you too!"
+        , MSGBOX_DEFAULT)
+    } else {
+        msgbox(
+            "Oh hey!\p"
+            "You made it through the Gym too!\nI hope Nami wasn't too harsh on you!\p"
+            "Hey wait, I never caught your name!\nFellow trainers out on an adventure,\land I don't even know what to call you!\p"
+            "My name is Josie!\nWhat about you?\p"
+            "{PLAYER}!\nAlright!"
+        , MSGBOX_DEFAULT)
+    }
+
+    msgbox("Say, I heard that Richard was hanging\naround the Digger's Hut on Route 3.", MSGBOX_DEFAULT)
+    if (defeated(TRAINER_DIGGERS_HUT_RICHARD)) {
+        msgbox(
+            "You beat him in a battle?\nNice!\p"
+            "Man I wish I could've seen it!\p"
+            "That means you must be pretty good\nat battling right?"
+        , MSGBOX_DEFAULT)
+    } else {
+        msgbox(
+            "Didn't go too well huh?\nThat's unfortunate.\p"
+            "I'm sure you'll get him next time though,\nyou'll probably run into him again.\p"
+            "Oh! Tell you what!"
+        , MSGBOX_DEFAULT)
+    }
+
+    if (flag(FLAG_JOSIE_KNOWS_PLAYER)) { msgbox("I owe you a battle!", MSGBOX_DEFAULT) }
+    setflag(FLAG_JOSIE_KNOWS_PLAYER)
+    msgbox(
+        "We've met out on a route, that means we\nneed to have a battle of our own!\p"
+        "I hope you're ready, cause I know I am!"
+    , MSGBOX_AUTOCLOSE)
+    trainerbattle_no_intro(
+        TRAINER_CROWN_NORTH_JOSIE, 
+        "Wow! You're pretty good!\nI'm gonna have to train harder!"
+    )
+    msgbox(
+        "Well you sure know how to battle!\p"
+        "Keep up this momentum, and don't let\nRichard pull ahead of you.\p"
+        "I'll be off to heal now, we should\ndo this again some time!"
+    , MSGBOX_AUTOCLOSE)
+    applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(walk_up*3 walk_left walk_up*3 set_invisible))
+    waitmovement(0)
+    setobjectxyperm(LOCALID_CROWN_NORTH_JOSIE, 0, 0)
+    playse(SE_EXIT)
+    waitse
+    setflag(FLAG_TEMP_A)
+    setvar(VAR_GAME_PROGRESS, GP_FOREST_JOSIE_ENCOUNTERED)
+    call(Generic_UPDATE_LEVELCAP)
+    releaseall
+}
 
 script CrownForestNorth_BugManiac {
     trainerbattle_single(

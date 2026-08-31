@@ -40,6 +40,7 @@ script RestArea1_Indoor_Josie {
         "My name's Josie!\p"
         "We should catch up for a Pokemon Battle\nsometime soon!\pI'd offer to do one here but..."
     )
+    setflag(FLAG_JOSIE_KNOWS_PLAYER)
     closemessage
     applymovement(LOCALID_RESTAREA1_JOSIE, moves(face_up delay_16*5 face_down))
     waitmovement(0)

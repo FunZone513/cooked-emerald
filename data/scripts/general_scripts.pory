@@ -37,7 +37,7 @@ script Generic_UPDATE_LEVELCAP {
         setvar(VAR_CURRENT_LEVEL_CAP, 15) 
     }
     
-    // beat the first gym (Set to Josie's Ace?)
+    // beat the first gym (Set to Josie's Ace)
     if (flag(FLAG_BADGE01_GET)) { 
         setvar(VAR_CURRENT_LEVEL_CAP, 18) 
     }
