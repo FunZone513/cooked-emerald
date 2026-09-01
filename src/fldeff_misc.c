@@ -571,13 +571,13 @@ bool32 SetUpFieldMove_SecretPower(void)
         return TRUE;
     }
 
-    if (MetatileBehavior_IsSecretBaseShrub(mb) == TRUE)
+    /* if (MetatileBehavior_IsSecretBaseShrub(mb) == TRUE)
     {
         SetCurrentSecretBase();
         gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;
         gPostMenuFieldCallback = FieldCallback_SecretBaseShrub;
         return TRUE;
-    }
+    } */
 
     return FALSE;
 }

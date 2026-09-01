@@ -163,6 +163,11 @@ script Common_EventScript_FindItemAsh {
 	finditem(VAR_RESULT, VAR_0x8009)
 }
 
+//MARK: Shrub
+script EventScript_ClosedShrubDoor {
+    msgbox("It's a rather large shrub.", MSGBOX_SIGN)
+}
+
 
 //MARK: Pokemart
 script Generic_POKEMART {

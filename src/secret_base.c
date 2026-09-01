@@ -265,7 +265,7 @@ void CheckPlayerHasSecretBase(void)
 
 static u8 GetSecretBaseTypeInFrontOfPlayer_(void)
 {
-    s16 x, y;
+    /* s16 x, y;
     s16 behavior;
 
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
@@ -287,7 +287,7 @@ static u8 GetSecretBaseTypeInFrontOfPlayer_(void)
         return SECRET_BASE_TREE;
 
     if (behavior == MB_SECRET_BASE_SPOT_SHRUB || behavior == MB_SECRET_BASE_SPOT_SHRUB_OPEN)
-        return SECRET_BASE_SHRUB;
+        return SECRET_BASE_SHRUB; */
 
     return 0;
 }

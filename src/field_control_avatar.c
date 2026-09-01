@@ -531,6 +531,8 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return EventScript_TrainerHillTimer;
     if (MetatileBehavior_IsSpecialEncounterTile(metatileBehavior) == TRUE)
         return EventScript_SpecialWildEncounter;
+    if (MetatileBehavior_IsSecretBaseShrub(metatileBehavior) == TRUE)
+        return EventScript_ClosedShrubDoor;
     if (IS_FRLG)
     {
         if (MetatileBehavior_IsFood(metatileBehavior) == TRUE)

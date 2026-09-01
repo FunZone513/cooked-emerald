@@ -523,7 +523,7 @@ bool8 MetatileBehavior_IsCableBoxResults1(u8 metatileBehavior)
 
 bool8 MetatileBehavior_IsOpenSecretBaseDoor(u8 metatileBehavior)
 {
-    if (metatileBehavior == MB_SECRET_BASE_SPOT_RED_CAVE_OPEN
+    /* if (metatileBehavior == MB_SECRET_BASE_SPOT_RED_CAVE_OPEN
      || metatileBehavior == MB_SECRET_BASE_SPOT_BROWN_CAVE_OPEN
      || metatileBehavior == MB_SECRET_BASE_SPOT_YELLOW_CAVE_OPEN
      || metatileBehavior == MB_SECRET_BASE_SPOT_TREE_LEFT_OPEN
@@ -531,8 +531,8 @@ bool8 MetatileBehavior_IsOpenSecretBaseDoor(u8 metatileBehavior)
      || metatileBehavior == MB_SECRET_BASE_SPOT_BLUE_CAVE_OPEN
      || metatileBehavior == MB_SECRET_BASE_SPOT_TREE_RIGHT_OPEN)
         return TRUE;
-    else
-        return FALSE;
+    else */
+    return FALSE;
 }
 
 bool8 MetatileBehavior_IsSecretBaseCave(u8 metatileBehavior)
