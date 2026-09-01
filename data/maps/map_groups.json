@@ -100,12 +100,12 @@
     "Route_3"
   ],
   "gMapGroup_Dungeons": [
-    "WhisperWoods",
-    "CrownForestNorth"
+    "WhisperWoods"
   ],
   "gMapGroup_NamedAreas": [
     "RestArea1",
-    "RestArea1_Indoor"
+    "RestArea1_Indoor",
+    "CrownForestNorth"
   ],
   "gMapGroup_IndoorTowns": [
     "HorizonPort_PokeCentre",
