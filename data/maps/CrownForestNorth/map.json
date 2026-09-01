@@ -249,15 +249,15 @@
   "coord_events": [
     {
       "type": "weather",
-      "x": 18,
-      "y": 14,
+      "x": 13,
+      "y": 19,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_RAIN"
     },
     {
       "type": "weather",
-      "x": 19,
-      "y": 14,
+      "x": 13,
+      "y": 20,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_RAIN"
     },
@@ -277,43 +277,36 @@
     },
     {
       "type": "weather",
-      "x": 10,
+      "x": 7,
       "y": 19,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_SHADE"
     },
     {
       "type": "weather",
-      "x": 10,
+      "x": 7,
       "y": 20,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_SHADE"
     },
     {
       "type": "weather",
-      "x": 10,
+      "x": 7,
       "y": 21,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_SHADE"
     },
     {
       "type": "weather",
-      "x": 10,
+      "x": 7,
       "y": 22,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_SHADE"
     },
     {
       "type": "weather",
-      "x": 10,
+      "x": 7,
       "y": 23,
-      "elevation": 0,
-      "weather": "COORD_EVENT_WEATHER_SHADE"
-    },
-    {
-      "type": "weather",
-      "x": 10,
-      "y": 24,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_SHADE"
     },
@@ -367,6 +360,20 @@
       "type": "weather",
       "x": 56,
       "y": 29,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 13,
+      "y": 21,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_RAIN"
+    },
+    {
+      "type": "weather",
+      "x": 13,
+      "y": 22,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_RAIN"
     }
