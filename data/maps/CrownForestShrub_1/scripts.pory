@@ -1,0 +1,16 @@
+mapscripts CrownForestShrub_1_MapScripts {
+    MAP_SCRIPT_ON_LOAD:CrownForestShrub_1_OnLoad
+}
+
+script CrownForestShrub_1_OnLoad {
+    resetshrubencounters(1)
+}
+
+script CrownForestShrub_1_BugCatcher {
+    trainerbattle_single(
+        TRAINER_CROWN_SHRUB1_BUG_CATCHER, 
+        "Yo, check this out!",
+        "These bushes can hide some rare\nPokemon!"
+    )
+    msgbox(format("I'm trying to catch every bug type!"), MSGBOX_NPC)
+}

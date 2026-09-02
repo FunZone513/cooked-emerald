@@ -902,9 +902,9 @@ void SetupSpecialWildEncounter(void) {
 
     // clearing the interact tile
     switch (metatileBehavior) {
-        // ash piles
-        case MB_NORMAL: // maybe check the tile id for what to set it to?
-            MapGridSetMetatileIdAt(x, y, METATILE_Fallarbor_AshField);
+        // bush piles in shrubs
+        case MB_SHRUB_GROUND:
+            MapGridSetMetatileIdAt(x, y, METATILE_SecretBaseShrub_Ground);
             break;
 
         // sand piles on beach / in desert
@@ -917,6 +917,11 @@ void SetupSpecialWildEncounter(void) {
         // sand piles in cave
         case MB_CAVE:
             MapGridSetMetatileIdAt(x, y, METATILE_Cave_SandPit_Center);
+            break;
+        
+        // ash piles
+        case MB_NORMAL: // maybe check the tile id for what to set it to?
+            MapGridSetMetatileIdAt(x, y, METATILE_Fallarbor_AshField);
             break;
         
         // I have no idea

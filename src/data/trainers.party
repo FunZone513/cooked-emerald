@@ -715,8 +715,19 @@ Level: 18
 - Draining Kiss
 - Double Team
 
+=== TRAINER_CROWN_SHRUB1_BUG_CATCHER ===
+Name: JOSH
+Class: Bug Catcher
+Pic: Bug Catcher
+Gender: Male
+Music: Male
+AI: Basic Trainer
 
+Venipede
+Level: 15
 
+Parasect
+Level: 18
 
 
 

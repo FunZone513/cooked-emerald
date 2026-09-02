@@ -9563,6 +9563,26 @@
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/CrownForestNorth/border.bin",
       "blockdata_filepath": "data/layouts/CrownForestNorth/map.bin"
+    },
+    {
+      "id": "LAYOUT_CROWN_SHRUB_1",
+      "name": "CROWN_SHRUB_1_Layout",
+      "width": 30,
+      "height": 20,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseShrub",
+      "border_filepath": "data/layouts/CROWN_SHRUB_1/border.bin",
+      "blockdata_filepath": "data/layouts/CROWN_SHRUB_1/map.bin"
+    },
+    {
+      "id": "LAYOUT_CROWN_FOREST_SHRUB_1",
+      "name": "CrownForestShrub_1_Layout",
+      "width": 20,
+      "height": 12,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseShrub",
+      "border_filepath": "data/layouts/CrownForestShrub_1/border.bin",
+      "blockdata_filepath": "data/layouts/CrownForestShrub_1/map.bin"
     }
   ]
 }

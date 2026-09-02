@@ -38389,6 +38389,100 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_CROWN_FOREST_SHRUB_1",
+          "base_label": "gCrownForestShrub_1",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 8,
+                "max_level": 12,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 8,
+                "max_level": 12,
+                "species": "SPECIES_SHROOMISH"
+              },
+              {
+                "min_level": 8,
+                "max_level": 12,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 8,
+                "max_level": 12,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 8,
+                "max_level": 12,
+                "species": "SPECIES_SHROOMISH"
+              },
+              {
+                "min_level": 8,
+                "max_level": 12,
+                "species": "SPECIES_SHROOMISH"
+              },
+              {
+                "min_level": 8,
+                "max_level": 12,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 8,
+                "max_level": 12,
+                "species": "SPECIES_SHROOMISH"
+              },
+              {
+                "min_level": 8,
+                "max_level": 12,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 8,
+                "max_level": 12,
+                "species": "SPECIES_WHISMUR"
+              },
+              {
+                "min_level": 8,
+                "max_level": 12,
+                "species": "SPECIES_VENIPEDE"
+              },
+              {
+                "min_level": 8,
+                "max_level": 12,
+                "species": "SPECIES_VENIPEDE"
+              }
+            ]
+          },
+          "special_mons": {
+            "encounter_rate": 100,
+            "mons": [
+              {
+                "min_level": 8,
+                "max_level": 12,
+                "species": "SPECIES_VENIPEDE"
+              },
+              {
+                "min_level": 8,
+                "max_level": 12,
+                "species": "SPECIES_PARAS"
+              },
+              {
+                "min_level": 8,
+                "max_level": 12,
+                "species": "SPECIES_SHROOMISH"
+              },
+              {
+                "min_level": 8,
+                "max_level": 12,
+                "species": "SPECIES_SHROOMISH"
+              }
+            ]
+          }
         }
       ]
     },

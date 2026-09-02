@@ -3140,3 +3140,8 @@
 	dofieldeffect FLDEFF_JUMP_BIG_SPLASH
 	.endm
 	
+	@ Sets the random encounter tiles for the given shrub map number
+	.macro resetshrubencounters shrubId:req
+	callnative ResetShrubEncounters
+	.2byte \shrubId
+	.endm

@@ -916,6 +916,10 @@
 #define METATILE_SecretBase_YellowBrick_Bottom          0x22E
 #define METATILE_SecretBase_YellowBrick_Top             0x226
 
+// gTileset_SecretBaseShrub
+#define METATILE_SecretBaseShrub_Ground                 0x20A
+#define METATILE_SecretBaseShrub_ShrubSpecialEncounter  0x217
+
 // gTileset_SeviiIslands123
 #define METATILE_SeviiIslands123_Door            0x297
 #define METATILE_SeviiIslands123_GameCornerDoor  0x29B

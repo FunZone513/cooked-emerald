@@ -3776,10 +3776,85 @@ void SetRoute3DiggersTunnelEncounters(void) {
             case 10:MapGridSetMetatileIdAt(11 + MAP_OFFSET, 37 + MAP_OFFSET, METATILE_Cave_SandEncounter | MAPGRID_IMPASSABLE); break;
         }
 
-        // shift remaining values over
+        // shift everything over on top of picked value, effectively removing it
         for (j = picked; j < total - 1; j++)
             botPositions[j] = botPositions[j + 1];
 
         total--; 
+    }
+}
+
+// MARK: Shrub Tiles
+void SetShrubEncounters1(void) {
+    // how many special tiles
+    u8 toPick = 6; 
+
+    // list of all special positions
+    u8 positions[][2] = {
+        { 4,  1},
+        { 1,  2},
+        { 3,  2},
+        { 5,  2},
+        { 9,  2},
+        {15,  2},
+        {17,  2},
+        { 4,  3},
+        { 7,  3},
+        {16,  3},
+        {18,  3},
+        { 9,  4},
+        {11,  4},
+        {10,  5},
+        { 9,  6},
+        {12,  6},
+        { 2,  7},
+        {17,  8},
+        {11,  9},
+        {16,  9},
+        {18, 10}
+    };
+
+    // total element count = bytes in array / byte of element 
+    u8 total = sizeof(positions) / sizeof(positions[0]);
+    u8 i;
+
+    // loop through positions array and clear any previous special tiles (in case its reset after map load)
+    for (i = 0; i < total; i++) {
+        MapGridSetMetatileIdAt( 
+            positions[i][0] + MAP_OFFSET, 
+            positions[i][1] + MAP_OFFSET, 
+            METATILE_SecretBaseShrub_Ground
+        );
+    }
+
+    // pick random positions and set them to special tiles, double ups mean its -1 tile, adds to randomness
+    u8 picked;
+    for (i = 0; i < toPick; i++) {
+        picked = Random() % total;
+
+        MapGridSetMetatileIdAt( 
+            positions[picked][0] + MAP_OFFSET, 
+            positions[picked][1] + MAP_OFFSET, 
+            METATILE_SecretBaseShrub_ShrubSpecialEncounter | MAPGRID_IMPASSABLE
+        );
+    }
+}
+
+void SetShrubEncounters2(void) {
+
+}
+
+void SetShrubEncounters3(void) {
+
+}
+
+void ResetShrubEncounters(struct ScriptContext *ctx) {
+    u16 shrubId = VarGet(ScriptReadHalfword(ctx));
+    switch(shrubId) {
+        // Add each shrub to this list
+        case 1: SetShrubEncounters1(); break;
+        case 2: SetShrubEncounters2(); break;
+        case 3: SetShrubEncounters3(); break;
+        default: break;
     }
 }
