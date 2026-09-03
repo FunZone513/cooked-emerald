@@ -106,7 +106,8 @@
   "gMapGroup_NamedAreas": [
     "RestArea1",
     "RestArea1_Indoor",
-    "CrownForestNorth"
+    "CrownForestNorth",
+    "RestArea2"
   ],
   "gMapGroup_IndoorTowns": [
     "HorizonPort_PokeCentre",

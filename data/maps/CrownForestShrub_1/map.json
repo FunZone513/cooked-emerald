@@ -3,7 +3,7 @@
   "name": "CrownForestShrub_1",
   "layout": "LAYOUT_CROWN_FOREST_SHRUB_1",
   "music": "MUS_ROUTE119",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_VIRIDIAN_FOREST",
   "requires_flash": false,
   "weather": "WEATHER_SHADE",
   "map_type": "MAP_TYPE_INDOOR",

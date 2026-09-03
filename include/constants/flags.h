@@ -1085,9 +1085,9 @@
 #define FLAG_ITEM_CROWN_FOREST_N_5                                  0x402
 #define FLAG_ITEM_CROWN_FOREST_N_6                                  0x403
 #define FLAG_ITEM_CROWN_FOREST_SHRUB1                               0x404
-#define FLAG_ITEM_0x405                      0x405
-#define FLAG_ITEM_0x406                      0x406
-#define FLAG_ITEM_0x407                      0x407
+#define FLAG_ITEM_REST_AREA2                                        0x405
+#define FLAG_ITEM_REST_AREA2_2                                      0x406
+#define FLAG_ITEM_REST_AREA2_3                                      0x407
 #define FLAG_ITEM_0x408                      0x408
 #define FLAG_ITEM_0x409                      0x409 
 #define FLAG_ITEM_0x40A                      0x40A

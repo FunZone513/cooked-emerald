@@ -1790,3 +1790,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/CrownForestNorth/scripts.inc"
 
 	.include "data/maps/CrownForestShrub_1/scripts.inc"
+
+	.include "data/maps/RestArea2/scripts.inc"

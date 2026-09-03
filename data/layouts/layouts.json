@@ -9583,6 +9583,16 @@
       "secondary_tileset": "gTileset_SecretBaseShrub",
       "border_filepath": "data/layouts/CrownForestShrub_1/border.bin",
       "blockdata_filepath": "data/layouts/CrownForestShrub_1/map.bin"
+    },
+    {
+      "id": "LAYOUT_REST_AREA2",
+      "name": "RestArea2_Layout",
+      "width": 38,
+      "height": 34,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/RestArea2/border.bin",
+      "blockdata_filepath": "data/layouts/RestArea2/map.bin"
     }
   ]
 }

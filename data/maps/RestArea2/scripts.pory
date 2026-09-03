@@ -1,0 +1,7 @@
+mapscripts RestArea2_MapScripts {
+    MAP_SCRIPT_ON_RESUME: RestArea2_OnResume
+}
+
+script RestArea2_OnResume {
+    setstepcallback(STEP_CB_FORTREE_BRIDGE)
+}
