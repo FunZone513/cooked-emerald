@@ -689,12 +689,14 @@ Music: Female
 Items: Full Restore / Full Heal
 AI: Leader
 
+/*
 Shroomish (M)
 Level: 15
 - Stun Spore
 - Headbutt
 - Leech Seed
 - Mega Drain
+*/
 
 Hoothoot (F)
 Level: 15

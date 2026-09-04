@@ -18,7 +18,7 @@ script CrownForestNorth_JosieEncounter {
     setvar(VAR_TEMP_A, 0)
     waitse
     playse(SE_PIN)
-    applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(emote_exclamation_mark))
+    applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(emote_exclamation_mark delay_16*2))
     waitmovement(LOCALID_CROWN_NORTH_JOSIE)
     getobjectxy(LOCALID_PLAYER, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
     switch(var(VAR_TEMP_2)) {
@@ -44,7 +44,7 @@ script CrownForestNorth_JosieEncounter {
         , MSGBOX_DEFAULT)
     }
 
-    msgbox("Say, I heard that Richard was hanging\naround the Digger's Hut on Route 3.", MSGBOX_DEFAULT)
+    msgbox("Say, I heard that Richard was hanging\naround the Digger's Hut on Route 3.\pDid you run into him?", MSGBOX_DEFAULT)
     if (defeated(TRAINER_DIGGERS_HUT_RICHARD)) {
         msgbox(
             "You beat him in a battle?\nNice!\p"
@@ -59,11 +59,11 @@ script CrownForestNorth_JosieEncounter {
         , MSGBOX_DEFAULT)
     }
 
-    if (flag(FLAG_JOSIE_KNOWS_PLAYER)) { msgbox("Pretty sure I owe you a battle!", MSGBOX_DEFAULT) }
+    if (flag(FLAG_JOSIE_KNOWS_PLAYER)) { msgbox("I'm pretty sure I owe you a battle too!", MSGBOX_DEFAULT) }
     setflag(FLAG_JOSIE_KNOWS_PLAYER)
     msgbox(
-        "We've met out on a route, that means we\nneed to have a battle of our own!\p"
-        "I hope you're ready, cause I know I am!"
+        "We've met out on a route, that means\nwe're rival trainers!\p"
+        "I hope you're ready to battle, cause\nI know I am!"
     , MSGBOX_AUTOCLOSE)
     trainerbattle_no_intro(
         TRAINER_CROWN_NORTH_JOSIE, 
@@ -74,6 +74,7 @@ script CrownForestNorth_JosieEncounter {
         "Keep up this momentum, and don't let\nRichard pull ahead of you.\p"
         "I'll be off to heal now, we should\ndo this again!"
     , MSGBOX_AUTOCLOSE)
+    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
     if (var(VAR_TEMP_2) == 8) {
         applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(walk_down))
     } else { applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(walk_up)) }
@@ -82,6 +83,7 @@ script CrownForestNorth_JosieEncounter {
     waitmovement(0)
     setobjectxyperm(LOCALID_CROWN_NORTH_JOSIE, 0, 0)
     playse(SE_EXIT)
+    clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
     waitse
     setflag(FLAG_TEMP_A)
     setvar(VAR_GAME_PROGRESS, GP_FOREST_JOSIE_ENCOUNTERED)

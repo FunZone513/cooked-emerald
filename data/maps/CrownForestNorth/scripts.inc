@@ -22,7 +22,7 @@ CrownForestNorth_OnLoad_2:
 
 CrownForestNorth_OnLoad_5:
 # 13 "data/maps/CrownForestNorth/scripts.pory"
-	setmetatile 12, 7, METATILE_Fortree_SecretBase_ShrubOpen, FALSE
+	setmetatile 13, 7, METATILE_Fortree_SecretBase_ShrubOpen, FALSE
 	return
 
 
@@ -77,30 +77,34 @@ CrownForestNorth_JosieEncounter_15:
 # 72 "data/maps/CrownForestNorth/scripts.pory"
 	msgbox CrownForestNorth_JosieEncounter_Text_8, MSGBOX_AUTOCLOSE
 # 77 "data/maps/CrownForestNorth/scripts.pory"
+	setflag FLAG_SAFE_FOLLOWER_MOVEMENT
+# 78 "data/maps/CrownForestNorth/scripts.pory"
 	compare VAR_TEMP_2, 8
 	goto_if_eq CrownForestNorth_JosieEncounter_19
-# 79 "data/maps/CrownForestNorth/scripts.pory"
+# 80 "data/maps/CrownForestNorth/scripts.pory"
 	applymovement LOCALID_CROWN_NORTH_JOSIE, CrownForestNorth_JosieEncounter_Movement_6
 CrownForestNorth_JosieEncounter_18:
-# 80 "data/maps/CrownForestNorth/scripts.pory"
-	waitmovement LOCALID_CROWN_NORTH_JOSIE
 # 81 "data/maps/CrownForestNorth/scripts.pory"
-	applymovement LOCALID_CROWN_NORTH_JOSIE, CrownForestNorth_JosieEncounter_Movement_7
+	waitmovement LOCALID_CROWN_NORTH_JOSIE
 # 82 "data/maps/CrownForestNorth/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_CROWN_NORTH_JOSIE, CrownForestNorth_JosieEncounter_Movement_7
 # 83 "data/maps/CrownForestNorth/scripts.pory"
-	setobjectxyperm LOCALID_CROWN_NORTH_JOSIE, 0, 0
+	waitmovement 0
 # 84 "data/maps/CrownForestNorth/scripts.pory"
-	playse SE_EXIT
+	setobjectxyperm LOCALID_CROWN_NORTH_JOSIE, 0, 0
 # 85 "data/maps/CrownForestNorth/scripts.pory"
-	waitse
+	playse SE_EXIT
 # 86 "data/maps/CrownForestNorth/scripts.pory"
-	setflag FLAG_TEMP_A
+	clearflag FLAG_SAFE_FOLLOWER_MOVEMENT
 # 87 "data/maps/CrownForestNorth/scripts.pory"
-	setvar VAR_GAME_PROGRESS, GP_FOREST_JOSIE_ENCOUNTERED
+	waitse
 # 88 "data/maps/CrownForestNorth/scripts.pory"
-	call Generic_UPDATE_LEVELCAP
+	setflag FLAG_TEMP_A
 # 89 "data/maps/CrownForestNorth/scripts.pory"
+	setvar VAR_GAME_PROGRESS, GP_FOREST_JOSIE_ENCOUNTERED
+# 90 "data/maps/CrownForestNorth/scripts.pory"
+	call Generic_UPDATE_LEVELCAP
+# 91 "data/maps/CrownForestNorth/scripts.pory"
 	releaseall
 	return
 
@@ -140,71 +144,71 @@ CrownForestNorth_JosieEncounter_16:
 	goto CrownForestNorth_JosieEncounter_15
 
 CrownForestNorth_JosieEncounter_19:
-# 78 "data/maps/CrownForestNorth/scripts.pory"
+# 79 "data/maps/CrownForestNorth/scripts.pory"
 	applymovement LOCALID_CROWN_NORTH_JOSIE, CrownForestNorth_JosieEncounter_Movement_5
 	goto CrownForestNorth_JosieEncounter_18
 
 
 CrownForestNorth_BugManiac::
-# 93 "data/maps/CrownForestNorth/scripts.pory"
+# 95 "data/maps/CrownForestNorth/scripts.pory"
 	trainerbattle_single TRAINER_CROWN_NORTH_BUG_MANIAC, CrownForestNorth_BugManiac_Text_0, CrownForestNorth_BugManiac_Text_1
-# 98 "data/maps/CrownForestNorth/scripts.pory"
+# 100 "data/maps/CrownForestNorth/scripts.pory"
 	msgbox CrownForestNorth_BugManiac_Text_2, MSGBOX_NPC
 	return
 
 
 CrownForestNorth_Hiker::
-# 102 "data/maps/CrownForestNorth/scripts.pory"
+# 104 "data/maps/CrownForestNorth/scripts.pory"
 	trainerbattle_single TRAINER_CROWN_NORTH_HIKER, CrownForestNorth_Hiker_Text_0, CrownForestNorth_Hiker_Text_1
-# 107 "data/maps/CrownForestNorth/scripts.pory"
+# 109 "data/maps/CrownForestNorth/scripts.pory"
 	msgbox CrownForestNorth_Hiker_Text_2, MSGBOX_NPC
 	return
 
 
 CrownForestNorth_BlackBelt::
-# 111 "data/maps/CrownForestNorth/scripts.pory"
+# 113 "data/maps/CrownForestNorth/scripts.pory"
 	trainerbattle_single TRAINER_CROWN_NORTH_BLACKBELT, CrownForestNorth_BlackBelt_Text_0, CrownForestNorth_BlackBelt_Text_1
-# 116 "data/maps/CrownForestNorth/scripts.pory"
+# 118 "data/maps/CrownForestNorth/scripts.pory"
 	msgbox CrownForestNorth_BlackBelt_Text_2, MSGBOX_NPC
 	return
 
 
 CrownForestNorth_BattleGirl::
-# 120 "data/maps/CrownForestNorth/scripts.pory"
+# 122 "data/maps/CrownForestNorth/scripts.pory"
 	trainerbattle_single TRAINER_CROWN_NORTH_BATTLEGIRL, CrownForestNorth_BattleGirl_Text_0, CrownForestNorth_BattleGirl_Text_1
-# 125 "data/maps/CrownForestNorth/scripts.pory"
+# 127 "data/maps/CrownForestNorth/scripts.pory"
 	msgbox CrownForestNorth_BattleGirl_Text_2, MSGBOX_NPC
 	return
 
 
 CrownForestNorth_Parasol::
-# 129 "data/maps/CrownForestNorth/scripts.pory"
+# 131 "data/maps/CrownForestNorth/scripts.pory"
 	trainerbattle_single TRAINER_CROWN_NORTH_PARASOL, CrownForestNorth_Parasol_Text_0, CrownForestNorth_Parasol_Text_1
-# 134 "data/maps/CrownForestNorth/scripts.pory"
+# 136 "data/maps/CrownForestNorth/scripts.pory"
 	msgbox CrownForestNorth_Parasol_Text_2, MSGBOX_NPC
 	return
 
 
 CrownForestNorth_BirdKeeper::
-# 138 "data/maps/CrownForestNorth/scripts.pory"
+# 140 "data/maps/CrownForestNorth/scripts.pory"
 	trainerbattle_single TRAINER_CROWN_NORTH_BIRD_KEEPER, CrownForestNorth_BirdKeeper_Text_0, CrownForestNorth_BirdKeeper_Text_1
-# 143 "data/maps/CrownForestNorth/scripts.pory"
+# 145 "data/maps/CrownForestNorth/scripts.pory"
 	msgbox CrownForestNorth_BirdKeeper_Text_2, MSGBOX_NPC
 	return
 
 
 CrownForestNorth_Breeder::
-# 147 "data/maps/CrownForestNorth/scripts.pory"
+# 149 "data/maps/CrownForestNorth/scripts.pory"
 	trainerbattle_single TRAINER_CROWN_NORTH_BREEDER, CrownForestNorth_Breeder_Text_0, CrownForestNorth_Breeder_Text_1
-# 152 "data/maps/CrownForestNorth/scripts.pory"
+# 154 "data/maps/CrownForestNorth/scripts.pory"
 	msgbox CrownForestNorth_Breeder_Text_2, MSGBOX_NPC
 	return
 
 
 CrownForestNorth_AromaLady::
-# 156 "data/maps/CrownForestNorth/scripts.pory"
+# 158 "data/maps/CrownForestNorth/scripts.pory"
 	trainerbattle_single TRAINER_CROWN_NORTH_AROMA_LADY, CrownForestNorth_AromaLady_Text_0, CrownForestNorth_AromaLady_Text_1
-# 161 "data/maps/CrownForestNorth/scripts.pory"
+# 163 "data/maps/CrownForestNorth/scripts.pory"
 	msgbox CrownForestNorth_AromaLady_Text_2, MSGBOX_NPC
 	return
 
@@ -213,6 +217,10 @@ CrownForestNorth_AromaLady::
 CrownForestNorth_JosieEncounter_Movement_0:
 # 21 "data/maps/CrownForestNorth/scripts.pory"
 	emote_exclamation_mark
+# 21 "data/maps/CrownForestNorth/scripts.pory"
+	delay_16
+# 21 "data/maps/CrownForestNorth/scripts.pory"
+	delay_16
 	step_end
 
 # 25 "data/maps/CrownForestNorth/scripts.pory"
@@ -255,39 +263,39 @@ CrownForestNorth_JosieEncounter_Movement_4:
 	walk_left
 	step_end
 
-# 78 "data/maps/CrownForestNorth/scripts.pory"
+# 79 "data/maps/CrownForestNorth/scripts.pory"
 CrownForestNorth_JosieEncounter_Movement_5:
-# 78 "data/maps/CrownForestNorth/scripts.pory"
+# 79 "data/maps/CrownForestNorth/scripts.pory"
 	walk_down
 	step_end
 
-# 79 "data/maps/CrownForestNorth/scripts.pory"
+# 80 "data/maps/CrownForestNorth/scripts.pory"
 CrownForestNorth_JosieEncounter_Movement_6:
-# 79 "data/maps/CrownForestNorth/scripts.pory"
+# 80 "data/maps/CrownForestNorth/scripts.pory"
 	walk_up
 	step_end
 
-# 81 "data/maps/CrownForestNorth/scripts.pory"
+# 82 "data/maps/CrownForestNorth/scripts.pory"
 CrownForestNorth_JosieEncounter_Movement_7:
-# 81 "data/maps/CrownForestNorth/scripts.pory"
+# 82 "data/maps/CrownForestNorth/scripts.pory"
 	walk_left
-# 81 "data/maps/CrownForestNorth/scripts.pory"
+# 82 "data/maps/CrownForestNorth/scripts.pory"
 	walk_left
-# 81 "data/maps/CrownForestNorth/scripts.pory"
+# 82 "data/maps/CrownForestNorth/scripts.pory"
 	walk_left
-# 81 "data/maps/CrownForestNorth/scripts.pory"
+# 82 "data/maps/CrownForestNorth/scripts.pory"
 	walk_left
-# 81 "data/maps/CrownForestNorth/scripts.pory"
+# 82 "data/maps/CrownForestNorth/scripts.pory"
 	walk_left
-# 81 "data/maps/CrownForestNorth/scripts.pory"
+# 82 "data/maps/CrownForestNorth/scripts.pory"
 	walk_left
-# 81 "data/maps/CrownForestNorth/scripts.pory"
+# 82 "data/maps/CrownForestNorth/scripts.pory"
 	walk_left
-# 81 "data/maps/CrownForestNorth/scripts.pory"
+# 82 "data/maps/CrownForestNorth/scripts.pory"
 	walk_left
-# 81 "data/maps/CrownForestNorth/scripts.pory"
+# 82 "data/maps/CrownForestNorth/scripts.pory"
 	walk_left
-# 81 "data/maps/CrownForestNorth/scripts.pory"
+# 82 "data/maps/CrownForestNorth/scripts.pory"
 	set_invisible
 	step_end
 
@@ -307,7 +315,7 @@ CrownForestNorth_JosieEncounter_Text_1:
 
 CrownForestNorth_JosieEncounter_Text_2:
 # 47 "data/maps/CrownForestNorth/scripts.pory"
-	.string "Say, I heard that Richard was hanging\naround the Digger's Hut on Route 3.$"
+	.string "Say, I heard that Richard was hanging\naround the Digger's Hut on Route 3.\pDid you run into him?$"
 
 CrownForestNorth_JosieEncounter_Text_3:
 # 50 "data/maps/CrownForestNorth/scripts.pory"
@@ -323,12 +331,12 @@ CrownForestNorth_JosieEncounter_Text_4:
 
 CrownForestNorth_JosieEncounter_Text_5:
 # 62 "data/maps/CrownForestNorth/scripts.pory"
-	.string "Pretty sure I owe you a battle!$"
+	.string "I'm pretty sure I owe you a battle too!$"
 
 CrownForestNorth_JosieEncounter_Text_6:
 # 65 "data/maps/CrownForestNorth/scripts.pory"
-	.string "We've met out on a route, that means we\nneed to have a battle of our own!\p"
-	.string "I hope you're ready, cause I know I am!$"
+	.string "We've met out on a route, that means\nwe're rival trainers!\p"
+	.string "I hope you're ready to battle, cause\nI know I am!$"
 
 CrownForestNorth_JosieEncounter_Text_7:
 # 70 "data/maps/CrownForestNorth/scripts.pory"
@@ -341,101 +349,101 @@ CrownForestNorth_JosieEncounter_Text_8:
 	.string "I'll be off to heal now, we should\ndo this again!$"
 
 CrownForestNorth_BugManiac_Text_0:
-# 95 "data/maps/CrownForestNorth/scripts.pory"
+# 97 "data/maps/CrownForestNorth/scripts.pory"
 	.string "Shh...\nDo you hear that?$"
 
 CrownForestNorth_BugManiac_Text_1:
-# 96 "data/maps/CrownForestNorth/scripts.pory"
+# 98 "data/maps/CrownForestNorth/scripts.pory"
 	.string "I was trying to listen!$"
 
 CrownForestNorth_BugManiac_Text_2:
-# 98 "data/maps/CrownForestNorth/scripts.pory"
+# 100 "data/maps/CrownForestNorth/scripts.pory"
 	.string "I can hear something rustling about in\n"
 	.string "the grass...$"
 
 CrownForestNorth_Hiker_Text_0:
-# 104 "data/maps/CrownForestNorth/scripts.pory"
+# 106 "data/maps/CrownForestNorth/scripts.pory"
 	.string "I'm getting soaked!$"
 
 CrownForestNorth_Hiker_Text_1:
-# 105 "data/maps/CrownForestNorth/scripts.pory"
+# 107 "data/maps/CrownForestNorth/scripts.pory"
 	.string "No! My socks got wet!$"
 
 CrownForestNorth_Hiker_Text_2:
-# 107 "data/maps/CrownForestNorth/scripts.pory"
+# 109 "data/maps/CrownForestNorth/scripts.pory"
 	.string "I should've packed an umbrella...$"
 
 CrownForestNorth_BlackBelt_Text_0:
-# 113 "data/maps/CrownForestNorth/scripts.pory"
+# 115 "data/maps/CrownForestNorth/scripts.pory"
 	.string "LET US COMMENCE BATTLE!$"
 
 CrownForestNorth_BlackBelt_Text_1:
-# 114 "data/maps/CrownForestNorth/scripts.pory"
+# 116 "data/maps/CrownForestNorth/scripts.pory"
 	.string "THE BATTLE DIDN'T GO AS PLANNED!$"
 
 CrownForestNorth_BlackBelt_Text_2:
-# 116 "data/maps/CrownForestNorth/scripts.pory"
+# 118 "data/maps/CrownForestNorth/scripts.pory"
 	.string "How's it going?$"
 
 CrownForestNorth_BattleGirl_Text_0:
-# 122 "data/maps/CrownForestNorth/scripts.pory"
+# 124 "data/maps/CrownForestNorth/scripts.pory"
 	.string "If I win you have to drop and give\nme 20!$"
 
 CrownForestNorth_BattleGirl_Text_1:
-# 123 "data/maps/CrownForestNorth/scripts.pory"
+# 125 "data/maps/CrownForestNorth/scripts.pory"
 	.string "Suit yourself, more pushups for me!$"
 
 CrownForestNorth_BattleGirl_Text_2:
-# 125 "data/maps/CrownForestNorth/scripts.pory"
+# 127 "data/maps/CrownForestNorth/scripts.pory"
 	.string "Get a load of these guns!$"
 
 CrownForestNorth_Parasol_Text_0:
-# 131 "data/maps/CrownForestNorth/scripts.pory"
+# 133 "data/maps/CrownForestNorth/scripts.pory"
 	.string "Am I the only person prepared?$"
 
 CrownForestNorth_Parasol_Text_1:
-# 132 "data/maps/CrownForestNorth/scripts.pory"
+# 134 "data/maps/CrownForestNorth/scripts.pory"
 	.string "You may have won, but I'm still dry.\nSo who's the real winner?$"
 
 CrownForestNorth_Parasol_Text_2:
-# 134 "data/maps/CrownForestNorth/scripts.pory"
+# 136 "data/maps/CrownForestNorth/scripts.pory"
 	.string "I'd heard that it rains a lot in here, but\n"
 	.string "it really does.$"
 
 CrownForestNorth_BirdKeeper_Text_0:
-# 140 "data/maps/CrownForestNorth/scripts.pory"
+# 142 "data/maps/CrownForestNorth/scripts.pory"
 	.string "Wet wings can still fly!$"
 
 CrownForestNorth_BirdKeeper_Text_1:
-# 141 "data/maps/CrownForestNorth/scripts.pory"
+# 143 "data/maps/CrownForestNorth/scripts.pory"
 	.string "Help! Feathers full of water!$"
 
 CrownForestNorth_BirdKeeper_Text_2:
-# 143 "data/maps/CrownForestNorth/scripts.pory"
+# 145 "data/maps/CrownForestNorth/scripts.pory"
 	.string "Flying types are good against all the\n"
 	.string "bugs here.$"
 
 CrownForestNorth_Breeder_Text_0:
-# 149 "data/maps/CrownForestNorth/scripts.pory"
+# 151 "data/maps/CrownForestNorth/scripts.pory"
 	.string "I'm just out for a stroll, care to have\nsome fun?$"
 
 CrownForestNorth_Breeder_Text_1:
-# 150 "data/maps/CrownForestNorth/scripts.pory"
+# 152 "data/maps/CrownForestNorth/scripts.pory"
 	.string "My babies need to expend their energy\nsomehow after all.$"
 
 CrownForestNorth_Breeder_Text_2:
-# 152 "data/maps/CrownForestNorth/scripts.pory"
+# 154 "data/maps/CrownForestNorth/scripts.pory"
 	.string "Even if I lose, battling trainers is a\n"
 	.string "good way to exercise.$"
 
 CrownForestNorth_AromaLady_Text_0:
-# 158 "data/maps/CrownForestNorth/scripts.pory"
+# 160 "data/maps/CrownForestNorth/scripts.pory"
 	.string "I'm not really a fan of standing around\nin the rain.$"
 
 CrownForestNorth_AromaLady_Text_1:
-# 159 "data/maps/CrownForestNorth/scripts.pory"
+# 161 "data/maps/CrownForestNorth/scripts.pory"
 	.string "Oh dear...$"
 
 CrownForestNorth_AromaLady_Text_2:
-# 161 "data/maps/CrownForestNorth/scripts.pory"
+# 163 "data/maps/CrownForestNorth/scripts.pory"
 	.string "At least the Rest Area stays dry.$"
