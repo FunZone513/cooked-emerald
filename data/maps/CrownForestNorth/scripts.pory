@@ -12,16 +12,18 @@ script CrownForestNorth_OnLoad {
 
 script CrownForestNorth_JosieEncounter {
     setvar(VAR_TEMP_A, 0)
-    applymovement(LOCALID_PLAYER, moves(walk_down*3 face_right))
-    waitmovement(0)
+    waitse
     playse(SE_PIN)
-    applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(emote_exclamation_mark delay_16*2 face_left))
-    waitmovement(0)
+    applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(emote_exclamation_mark))
+    waitmovement(LOCALID_CROWN_NORTH_JOSIE)
     getobjectxy(LOCALID_PLAYER, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
-    if (var(VAR_TEMP_1) == 2) { 
-        applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(walk_left))
-        waitmovement(0) 
+    switch(var(VAR_TEMP_2)) {
+        case 8: applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(walk_left walk_up*2 walk_left))
+        case 9: applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(walk_left walk_up walk_left))
+        case 10: applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(walk_left*2))
+        case 11: applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(walk_left walk_down walk_left))
     }
+    waitmovement(LOCALID_CROWN_NORTH_JOSIE)
     if (flag(FLAG_JOSIE_KNOWS_PLAYER)) {
         msgbox(
             "{PLAYER}!\p"
@@ -53,7 +55,7 @@ script CrownForestNorth_JosieEncounter {
         , MSGBOX_DEFAULT)
     }
 
-    if (flag(FLAG_JOSIE_KNOWS_PLAYER)) { msgbox("I owe you a battle!", MSGBOX_DEFAULT) }
+    if (flag(FLAG_JOSIE_KNOWS_PLAYER)) { msgbox("Pretty sure I owe you a battle!", MSGBOX_DEFAULT) }
     setflag(FLAG_JOSIE_KNOWS_PLAYER)
     msgbox(
         "We've met out on a route, that means we\nneed to have a battle of our own!\p"
@@ -61,14 +63,18 @@ script CrownForestNorth_JosieEncounter {
     , MSGBOX_AUTOCLOSE)
     trainerbattle_no_intro(
         TRAINER_CROWN_NORTH_JOSIE, 
-        "Wow! You're pretty good!\nI'm gonna have to train harder!"
+        "Wow! You're pretty good!\nI'll have to train harder for next time!"
     )
     msgbox(
         "Well you sure know how to battle!\p"
         "Keep up this momentum, and don't let\nRichard pull ahead of you.\p"
-        "I'll be off to heal now, we should\ndo this again some time!"
+        "I'll be off to heal now, we should\ndo this again!"
     , MSGBOX_AUTOCLOSE)
-    applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(walk_up*3 walk_left walk_up*3 set_invisible))
+    if (var(VAR_TEMP_2) == 8) {
+        applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(walk_down))
+    } else { applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(walk_up)) }
+    waitmovement(LOCALID_CROWN_NORTH_JOSIE)
+    applymovement(LOCALID_CROWN_NORTH_JOSIE, moves(walk_left*9 set_invisible))
     waitmovement(0)
     setobjectxyperm(LOCALID_CROWN_NORTH_JOSIE, 0, 0)
     playse(SE_EXIT)
