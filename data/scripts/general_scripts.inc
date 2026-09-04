@@ -1273,7 +1273,7 @@ EventScript_SpecialWildEncounter_Text_0:
 
 EventScript_ClosedShrubDoor_Text_0:
 # 168 "data/scripts/general_scripts.pory"
-	.string "It's a rather large shrub.\nIt looks big enough to fit inside.$"
+	.string "It's a large shrub.\nIt looks big enough to fit inside.$"
 
 EventScript_ClosedShrubDoor_Text_1:
 # 170 "data/scripts/general_scripts.pory"
@@ -1285,7 +1285,7 @@ EventScript_ClosedShrubDoor_Text_2:
 
 EventScript_BigShrub_Text_0:
 # 190 "data/scripts/general_scripts.pory"
-	.string "It's a rather large shrub.$"
+	.string "It's a large shrub.$"
 
 Generic_POKEMART_Text_0:
 # 198 "data/scripts/general_scripts.pory"

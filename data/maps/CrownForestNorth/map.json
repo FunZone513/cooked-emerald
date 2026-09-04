@@ -406,6 +406,20 @@
       "var": "VAR_TEMP_A",
       "var_value": "1",
       "script": "CrownForestNorth_JosieEncounter"
+    },
+    {
+      "type": "weather",
+      "x": 8,
+      "y": 9,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 8,
+      "y": 10,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_SHADE"
     }
   ],
   "bg_events": []
