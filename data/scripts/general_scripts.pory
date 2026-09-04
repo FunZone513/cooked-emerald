@@ -165,7 +165,29 @@ script Common_EventScript_FindItemAsh {
 
 //MARK: Shrub
 script EventScript_ClosedShrubDoor {
-    msgbox("It's a rather large shrub.", MSGBOX_SIGN)
+    msgbox("It's a large shrub.\nIt looks big enough to fit inside.", MSGBOX_DEFAULT)
+    if (flag(FLAG_CAN_OPEN_SHRUB)) {
+        msgbox("Do you want to pry it open?", MSGBOX_YESNO)
+        if (var(VAR_RESULT) == YES) {
+            closemessage
+            playse(SE_SUDOWOODO_SHAKE)
+            waitse
+            playse(SE_BREAKABLE_DOOR)
+            applymovement(LOCALID_PLAYER, moves(delay_16))
+            waitmovement
+            getobjectxy(LOCALID_PLAYER, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
+            subvar(VAR_TEMP_2, 1)
+            setmetatile(VAR_TEMP_1, VAR_TEMP_2, METATILE_Fortree_SecretBase_ShrubOpen, FALSE)
+            special(DrawWholeMapView)
+            waitse
+            msgbox("The shrub was opened!", MSGBOX_AUTOCLOSE)
+        }
+    }
+    releaseall
+}
+
+script EventScript_BigShrub {
+    msgbox("It's a large shrub.", MSGBOX_SIGN)
 }
 
 

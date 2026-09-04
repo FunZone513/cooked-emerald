@@ -25,18 +25,18 @@ SecretBase_Text_DiscoveredSmallEntrance:
 	.include "data/text/secret_base_trainers.inc"
 
 SecretBase_EventScript_CheckEntrance::
-	special GetSecretBaseTypeInFrontOfPlayer
-	special CheckPlayerHasSecretBase
-	goto_if_eq VAR_RESULT, TRUE, SecretBase_EventScript_AlreadyHasSecretBase
-	checkfieldmove FIELD_MOVE_SECRET_POWER
-	setfieldeffectargument 0, VAR_RESULT
-	buffermovename STR_VAR_2, MOVE_SECRET_POWER
-	goto_if_eq VAR_0x8007, SECRET_BASE_RED_CAVE, SecretBase_EventScript_Cave
-	goto_if_eq VAR_0x8007, SECRET_BASE_BROWN_CAVE, SecretBase_EventScript_Cave
-	goto_if_eq VAR_0x8007, SECRET_BASE_BLUE_CAVE, SecretBase_EventScript_Cave
-	goto_if_eq VAR_0x8007, SECRET_BASE_YELLOW_CAVE, SecretBase_EventScript_Cave
-	goto_if_eq VAR_0x8007, SECRET_BASE_TREE, SecretBase_EventScript_Tree
-	goto_if_eq VAR_0x8007, SECRET_BASE_SHRUB, SecretBase_EventScript_Shrub
+	@special GetSecretBaseTypeInFrontOfPlayer
+	@special CheckPlayerHasSecretBase
+	@goto_if_eq VAR_RESULT, TRUE, SecretBase_EventScript_AlreadyHasSecretBase
+	@checkfieldmove FIELD_MOVE_SECRET_POWER
+	@setfieldeffectargument 0, VAR_RESULT
+	@buffermovename STR_VAR_2, MOVE_SECRET_POWER
+	@goto_if_eq VAR_0x8007, SECRET_BASE_RED_CAVE, SecretBase_EventScript_Cave
+	@goto_if_eq VAR_0x8007, SECRET_BASE_BROWN_CAVE, SecretBase_EventScript_Cave
+	@goto_if_eq VAR_0x8007, SECRET_BASE_BLUE_CAVE, SecretBase_EventScript_Cave
+	@goto_if_eq VAR_0x8007, SECRET_BASE_YELLOW_CAVE, SecretBase_EventScript_Cave
+	@goto_if_eq VAR_0x8007, SECRET_BASE_TREE, SecretBase_EventScript_Tree
+	@goto_if_eq VAR_0x8007, SECRET_BASE_SHRUB, SecretBase_EventScript_Shrub
 	end
 
 SecretBase_EventScript_Cave::

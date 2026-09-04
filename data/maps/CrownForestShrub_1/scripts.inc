@@ -7,25 +7,32 @@ CrownForestShrub_1_MapScripts::
 CrownForestShrub_1_OnLoad::
 # 6 "data/maps/CrownForestShrub_1/scripts.pory"
 	resetshrubencounters 1
+# 7 "data/maps/CrownForestShrub_1/scripts.pory"
+	goto_if_unset FLAG_OPENED_SHRUB_1, CrownForestShrub_1_OnLoad_1
+	return
+
+CrownForestShrub_1_OnLoad_1:
+# 7 "data/maps/CrownForestShrub_1/scripts.pory"
+	setflag FLAG_OPENED_SHRUB_1
 	return
 
 
 CrownForestShrub_1_BugCatcher::
-# 10 "data/maps/CrownForestShrub_1/scripts.pory"
+# 11 "data/maps/CrownForestShrub_1/scripts.pory"
 	trainerbattle_single TRAINER_CROWN_SHRUB1_BUG_CATCHER, CrownForestShrub_1_BugCatcher_Text_0, CrownForestShrub_1_BugCatcher_Text_1
-# 15 "data/maps/CrownForestShrub_1/scripts.pory"
+# 16 "data/maps/CrownForestShrub_1/scripts.pory"
 	msgbox CrownForestShrub_1_BugCatcher_Text_2, MSGBOX_NPC
 	return
 
 
 CrownForestShrub_1_BugCatcher_Text_0:
-# 12 "data/maps/CrownForestShrub_1/scripts.pory"
+# 13 "data/maps/CrownForestShrub_1/scripts.pory"
 	.string "Yo, check this out!$"
 
 CrownForestShrub_1_BugCatcher_Text_1:
-# 13 "data/maps/CrownForestShrub_1/scripts.pory"
+# 14 "data/maps/CrownForestShrub_1/scripts.pory"
 	.string "These bushes can hide some rare\nPokemon!$"
 
 CrownForestShrub_1_BugCatcher_Text_2:
-# 15 "data/maps/CrownForestShrub_1/scripts.pory"
+# 16 "data/maps/CrownForestShrub_1/scripts.pory"
 	.string "I'm trying to catch every bug type!$"

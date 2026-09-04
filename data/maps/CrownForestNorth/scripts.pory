@@ -8,6 +8,10 @@ script CrownForestNorth_OnLoad {
     } else {
         setflag(FLAG_TEMP_A)
     }
+
+    if (flag(FLAG_OPENED_SHRUB_1)) {
+        setmetatile(13, 7, METATILE_Fortree_SecretBase_ShrubOpen, FALSE)
+    }
 }
 
 script CrownForestNorth_JosieEncounter {

@@ -42,6 +42,7 @@
 #include "constants/field_poison.h"
 #include "constants/layouts.h"
 #include "constants/metatile_behaviors.h"
+#include "constants/metatile_labels.h"
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
 
@@ -531,8 +532,12 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return EventScript_TrainerHillTimer;
     if (MetatileBehavior_IsSpecialEncounterTile(metatileBehavior) == TRUE)
         return EventScript_SpecialWildEncounter;
-    if (MetatileBehavior_IsSecretBaseShrub(metatileBehavior) == TRUE)
-        return EventScript_ClosedShrubDoor;
+    if (MetatileBehavior_IsSecretBaseShrub(metatileBehavior) == TRUE) {
+        if (MapGridGetMetatileIdAt(position->x, position->y) == METATILE_Fortree_SecretBase_ShrubClosed) {
+            return EventScript_ClosedShrubDoor;
+        } else { return EventScript_BigShrub; }
+    }
+        
     if (IS_FRLG)
     {
         if (MetatileBehavior_IsFood(metatileBehavior) == TRUE)

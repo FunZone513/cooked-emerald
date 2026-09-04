@@ -684,11 +684,11 @@
 #define FLAG_CAN_USE_ROCK_CLIMB         0x274
 #define FLAG_CAN_USE_WATERFALL          0x275 
 #define FLAG_CAN_USE_DIVE               0x276
-#define FLAG_CAN_DIG_PILE               0x277
+#define FLAG_CAN_DIG_PILE               0x277   // Player can dig up the sand/ash piles
 #define FLAG_SPAWN_INVISIBLE            0x278   // Player warps invisible
 #define FLAG_NO_WHITEOUT                0x279   // Won't whiteout when losing battle
-#define FLAG_CAN_EDIT_STATS              0x27A   // Whether the stat allocator is unlocked or not
-#define FLAG_UNUSED_0x27B  0x27B // Unused Flag
+#define FLAG_CAN_EDIT_STATS             0x27A   // Whether the stat allocator is unlocked or not
+#define FLAG_CAN_OPEN_SHRUB             0x27B   // Player can open the big shrubs
 #define FLAG_UNUSED_0x27C  0x27C // Unused Flag
 #define FLAG_UNUSED_0x27D  0x27D // Unused Flag
 #define FLAG_UNUSED_0x27E  0x27E // Unused Flag
@@ -1528,10 +1528,10 @@
 #define FLAG_HORIZON_PORT_GAMBLER_SPOKEN            (SYSTEM_FLAGS + 0x90)
 #define FLAG_JOSIE_KNOWS_PLAYER                     (SYSTEM_FLAGS + 0x91) // Unused Flag
 #define FLAG_CLEARED_DAWNSHORE_GYM                  (SYSTEM_FLAGS + 0x92) // Unused Flag
-#define FLAG_UNUSED_0x8F3                           (SYSTEM_FLAGS + 0x93) // Unused Flag
-#define FLAG_UNUSED_0x8F4                           (SYSTEM_FLAGS + 0x94) // Unused Flag
-#define FLAG_UNUSED_0x8F5                           (SYSTEM_FLAGS + 0x95) // Unused Flag
-#define FLAG_UNUSED_0x8F6                           (SYSTEM_FLAGS + 0x96) // Unused Flag
+#define FLAG_OPENED_SHRUB_1                         (SYSTEM_FLAGS + 0x93) // North West Crown Forest North
+#define FLAG_OPENED_SHRUB_2                         (SYSTEM_FLAGS + 0x94) // North East Crown Forest North
+#define FLAG_OPENED_SHRUB_3                         (SYSTEM_FLAGS + 0x95) // South East Crown Forest North
+#define FLAG_OPENED_SHRUB_4                         (SYSTEM_FLAGS + 0x96) // Rest Area 2
 #define FLAG_UNUSED_0x8F7                           (SYSTEM_FLAGS + 0x97) // Unused Flag
 #define FLAG_UNUSED_0x8F8                           (SYSTEM_FLAGS + 0x98) // Unused Flag
 #define FLAG_UNUSED_0x8F9                           (SYSTEM_FLAGS + 0x99) // Unused Flag

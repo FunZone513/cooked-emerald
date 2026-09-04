@@ -254,7 +254,8 @@
 #define METATILE_Fortree_SecretBase_LongGrass_TopLeft      0x279
 #define METATILE_Fortree_SecretBase_LongGrass_TopMid       0x27A
 #define METATILE_Fortree_SecretBase_LongGrass_TopRight     0x27B
-#define METATILE_Fortree_SecretBase_Shrub                  0x271
+#define METATILE_Fortree_SecretBase_Shrub                  0x270
+#define METATILE_Fortree_SecretBase_ShrubClosed            0x271
 #define METATILE_Fortree_SecretBase_ShrubOpen              0x278
 #define METATILE_Fortree_WoodBridge1_Bottom                0x29F
 #define METATILE_Fortree_WoodBridge1_Top                   0x297

@@ -564,6 +564,14 @@ bool8 MetatileBehavior_IsSecretBaseShrub(u8 metatileBehavior)
         return FALSE;
 }
 
+bool8 MetatileBehavior_IsSecretBaseShrubClosed(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_SECRET_BASE_SPOT_SHRUB)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 MetatileBehavior_IsSecretBasePC(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_SECRET_BASE_PC)

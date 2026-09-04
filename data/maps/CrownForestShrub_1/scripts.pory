@@ -4,6 +4,7 @@ mapscripts CrownForestShrub_1_MapScripts {
 
 script CrownForestShrub_1_OnLoad {
     resetshrubencounters(1)
+    if (!flag(FLAG_OPENED_SHRUB_1)) { setflag(FLAG_OPENED_SHRUB_1) }
 }
 
 script CrownForestShrub_1_BugCatcher {
