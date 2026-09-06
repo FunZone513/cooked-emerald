@@ -789,6 +789,7 @@ extern const u8 EventScript_Indigo_HighestAuthority[];
 
 
 extern const u8 EventScript_SpecialWildEncounter[];
+extern const u8 EventScript_SpecialWildEncounterShrub[];
 extern const u8 EventScript_ClosedShrubDoor[];
 extern const u8 EventScript_BigShrub[];
 

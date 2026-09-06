@@ -6,7 +6,7 @@ CrownForestShrub_1_MapScripts::
 
 CrownForestShrub_1_OnLoad::
 # 6 "data/maps/CrownForestShrub_1/scripts.pory"
-	resetshrubencounters 1
+	setupshrub 1
 # 7 "data/maps/CrownForestShrub_1/scripts.pory"
 	goto_if_unset FLAG_OPENED_SHRUB_1, CrownForestShrub_1_OnLoad_1
 	return

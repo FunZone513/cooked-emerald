@@ -256,6 +256,20 @@
       "elevation": 0,
       "dest_map": "MAP_CROWN_FOREST_SHRUB_1",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 56,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_CROWN_FOREST_SHRUB_2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 46,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_CROWN_FOREST_SHRUB_3",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

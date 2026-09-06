@@ -3816,19 +3816,9 @@ void SetShrubEncounters1(void) {
 
     // total element count = bytes in array / byte of element 
     u8 total = sizeof(positions) / sizeof(positions[0]);
-    u8 i;
-
-    // loop through positions array and clear any previous special tiles (in case its reset after map load)
-    for (i = 0; i < total; i++) {
-        MapGridSetMetatileIdAt( 
-            positions[i][0] + MAP_OFFSET, 
-            positions[i][1] + MAP_OFFSET, 
-            METATILE_SecretBaseShrub_Ground
-        );
-    }
 
     // pick random positions and set them to special tiles, double ups mean its -1 tile, adds to randomness
-    u8 picked;
+    u8 i, picked;
     for (i = 0; i < toPick; i++) {
         picked = Random() % total;
 
@@ -3841,14 +3831,33 @@ void SetShrubEncounters1(void) {
 }
 
 void SetShrubEncounters2(void) {
+    // how many special tiles in each section
+    u8 toPick = 10;
 
+    // find random spots on the map and try and place a bush
+    u8 i, x, y;
+    for (i = 0; i < toPick; i++) {
+        
+        // random x & y value within the possible map region
+        x = (Random() % 11) + 1;
+        y = Random() % 10;
+
+        // if its a normal ground spot, make it a bush
+        if (MapGridGetMetatileIdAt(x, y) == METATILE_SecretBaseShrub_Ground) {
+            MapGridSetMetatileIdAt( 
+                x + MAP_OFFSET, 
+                y + MAP_OFFSET, 
+                METATILE_SecretBaseShrub_ShrubSpecialEncounter | MAPGRID_IMPASSABLE
+            );
+        }
+    }
 }
 
 void SetShrubEncounters3(void) {
-
+    // idk if I want shrub 3 to have special encounters
 }
 
-void ResetShrubEncounters(struct ScriptContext *ctx) {
+void SetupShrubEncounters(struct ScriptContext *ctx) {
     u16 shrubId = VarGet(ScriptReadHalfword(ctx));
     switch(shrubId) {
         // Add each shrub to this list

@@ -530,7 +530,11 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         return EventScript_Questionnaire;
     if (MetatileBehavior_IsTrainerHillTimer(metatileBehavior) == TRUE)
         return EventScript_TrainerHillTimer;
-    if (MetatileBehavior_IsSpecialEncounterTile(metatileBehavior) == TRUE)
+    if (MetatileBehavior_IsSpecialEncounterTile(metatileBehavior) == TRUE) {
+        if (MapGridGetMetatileIdAt(position->x, position->y) == METATILE_SecretBaseShrub_ShrubSpecialEncounter) {
+            return EventScript_ClosedShrubDoor;
+        } else { return EventScript_BigShrub; }
+    }
         return EventScript_SpecialWildEncounter;
     if (MetatileBehavior_IsSecretBaseShrub(metatileBehavior) == TRUE) {
         if (MapGridGetMetatileIdAt(position->x, position->y) == METATILE_Fortree_SecretBase_ShrubClosed) {

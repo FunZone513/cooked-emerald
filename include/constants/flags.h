@@ -1088,10 +1088,10 @@
 #define FLAG_ITEM_REST_AREA2                                        0x405
 #define FLAG_ITEM_REST_AREA2_2                                      0x406
 #define FLAG_ITEM_REST_AREA2_3                                      0x407
-#define FLAG_ITEM_0x408                      0x408
-#define FLAG_ITEM_0x409                      0x409 
-#define FLAG_ITEM_0x40A                      0x40A
-#define FLAG_ITEM_0x40B                      0x40B
+#define FLAG_ITEM_CROWN_FOREST_SHRUB2                               0x408
+#define FLAG_ITEM_CROWN_FOREST_SHRUB2_2                             0x409 
+#define FLAG_ITEM_CROWN_FOREST_SHRUB2_3                             0x40A
+#define FLAG_ITEM_CROWN_FOREST_SHRUB3                               0x40B
 #define FLAG_ITEM_0x40C                      0x40C
 #define FLAG_ITEM_0x40D                      0x40D
 #define FLAG_ITEM_0x40E                      0x40E
@@ -1526,11 +1526,11 @@
 #define FLAG_FOUGHT_DIGGERS_HUT_RICHARD             (SYSTEM_FLAGS + 0x8E)
 #define FLAG_SPOKEN_TO_CUTTER                       (SYSTEM_FLAGS + 0x8F)
 #define FLAG_HORIZON_PORT_GAMBLER_SPOKEN            (SYSTEM_FLAGS + 0x90)
-#define FLAG_JOSIE_KNOWS_PLAYER                     (SYSTEM_FLAGS + 0x91) // Unused Flag
-#define FLAG_CLEARED_DAWNSHORE_GYM                  (SYSTEM_FLAGS + 0x92) // Unused Flag
+#define FLAG_JOSIE_KNOWS_PLAYER                     (SYSTEM_FLAGS + 0x91)
+#define FLAG_CLEARED_DAWNSHORE_GYM                  (SYSTEM_FLAGS + 0x92)
 #define FLAG_OPENED_SHRUB_1                         (SYSTEM_FLAGS + 0x93) // North West Crown Forest North
-#define FLAG_OPENED_SHRUB_2                         (SYSTEM_FLAGS + 0x94) // North East Crown Forest North
-#define FLAG_OPENED_SHRUB_3                         (SYSTEM_FLAGS + 0x95) // South East Crown Forest North
+#define FLAG_OPENED_SHRUB_2                         (SYSTEM_FLAGS + 0x94) // South East Crown Forest North
+#define FLAG_OPENED_SHRUB_3                         (SYSTEM_FLAGS + 0x95) // North East Crown Forest North
 #define FLAG_OPENED_SHRUB_4                         (SYSTEM_FLAGS + 0x96) // Rest Area 2
 #define FLAG_UNUSED_0x8F7                           (SYSTEM_FLAGS + 0x97) // Unused Flag
 #define FLAG_UNUSED_0x8F8                           (SYSTEM_FLAGS + 0x98) // Unused Flag

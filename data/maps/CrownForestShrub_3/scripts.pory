@@ -1,0 +1,8 @@
+mapscripts CrownForestShrub_3_MapScripts {
+    MAP_SCRIPT_ON_LOAD: CrownForestShrub_2_OnLoad
+}
+
+script CrownForestShrub_3_OnLoad {
+    setupshrub(3) // doesn't really do anything?
+    if (!flag(FLAG_OPENED_SHRUB_3)) { setflag(FLAG_OPENED_SHRUB_3) }
+}

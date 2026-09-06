@@ -3141,7 +3141,7 @@
 	.endm
 	
 	@ Sets the random encounter tiles for the given shrub map number
-	.macro resetshrubencounters shrubId:req
-	callnative ResetShrubEncounters
+	.macro setupshrub shrubId:req
+	callnative SetupShrubEncounters
 	.2byte \shrubId
 	.endm

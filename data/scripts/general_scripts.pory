@@ -132,6 +132,73 @@ script EventScript_SpecialWildEncounter {
     }
 }
 
+script EventScript_SpecialWildEncounterShrub {
+    randompercentage(25)
+    if (var(VAR_RESULT) == TRUE) {
+        getobjectxy(LOCALID_PLAYER, CURRENT_POSITION, VAR_TEMP_1, VAR_TEMP_2)
+        getobjectfacingdirection(OBJ_EVENT_ID_PLAYER, VAR_TEMP_A)
+        switch(var(VAR_TEMP_A)) {
+            case DIR_NORTH: subvar(VAR_TEMP_2, 1)
+            case DIR_SOUTH: addvar(VAR_TEMP_2, 1)
+            case DIR_EAST:  addvar(VAR_TEMP_1, 1)
+            case DIR_WEST:  subvar(VAR_TEMP_1, 1)
+        }
+        setmetatile(VAR_TEMP_1, VAR_TEMP_2, METATILE_SecretBaseShrub_Ground, FALSE)
+        special(DrawWholeMapView)
+
+        random(20)
+        // 50% chance for mushroom
+        if (var(VAR_RESULT) >= 0 && var(VAR_RESULT) < 10) {
+            randomelement(
+                ITEM_TINY_MUSHROOM, 
+                ITEM_TINY_MUSHROOM, 
+                ITEM_BIG_MUSHROOM
+            )
+
+        // ~30% chance for berry
+        } elif (var(VAR_RESULT) >= 10 && var(VAR_RESULT) < 16) {
+            randomelement(
+                ITEM_ORAN_BERRY,
+                ITEM_PECHA_BERRY,
+                ITEM_RAWST_BERRY,
+                ITEM_CHERI_BERRY,
+                ITEM_LEPPA_BERRY,
+                ITEM_CHESTO_BERRY
+            )
+
+        // 15% chance for ball
+        } elif (var(VAR_RESULT) >= 16 && var(VAR_RESULT) < 19) {
+            randomelement(
+                ITEM_POKE_BALL,
+                ITEM_POKE_BALL,
+                ITEM_GREAT_BALL,
+                ITEM_NET_BALL
+            )
+
+        // 5% chance for treasure
+        } else {
+            randomelement(
+                ITEM_RARE_CANDY
+            )
+        }
+
+        if (checkitemspace(VAR_RESULT)) {
+            additem(VAR_RESULT)
+            playfanfare(MUS_OBTAIN_BERRY)
+            message("You found an item!")
+            delay(10)
+            copyvar(VAR_0x8006, VAR_RESULT)
+            showitemdescription
+            waitmessage
+            waitfanfare
+            waitbuttonpress
+	        hideitemdescription
+            releaseall
+        }
+
+    } else { goto(EventScript_SpecialWildEncounter) }
+}
+
 // Finding a hidden item
 script Common_EventScript_FindItemSand {
     if (!flag(FLAG_CAN_DIG_PILE)) {

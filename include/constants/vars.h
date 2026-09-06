@@ -285,8 +285,8 @@
 #define VAR_INCREASE_EXP_GAIN                           VAR_LAVARIDGE_TOWN_STATE
 #define VAR_TOTAL_PKMN_CENTRE_HEALING                   VAR_CURRENT_SECRET_BASE
 #define VAR_GAME_PROGRESS                               VAR_VERDANTURF_TOWN_STATE
+#define VAR_BUG_MASTER_PROGRESS                         VAR_PACIFIDLOG_TOWN_STATE
 /* 
-#define VAR_PACIFIDLOG_TOWN_STATE                        0x4056 // Unused Var
 #define VAR_PETALBURG_CITY_STATE                         0x4057
 #define VAR_SLATEPORT_CITY_STATE                         0x4058
 #define VAR_MAUVILLE_CITY_STATE                          0x4059 // Unused Var

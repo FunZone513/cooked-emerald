@@ -1,9 +1,9 @@
 mapscripts CrownForestShrub_1_MapScripts {
-    MAP_SCRIPT_ON_LOAD:CrownForestShrub_1_OnLoad
+    MAP_SCRIPT_ON_LOAD: CrownForestShrub_1_OnLoad
 }
 
 script CrownForestShrub_1_OnLoad {
-    resetshrubencounters(1)
+    setupshrub(1)
     if (!flag(FLAG_OPENED_SHRUB_1)) { setflag(FLAG_OPENED_SHRUB_1) }
 }
 

@@ -1,0 +1,41 @@
+mapscripts CrownForestShrub_2_MapScripts {
+    MAP_SCRIPT_ON_LOAD: CrownForestShrub_2_OnLoad
+}
+
+script CrownForestShrub_2_OnLoad {
+    setupshrub(2)
+    if (!flag(FLAG_OPENED_SHRUB_2)) { setflag(FLAG_OPENED_SHRUB_2) }
+    call(CrownForestShrub_2_UpdateFloor)
+}
+
+script CrownForestShrub_2_UpdateFloor {
+    if (var(VAR_BUG_MASTER_PROGRESS) >= 2) {
+        setmetatile(13, 1, METATILE_SecretBase_SolidBoard_Top, FALSE)
+        setmetatile(13, 2, METATILE_SecretBase_SolidBoard_Bottom, FALSE)
+    }
+    if (var(VAR_BUG_MASTER_PROGRESS) >= 3) {
+        setmetatile(17, 5, METATILE_SecretBase_SolidBoard_Top, FALSE)
+        setmetatile(17, 6, METATILE_SecretBase_SolidBoard_Bottom, FALSE)
+    }
+    if (var(VAR_BUG_MASTER_PROGRESS) >= 4) {
+        setmetatile(16, 9, METATILE_SecretBase_SolidBoard_Top, FALSE)
+        setmetatile(16, 10, METATILE_SecretBase_SolidBoard_Bottom, FALSE)
+    }
+}
+
+// 0 -> first talk, 1 -> catch 5 different bug types, 2 -> beat him in a battle?, 3 -> volcarona / frosmoth?
+
+script CrownForestShrub_2_Dirk {
+    switch(var(VAR_BUG_MASTER_PROGRESS)) {
+        case 0: 
+            msgbox(
+                "I am the Bug Master, Dirk.\p"
+                "I wasn't expecting company, but I\nwelcome you all the same.\p"
+                "I've made this spot into a comfy\nhideaway.\p"
+            )
+    }
+}
+
+script CrownForestShrub_2_FinalBall {
+    
+}

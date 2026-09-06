@@ -101,7 +101,9 @@
   ],
   "gMapGroup_Dungeons": [
     "WhisperWoods",
-    "CrownForestShrub_1"
+    "CrownForestShrub_1",
+    "CrownForestShrub_2",
+    "CrownForestShrub_3"
   ],
   "gMapGroup_NamedAreas": [
     "RestArea1",
